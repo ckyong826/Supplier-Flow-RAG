@@ -1,0 +1,13 @@
+services:
+  supplierflow:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      DOCKER_DEV: "true"
+    command: npm run docker:dev
+    volumes:
+      - .:/app
+      - /app/node_modules
