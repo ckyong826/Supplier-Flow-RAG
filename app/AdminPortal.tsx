@@ -3,9 +3,11 @@
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
 import * as XLSX from "xlsx";
 import { AdminModal, AdminPagination, AdminTable, AdminToolbar } from "./admin/AdminPrimitives";
+import { SupplierFlowMark } from "./components/SiteChrome";
+import { money } from "./lib/format";
 
 type Section =
-  "dashboard" | "copilot" | "knowledge" | "rfqs" | "quotations" | "products" | "files" | "settings";
+  "dashboard" | "knowledge" | "rfqs" | "quotations" | "products" | "files" | "settings";
 type Product = {
   id: string;
   name: string;
@@ -84,11 +86,8 @@ type KnowledgeDocument = {
 };
 type Line = RfqItem & { unitPrice: number };
 
-const money = (value: number) =>
-  `RM ${value.toLocaleString("en-MY", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 const menu: Array<[Section, string]> = [
   ["dashboard", "Overview"],
-  ["copilot", "SupplyAI copilot"],
   ["knowledge", "Knowledge base"],
   ["rfqs", "RFQ inbox"],
   ["quotations", "Quotations"],
@@ -175,9 +174,6 @@ export function AdminPortal({
   const [productPage, setProductPage] = useState(1);
   const [productModalOpen, setProductModalOpen] = useState(false);
   const [activityNote, setActivityNote] = useState("");
-  const [aiMessage, setAiMessage] = useState("");
-  const [aiResult, setAiResult] = useState<{ answer: string; matches: Product[]; sources?: Array<{ title: string; source_type: string; content: string }>; mode: string } | null>(null);
-  const [askingAi, setAskingAi] = useState(false);
   const [knowledge, setKnowledge] = useState<KnowledgeDocument[]>([]);
   const [knowledgeDraft, setKnowledgeDraft] = useState({ title: "", sourceType: "policy", content: "" });
   const [savingKnowledge, setSavingKnowledge] = useState(false);
@@ -434,16 +430,12 @@ export function AdminPortal({
     const data = await response.json();
     setSeedingProducts(false);
     if (!response.ok) {
-      setNotice("Demo catalogue could not be loaded.");
-      notify("Demo catalogue could not be loaded.");
+      setNotice("Official catalogue could not be loaded.");
+      notify("Official catalogue could not be loaded.");
       return;
     }
-    setNotice(`${data.added} demo products added.`);
-    notify(
-      data.added
-        ? `${data.added} demo products added.`
-        : "Demo catalogue is already loaded.",
-    );
+    setNotice(`${data.added} official products loaded; previous active products hidden.`);
+    notify(`${data.added} official products loaded; previous active products hidden.`);
     await load();
   }
   async function saveSettings(event: FormEvent<HTMLFormElement>) {
@@ -527,14 +519,6 @@ export function AdminPortal({
     if (!response.ok) { notify("RFQ note could not be saved."); return; }
     setActivityNote(""); notify("RFQ note saved."); await load();
   }
-  async function askSupplyAi(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault(); if (!aiMessage.trim() || askingAi) return;
-    setAskingAi(true); notify("SupplyAI is checking products…");
-    const response = await fetch("/api/admin/ai-chat", { method: "POST", headers, body: JSON.stringify({ message: aiMessage }) });
-    const data = await response.json(); setAskingAi(false);
-    if (!response.ok) { notify(data.error || "SupplyAI could not answer."); return; }
-    setAiResult(data); notify(data.mode === "ai-rag" ? "SupplyAI response with sources ready." : "Product matches ready.");
-  }
   async function saveKnowledge(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); if (savingKnowledge) return;
     setSavingKnowledge(true); notify("Processing knowledge document…");
@@ -551,13 +535,6 @@ export function AdminPortal({
     setSelectedKnowledge(null);
     setKnowledgeDraft({ title: "", sourceType: "policy", content: "" });
     setKnowledgeModalOpen(true);
-  }
-  async function seedShowcase() {
-    if (seedingShowcase) return;
-    setSeedingShowcase(true); notify("Loading 100-row showcase dataset…");
-    const response = await fetch("/api/admin/showcase-seed", { method: "POST", headers }); const data = await response.json(); setSeedingShowcase(false);
-    if (!response.ok) { notify(data.error || "Showcase dataset could not be loaded."); return; }
-    notify(`Showcase loaded: ${data.added.products} products, ${data.added.rfqs} RFQs, ${data.added.quotations} quotations, ${data.added.knowledge} knowledge docs.`); await load();
   }
   async function updateQuoteStatus(status: string) {
     if (!selectedQuote || updatingStatus) return;
@@ -594,7 +571,7 @@ export function AdminPortal({
     <section className="admin-portal">
       <aside className="portal-sidebar">
         <button className="portal-brand">
-          S <span>SupplierFlow</span>
+          <SupplierFlowMark />
         </button>
         <nav className="portal-nav">
           {menu.map(([id, label]) => (
@@ -676,13 +653,6 @@ export function AdminPortal({
             </article>
           </>
         )}
-        {section === "copilot" && (
-          <div className="copilot-layout">
-            <article className="portal-card copilot-intro"><p className="kicker">SupplyAI / staff only</p><h2>Turn enquiries into quote-ready recommendations.</h2><p>SupplyAI searches SupplierFlow product facts, then explains the best matches. Staff remains in control of every quotation.</p><div className="copilot-prompts"><button onClick={() => setAiMessage("Customer needs 100 pcs 20A MCB for a commercial project. Recommend a suitable product and prepare a quotation draft.")}>Draft quote for 100 pcs 20A MCB</button><button onClick={() => setAiMessage("What is suitable for an outdoor weatherproof socket installation?")}>Recommend outdoor socket</button></div></article>
-            <article className="portal-card"><form className="copilot-form" onSubmit={askSupplyAi}><label>Sales enquiry<textarea required rows={5} value={aiMessage} onChange={(e) => setAiMessage(e.target.value)} placeholder="Example: Customer needs 100 pcs 20A circuit breaker. Schneider preferred, equivalent brands okay." /></label><button className="primary-button" disabled={askingAi}>{askingAi ? "Analysing…" : "Ask SupplyAI"}</button></form>{aiResult && <div className="copilot-result"><div><span className="track-label">{aiResult.mode === "ai-rag" ? "AI + RAG RESPONSE" : "PRODUCT SEARCH"}</span><h3>Recommendation</h3></div><p>{aiResult.answer}</p><div className="copilot-matches">{aiResult.matches.map((product) => <button key={product.id} onClick={() => { editProduct(product); setSection("products"); }}><span>{product.image_url ? <img src={product.image_url} alt="" /> : "No photo"}</span><div><strong>{product.name}</strong><small>{product.sku} · {product.availability}</small></div><b>{money(Number(product.price))}</b></button>)}</div>{aiResult.sources?.length ? <div className="rag-sources"><strong>Retrieved sources</strong>{aiResult.sources.map((source, index) => <small key={`${source.title}-${index}`}>[{index + 1}] {source.title} · {source.source_type}</small>)}</div> : null}<small className="copilot-disclaimer">AI suggestions use product database facts. Verify final specifications, availability, and pricing before sending a quotation.</small></div>}</article>
-          </div>
-        )}
-        {section === "knowledge" && <div className="knowledge-layout"><article className="portal-card"><p className="kicker">RAG knowledge</p><h2>Add company knowledge</h2><p className="portal-hint">Add FAQ, delivery policy, warranty terms, or sales SOP. The system splits it into chunks and creates embeddings for semantic retrieval.</p><form className="copilot-form" onSubmit={saveKnowledge}><label>Document title<input required value={knowledgeDraft.title} onChange={(e) => setKnowledgeDraft({ ...knowledgeDraft, title: e.target.value })} placeholder="Delivery policy" /></label><label>Document type<select value={knowledgeDraft.sourceType} onChange={(e) => setKnowledgeDraft({ ...knowledgeDraft, sourceType: e.target.value })}><option value="policy">Policy</option><option value="faq">FAQ</option><option value="sop">Sales SOP</option><option value="datasheet">Datasheet notes</option></select></label><label>Knowledge text<textarea required rows={11} value={knowledgeDraft.content} onChange={(e) => setKnowledgeDraft({ ...knowledgeDraft, content: e.target.value })} placeholder="Klang Valley deliveries take 1–2 working days. East Malaysia takes 3–5 working days…" /></label><button className="primary-button" disabled={savingKnowledge}>{savingKnowledge ? "Indexing…" : "Save to knowledge base"}</button></form></article><article className="portal-card"><p className="kicker">Indexed sources</p><h2>{knowledge.length} documents</h2><div className="knowledge-list">{knowledge.length ? knowledge.map((document) => <div key={document.id}><span>{document.source_type.toUpperCase()}</span><strong>{document.title}</strong><small>{document.knowledge_chunks?.[0]?.count || 0} chunks</small></div>) : <p className="portal-hint">No knowledge documents yet. Add delivery, warranty, or SOP text to start RAG retrieval.</p>}</div></article></div>}
         {section === "knowledge" && (
           <div className="admin-table-card portal-card">
             <AdminToolbar eyebrow="RAG knowledge" title={`${filteredKnowledge.length} documents`} searchLabel="Search knowledge" search={knowledgeSearch} onSearch={(value) => { setKnowledgeSearch(value); setKnowledgePage(1); }} placeholder="Title or document type..." actions={<button className="primary-button" onClick={newKnowledge}>Add document</button>} />
@@ -704,15 +674,20 @@ export function AdminPortal({
             <div className="status-filters">
               {["ALL", "NEW", "REVIEWING", "QUOTED", "WON", "LOST"].map((status) => <button className={rfqFilter === status ? "active" : ""} key={status} onClick={() => { setRfqFilter(status); setRfqPage(1); }}>{status === "ALL" ? "All" : status}</button>)}
             </div>
-            <div className="admin-table-wrap">
-              <table className="admin-table"><thead><tr><th>Reference</th><th>Customer</th><th>Items</th><th>Contact</th><th>Status</th><th>Action</th></tr></thead><tbody>
-                {visibleRfqs.map((rfq) => <tr key={rfq.id} onClick={() => openRfq(rfq)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openRfq(rfq); } }} tabIndex={0}>
-                  <td><strong>{rfq.reference}</strong><small>{rfq.requirements || "No requirements added"}</small></td><td><strong>{rfq.company_name}</strong><small>{rfq.customer_name}</small></td><td>{rfq.rfq_items.length} line{rfq.rfq_items.length === 1 ? "" : "s"}</td><td><small>{rfq.email}</small></td><td><em className={`status-chip ${rfq.status.toLowerCase()}`}>{rfq.status}</em></td><td><button className="table-action" onClick={(event) => { event.stopPropagation(); openRfq(rfq); }}>View</button></td>
-                </tr>)}
-              </tbody></table>
-            </div>
-            {!visibleRfqs.length && <p className="portal-empty">No RFQs match this search.</p>}
-            <div className="admin-pagination"><span>Showing {filteredRfqs.length ? (rfqPage - 1) * pageSize + 1 : 0}–{Math.min(rfqPage * pageSize, filteredRfqs.length)} of {filteredRfqs.length}</span><div><button disabled={rfqPage <= 1} onClick={() => setRfqPage((page) => page - 1)}>Previous</button><b>Page {rfqPage} of {rfqPageCount}</b><button disabled={rfqPage >= rfqPageCount} onClick={() => setRfqPage((page) => page + 1)}>Next</button></div></div>
+            <AdminTable
+              rows={visibleRfqs}
+              empty="No RFQs match this search."
+              onRowClick={openRfq}
+              columns={[
+                { key: "reference", label: "Reference", render: (rfq) => <><strong>{rfq.reference}</strong><small>{rfq.requirements || "No requirements added"}</small></> },
+                { key: "customer", label: "Customer", render: (rfq) => <><strong>{rfq.company_name}</strong><small>{rfq.customer_name}</small></> },
+                { key: "items", label: "Items", render: (rfq) => `${rfq.rfq_items.length} line${rfq.rfq_items.length === 1 ? "" : "s"}` },
+                { key: "contact", label: "Contact", render: (rfq) => <small>{rfq.email}</small> },
+                { key: "status", label: "Status", render: (rfq) => <em className={`status-chip ${rfq.status.toLowerCase()}`}>{rfq.status}</em> },
+                { key: "action", label: "Action", render: (rfq) => <button className="table-action" onClick={(event) => { event.stopPropagation(); openRfq(rfq); }}>View</button> },
+              ]}
+            />
+            <AdminPagination page={rfqPage} pageCount={rfqPageCount} total={filteredRfqs.length} pageSize={pageSize} onPageChange={setRfqPage} />
             {selectedRfq && <AdminModal titleId="rfq-modal-title" label="Close RFQ details" onClose={() => setSelectedRfq(null)} className="rfq-modal">
               {selectedRfq ? (
                 <>
@@ -871,41 +846,21 @@ export function AdminPortal({
               <div className="status-filters">
                 {["ALL", "DRAFT", "SENT", "ACCEPTED", "REJECTED", "EXPIRED"].map((status) => <button className={quoteFilter === status ? "active" : ""} key={status} onClick={() => setQuoteFilter(status)}>{status === "ALL" ? "All" : status}</button>)}
               </div>
-              <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Reference</th><th>Customer</th><th>Revision</th><th>Issued</th><th>Total</th><th>Status</th><th>Action</th></tr></thead><tbody>
-                {visibleQuotes.map((quote) => { const data = valuesFor(quote.quotation_items, quote.discount_percent, quote.tax_percent, quote.delivery_fee); return <tr key={quote.id} onClick={() => setSelectedQuote(quote)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setSelectedQuote(quote); } }} tabIndex={0}><td><strong>{quote.reference}</strong><small>{quote.quotation_items.length} line{quote.quotation_items.length === 1 ? "" : "s"}</small></td><td><strong>{quote.rfqs?.company_name || "Customer"}</strong><small>{quote.rfqs?.customer_name || "—"}</small></td><td>Rev {quote.revision}</td><td><small>{quote.created_at ? new Date(quote.created_at).toLocaleDateString("en-MY") : "—"}</small></td><td><strong>{money(data.total)}</strong></td><td><em className={`status-chip ${quote.status.toLowerCase()}`}>{quote.status}</em></td><td><button className="table-action" onClick={(event) => { event.stopPropagation(); setSelectedQuote(quote); }}>View</button></td></tr>; })}
-              </tbody></table></div>
-              {!visibleQuotes.length && <p className="portal-empty">No quotations match this search.</p>}
-              <div className="admin-pagination"><span>Showing {filteredQuotes.length ? (quotePage - 1) * pageSize + 1 : 0}–{Math.min(quotePage * pageSize, filteredQuotes.length)} of {filteredQuotes.length}</span><div><button disabled={quotePage <= 1} onClick={() => setQuotePage((page) => page - 1)}>Previous</button><b>Page {quotePage} of {quotePageCount}</b><button disabled={quotePage >= quotePageCount} onClick={() => setQuotePage((page) => page + 1)}>Next</button></div></div>
-              <div className="legacy-list">
-              {visibleQuotes.length ? (
-                visibleQuotes.map((quote) => {
-                  const data = valuesFor(
-                    quote.quotation_items,
-                    quote.discount_percent,
-                    quote.tax_percent,
-                    quote.delivery_fee,
-                  );
-                  return (
-                    <button
-                      className={`portal-row ${selectedQuote?.id === quote.id ? "selected" : ""}`}
-                      key={quote.id}
-                      onClick={() => setSelectedQuote(quote)}
-                    >
-                      <span>
-                        <strong>{quote.reference}</strong>
-                        <small>
-                          {quote.rfqs?.company_name || "Customer"} ·{" "}
-                          {money(data.total)}
-                        </small>
-                      </span>
-                      <em className={`status-chip ${quote.status.toLowerCase()}`}>{quote.status}</em>
-                    </button>
-                  );
-                })
-              ) : (
-                <p className="portal-hint">No quotations yet.</p>
-              )}
-              </div>
+              <AdminTable
+                rows={visibleQuotes}
+                empty="No quotations match this search."
+                onRowClick={setSelectedQuote}
+                columns={[
+                  { key: "reference", label: "Reference", render: (quote) => <><strong>{quote.reference}</strong><small>{quote.quotation_items.length} line{quote.quotation_items.length === 1 ? "" : "s"}</small></> },
+                  { key: "customer", label: "Customer", render: (quote) => <><strong>{quote.rfqs?.company_name || "Customer"}</strong><small>{quote.rfqs?.customer_name || "—"}</small></> },
+                  { key: "revision", label: "Revision", render: (quote) => `Rev ${quote.revision}` },
+                  { key: "issued", label: "Issued", render: (quote) => <small>{quote.created_at ? new Date(quote.created_at).toLocaleDateString("en-MY") : "—"}</small> },
+                  { key: "total", label: "Total", render: (quote) => <strong>{money(valuesFor(quote.quotation_items, quote.discount_percent, quote.tax_percent, quote.delivery_fee).total)}</strong> },
+                  { key: "status", label: "Status", render: (quote) => <em className={`status-chip ${quote.status.toLowerCase()}`}>{quote.status}</em> },
+                  { key: "action", label: "Action", render: (quote) => <button className="table-action" onClick={(event) => { event.stopPropagation(); setSelectedQuote(quote); }}>View</button> },
+                ]}
+              />
+              <AdminPagination page={quotePage} pageCount={quotePageCount} total={filteredQuotes.length} pageSize={pageSize} onPageChange={setQuotePage} />
             </article>
             {selectedQuote && quoteDetail && <AdminModal titleId="quote-modal-title" label="Close quotation details" onClose={() => setSelectedQuote(null)} className="saved-quote">
               {selectedQuote && quoteDetail ? (
@@ -1184,6 +1139,7 @@ export function AdminPortal({
                   />
                 </label>
                 <button className="primary-button" onClick={() => { setProductDraft(blankProduct); setProductModalOpen(true); }}>Add product</button>
+                <button className="outline-button" disabled={seedingProducts} onClick={seedProducts}>{seedingProducts ? "Replacing…" : "Replace catalogue"}</button>
               </>} />
               {products.length === 0 && (
                 <div className="empty-admin-list">
@@ -1210,40 +1166,12 @@ export function AdminPortal({
                   { key: "sku", label: "SKU", render: (product) => <code>{product.sku}</code> },
                   { key: "category", label: "Category", render: (product) => product.category },
                   { key: "availability", label: "Availability", render: (product) => product.availability || "—" },
-                  { key: "price", label: "Price", render: (product) => <strong>{money(Number(product.price || 0))}</strong> },
+                  { key: "price", label: "Price", render: (product) => <strong>{Number(product.price) > 0 ? money(Number(product.price)) : "Price on request"}</strong> },
                   { key: "catalogue", label: "Catalogue", render: (product) => <em className={`status-chip ${product.is_active ? "accepted" : "hidden"}`}>{product.is_active ? "ACTIVE" : "HIDDEN"}</em> },
                   { key: "action", label: "Action", render: (product) => <button className="table-action" onClick={(event) => { event.stopPropagation(); editProduct(product); }}>Edit</button> },
                 ]}
               />
               <AdminPagination page={productPage} pageCount={productPageCount} total={filteredProducts.length} pageSize={pageSize} onPageChange={setProductPage} />
-              {/*
-                {visibleProducts.map((product) => <tr key={product.id} onClick={() => editProduct(product)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); editProduct(product); } }} tabIndex={0}><td><strong>{product.name}</strong><small>{product.summary}</small></td><td><code>{product.sku}</code></td><td>{product.category}</td><td>{product.availability || "—"}</td><td><strong>{money(Number(product.price || 0))}</strong></td><td><em className={`status-chip ${product.is_active ? "accepted" : "hidden"}`}>{product.is_active ? "ACTIVE" : "HIDDEN"}</em></td><td><button className="table-action" onClick={(event) => { event.stopPropagation(); editProduct(product); }}>Edit</button></td></tr>)}
-              </tbody></table></div>
-              <div className="admin-pagination"><span>Showing {filteredProducts.length ? (productPage - 1) * pageSize + 1 : 0}–{Math.min(productPage * pageSize, filteredProducts.length)} of {filteredProducts.length}</span><div><button disabled={productPage <= 1} onClick={() => setProductPage((page) => page - 1)}>Previous</button><b>Page {productPage} of {productPageCount}</b><button disabled={productPage >= productPageCount} onClick={() => setProductPage((page) => page + 1)}>Next</button></div></div>
-              */}
-              <div className="legacy-list">
-              {products.map((product) => (
-                <button
-                  className="portal-row product-catalogue-row"
-                  key={product.id}
-                  onClick={() => editProduct(product)}
-                >
-                  {product.image_url ? (
-                    <img src={product.image_url} alt="" />
-                  ) : (
-                    <span className="product-row-placeholder">No photo</span>
-                  )}
-                  <span>
-                    <strong>{product.name}</strong>
-                    <small>
-                      {product.sku} · {product.category} ·{" "}
-                      {money(Number(product.price || 0))}
-                    </small>
-                  </span>
-                  <em>{product.is_active ? "ACTIVE" : "HIDDEN"}</em>
-                </button>
-              ))}
-              </div>
             </article>
           </div>
         )}

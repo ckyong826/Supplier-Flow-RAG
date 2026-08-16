@@ -1,8 +1,8 @@
 import { errorResponse, supabase } from "../_supabase";
+import { listActiveProducts, productFacts as formatProductFacts, productText } from "../_catalogue";
 import { cartActionsFromSummary, mergeCustomerDetails, requestedQuantity } from "./customer.mjs";
 import { decomposeQuery, fuseByKeywords } from "./retrieval.mjs";
 
-type Product = { id: string; name: string; sku: string; category: string; summary: string; specifications: string[]; availability: string; price: number; image_url?: string | null };
 type ChatTurn = { role: "user" | "assistant"; content: string };
 type KnowledgeChunk = { content: string; knowledge_documents: { title: string; source_type: string } };
 type Action = "CREATE_RFQ" | "TRACK_RFQ";
@@ -29,16 +29,16 @@ export async function POST(request: Request) {
     await supabase("chat_messages", { method: "POST", body: JSON.stringify({ session_id: session.id, role: "user", content: question }) });
     await supabase(`chat_sessions?id=eq.${encodeURIComponent(session.id)}`, { method: "PATCH", body: JSON.stringify({ updated_at: new Date().toISOString() }) });
     const action: Action | null = /\b(track|status|where is|follow.?up)\b/i.test(question) ? "TRACK_RFQ" : /\b(rfq|quote|quotation|request quote|add to rfq|send request)\b/i.test(question) ? "CREATE_RFQ" : null;
-    const products = await (await supabase("products?is_active=eq.true&select=id,name,sku,category,summary,specifications,availability,price,image_url&order=name.asc")).json() as Product[];
+    const products = await listActiveProducts();
     const relevantHistory = Array.isArray(history) ? history.filter((turn) => turn?.role === "user" && typeof turn.content === "string").slice(-3).map((turn) => turn.content).join(" ") : "";
     const inferredCustomer = mergeCustomerDetails(customer, `${relevantHistory} ${question}`);
     const queries = decomposeQuery(`${relevantHistory}\n${question}`);
-    const matches = fuseByKeywords(products, queries, (product: Product) => `${product.name} ${product.sku} ${product.category} ${product.summary} ${(product.specifications || []).join(" ")}`).slice(0, 3);
+    const matches = fuseByKeywords(products, queries, productText).slice(0, 3);
     const top = matches[0];
     const quantity = requestedQuantity(question);
     const cartAction: CartAction = wantsCart(question) && quantity && top && (matches.length === 1 || question.toLowerCase().includes(top.sku.toLowerCase())) ? { productId: top.id, quantity } : null;
     const includeMatches = Boolean(cartAction || wantsProducts(question));
-    const productFacts = matches.map((product) => `${product.name} | SKU ${product.sku} | ${product.category} | ${product.summary} | Specs: ${(product.specifications || []).join(", ")} | Status: ${product.availability} | Published price: RM ${Number(product.price).toFixed(2)}`).join("\n");
+    const productFacts = formatProductFacts(matches);
     const fallback = action === "TRACK_RFQ" ? "I have opened RFQ tracking. Enter the RFQ reference and email address used for the request to see its current status." : wantsCart(question) && top && !quantity ? `I found **${top.name}**. How many units would you like to add?` : action === "CREATE_RFQ" ? "I can build your RFQ here. Tell me the product type, quantity, rating, and installation environment; then complete the buyer details on the right before sending." : wantsCart(question) && matches.length ? "I found more than one possible product. Please tell me the exact product name, SKU, or rating and I will add the right one." : matches.length ? `I found ${matches.length} relevant product${matches.length === 1 ? "" : "s"}. Check the options below and add suitable items to your RFQ. Our team confirms final stock, lead time and project pricing.` : "I could not find an exact catalogue match. Tell me the product type, quantity, rating and installation environment, or submit an RFQ and our team will review it.";
     const publicMatches = includeMatches ? matches.map((product) => ({ ...product, imageUrl: product.image_url || null })) : [];
     if (!process.env.DEEPSEEK_API_KEY) {

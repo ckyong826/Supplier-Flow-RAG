@@ -28,7 +28,7 @@ create table if not exists public.products (
   category text not null,
   summary text not null,
   specifications jsonb not null default '[]'::jsonb,
-  availability text not null default 'In stock' check (availability in ('In stock', 'Low stock', 'Pre-order')),
+  availability text not null default 'Check availability' check (availability in ('In stock', 'Low stock', 'Pre-order', 'Check availability')),
   image_url text,
   datasheet_path text,
   image_type text not null default 'accessory',

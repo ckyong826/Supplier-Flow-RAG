@@ -1,0 +1,985 @@
+{
+  "name": "SupplierFlow RAG correctness eval",
+  "version": "1.0.0",
+  "created": "2026-08-16",
+  "knowledge_base": [
+    "data/supplierflow-official-knowledge.md",
+    "data/rag-delivery-policy.md",
+    "data/rag-payment-terms.md",
+    "data/rag-sales-sop.md",
+    "data/rag-warranty-policy.md",
+    "data/rag-benchmark-sources.md"
+  ],
+  "grading": {
+    "expected_keywords": "ALL must appear in the answer (case-insensitive, normalised whitespace) for a pass.",
+    "must_not_contain": "If ANY appear, the question fails regardless of keywords.",
+    "abstain": "For category=negative the system must decline / say it has no information. Fabricating a specific value is a hallucination failure.",
+    "expected_source_doc": "Retrieval is correct when at least one of these documents appears in the top-k retrieved chunks.",
+    "must_not_match": "Optional array of case-insensitive regex sources. If ANY matches the answer, the question fails."
+  },
+  "counts": {
+    "direct_lookup": 30,
+    "adversarial": 10,
+    "negative": 10,
+    "total": 50
+  },
+  "questions": [
+    {
+      "id": "D01",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated current and tripping curve of the Acti9 iC60N A9F73140?",
+      "expected_answer": "40 A with a B tripping curve.",
+      "expected_keywords": [
+        "40",
+        "B"
+      ],
+      "must_not_contain": [
+        "C curve",
+        "63 A"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Acti9 iC60N MCB — A9F73140"
+    },
+    {
+      "id": "D02",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What breaking capacity does A9F73140 have under IEC/EN 60898-1?",
+      "expected_answer": "6 kA at 230 V AC to IEC/EN 60898-1.",
+      "expected_keywords": [
+        "6 kA",
+        "60898"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Acti9 iC60N MCB — A9F73140"
+    },
+    {
+      "id": "D04",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What earth-leakage sensitivity does the A9D55610 RCBO provide?",
+      "expected_answer": "30 mA, residual-current type AC.",
+      "expected_keywords": [
+        "30 mA"
+      ],
+      "must_not_contain": [
+        "300 mA",
+        "100 mA"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Acti9 iDPN N Vigi RCBO — A9D55610"
+    },
+    {
+      "id": "D07",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated operating voltage of the A9S65440 switch disconnector?",
+      "expected_answer": "415 V AC.",
+      "expected_keywords": [
+        "415"
+      ],
+      "must_not_contain": [
+        "230 V",
+        "440 V"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Acti9 iSW switch disconnector — A9S65440"
+    },
+    {
+      "id": "D08",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "How many poles and what rated operational current does A9S65463 have?",
+      "expected_answer": "Four poles, 63 A rated operational current at 415 V AC.",
+      "expected_keywords": [
+        "63",
+        "415"
+      ],
+      "must_not_contain": [
+        "40 A"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Acti9 iSW switch disconnector — A9S65463"
+    },
+    {
+      "id": "D09",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What are the surge rating and rated voltage of the A9L20100 surge arrester?",
+      "expected_answer": "iPRD 20 surge arrester rated 20 kA at 350 V, single-pole.",
+      "expected_keywords": [
+        "20 kA",
+        "350"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Acti9 iPRD20 surge arrester — A9L20100"
+    },
+    {
+      "id": "D10",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil supply range does the LC1D09BNE contactor use?",
+      "expected_answer": "24-60 V AC/DC coil supply.",
+      "expected_keywords": [
+        "24",
+        "60"
+      ],
+      "must_not_contain": [
+        "230 V",
+        "120 V"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "TeSys Deca contactor — LC1D09BNE"
+    },
+    {
+      "id": "D11",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil voltage does LC1D09BD use?",
+      "expected_answer": "24 V DC.",
+      "expected_keywords": [
+        "24 V DC"
+      ],
+      "must_not_contain": [
+        "24-60",
+        "24–60"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "TeSys Deca contactor — LC1D09BD"
+    },
+    {
+      "id": "D14",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil voltage is specified for LC1D40AF7?",
+      "expected_answer": "110 V AC, 50/60 Hz.",
+      "expected_keywords": [
+        "110 V"
+      ],
+      "must_not_contain": [
+        "230 V",
+        "120 V"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "TeSys D contactor — LC1D40AF7"
+    },
+    {
+      "id": "D15",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "How many built-in auxiliary contacts does LC1D40AP7 provide?",
+      "expected_answer": "One NO and one NC built-in auxiliary contact.",
+      "expected_keywords": [
+        "NO",
+        "NC"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "TeSys D contactor — LC1D40AP7"
+    },
+    {
+      "id": "D17",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What AC-3 motor power at 400 V is stated for LC1D65ABNE?",
+      "expected_answer": "30 kW.",
+      "expected_keywords": [
+        "30 kW"
+      ],
+      "must_not_contain": [
+        "22 kW",
+        "11 kW"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "TeSys Deca contactor — LC1D65ABNE"
+    },
+    {
+      "id": "D18",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "hard",
+      "question": "How wide is the LC1D150M7 contactor?",
+      "expected_answer": "120 mm.",
+      "expected_keywords": [
+        "120 mm"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "TeSys Deca contactor — LC1D150M7"
+    },
+    {
+      "id": "D19",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What DC voltage and Icu can the ABB S200 M UC arc-extinguishing design handle?",
+      "expected_answer": "Up to 500 V DC with an Icu of 4.5 kA.",
+      "expected_keywords": [
+        "500 V",
+        "4.5 kA"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "ABB S200 M UC range"
+    },
+    {
+      "id": "D21",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What rated residual current is specified for the ABB F204AC-63/0.3?",
+      "expected_answer": "300 mA, residual-current type AC, four-pole, 63 A.",
+      "expected_keywords": [
+        "300 mA"
+      ],
+      "must_not_contain": [
+        "30 mA sensitivity"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "ABB F204AC-63/0.3"
+    },
+    {
+      "id": "D23",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What are the rated current and rated residual current of the ABB F202A-40/0.03?",
+      "expected_answer": "40 A rated current and 30 mA rated residual current, type A.",
+      "expected_keywords": [
+        "40",
+        "30 mA"
+      ],
+      "must_not_contain": [
+        "300 mA"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "ABB F202A-40/0.03"
+    },
+    {
+      "id": "D25",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What poles, rated current and tripping characteristic are listed for Eaton SKU 263164?",
+      "expected_answer": "1P+N, 16 A, B tripping characteristic (PLN6-B16/1N-MW).",
+      "expected_keywords": [
+        "16",
+        "B"
+      ],
+      "must_not_contain": [
+        "25 A"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Eaton xPole PLN6 MCB — 263164"
+    },
+    {
+      "id": "D26",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What is the rated fault current and short-circuit strength of the Eaton xPole PF7 263584?",
+      "expected_answer": "30 mA residual-current sensitivity with 10 kA rated short-circuit strength; four-pole, 25 A, type AC.",
+      "expected_keywords": [
+        "30 mA",
+        "10 kA"
+      ],
+      "must_not_contain": [
+        "6 kA"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Eaton xPole PF7 RCCB — 263584"
+    },
+    {
+      "id": "D27",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What rated AC voltage does the Eaton xPole Home HL MCB datasheet specify?",
+      "expected_answer": "230/400 V AC.",
+      "expected_keywords": [
+        "230",
+        "400"
+      ],
+      "must_not_contain": [
+        "415"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Eaton xPole Home HL MCB technical data"
+    },
+    {
+      "id": "D28",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What is the Imax range of the Schneider Acti9 iPRD surge protection range and which standard does it comply with?",
+      "expected_answer": "Imax range 8 to 65 kA, compliant with IEC/EN 61643-11.",
+      "expected_keywords": [
+        "8",
+        "65 kA",
+        "61643"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Schneider Electric Acti9 iPRD range"
+    },
+    {
+      "id": "D29",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "hard",
+      "question": "When sensitive loads sit more than 10 m from a Type 2 iPRD, what downstream protection is recommended?",
+      "expected_answer": "A Type 3 SPD should be installed close to the sensitive load.",
+      "expected_keywords": [
+        "type 3"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "rag-benchmark-sources.md",
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Schneider Electric Acti9 iPRD range"
+    },
+    {
+      "id": "P01",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long does delivery normally take within Klang Valley?",
+      "expected_answer": "1-2 working days after order confirmation and stock allocation.",
+      "expected_keywords": [
+        "1",
+        "2",
+        "working day"
+      ],
+      "must_not_contain": [
+        "3-5",
+        "same day guaranteed"
+      ],
+      "expected_source_doc": [
+        "rag-delivery-policy.md"
+      ],
+      "expected_chunk_anchor": "Standard delivery"
+    },
+    {
+      "id": "P02",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What is the normal delivery time for Peninsular Malaysia outside Klang Valley?",
+      "expected_answer": "2-4 working days.",
+      "expected_keywords": [
+        "2",
+        "4",
+        "working day"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "rag-delivery-policy.md"
+      ],
+      "expected_chunk_anchor": "Standard delivery"
+    },
+    {
+      "id": "P03",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long do East Malaysia deliveries normally take?",
+      "expected_answer": "3-5 working days, with remote areas possibly requiring additional transit time.",
+      "expected_keywords": [
+        "3",
+        "5",
+        "working day"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "rag-delivery-policy.md"
+      ],
+      "expected_chunk_anchor": "Standard delivery"
+    },
+    {
+      "id": "P04",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What is the daily order cut-off time for same-day processing?",
+      "expected_answer": "2:00 PM on a working day, subject to stock availability. Orders after that are processed the next working day.",
+      "expected_keywords": [
+        "2:00",
+        "next working day"
+      ],
+      "must_not_contain": [
+        "5:00 PM",
+        "12:00"
+      ],
+      "expected_source_doc": [
+        "rag-delivery-policy.md"
+      ],
+      "expected_chunk_anchor": "Cut-off and urgent deliveries"
+    },
+    {
+      "id": "P05",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long is a quotation valid for?",
+      "expected_answer": "14 calendar days from the quotation date unless stated otherwise.",
+      "expected_keywords": [
+        "14"
+      ],
+      "must_not_contain": [
+        "30 days validity",
+        "7 days"
+      ],
+      "expected_source_doc": [
+        "rag-payment-terms.md"
+      ],
+      "expected_chunk_anchor": "Payment Terms"
+    },
+    {
+      "id": "P06",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What are the payment requirements for a new customer?",
+      "expected_answer": "Payment before delivery, unless approved credit terms are confirmed in writing.",
+      "expected_keywords": [
+        "before delivery",
+        "writing"
+      ],
+      "must_not_contain": [
+        "30-day credit automatically"
+      ],
+      "expected_source_doc": [
+        "rag-payment-terms.md"
+      ],
+      "expected_chunk_anchor": "Payment Terms"
+    },
+    {
+      "id": "P07",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What credit terms may approved account customers receive?",
+      "expected_answer": "30-day credit terms, subject to credit limit and account status.",
+      "expected_keywords": [
+        "30",
+        "credit limit"
+      ],
+      "must_not_contain": [
+        "60 day",
+        "90 day"
+      ],
+      "expected_source_doc": [
+        "rag-payment-terms.md"
+      ],
+      "expected_chunk_anchor": "Payment Terms"
+    },
+    {
+      "id": "P08",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What warranty do LED panel lights carry?",
+      "expected_answer": "3-year manufacturer warranty.",
+      "expected_keywords": [
+        "3",
+        "year"
+      ],
+      "must_not_contain": [
+        "2-year",
+        "5 year"
+      ],
+      "expected_source_doc": [
+        "rag-warranty-policy.md"
+      ],
+      "expected_chunk_anchor": "Warranty Policy"
+    },
+    {
+      "id": "P09",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What is required to submit a warranty claim?",
+      "expected_answer": "The original invoice or quotation reference, clear product photographs, and a description of the fault.",
+      "expected_keywords": [
+        "invoice",
+        "photograph",
+        "fault"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "rag-warranty-policy.md"
+      ],
+      "expected_chunk_anchor": "Warranty Policy"
+    },
+    {
+      "id": "P10",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "How soon should the sales team follow up on a sent quotation?",
+      "expected_answer": "Within 3 working days, recording call outcomes and customer feedback in the RFQ activity log.",
+      "expected_keywords": [
+        "3 working day"
+      ],
+      "must_not_contain": [
+        "7 days",
+        "14 days"
+      ],
+      "expected_source_doc": [
+        "rag-sales-sop.md"
+      ],
+      "expected_chunk_anchor": "Sales Quotation SOP"
+    },
+    {
+      "id": "A01",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "What is the difference between the ABB F202A-40/0.03 and the F202AC-40/0.03?",
+      "expected_answer": "Both are two-pole 40 A RCCBs with 30 mA residual current; the F202A-40/0.03 is residual-current type A while the F202AC-40/0.03 is type AC.",
+      "expected_keywords": [
+        "type A",
+        "type AC",
+        "40"
+      ],
+      "must_not_contain": [
+        "300 mA"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "ABB F202A-40/0.03",
+      "notes": "Trap: the two SKUs differ by one letter and only in residual-current type. Retrieval must return BOTH cards."
+    },
+    {
+      "id": "A02",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "Which ABB RCCB is rated 40 A with 300 mA residual current, and what is its order code?",
+      "expected_answer": "The F202AC-40/0.3, order code 2CSF202001R3400 — two-pole, 40 A, 300 mA, type AC.",
+      "expected_keywords": [
+        "F202AC-40/0.3",
+        "300 mA"
+      ],
+      "must_not_contain": [
+        "30 mA"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "ABB F202AC-40/0.3",
+      "notes": "Trap: 0.3 vs 0.03 in the model string, and order codes R3400 vs R1400 differ by one character."
+    },
+    {
+      "id": "A03",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "I need a 9 A TeSys Deca contactor. What is the difference between the LC1D09BNE and the LC1D09BD?",
+      "expected_answer": "Both are 3-pole 3NO contactors rated 9 A AC-3/AC-3e up to 440 V. The LC1D09BNE has a 24-60 V AC/DC coil; the LC1D09BD has a 24 V DC coil.",
+      "expected_keywords": [
+        "24",
+        "60",
+        "DC"
+      ],
+      "must_not_contain": [
+        "230 V coil"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "TeSys Deca contactor — LC1D09BNE",
+      "notes": "Both cards are nearly identical text; only the coil line differs."
+    },
+    {
+      "id": "A04",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "We have two Acti9 iSW 4-pole 415 V AC switch disconnectors in the catalogue. Which one is 63 A and which one is 40 A?",
+      "expected_answer": "A9S65463 is the 63 A version and A9S65440 is the 40 A version; both are four-pole at 415 V AC.",
+      "expected_keywords": [
+        "A9S65463",
+        "A9S65440",
+        "63",
+        "40"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Acti9 iSW switch disconnector",
+      "notes": "Requires retrieving two sibling chunks and not conflating them."
+    },
+    {
+      "id": "A05",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "Compare the A9D55610 and the A9D32625 RCBOs.",
+      "expected_answer": "Both are 1P+N Acti9 iDPN N Vigi RCBOs with 30 mA sensitivity and 6 kA short-circuit capacity. The A9D55610 is 10 A, B curve, type AC. The A9D32625 is 25 A, C curve, type A.",
+      "expected_keywords": [
+        "10",
+        "25",
+        "type AC",
+        "type A"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "Acti9 iDPN N Vigi RCBO",
+      "notes": "Both share sensitivity and capacity; differ in current, curve, and RC type."
+    },
+    {
+      "id": "A06",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "hard",
+      "question": "Which contactor in the catalogue gives 30 kW AC-3 motor power at 400 V?",
+      "expected_answer": "The LC1D65ABNE (65 A, 24-60 V AC/DC coil).",
+      "expected_keywords": [
+        "LC1D65ABNE",
+        "30 kW"
+      ],
+      "must_not_contain": [
+        "LC1D50AB7",
+        "LC1D25P7"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "TeSys Deca contactor — LC1D65ABNE",
+      "notes": "Three contactor cards state a kW figure (11, 22, 30). Wrong-SKU selection is the failure mode."
+    },
+    {
+      "id": "A07",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "hard",
+      "question": "List the ABB RCCBs in the catalogue rated 63 A and give the residual current of each.",
+      "expected_answer": "F204AC-63/0.3 at 300 mA (four-pole, type AC), F202A-63/0.03 APR at 30 mA (two-pole, type A), and F202AS-63/0.1 at 100 mA (two-pole, type A).",
+      "expected_keywords": [
+        "300 mA",
+        "30 mA",
+        "100 mA"
+      ],
+      "must_not_contain": [],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "expected_chunk_anchor": "ABB F204AC-63/0.3",
+      "notes": "Aggregation across three chunks. Keyword retrieval that returns only top-3 chunks may drop one."
+    },
+    {
+      "id": "A08",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "If I confirm an order for LC1D150M7 at 3:00 PM on a Tuesday for delivery to Johor Bahru, when should I expect it?",
+      "expected_answer": "Confirmed after the 2:00 PM cut-off, so it is processed the next working day (Wednesday); Johor Bahru is Peninsular Malaysia outside Klang Valley, so 2-4 working days from processing. Dates remain estimates until stock allocation is confirmed.",
+      "expected_keywords": [
+        "2:00",
+        "next working day",
+        "2",
+        "4"
+      ],
+      "must_not_contain": [
+        "same day",
+        "guarantee"
+      ],
+      "expected_source_doc": [
+        "rag-delivery-policy.md"
+      ],
+      "expected_chunk_anchor": "Cut-off and urgent deliveries",
+      "notes": "Two-hop: cut-off rule + regional lead time. Must not promise a firm date."
+    },
+    {
+      "id": "A09",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "I'm a new customer in Kuala Lumpur and I need a 1-pole 40 A B-curve MCB. What product fits, and what payment and delivery terms apply?",
+      "expected_answer": "The Acti9 iC60N A9F73140 (1P, 40 A, B curve, 6 kA to IEC/EN 60898-1). As a new customer, payment is required before delivery unless approved credit terms are confirmed in writing. Klang Valley delivery normally takes 1-2 working days after order confirmation and stock allocation.",
+      "expected_keywords": [
+        "A9F73140",
+        "before delivery",
+        "1",
+        "2"
+      ],
+      "must_not_contain": [
+        "30-day credit"
+      ],
+      "expected_source_doc": [
+        "supplierflow-official-knowledge.md",
+        "rag-payment-terms.md",
+        "rag-delivery-policy.md"
+      ],
+      "expected_chunk_anchor": "Acti9 iC60N MCB — A9F73140",
+      "notes": "Three-document fusion. This is the hardest retrieval case in the set."
+    },
+    {
+      "id": "A10",
+      "category": "adversarial",
+      "subcategory": "procedural",
+      "difficulty": "medium",
+      "question": "The brand my customer asked for is out of stock. What does the SOP say I should do?",
+      "expected_answer": "Present a technically suitable equivalent and mark it as an alternative in the quotation.",
+      "expected_keywords": [
+        "equivalent",
+        "alternative"
+      ],
+      "must_not_contain": [
+        "substitute silently",
+        "cancel the order"
+      ],
+      "expected_source_doc": [
+        "rag-sales-sop.md"
+      ],
+      "expected_chunk_anchor": "Sales Quotation SOP",
+      "notes": "Question uses no vocabulary from the source line ('unavailable' vs 'out of stock') - tests lexical mismatch."
+    },
+    {
+      "id": "N01",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the unit price in MYR of the Acti9 iC60N A9F73140?",
+      "expected_answer": "ABSTAIN - the knowledge base contains no pricing. The assistant should direct the buyer to request a quotation.",
+      "expected_behavior": "abstain",
+      "expected_keywords": [],
+      "must_not_contain": [
+        "price is",
+        "unit price of",
+        "costs rm",
+        "priced at"
+      ],
+      "expected_source_doc": [],
+      "notes": "Hallucinated price is a commercially damaging failure.",
+      "must_not_match": [
+        "\\\\b(rm|myr)\\\\s?\\\\d",
+        "\\\\$\\\\s?\\\\d"
+      ]
+    },
+    {
+      "id": "N02",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "How many units of LC1D40AP7 do you currently have in stock?",
+      "expected_answer": "ABSTAIN - no stock quantities exist in the knowledge base. System prompt also forbids confirming stock.",
+      "expected_behavior": "abstain",
+      "expected_keywords": [],
+      "must_not_contain": [
+        "in stock",
+        "currently available"
+      ],
+      "expected_source_doc": [],
+      "notes": "System prompt explicitly bans confirming stock. Any numeric stock answer is a hard fail.",
+      "must_not_match": [
+        "\\\\b\\\\d+\\\\s+units?\\\\b",
+        "we have \\\\d"
+      ]
+    },
+    {
+      "id": "N03",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the IP rating of the LC1D150M7 contactor?",
+      "expected_answer": "ABSTAIN - the knowledge base states width (120 mm), current and coil supply, but no IP rating.",
+      "expected_behavior": "abstain",
+      "expected_keywords": [],
+      "must_not_contain": [
+        "IP20",
+        "IP40",
+        "IP54",
+        "IP65",
+        "IP2X"
+      ],
+      "expected_source_doc": [],
+      "notes": "The card exists and will be retrieved; the specific field does not. Tests whether the model over-extends a real chunk."
+    },
+    {
+      "id": "N04",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the warranty period on Schneider Electric MCBs?",
+      "expected_answer": "ABSTAIN - the warranty policy only names LED panel lights (3 years) and LED floodlights (2 years). Other products are covered by manufacturer warranty where stated on the listing or quotation.",
+      "expected_behavior": "abstain",
+      "expected_keywords": [],
+      "must_not_contain": [
+        "3-year",
+        "3 year",
+        "2-year",
+        "2 year",
+        "5 year"
+      ],
+      "expected_source_doc": [],
+      "notes": "Strong trap: the warranty document WILL be retrieved and contains 3-year and 2-year figures for unrelated products."
+    },
+    {
+      "id": "N05",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "How long does delivery to Singapore take?",
+      "expected_answer": "ABSTAIN - the delivery policy covers Klang Valley, Peninsular Malaysia and East Malaysia only. No international shipping terms exist.",
+      "expected_behavior": "abstain",
+      "expected_keywords": [],
+      "must_not_contain": [
+        "working days to Singapore",
+        "3-5 working days"
+      ],
+      "expected_source_doc": [],
+      "notes": "Delivery doc retrieves strongly; model may map Singapore onto East Malaysia timing."
+    },
+    {
+      "id": "N06",
+      "category": "negative",
+      "subcategory": "nonexistent_sku",
+      "difficulty": "hard",
+      "question": "What are the specifications of the Acti9 iC60N A9F73150?",
+      "expected_answer": "ABSTAIN - A9F73150 does not exist in the knowledge base. Nearest listed item is A9F73140 (1P, 40 A, B curve), but the assistant must not present it as the requested SKU.",
+      "expected_behavior": "abstain",
+      "expected_keywords": [],
+      "must_not_contain": [
+        "A9F73150 is",
+        "A9F73150 has"
+      ],
+      "expected_source_doc": [],
+      "notes": "Fabricated SKU one digit away from a real one. Retrieval will return A9F73140."
+    },
+    {
+      "id": "N07",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the operating temperature range of the ABB S200 M UC range?",
+      "expected_answer": "ABSTAIN - the knowledge base records DC voltage, Icu, current range and breaking capacity for S200 M UC, but no temperature range.",
+      "expected_behavior": "abstain",
+      "expected_keywords": [],
+      "must_not_contain": [
+        "temperature range is",
+        "temperature range of"
+      ],
+      "expected_source_doc": [],
+      "notes": "Well-known general spec the LLM may recall from pretraining rather than from context.",
+      "must_not_match": [
+        "[-−]?\\\\d{1,3}\\\\s*°\\\\s*c\\\\b"
+      ]
+    },
+    {
+      "id": "N08",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the restocking fee if I return an item that is not faulty?",
+      "expected_answer": "ABSTAIN - the warranty policy covers defect claims only; there is no returns or restocking-fee policy in the knowledge base.",
+      "expected_behavior": "abstain",
+      "expected_keywords": [],
+      "must_not_contain": [
+        "10%",
+        "15%",
+        "20%",
+        "restocking fee of"
+      ],
+      "expected_source_doc": [],
+      "notes": "Warranty doc retrieves but does not cover non-defective returns."
+    },
+    {
+      "id": "N09",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What credit limit do you give to approved account customers?",
+      "expected_answer": "ABSTAIN - payment terms say 30-day credit is subject to credit limit and account status, but no credit-limit amount is published.",
+      "expected_behavior": "abstain",
+      "expected_keywords": [],
+      "must_not_contain": [
+        "credit limit is",
+        "credit limit of"
+      ],
+      "expected_source_doc": [],
+      "notes": "The phrase 'credit limit' appears verbatim in the KB without a value - a strong invitation to fabricate.",
+      "must_not_match": [
+        "credit limit\\\\D{0,12}(rm|myr)?\\\\s*\\\\d"
+      ]
+    },
+    {
+      "id": "N10",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What SST rate is applied to quotations?",
+      "expected_answer": "ABSTAIN - the sales SOP requires SST to be confirmed before sending a quotation but never states a rate.",
+      "expected_behavior": "abstain",
+      "expected_keywords": [],
+      "must_not_contain": [
+        "sst rate is",
+        "sst of"
+      ],
+      "expected_source_doc": [],
+      "notes": "'SST' appears verbatim in the SOP with no percentage. Highest-risk fabrication in the set.",
+      "must_not_match": [
+        "sst\\\\D{0,15}\\\\d+\\\\s*%",
+        "\\\\d+\\\\s*%\\\\s*sst"
+      ]
+    }
+  ]
+}

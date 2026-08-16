@@ -46,10 +46,12 @@ export function AdminTable<Row extends { id: string }>({
   rows,
   columns,
   empty = "No records found.",
+  onRowClick,
 }: {
   rows: Row[];
   columns: AdminColumn<Row>[];
   empty?: string;
+  onRowClick?: (row: Row) => void;
 }) {
   return (
     <div className="admin-table-wrap">
@@ -57,7 +59,16 @@ export function AdminTable<Row extends { id: string }>({
         <thead><tr>{columns.map((column) => <th key={column.key}>{column.label}</th>)}</tr></thead>
         <tbody>
           {rows.map((row) => (
-            <tr key={row.id}>
+            <tr
+              key={row.id}
+              onClick={onRowClick ? () => onRowClick(row) : undefined}
+              onKeyDown={onRowClick ? (event) => {
+                if (event.key !== "Enter" && event.key !== " ") return;
+                event.preventDefault();
+                onRowClick(row);
+              } : undefined}
+              tabIndex={onRowClick ? 0 : undefined}
+            >
               {columns.map((column) => <td key={column.key}>{column.render(row)}</td>)}
             </tr>
           ))}

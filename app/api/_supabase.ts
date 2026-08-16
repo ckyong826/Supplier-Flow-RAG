@@ -3,6 +3,12 @@ export function configurationError(names: readonly string[]) {
   return missing.length ? `Server configuration is incomplete: ${missing.join(", ")}.` : null;
 }
 
+export class HttpError extends Error {
+  constructor(message: string, readonly status: number) {
+    super(message);
+  }
+}
+
 export async function supabase(path: string, init: RequestInit = {}) {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -13,6 +19,10 @@ export async function supabase(path: string, init: RequestInit = {}) {
   });
   if (!response.ok) throw new Error(await response.text());
   return response;
+}
+
+export async function supabaseJson<T>(path: string, init: RequestInit = {}) {
+  return await (await supabase(path, init)).json() as T;
 }
 
 export async function requireAdmin(request: Request) {
@@ -31,6 +41,6 @@ export async function requireAdmin(request: Request) {
 
 export function errorResponse(error: unknown) {
   const message = error instanceof Error ? error.message : "Unexpected server error";
-  const status = message === "Unauthorized" ? 401 : message === "Forbidden" ? 403 : 500;
+  const status = error instanceof HttpError ? error.status : message === "Unauthorized" ? 401 : message === "Forbidden" ? 403 : 500;
   return Response.json({ error: status === 500 ? "The request could not be completed." : message }, { status });
 }

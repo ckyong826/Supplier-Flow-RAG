@@ -1,9 +1,12 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AdminPortal } from "./AdminPortal";
+import { money } from "./lib/format";
+import { officialProducts } from "./lib/officialCatalogue";
+import { SiteFooter, SiteHeader, type PublicView } from "./components/SiteChrome";
 
-type View = "catalog" | "rfq" | "track" | "ai" | "admin";
+type View = PublicView | "admin";
 type Product = {
   id: string;
   name: string;
@@ -20,8 +23,7 @@ type Product = {
 type CartItem = { productId: string; quantity: number };
 type AiMessage = { role: "user" | "assistant"; content: string; matches?: Product[]; track?: boolean };
 type ChatSession = { id: string; title: string; createdAt: string };
-const money = (value: number) => `RM ${Number(value).toLocaleString("en-MY", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-
+function priceLabel(price: number) { return price > 0 ? `From ${money(price)}` : "Price on request"; }
 function ChatText({ content }: { content: string }) {
   return <>{content.split("\n").map((line, index) => {
     const parts = line.split(/(\*\*[^*]+\*\*)/g);
@@ -118,6 +120,36 @@ const demoProducts: Product[] = demoRows.map(
   }),
 );
 
+type CatalogueApiProduct = {
+  id: string;
+  name: string;
+  sku: string;
+  category: string;
+  summary: string;
+  specifications: string[];
+  availability: string;
+  image_type: string;
+  image_url?: string | null;
+  datasheet_path?: string | null;
+  price: number;
+};
+
+function mapCatalogueProduct(product: CatalogueApiProduct): Product {
+  return {
+    id: product.id,
+    name: product.name,
+    sku: product.sku,
+    category: product.category,
+    summary: product.summary,
+    specs: product.specifications,
+    availability: product.availability,
+    imageClass: product.image_type,
+    imageUrl: product.image_url,
+    datasheetPath: product.datasheet_path,
+    price: Number(product.price),
+  };
+}
+
 function ProductImage({
   product,
   compact = false,
@@ -141,8 +173,14 @@ function ProductImage({
 
 export default function Home() {
   const [view, setView] = useState<View>("catalog");
-  const [products, setProducts] = useState<Product[]>(demoProducts);
-  const [catalogueReady, setCatalogueReady] = useState(false);
+  const [products, setProducts] = useState<Product[]>(officialProducts.map(mapCatalogueProduct));
+  const [catalogueReady, setCatalogueReady] = useState(true);
+  const [catalogueHasMore, setCatalogueHasMore] = useState(true);
+  const [catalogueLoading, setCatalogueLoading] = useState(false);
+  const [homeChatQuestion, setHomeChatQuestion] = useState("");
+  const catalogueLoadingRef = useRef(false);
+  const catalogueOffsetRef = useRef(0);
+  const catalogueSentinelRef = useRef<HTMLDivElement | null>(null);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All products");
@@ -188,45 +226,50 @@ export default function Home() {
     );
   }
 
-  useEffect(() => {
-    fetch("/api/catalog")
-      .then((response) => (response.ok ? response.json() : null))
-      .then((data) => {
-        if (!data?.products?.length) return;
-        setProducts(
-          data.products.map(
-            (product: {
-              id: string;
-              name: string;
-              sku: string;
-              category: string;
-              summary: string;
-              specifications: string[];
-              availability: string;
-              image_type: string;
-              image_url?: string;
-              datasheet_path?: string;
-              price: number;
-            }) => ({
-              id: product.id,
-              name: product.name,
-              sku: product.sku,
-              category: product.category,
-              summary: product.summary,
-              specs: product.specifications,
-              availability: product.availability,
-              imageClass: product.image_type,
-              imageUrl: product.image_url,
-              datasheetPath: product.datasheet_path,
-              price: Number(product.price),
-            }),
-          ),
-        );
-        setCatalogueReady(true);
-      })
-      .catch(() => undefined);
-    setAdminToken(sessionStorage.getItem("supplierflow-admin-token") || "");
+  const loadCatalogue = useCallback(async (offset = 0, replace = false) => {
+    if (catalogueLoadingRef.current) return;
+    catalogueLoadingRef.current = true;
+    setCatalogueLoading(true);
+    try {
+      const response = await fetch(`/api/catalog?limit=20&offset=${offset}`);
+      if (!response.ok) throw new Error("Catalogue unavailable");
+      const data = await response.json() as { products?: CatalogueApiProduct[]; hasMore?: boolean };
+      const page = (data.products || []).map(mapCatalogueProduct);
+      if (page.length) {
+        setProducts((current) => replace ? page : [...current, ...page]);
+        catalogueOffsetRef.current = offset + page.length;
+      }
+      setCatalogueHasMore(Boolean(data.hasMore));
+      setCatalogueReady(true);
+    } catch {
+      if (replace) setCatalogueHasMore(false);
+    } finally {
+      catalogueLoadingRef.current = false;
+      setCatalogueLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    void loadCatalogue(0, true);
+    setAdminToken(sessionStorage.getItem("supplierflow-admin-token") || "");
+  }, [loadCatalogue]);
+  useEffect(() => {
+    const sentinel = catalogueSentinelRef.current;
+    if (view !== "catalog" || !sentinel || !catalogueHasMore) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) void loadCatalogue(catalogueOffsetRef.current);
+    }, { rootMargin: "320px" });
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [catalogueHasMore, loadCatalogue, products.length, view]);
+  useEffect(() => {
+    if (!selectedProduct) return;
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setSelectedProduct(null);
+    }
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [selectedProduct]);
   async function loadChatSessions() {
     const response = await fetch("/api/ai-chat/session");
     const data = response.ok ? await response.json() : null;
@@ -261,6 +304,10 @@ export default function Home() {
     return product ? [{ product, quantity: item.quantity }] : [];
   });
   const buyerDetailsComplete = Boolean(customer.name.trim() && customer.company.trim() && customer.email.trim());
+  function openSupplyAi(question = "") {
+    setAiQuestion(question);
+    setView("ai");
+  }
   function add(productId: string, quantity = 1, replace = false) {
     const product = products.find((item) => item.id === productId);
     setCart((current) =>
@@ -416,36 +463,12 @@ export default function Home() {
         </div>
       )}
       {view !== "admin" && (
-        <header className="topbar">
-          <button className="wordmark" onClick={() => setView("catalog")}>
-            <span className="wordmark-mark">S</span>Supplier<span>Flow</span>
-          </button>
-          <nav className="main-nav">
-            <button
-              className={view === "catalog" ? "active" : ""}
-              onClick={() => setView("catalog")}
-            >
-              Catalogue
-            </button>
-            <button
-              className={view === "rfq" ? "active" : ""}
-              onClick={() => setView("rfq")}
-            >
-              My RFQ{" "}
-              <span className="nav-count">
-                {cart.reduce((sum, item) => sum + item.quantity, 0)}
-              </span>
-            </button>
-            <button
-              className={view === "track" ? "active" : ""}
-              onClick={() => setView("track")}
-            >
-              Track RFQ
-            </button>
-            <button className={view === "ai" ? "active" : ""} onClick={() => setView("ai")}>Ask SupplyAI</button>
-            <button onClick={() => setView("admin")}>Admin desk</button>
-          </nav>
-        </header>
+        <SiteHeader
+          view={view}
+          cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
+          onView={setView}
+          onAdmin={() => setView("admin")}
+        />
       )}
       {view === "catalog" && (
         <section>
@@ -474,7 +497,7 @@ export default function Home() {
           </div>
           <div className="catalog-toolbar">
             <label className="search">
-              <span>⌕</span>
+              <span aria-hidden="true">⌕</span>
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
@@ -493,11 +516,34 @@ export default function Home() {
               ))}
             </div>
           </div>
+          <form
+            className="home-chat-box"
+            onSubmit={(event) => {
+              event.preventDefault();
+              openSupplyAi(homeChatQuestion.trim());
+            }}
+          >
+            <div>
+              <p className="kicker">Need help choosing?</p>
+              <h2>Ask SupplyAI about a product or quote.</h2>
+            </div>
+            <div className="home-chat-form">
+              <input
+                value={homeChatQuestion}
+                onChange={(event) => setHomeChatQuestion(event.target.value)}
+                placeholder="Try: Find an outdoor waterproof socket"
+                aria-label="Ask SupplyAI"
+              />
+              <button type="submit" className="primary-button">Open SupplyAI</button>
+            </div>
+          </form>
           <div className="catalog-grid">
-            {visible.map((product) => (
+            {visible.length ? visible.map((product) => (
               <article className="product-card" key={product.id}>
                 <button
                   className="product-preview"
+                  type="button"
+                  aria-label={`View details for ${product.name}`}
                   onClick={() => setSelectedProduct(product)}
                 >
                   <ProductImage product={product} />
@@ -515,7 +561,7 @@ export default function Home() {
                     </span>
                   </div>
                   <p className="product-summary">{product.summary}</p>
-                  <p className="catalogue-price">From {money(product.price)}</p>
+                  <p className="catalogue-price">{priceLabel(product.price)}</p>
                   <div className="spec-row">
                     {product.specs.map((spec) => (
                       <span key={spec}>{spec}</span>
@@ -524,6 +570,8 @@ export default function Home() {
                   <div className="product-footer">
                     <button
                       className="text-button"
+                      type="button"
+                      aria-label={`View details for ${product.name}`}
                       onClick={() => setSelectedProduct(product)}
                     >
                       Details
@@ -538,15 +586,28 @@ export default function Home() {
                   </div>
                 </div>
               </article>
-            ))}
+            )) : (
+              <div className="catalog-empty" role="status">
+                <strong>No products match your search.</strong>
+                <p>Try a different keyword or clear the current filters.</p>
+                <button type="button" className="outline-button" onClick={() => { setQuery(""); setCategory("All products"); }}>
+                  Clear filters
+                </button>
+              </div>
+            )}
+          </div>
+          <div ref={catalogueSentinelRef} className="catalogue-sentinel" aria-live="polite">
+            {catalogueLoading && <span>Loading more products...</span>}
           </div>
         </section>
       )}
       {selectedProduct && (
-        <div className="modal-backdrop">
-          <section className="product-modal">
+        <div className="modal-backdrop" role="presentation">
+          <section className="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
             <button
+              type="button"
               className="modal-close"
+              aria-label="Close product details"
               onClick={() => setSelectedProduct(null)}
             >
               ×
@@ -554,9 +615,9 @@ export default function Home() {
             <ProductImage product={selectedProduct} />
             <div>
               <p className="sku">{selectedProduct.sku}</p>
-                      <h2>{selectedProduct.name}</h2>
+                      <h2 id="product-modal-title">{selectedProduct.name}</h2>
                       <p>{selectedProduct.summary}</p>
-                      <p className="catalogue-price">From {money(selectedProduct.price)}</p>
+                      <p className="catalogue-price">{priceLabel(selectedProduct.price)}</p>
               <dl>
                 {selectedProduct.specs.map((spec) => (
                   <div key={spec}>
@@ -571,6 +632,7 @@ export default function Home() {
                     className="outline-button"
                     href={selectedProduct.datasheetPath}
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Datasheet
                   </a>
@@ -692,7 +754,7 @@ export default function Home() {
                     </button>
                   </div>
                 )}
-                {cartProducts.length > 0 && <div className="rfq-estimate"><span>Estimated catalogue total</span><strong>{money(cartProducts.reduce((sum, item) => sum + item.product.price * item.quantity, 0))}</strong><small>Final pricing, discounts and availability are confirmed in your quotation.</small></div>}
+                {cartProducts.length > 0 && <div className="rfq-estimate"><span>Estimated catalogue total</span><strong>{cartProducts.some((item) => item.product.price <= 0) ? "Price on request" : money(cartProducts.reduce((sum, item) => sum + item.product.price * item.quantity, 0))}</strong><small>Final pricing and availability are confirmed in your quotation.</small></div>}
               </div>
               <form className="request-form" onSubmit={submitRfq}>
                 <div className="panel-heading">
@@ -741,7 +803,7 @@ export default function Home() {
                   />
                 </label>
                 {submitError && <p className="form-error">{submitError}</p>}
-                <button className="primary-button" disabled={saving}>
+                <button type="submit" className="primary-button" disabled={saving}>
                   {saving ? "Sending RFQ…" : "Send RFQ"}
                 </button>
               </form>
@@ -874,7 +936,7 @@ export default function Home() {
                         ? "Your quote has been accepted. Our team will contact you about fulfilment."
                         : "Contact the supplier if you need further help."}
               </p>
-              {track.quotation && ["SENT", "ACCEPTED", "REJECTED"].includes(track.quotation.status) && (() => { const subtotal = track.quotation.quotation_items.reduce((sum, item) => sum + item.quantity * Number(item.unit_price), 0); const discount = subtotal * Number(track.quotation.discount_percent || 0) / 100; const taxable = subtotal - discount; const sst = taxable * Number(track.quotation.tax_percent || 0) / 100; const total = taxable + sst + Number(track.quotation.delivery_fee || 0); return <div className="buyer-quote"><div><span className="track-label">QUOTATION</span><h3>{track.quotation.reference} · Rev {track.quotation.revision}</h3></div><div className="buyer-quote-table"><div><span>Item</span><span>Qty</span><span>Total</span></div>{track.quotation.quotation_items.map((item, index) => <div key={`${item.sku}-${index}`}><span><strong>{item.product_name}</strong><small>{item.sku}</small></span><span>{item.quantity}</span><strong>RM {(item.quantity * Number(item.unit_price)).toFixed(2)}</strong></div>)}</div><dl><div><dt>Subtotal</dt><dd>RM {subtotal.toFixed(2)}</dd></div><div><dt>Discount</dt><dd>− RM {discount.toFixed(2)}</dd></div><div><dt>SST</dt><dd>RM {sst.toFixed(2)}</dd></div><div><dt>Delivery</dt><dd>RM {Number(track.quotation.delivery_fee || 0).toFixed(2)}</dd></div><div className="total"><dt>Total</dt><dd>RM {total.toFixed(2)}</dd></div></dl>{track.quotation.status === "SENT" && <div className="buyer-quote-actions"><button disabled={track.loading} className="primary-button" onClick={() => respondToQuote("ACCEPTED")}>{track.loading ? "Saving…" : "Accept quotation"}</button><button disabled={track.loading} className="outline-button" onClick={() => respondToQuote("REJECTED")}>Decline</button></div>}{track.quotation.payment_terms && <p>Payment terms: {track.quotation.payment_terms}</p>}</div>; })()}
+              {track.quotation && ["SENT", "ACCEPTED", "REJECTED"].includes(track.quotation.status) && (() => { const subtotal = track.quotation.quotation_items.reduce((sum, item) => sum + item.quantity * Number(item.unit_price), 0); const discount = subtotal * Number(track.quotation.discount_percent || 0) / 100; const taxable = subtotal - discount; const sst = taxable * Number(track.quotation.tax_percent || 0) / 100; const total = taxable + sst + Number(track.quotation.delivery_fee || 0); return <div className="buyer-quote"><div><span className="track-label">QUOTATION</span><h3>{track.quotation.reference} · Rev {track.quotation.revision}</h3></div><div className="buyer-quote-table"><div><span>Item</span><span>Qty</span><span>Total</span></div>{track.quotation.quotation_items.map((item, index) => <div key={`${item.sku}-${index}`}><span><strong>{item.product_name}</strong><small>{item.sku}</small></span><span>{item.quantity}</span><strong>RM {(item.quantity * Number(item.unit_price)).toFixed(2)}</strong></div>)}</div><dl><div><dt>Subtotal</dt><dd>RM {subtotal.toFixed(2)}</dd></div><div><dt>Discount</dt><dd>− RM {discount.toFixed(2)}</dd></div><div><dt>SST</dt><dd>RM {sst.toFixed(2)}</dd></div><div><dt>Delivery</dt><dd>RM {Number(track.quotation.delivery_fee || 0).toFixed(2)}</dd></div><div className="total"><dt>Total</dt><dd>RM {total.toFixed(2)}</dd></div></dl>{track.quotation.status === "SENT" && <div className="buyer-quote-actions"><button type="button" disabled={track.loading} className="primary-button" onClick={() => respondToQuote("ACCEPTED")}>{track.loading ? "Saving…" : "Accept quotation"}</button><button type="button" disabled={track.loading} className="outline-button" onClick={() => respondToQuote("REJECTED")}>Decline</button></div>}{track.quotation.payment_terms && <p>Payment terms: {track.quotation.payment_terms}</p>}</div>; })()}
             </div>
           )}
         </section>
@@ -930,13 +992,7 @@ export default function Home() {
         />
       )}
       {view !== "admin" && (
-        <footer className="app-footer">
-          <span>SupplierFlow</span>
-          <span>
-            Reference product · B2B catalogue, RFQ and quotation management
-          </span>
-          <button onClick={() => setView("admin")}>Admin demo →</button>
-        </footer>
+        <SiteFooter onAdmin={() => setView("admin")} />
       )}
     </main>
   );
