@@ -14,6 +14,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { decomposeQuery, fuseByKeywords } from "../../app/api/ai-chat/retrieval.mjs";
+import { contains } from "./match.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..", "..");
@@ -52,10 +53,6 @@ function retrieve(question) {
   return fuseByKeywords(chunks, queries, (chunk) => chunk.content);
 }
 
-function normalise(text) {
-  return text.toLowerCase().replace(/[‐-―]/g, "-").replace(/\s+/g, " ");
-}
-
 const results = [];
 
 for (const question of suite.questions) {
@@ -75,7 +72,7 @@ for (const question of suite.questions) {
   // Does the top-k text actually contain the answer keywords? Retrieval can hit the right
   // document but the wrong 180-word window - this catches that.
   const topText = top.map((chunk) => chunk.content).join("\n");
-  const keywordsPresent = question.expected_keywords.filter((keyword) => normalise(topText).includes(normalise(keyword)));
+  const keywordsPresent = question.expected_keywords.filter((keyword) => contains(topText, keyword));
   const answerable = question.expected_keywords.length > 0 && keywordsPresent.length === question.expected_keywords.length;
 
   let status;

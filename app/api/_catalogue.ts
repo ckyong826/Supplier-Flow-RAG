@@ -9,12 +9,13 @@ export type CatalogueProduct = {
   specifications: string[];
   availability: string;
   price: number;
+  stock_quantity?: number | null;
   image_url?: string | null;
   image_type?: string;
   datasheet_path?: string | null;
 };
 
-const ACTIVE_PRODUCTS = "products?is_active=eq.true&select=id,name,sku,category,summary,specifications,availability,price,image_url,image_type,datasheet_path&order=name.asc";
+const ACTIVE_PRODUCTS = "products?is_active=eq.true&select=id,name,sku,category,summary,specifications,availability,price,stock_quantity,image_url,image_type,datasheet_path&order=name.asc";
 
 export function listActiveProducts(limit?: number, offset = 0) {
   const pagination = limit === undefined ? "" : `&limit=${limit}&offset=${Math.max(0, offset)}`;
@@ -31,5 +32,5 @@ export function productText(product: CatalogueProduct) {
 }
 
 export function productFacts(products: CatalogueProduct[]) {
-  return products.map((product) => `${product.name} | SKU ${product.sku} | ${product.category} | ${product.summary} | Specs: ${(product.specifications || []).join(", ")} | Status: ${product.availability} | Price: ${Number(product.price) > 0 ? `RM ${Number(product.price).toFixed(2)}` : "Price on request"}`).join("\n");
+  return products.map((product) => `${product.name} | SKU ${product.sku} | ${product.category} | ${product.summary} | Specs: ${(product.specifications || []).join(", ")} | Status: ${product.availability} | Stock: ${product.stock_quantity === null || product.stock_quantity === undefined ? "Not tracked" : `${product.stock_quantity} units tracked`} | Price: ${Number(product.price) > 0 ? `RM ${Number(product.price).toFixed(2)}` : "Price on request"}`).join("\n");
 }

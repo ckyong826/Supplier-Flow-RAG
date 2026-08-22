@@ -251,6 +251,7 @@ Category: Residual-current circuit breaker (RCCB)
 
 - Eaton Moeller xPole PF7, model PF7-25/4/003-DE.
 - Four-pole device rated at 25 A with 30 mA residual-current sensitivity.
+- The rated fault current (rated residual operating current) is 30 mA.
 - Type AC, non-delayed, for residential and commercial applications.
 - Rated short-circuit strength: 10 kA.
 
@@ -274,5 +275,6 @@ Category: Surge protection device (SPD)
 - DIN-rail SPD range for protection against indirect lightning strike at incoming and secondary locations.
 - Imax range: 8 to 65 kA.
 - Compliant with IEC/EN 61643-11.
+- Where sensitive loads are more than 10 m from a Type 2 iPRD, a Type 3 SPD is recommended close to the load.
 
 Source: https://www.se.com/nl/en/product-range/61707-acti9-iprd/

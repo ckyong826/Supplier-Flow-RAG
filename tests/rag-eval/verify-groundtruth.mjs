@@ -6,6 +6,7 @@
 import { readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { contains } from "./match.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..", "..");
@@ -19,14 +20,6 @@ for (const relative of suite.knowledge_base) {
   docs.set(name, readFileSync(join(dataDir, name), "utf8"));
 }
 const wholeKb = [...docs.values()].join("\n");
-
-// Loose containment: collapse whitespace, strip dash variants, case-insensitive.
-function normalise(text) {
-  return text.toLowerCase().replace(/[‐-―]/g, "-").replace(/\s+/g, " ");
-}
-function contains(haystack, needle) {
-  return normalise(haystack).includes(normalise(needle));
-}
 
 const problems = [];
 let positives = 0;

@@ -1,22 +1,21 @@
 {
   "topK": 3,
   "corpus": {
-    "chunks": 15,
+    "chunks": 11,
     "byDocument": {
       "supplierflow-official-knowledge.md": 7,
       "rag-delivery-policy.md": 1,
       "rag-payment-terms.md": 1,
       "rag-sales-sop.md": 1,
-      "rag-warranty-policy.md": 1,
-      "rag-benchmark-sources.md": 4
+      "rag-warranty-policy.md": 1
     }
   },
   "metrics": {
     "scored": 40,
-    "recallAt1": 0.625,
+    "recallAt1": 1,
     "recallAtK": 1,
-    "fullyAnswerable": 0.95,
-    "mrr": 0.8041666666666666
+    "fullyAnswerable": 0.975,
+    "mrr": 1
   },
   "results": [
     {
@@ -36,8 +35,8 @@
       ],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#0",
-        "rag-benchmark-sources.md#0",
-        "rag-benchmark-sources.md#3"
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#5"
       ],
       "missingKeywords": []
     },
@@ -48,8 +47,8 @@
       "difficulty": "medium",
       "question": "What breaking capacity does A9F73140 have under IEC/EN 60898-1?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -57,9 +56,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#0",
         "supplierflow-official-knowledge.md#0",
-        "supplierflow-official-knowledge.md#3"
+        "supplierflow-official-knowledge.md#3",
+        "supplierflow-official-knowledge.md#4"
       ],
       "missingKeywords": []
     },
@@ -70,8 +69,8 @@
       "difficulty": "easy",
       "question": "What earth-leakage sensitivity does the A9D55610 RCBO provide?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -79,9 +78,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#0",
         "supplierflow-official-knowledge.md#0",
-        "rag-benchmark-sources.md#1"
+        "supplierflow-official-knowledge.md#5",
+        "rag-warranty-policy.md#0"
       ],
       "missingKeywords": []
     },
@@ -102,8 +101,8 @@
       ],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#1",
-        "rag-benchmark-sources.md#0",
-        "supplierflow-official-knowledge.md#0"
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#3"
       ],
       "missingKeywords": []
     },
@@ -114,8 +113,8 @@
       "difficulty": "easy",
       "question": "How many poles and what rated operational current does A9S65463 have?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -123,9 +122,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#0",
         "supplierflow-official-knowledge.md#1",
-        "rag-benchmark-sources.md#3"
+        "supplierflow-official-knowledge.md#4",
+        "supplierflow-official-knowledge.md#5"
       ],
       "missingKeywords": []
     },
@@ -146,8 +145,8 @@
       ],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#1",
-        "rag-benchmark-sources.md#0",
-        "supplierflow-official-knowledge.md#6"
+        "supplierflow-official-knowledge.md#6",
+        "supplierflow-official-knowledge.md#2"
       ],
       "missingKeywords": []
     },
@@ -158,8 +157,8 @@
       "difficulty": "easy",
       "question": "What coil supply range does the LC1D09BNE contactor use?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -167,9 +166,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#1",
         "supplierflow-official-knowledge.md#1",
-        "supplierflow-official-knowledge.md#3"
+        "supplierflow-official-knowledge.md#3",
+        "supplierflow-official-knowledge.md#2"
       ],
       "missingKeywords": []
     },
@@ -180,8 +179,8 @@
       "difficulty": "easy",
       "question": "What coil voltage does LC1D09BD use?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -189,9 +188,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#1",
         "supplierflow-official-knowledge.md#1",
-        "supplierflow-official-knowledge.md#3"
+        "supplierflow-official-knowledge.md#3",
+        "rag-warranty-policy.md#0"
       ],
       "missingKeywords": []
     },
@@ -202,8 +201,8 @@
       "difficulty": "easy",
       "question": "What coil voltage is specified for LC1D40AF7?",
       "status": "hit",
-      "rankOfFirstHit": 3,
-      "reciprocalRank": 0.3333333333333333,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -211,9 +210,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#1",
-        "rag-benchmark-sources.md#2",
-        "supplierflow-official-knowledge.md#1"
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#2",
+        "supplierflow-official-knowledge.md#3"
       ],
       "missingKeywords": []
     },
@@ -224,8 +223,8 @@
       "difficulty": "medium",
       "question": "How many built-in auxiliary contacts does LC1D40AP7 provide?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -233,9 +232,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#1",
         "supplierflow-official-knowledge.md#2",
-        "rag-benchmark-sources.md#0"
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#3"
       ],
       "missingKeywords": []
     },
@@ -246,8 +245,8 @@
       "difficulty": "medium",
       "question": "What AC-3 motor power at 400 V is stated for LC1D65ABNE?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -255,9 +254,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#2",
         "supplierflow-official-knowledge.md#3",
-        "rag-benchmark-sources.md#1"
+        "supplierflow-official-knowledge.md#2",
+        "supplierflow-official-knowledge.md#4"
       ],
       "missingKeywords": []
     },
@@ -268,8 +267,8 @@
       "difficulty": "hard",
       "question": "How wide is the LC1D150M7 contactor?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -277,9 +276,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#2",
         "supplierflow-official-knowledge.md#3",
-        "supplierflow-official-knowledge.md#1"
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#2"
       ],
       "missingKeywords": []
     },
@@ -290,8 +289,8 @@
       "difficulty": "medium",
       "question": "What DC voltage and Icu can the ABB S200 M UC arc-extinguishing design handle?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -299,9 +298,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#2",
         "supplierflow-official-knowledge.md#3",
-        "supplierflow-official-knowledge.md#4"
+        "supplierflow-official-knowledge.md#4",
+        "supplierflow-official-knowledge.md#0"
       ],
       "missingKeywords": []
     },
@@ -312,8 +311,8 @@
       "difficulty": "easy",
       "question": "What rated residual current is specified for the ABB F204AC-63/0.3?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -321,9 +320,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#2",
         "supplierflow-official-knowledge.md#4",
-        "rag-benchmark-sources.md#3"
+        "supplierflow-official-knowledge.md#5",
+        "supplierflow-official-knowledge.md#0"
       ],
       "missingKeywords": []
     },
@@ -345,7 +344,7 @@
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#4",
         "supplierflow-official-knowledge.md#5",
-        "rag-benchmark-sources.md#2"
+        "supplierflow-official-knowledge.md#0"
       ],
       "missingKeywords": []
     },
@@ -356,8 +355,8 @@
       "difficulty": "medium",
       "question": "What poles, rated current and tripping characteristic are listed for Eaton SKU 263164?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -365,9 +364,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#3",
         "supplierflow-official-knowledge.md#5",
-        "rag-benchmark-sources.md#0"
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#4"
       ],
       "missingKeywords": []
     },
@@ -388,8 +387,8 @@
       ],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#5",
-        "rag-benchmark-sources.md#3",
-        "supplierflow-official-knowledge.md#0"
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#6"
       ],
       "missingKeywords": []
     },
@@ -400,8 +399,8 @@
       "difficulty": "medium",
       "question": "What rated AC voltage does the Eaton xPole Home HL MCB datasheet specify?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -409,9 +408,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#3",
         "supplierflow-official-knowledge.md#5",
-        "supplierflow-official-knowledge.md#6"
+        "supplierflow-official-knowledge.md#6",
+        "supplierflow-official-knowledge.md#3"
       ],
       "missingKeywords": []
     },
@@ -432,8 +431,8 @@
       ],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#6",
-        "rag-benchmark-sources.md#3",
-        "rag-benchmark-sources.md#0"
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#0"
       ],
       "missingKeywords": []
     },
@@ -447,17 +446,15 @@
       "rankOfFirstHit": 1,
       "reciprocalRank": 1,
       "expectedDocs": [
-        "rag-benchmark-sources.md",
         "supplierflow-official-knowledge.md"
       ],
       "docsFoundInTopK": [
-        "rag-benchmark-sources.md",
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#3",
-        "rag-benchmark-sources.md#0",
-        "supplierflow-official-knowledge.md#0"
+        "supplierflow-official-knowledge.md#6",
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#1"
       ],
       "missingKeywords": []
     },
@@ -632,8 +629,8 @@
       ],
       "retrievedTopK": [
         "rag-warranty-policy.md#0",
-        "rag-benchmark-sources.md#0",
-        "supplierflow-official-knowledge.md#0"
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#6"
       ],
       "missingKeywords": []
     },
@@ -697,8 +694,8 @@
       ],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#4",
-        "rag-benchmark-sources.md#2",
-        "supplierflow-official-knowledge.md#5"
+        "supplierflow-official-knowledge.md#5",
+        "supplierflow-official-knowledge.md#3"
       ],
       "missingKeywords": []
     },
@@ -709,8 +706,8 @@
       "difficulty": "hard",
       "question": "Which ABB RCCB is rated 40 A with 300 mA residual current, and what is its order code?",
       "status": "hit",
-      "rankOfFirstHit": 2,
-      "reciprocalRank": 0.5,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -718,9 +715,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#2",
         "supplierflow-official-knowledge.md#4",
-        "supplierflow-official-knowledge.md#5"
+        "supplierflow-official-knowledge.md#5",
+        "supplierflow-official-knowledge.md#0"
       ],
       "missingKeywords": []
     },
@@ -741,8 +738,8 @@
       ],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#1",
-        "rag-benchmark-sources.md#1",
-        "supplierflow-official-knowledge.md#2"
+        "supplierflow-official-knowledge.md#2",
+        "supplierflow-official-knowledge.md#3"
       ],
       "missingKeywords": []
     },
@@ -774,7 +771,7 @@
       "subcategory": "near_duplicate_sku",
       "difficulty": "hard",
       "question": "Compare the A9D55610 and the A9D32625 RCBOs.",
-      "status": "wrong-chunk",
+      "status": "hit",
       "rankOfFirstHit": 1,
       "reciprocalRank": 1,
       "expectedDocs": [
@@ -784,12 +781,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "supplierflow-official-knowledge.md#0",
-        "rag-benchmark-sources.md#0"
+        "supplierflow-official-knowledge.md#0"
       ],
-      "missingKeywords": [
-        "type AC"
-      ]
+      "missingKeywords": []
     },
     {
       "id": "A06",
@@ -798,8 +792,8 @@
       "difficulty": "hard",
       "question": "Which contactor in the catalogue gives 30 kW AC-3 motor power at 400 V?",
       "status": "hit",
-      "rankOfFirstHit": 3,
-      "reciprocalRank": 0.3333333333333333,
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
       "expectedDocs": [
         "supplierflow-official-knowledge.md"
       ],
@@ -807,9 +801,9 @@
         "supplierflow-official-knowledge.md"
       ],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#1",
-        "rag-benchmark-sources.md#2",
-        "supplierflow-official-knowledge.md#2"
+        "supplierflow-official-knowledge.md#2",
+        "supplierflow-official-knowledge.md#3",
+        "supplierflow-official-knowledge.md#1"
       ],
       "missingKeywords": []
     },
@@ -830,8 +824,8 @@
       ],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#5",
-        "rag-benchmark-sources.md#3",
-        "supplierflow-official-knowledge.md#4"
+        "supplierflow-official-knowledge.md#4",
+        "supplierflow-official-knowledge.md#0"
       ],
       "missingKeywords": []
     },
@@ -880,7 +874,9 @@
         "rag-sales-sop.md#0",
         "supplierflow-official-knowledge.md#0"
       ],
-      "missingKeywords": []
+      "missingKeywords": [
+        "1-2|1 2|one to two"
+      ]
     },
     {
       "id": "A10",
@@ -917,8 +913,8 @@
       "docsFoundInTopK": [],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#0",
-        "rag-benchmark-sources.md#0",
-        "supplierflow-official-knowledge.md#1"
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#6"
       ],
       "missingKeywords": []
     },
@@ -934,9 +930,9 @@
       "expectedDocs": [],
       "docsFoundInTopK": [],
       "retrievedTopK": [
-        "rag-benchmark-sources.md#1",
-        "rag-benchmark-sources.md#0",
-        "supplierflow-official-knowledge.md#2"
+        "supplierflow-official-knowledge.md#2",
+        "supplierflow-official-knowledge.md#6",
+        "rag-delivery-policy.md#0"
       ],
       "missingKeywords": []
     },
@@ -971,8 +967,8 @@
       "docsFoundInTopK": [],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#6",
-        "rag-benchmark-sources.md#3",
-        "rag-warranty-policy.md#0"
+        "rag-warranty-policy.md#0",
+        "supplierflow-official-knowledge.md#0"
       ],
       "missingKeywords": []
     },
@@ -1007,8 +1003,8 @@
       "docsFoundInTopK": [],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#0",
-        "rag-benchmark-sources.md#0",
-        "supplierflow-official-knowledge.md#1"
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#6"
       ],
       "missingKeywords": []
     },
@@ -1025,8 +1021,8 @@
       "docsFoundInTopK": [],
       "retrievedTopK": [
         "supplierflow-official-knowledge.md#3",
-        "rag-benchmark-sources.md#2",
-        "rag-benchmark-sources.md#3"
+        "supplierflow-official-knowledge.md#4",
+        "supplierflow-official-knowledge.md#6"
       ],
       "missingKeywords": []
     },

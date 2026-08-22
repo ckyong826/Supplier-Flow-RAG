@@ -6,6 +6,12 @@ export type AdminColumn<Row> = {
   key: string;
   label: string;
   render: (row: Row) => ReactNode;
+  /**
+   * Column alignment. Left is the default for text; use "right" for money and
+   * action buttons and "center" for status chips so every admin table lines up
+   * the same way regardless of which section rendered it.
+   */
+  align?: "left" | "center" | "right";
 };
 
 export function AdminToolbar({
@@ -56,7 +62,7 @@ export function AdminTable<Row extends { id: string }>({
   return (
     <div className="admin-table-wrap">
       <table className="admin-table">
-        <thead><tr>{columns.map((column) => <th key={column.key}>{column.label}</th>)}</tr></thead>
+        <thead><tr>{columns.map((column) => <th key={column.key} data-align={column.align ?? "left"}>{column.label}</th>)}</tr></thead>
         <tbody>
           {rows.map((row) => (
             <tr
@@ -69,7 +75,7 @@ export function AdminTable<Row extends { id: string }>({
               } : undefined}
               tabIndex={onRowClick ? 0 : undefined}
             >
-              {columns.map((column) => <td key={column.key}>{column.render(row)}</td>)}
+              {columns.map((column) => <td key={column.key} data-align={column.align ?? "left"}>{column.render(row)}</td>)}
             </tr>
           ))}
         </tbody>

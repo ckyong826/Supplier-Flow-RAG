@@ -2,11 +2,17 @@
 
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AdminPortal } from "./AdminPortal";
+import { canViewPublic } from "./lib/demoTier";
 import { money } from "./lib/format";
 import { officialProducts } from "./lib/officialCatalogue";
+import { useDemoTier } from "./lib/useDemoTier";
 import { SiteFooter, SiteHeader, type PublicView } from "./components/SiteChrome";
 
 type View = PublicView | "admin";
+type AdminRole = "owner" | "admin" | "manager" | "sales" | "operations";
+function normalizeAdminRole(value: unknown): AdminRole {
+  return ["owner", "admin", "manager", "sales", "operations"].includes(String(value)) ? value as AdminRole : "admin";
+}
 type Product = {
   id: string;
   name: string;
@@ -15,13 +21,15 @@ type Product = {
   summary: string;
   specs: string[];
   availability: string;
+  stockQuantity?: number | null;
   imageClass: string;
   imageUrl?: string | null;
   datasheetPath?: string | null;
   price: number;
 };
 type CartItem = { productId: string; quantity: number };
-type AiMessage = { role: "user" | "assistant"; content: string; matches?: Product[]; track?: boolean };
+type AiSource = { title: string; sourceType: string };
+type AiMessage = { role: "user" | "assistant"; content: string; matches?: Product[]; sources?: AiSource[]; track?: boolean };
 type ChatSession = { id: string; title: string; createdAt: string };
 function priceLabel(price: number) { return price > 0 ? `From ${money(price)}` : "Price on request"; }
 function ChatText({ content }: { content: string }) {
@@ -31,95 +39,6 @@ function ChatText({ content }: { content: string }) {
   })}</>;
 }
 
-const demoRows = [
-  [
-    "32A Outdoor Industrial Socket",
-    "PKF32M435",
-    "Wiring devices",
-    "Weatherproof socket for demanding commercial installations.",
-    "32A|415V|IP67|3P+E",
-    "In stock",
-    "socket",
-    86,
-  ],
-  [
-    "20A Type C MCB",
-    "MCB20-C",
-    "Protection",
-    "Reliable circuit protection for lighting and power circuits.",
-    "20A|Type C|6kA|1P",
-    "In stock",
-    "breaker",
-    18,
-  ],
-  [
-    "24W LED Panel Light",
-    "LGT-LED-24",
-    "Lighting",
-    "Low-profile panel delivering even workplace light.",
-    "2400 lm|6500K|600 × 600|3-year",
-    "Low stock",
-    "panel",
-    64,
-  ],
-  [
-    "2.5mm² Twin & Earth Cable",
-    "CAB-2.5-TWE",
-    "Cables",
-    "General-purpose fixed wiring cable for commercial installs.",
-    "Copper|100m coil|450/750V|BS 6004",
-    "In stock",
-    "cable",
-    152,
-  ],
-  [
-    "20mm PVC Conduit",
-    "CON-20-PVC",
-    "Containment",
-    "Rigid heavy-gauge conduit for neat cable routes.",
-    "20mm|3m length|PVC|Heavy gauge",
-    "Pre-order",
-    "conduit",
-    8.5,
-  ],
-  [
-    "8 Way SPN Distribution Board",
-    "DB-8WAY-SPN",
-    "Distribution",
-    "Compact single-phase board ready for MCB configurations.",
-    "8 ways|Single phase|Steel|Surface",
-    "In stock",
-    "board",
-    238,
-  ],
-  [
-    "IP65 Junction Box",
-    "JBOX-IP65",
-    "Accessories",
-    "Weatherproof enclosure for protected terminations.",
-    "IP65|ABS|150mm|Grey",
-    "In stock",
-    "accessory",
-    16,
-  ],
-] as const;
-const demoProducts: Product[] = demoRows.map(
-  (
-    [name, sku, category, summary, specs, availability, imageClass, price],
-    index,
-  ) => ({
-    id: `demo-${index + 1}`,
-    name,
-    sku,
-    category,
-    summary,
-    specs: specs.split("|"),
-    availability,
-    imageClass,
-    price,
-  }),
-);
-
 type CatalogueApiProduct = {
   id: string;
   name: string;
@@ -128,6 +47,7 @@ type CatalogueApiProduct = {
   summary: string;
   specifications: string[];
   availability: string;
+  stock_quantity?: number | null;
   image_type: string;
   image_url?: string | null;
   datasheet_path?: string | null;
@@ -142,11 +62,14 @@ function mapCatalogueProduct(product: CatalogueApiProduct): Product {
     category: product.category,
     summary: product.summary,
     specs: product.specifications,
-    availability: product.availability,
+    availability: product.stock_quantity !== null && product.stock_quantity !== undefined
+      ? product.stock_quantity > 0 ? `${product.availability} · ${product.stock_quantity} available` : "Out of stock"
+      : product.availability,
     imageClass: product.image_type,
     imageUrl: product.image_url,
     datasheetPath: product.datasheet_path,
     price: Number(product.price),
+    stockQuantity: product.stock_quantity,
   };
 }
 
@@ -172,11 +95,15 @@ function ProductImage({
 }
 
 export default function Home() {
+  const demoTier = useDemoTier();
   const [view, setView] = useState<View>("catalog");
+  const [logoUrl, setLogoUrl] = useState<string | null>(null);
+  const [companyName, setCompanyName] = useState("SupplierFlow");
   const [products, setProducts] = useState<Product[]>(officialProducts.map(mapCatalogueProduct));
-  const [catalogueReady, setCatalogueReady] = useState(true);
+  const [catalogueReady, setCatalogueReady] = useState(false);
   const [catalogueHasMore, setCatalogueHasMore] = useState(true);
   const [catalogueLoading, setCatalogueLoading] = useState(false);
+  const [catalogueError, setCatalogueError] = useState("");
   const [homeChatQuestion, setHomeChatQuestion] = useState("");
   const catalogueLoadingRef = useRef(false);
   const catalogueOffsetRef = useRef(0);
@@ -204,6 +131,7 @@ export default function Home() {
     quotation: null,
   });
   const [adminToken, setAdminToken] = useState("");
+  const [adminRole, setAdminRole] = useState<AdminRole>("admin");
   const [adminEmail, setAdminEmail] = useState("");
   const [adminPassword, setAdminPassword] = useState("");
   const [adminError, setAdminError] = useState("");
@@ -215,6 +143,8 @@ export default function Home() {
   ]);
   const [chatSessions, setChatSessions] = useState<ChatSession[]>([]);
   const [activeChatId, setActiveChatId] = useState("");
+  const [chatLoading, setChatLoading] = useState(true);
+  const chatOperationRef = useRef(0);
   const [askingAi, setAskingAi] = useState(false);
   const [rfqStep, setRfqStep] = useState<"items" | "details" | "confirm">("items");
 
@@ -230,19 +160,24 @@ export default function Home() {
     if (catalogueLoadingRef.current) return;
     catalogueLoadingRef.current = true;
     setCatalogueLoading(true);
+    if (replace) setCatalogueError("");
     try {
       const response = await fetch(`/api/catalog?limit=20&offset=${offset}`);
       if (!response.ok) throw new Error("Catalogue unavailable");
       const data = await response.json() as { products?: CatalogueApiProduct[]; hasMore?: boolean };
       const page = (data.products || []).map(mapCatalogueProduct);
-      if (page.length) {
-        setProducts((current) => replace ? page : [...current, ...page]);
-        catalogueOffsetRef.current = offset + page.length;
-      }
+      setProducts((current) => replace ? page : [...current, ...page]);
+      catalogueOffsetRef.current = offset + page.length;
       setCatalogueHasMore(Boolean(data.hasMore));
       setCatalogueReady(true);
+      if (replace && !page.length) setCatalogueError("No active products are available. Seed the product catalogue from Admin desk before testing RFQ.");
     } catch {
-      if (replace) setCatalogueHasMore(false);
+      if (replace) {
+        setProducts([]);
+        setCatalogueHasMore(false);
+        setCatalogueReady(false);
+        setCatalogueError("The catalogue could not be loaded. Check the database connection and try again.");
+      }
     } finally {
       catalogueLoadingRef.current = false;
       setCatalogueLoading(false);
@@ -250,9 +185,23 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    void loadCatalogue(0, true);
-    setAdminToken(sessionStorage.getItem("supplierflow-admin-token") || "");
+    const timer = window.setTimeout(() => {
+      void loadCatalogue(0, true);
+      setAdminToken(sessionStorage.getItem("supplierflow-admin-token") || "");
+      setAdminRole(normalizeAdminRole(sessionStorage.getItem("supplierflow-admin-role")));
+    }, 0);
+    return () => window.clearTimeout(timer);
   }, [loadCatalogue]);
+  useEffect(() => {
+    if (view === "admin") return;
+    void fetch("/api/settings", { cache: "no-store" })
+      .then((response) => response.ok ? response.json() as Promise<{ settings?: { companyName?: string; logoUrl?: string | null } }> : null)
+      .then((data) => {
+        setCompanyName(data?.settings?.companyName || "SupplierFlow");
+        setLogoUrl(data?.settings?.logoUrl || null);
+      })
+      .catch(() => undefined);
+  }, [view]);
   useEffect(() => {
     const sentinel = catalogueSentinelRef.current;
     if (view !== "catalog" || !sentinel || !catalogueHasMore) return;
@@ -270,20 +219,38 @@ export default function Home() {
     document.addEventListener("keydown", closeOnEscape);
     return () => document.removeEventListener("keydown", closeOnEscape);
   }, [selectedProduct]);
-  async function loadChatSessions() {
+  async function loadChatSessions(operation = chatOperationRef.current) {
     const response = await fetch("/api/ai-chat/session");
     const data = response.ok ? await response.json() : null;
-    if (!data) return;
+    if (!data || operation !== chatOperationRef.current) return;
     setChatSessions(data.sessions || []);
     setActiveChatId(data.currentId || "");
   }
-  async function loadChatHistory() {
+  async function loadChatHistory(operation = chatOperationRef.current) {
     const response = await fetch("/api/ai-chat/history");
     const data = response.ok ? await response.json() : null;
+    if (operation !== chatOperationRef.current) return;
     if (data?.messages?.length) setAiMessages(data.messages);
     else setAiMessages([{ role: "assistant", content: "Hi, I am SupplyAI. What can I help you source today?" }]);
   }
-  useEffect(() => { void Promise.all([loadChatSessions(), loadChatHistory()]); }, []);
+  useEffect(() => {
+    let mounted = true;
+    const operation = chatOperationRef.current;
+    const timer = window.setTimeout(() => {
+      if (!mounted) return;
+      setChatLoading(true);
+      void Promise.all([loadChatSessions(operation), loadChatHistory(operation)]).finally(() => {
+        if (mounted && operation === chatOperationRef.current) setChatLoading(false);
+      });
+    }, 0);
+    return () => { mounted = false; window.clearTimeout(timer); };
+  }, []);
+  useEffect(() => {
+    if (!chatLoading) {
+      const messages = document.querySelector<HTMLDivElement>(".customer-chat-messages");
+      messages?.scrollTo({ top: messages.scrollHeight, behavior: askingAi ? "smooth" : "auto" });
+    }
+  }, [aiMessages.length, askingAi, chatLoading, view]);
   const categories = [
     "All products",
     ...Array.from(new Set(products.map((product) => product.category))),
@@ -304,9 +271,11 @@ export default function Home() {
     return product ? [{ product, quantity: item.quantity }] : [];
   });
   const buyerDetailsComplete = Boolean(customer.name.trim() && customer.company.trim() && customer.email.trim());
-  function openSupplyAi(question = "") {
-    setAiQuestion(question);
+  async function openSupplyAi(question = "") {
+    const initialQuestion = question.trim();
+    setHomeChatQuestion("");
     setView("ai");
+    if (initialQuestion) await newChat(initialQuestion);
   }
   function add(productId: string, quantity = 1, replace = false) {
     const product = products.find((item) => item.id === productId);
@@ -380,6 +349,11 @@ export default function Home() {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Sign-in failed.");
       sessionStorage.setItem("supplierflow-admin-token", data.accessToken);
+      // Kept so the portal can renew the hour-long access token without a re-login.
+      if (data.refreshToken) sessionStorage.setItem("supplierflow-admin-refresh", data.refreshToken);
+      const role = normalizeAdminRole(data.role);
+      sessionStorage.setItem("supplierflow-admin-role", role);
+      setAdminRole(role);
       setAdminToken(data.accessToken);
       setAdminPassword("");
       showToast("Signed in.");
@@ -433,11 +407,55 @@ export default function Home() {
     event.preventDefault(); if (!aiQuestion.trim() || askingAi) return;
     const question = aiQuestion.trim(); const history = aiMessages.map(({ role, content }) => ({ role, content }));
     setAiQuestion(""); setAiMessages((current) => [...current, { role: "user", content: question }]); setAskingAi(true);
-    try { const response = await fetch("/api/ai-chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: question, history, customer }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error); const nextCustomer = { ...customer, ...data.customer }; if (data.customer) setCustomer(nextCustomer); const cartActions = data.cartActions || (data.cartAction ? [data.cartAction] : []); for (const cartAction of cartActions) add(cartAction.productId, cartAction.quantity, true); setAiMessages((current) => [...current, { role: "assistant", content: data.answer, matches: data.matches || [], track: data.action === "TRACK_RFQ" }, ...(cartActions.length && !(nextCustomer.name.trim() && nextCustomer.company.trim() && nextCustomer.email.trim()) ? [{ role: "assistant" as const, content: "To complete your RFQ, reply once with your full name, company name, and work email. You can add an optional project note too." }] : [])]); void loadChatSessions(); if (data.action === "TRACK_RFQ") { const reference = question.match(/\bRFQ-\d{4}-[A-Z0-9-]+\b/i)?.[0] || ""; setTrack((current) => ({ ...current, reference: reference || current.reference, email: data.customer?.email || current.email || customer.email, error: "", quotation: null })); } } catch (error) { const message = error instanceof Error ? error.message : "SupplyAI could not answer."; setAiMessages((current) => [...current, { role: "assistant", content: "Sorry, I could not check that right now. Please try again or submit an RFQ for the supplier team." }]); showToast(message); } finally { setAskingAi(false); }
+    try { const response = await fetch("/api/ai-chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: question, history, customer }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error); const nextCustomer = { ...customer, ...data.customer }; if (data.customer) setCustomer(nextCustomer); const cartActions = data.cartActions || (data.cartAction ? [data.cartAction] : []); for (const cartAction of cartActions) add(cartAction.productId, cartAction.quantity, true); setAiMessages((current) => [...current, { role: "assistant", content: data.answer, matches: data.matches || [], sources: data.sources || [], track: data.action === "TRACK_RFQ" }, ...(cartActions.length && !(nextCustomer.name.trim() && nextCustomer.company.trim() && nextCustomer.email.trim()) ? [{ role: "assistant" as const, content: "To complete your RFQ, reply once with your full name, company name, and work email. You can add an optional project note too." }] : [])]); void loadChatSessions(); if (data.action === "TRACK_RFQ") { const reference = question.match(/\bRFQ-\d{4}-[A-Z0-9-]+\b/i)?.[0] || ""; setTrack((current) => ({ ...current, reference: reference || current.reference, email: data.customer?.email || current.email || customer.email, error: "", quotation: null })); } } catch (error) { const message = error instanceof Error ? error.message : "SupplyAI could not answer."; setAiMessages((current) => [...current, { role: "assistant", content: "Sorry, I could not check that right now. Please try again or submit an RFQ for the supplier team." }]); showToast(message); } finally { setAskingAi(false); }
   }
-  async function newChat() { const response = await fetch("/api/ai-chat/session", { method: "POST" }); const data = response.ok ? await response.json() : null; if (!data) return showToast("A new chat could not be started."); setActiveChatId(data.id); setChatSessions((current) => [{ id: data.id, title: "New conversation", createdAt: new Date().toISOString() }, ...current]); setAiMessages([{ role: "assistant", content: "Hi, I am SupplyAI. What can I help you source today?" }]); setAiQuestion(""); showToast("New chat started."); }
-  async function selectChat(id: string) { if (id === activeChatId) return; const response = await fetch("/api/ai-chat/session", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }) }); if (!response.ok) return showToast("Conversation could not be opened."); setActiveChatId(id); await loadChatHistory(); }
-  async function clearChat() { const response = await fetch("/api/ai-chat/session", { method: "DELETE" }); if (!response.ok) return showToast("Chat could not be cleared."); setAiMessages([{ role: "assistant", content: "Chat cleared. What can I help you with?" }]); setChatSessions((current) => current.map((session) => session.id === activeChatId ? { ...session, title: "New conversation" } : session)); setAiQuestion(""); showToast("Chat cleared."); }
+  async function newChat(initialQuestion = "") {
+    const operation = ++chatOperationRef.current;
+    setChatLoading(true);
+    setAiQuestion(initialQuestion);
+    try {
+      const response = await fetch("/api/ai-chat/session", { method: "POST" });
+      const data = response.ok ? await response.json() : null;
+      if (!data) return showToast("A new chat could not be started.");
+      setActiveChatId(data.id);
+      setChatSessions((current) => [{ id: data.id, title: "New conversation", createdAt: new Date().toISOString() }, ...current]);
+      setAiMessages([{ role: "assistant", content: "Hi, I am SupplyAI. What can I help you source today?" }]);
+      showToast("New chat started.");
+    } finally {
+      if (operation === chatOperationRef.current) setChatLoading(false);
+    }
+  }
+  async function selectChat(id: string) {
+    if (id === activeChatId || chatLoading) return;
+    const operation = ++chatOperationRef.current;
+    setChatLoading(true);
+    try {
+      const response = await fetch("/api/ai-chat/session", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }) });
+      if (!response.ok) throw new Error("Conversation could not be opened.");
+      setActiveChatId(id);
+      await loadChatHistory(operation);
+    } catch (error) {
+      showToast(error instanceof Error ? error.message : "Conversation could not be opened.");
+    } finally {
+      if (operation === chatOperationRef.current) setChatLoading(false);
+    }
+  }
+  async function clearChat() {
+    const operation = ++chatOperationRef.current;
+    setChatLoading(true);
+    try {
+      const response = await fetch("/api/ai-chat/session", { method: "DELETE" });
+      if (!response.ok) throw new Error("Chat could not be cleared.");
+      setAiMessages([{ role: "assistant", content: "Chat cleared. What can I help you with?" }]);
+      setChatSessions((current) => current.map((session) => session.id === activeChatId ? { ...session, title: "New conversation" } : session));
+      setAiQuestion("");
+      showToast("Chat cleared.");
+    } catch (error) {
+      showToast(error instanceof Error ? error.message : "Chat could not be cleared.");
+    } finally {
+      if (operation === chatOperationRef.current) setChatLoading(false);
+    }
+  }
   function updateChatCart(productId: string, quantity: number) {
     setCart((current) => current.map((item) => item.productId === productId ? { ...item, quantity: Math.max(1, quantity || 1) } : item));
   }
@@ -466,7 +484,10 @@ export default function Home() {
         <SiteHeader
           view={view}
           cartCount={cart.reduce((sum, item) => sum + item.quantity, 0)}
-          onView={setView}
+          demoTier={demoTier}
+          logoUrl={logoUrl}
+          companyName={companyName}
+          onView={(nextView) => { if (canViewPublic(demoTier, nextView)) setView(nextView); }}
           onAdmin={() => setView("admin")}
         />
       )}
@@ -538,7 +559,12 @@ export default function Home() {
             </div>
           </form>
           <div className="catalog-grid">
-            {visible.length ? visible.map((product) => (
+            {catalogueError ? (
+              <div className="catalog-empty" role="alert">
+                <strong>Catalogue unavailable.</strong>
+                <p>{catalogueError}</p>
+              </div>
+            ) : visible.length ? visible.map((product) => (
               <article className="product-card" key={product.id}>
                 <button
                   className="product-preview"
@@ -811,10 +837,11 @@ export default function Home() {
           )}
         </section>
       )}
-      {view === "ai" && (
+      {view === "ai" && canViewPublic(demoTier, "ai") && (
         <section className="public-ai-page">
+          {chatLoading && <div className="chat-loading-overlay" role="status" aria-label="Loading conversation"><div className="chat-loading-card"><span /><span /><span /></div></div>}
           <div className="public-ai-heading"><div><p className="kicker">SupplyAI / customer support</p><h1>Source smarter. <em>Request faster.</em></h1><p>Ask naturally. SupplyAI finds products, builds your RFQ and helps you track it afterwards.</p></div><div className="ai-capabilities"><span>Product matching</span><span>RFQ assistant</span><span>Status tracking</span></div></div>
-          <aside className="chat-session-sidebar"><button className="new-chat-button" onClick={newChat}>＋ New chat</button><div className="chat-session-label">Conversations</div>{chatSessions.length ? chatSessions.map((session) => <button className={`current-chat ${session.id === activeChatId ? "active" : ""}`} key={session.id} onClick={() => void selectChat(session.id)}><span>{session.id === activeChatId ? "●" : "○"}</span><div><strong>{session.title}</strong><small>{session.id === activeChatId ? "Current conversation" : "Open conversation"}</small></div></button>) : <p>Start a new conversation to keep it here.</p>}<p>New chats keep your earlier conversations available.</p></aside><div className="customer-chat"><div className="customer-chat-header"><span className="ai-avatar">S</span><div><strong>SupplyAI</strong><small>Customer support · Online</small></div><span className="chat-header-actions"><button onClick={clearChat}>Clear chat</button></span></div><div className="customer-chat-messages" aria-live="polite">{aiMessages.map((message, index) => <div className={`chat-message ${message.role}`} key={`${message.role}-${index}`}><p><ChatText content={message.content} /></p>{message.matches?.map((product) => <article className={`chat-product ${product.imageUrl ? "has-image" : "no-image"}`} key={product.id}>{product.imageUrl && <img src={product.imageUrl} alt="" onError={(event) => event.currentTarget.parentElement?.classList.add("no-image")} />}<div><strong>{product.name}</strong><small>{product.sku} · {product.availability}</small><b>From {money(product.price)}</b></div><button className="outline-button" onClick={() => add(product.id)}>Add to RFQ</button></article>)}{message.track && <form className="chat-track-card" onSubmit={trackRfq}><strong>Track an RFQ</strong><label>RFQ reference<input required value={track.reference} onChange={(event) => setTrack((current) => ({ ...current, reference: event.target.value }))} placeholder="RFQ-2026-0001" /></label><label>Work email<input required type="email" value={track.email} onChange={(event) => setTrack((current) => ({ ...current, email: event.target.value }))} placeholder="you@company.com" /></label><button className="primary-button" disabled={track.loading}>{track.loading ? "Checking..." : "Check status"}</button>{track.error && <small className="form-error">{track.error}</small>}{track.status && <div className="chat-track-status"><span>{track.reference}</span><strong className={`track-status ${track.status.toLowerCase()}`}>{track.status}</strong><p>{track.status === "NEW" ? "Received — the quote desk will review your request." : track.status === "REVIEWING" ? "Reviewing — availability and pricing are being checked." : track.status === "QUOTED" ? "Quoted — your quotation is ready." : track.status === "WON" ? "Accepted — fulfilment will follow." : "This RFQ is closed."}</p></div>}</form>}</div>)}{askingAi && <div className="chat-message assistant typing"><span></span><span></span><span></span></div>}</div><div className="chat-suggestions"><button onClick={() => setAiQuestion("I need an outdoor waterproof industrial socket.")}>Find a product</button><button onClick={() => setAiQuestion("I want to request a quote.")}>Create RFQ</button><button onClick={() => setAiQuestion("Track my RFQ status.")}>Track RFQ</button></div><form className="customer-chat-form" onSubmit={sendChat}><input required value={aiQuestion} onChange={(e) => setAiQuestion(e.target.value)} placeholder="Message SupplyAI..." /><button className="primary-button" disabled={askingAi}>{askingAi ? "Replying..." : "Send"}</button></form></div>
+          <aside className="chat-session-sidebar"><button className="new-chat-button" onClick={() => void newChat()}>＋ New chat</button><div className="chat-session-label">Conversations</div>{chatSessions.length ? chatSessions.map((session) => <button className={`current-chat ${session.id === activeChatId ? "active" : ""}`} key={session.id} onClick={() => void selectChat(session.id)}><span>{session.id === activeChatId ? "●" : "○"}</span><div><strong>{session.title}</strong><small>{session.id === activeChatId ? "Current conversation" : "Open conversation"}</small></div></button>) : <p>Start a new conversation to keep it here.</p>}<p>New chats keep your earlier conversations available.</p></aside><div className="customer-chat"><div className="customer-chat-header"><span className="ai-avatar">S</span><div><strong>SupplyAI</strong><small>Customer support · Online</small></div><span className="chat-header-actions"><button onClick={clearChat}>Clear chat</button></span></div><div className="customer-chat-messages" aria-live="polite">{aiMessages.map((message, index) => <div className={`chat-message ${message.role}`} key={`${message.role}-${index}`}><p><ChatText content={message.content} /></p>{message.matches?.map((product) => <article className={`chat-product ${product.imageUrl ? "has-image" : "no-image"}`} key={product.id}>{product.imageUrl && <img src={product.imageUrl} alt="" onError={(event) => event.currentTarget.parentElement?.classList.add("no-image")} />}<div><strong>{product.name}</strong><small>{product.sku} · {product.availability}</small><b>From {money(product.price)}</b></div><button className="outline-button" onClick={() => add(product.id)}>Add to RFQ</button></article>)}{message.track && <form className="chat-track-card" onSubmit={trackRfq}><strong>Track an RFQ</strong><label>RFQ reference<input required value={track.reference} onChange={(event) => setTrack((current) => ({ ...current, reference: event.target.value }))} placeholder="RFQ-2026-0001" /></label><label>Work email<input required type="email" value={track.email} onChange={(event) => setTrack((current) => ({ ...current, email: event.target.value }))} placeholder="you@company.com" /></label><button className="primary-button" disabled={track.loading}>{track.loading ? "Checking..." : "Check status"}</button>{track.error && <small className="form-error">{track.error}</small>}{track.status && <div className="chat-track-status"><span>{track.reference}</span><strong className={`track-status ${track.status.toLowerCase()}`}>{track.status}</strong><p>{track.status === "NEW" ? "Received — the quote desk will review your request." : track.status === "REVIEWING" ? "Reviewing — availability and pricing are being checked." : track.status === "QUOTED" ? "Quoted — your quotation is ready." : track.status === "WON" ? "Accepted — fulfilment will follow." : "This RFQ is closed."}</p></div>}</form>}</div>)}{askingAi && <div className="chat-message assistant typing"><span></span><span></span><span></span></div>}</div><div className="chat-suggestions"><button onClick={() => setAiQuestion("I need an outdoor waterproof industrial socket.")}>Find a product</button><button onClick={() => setAiQuestion("I want to request a quote.")}>Create RFQ</button><button onClick={() => setAiQuestion("Track my RFQ status.")}>Track RFQ</button></div><form className="customer-chat-form" onSubmit={sendChat}><input required value={aiQuestion} onChange={(e) => setAiQuestion(e.target.value)} placeholder="Message SupplyAI..." /><button className="primary-button" disabled={askingAi}>{askingAi ? "Replying..." : "Send"}</button></form></div>
           <aside className="chat-rfq-cart"><div className="rfq-summary-head"><div><span className="track-label">LIVE RFQ</span><h2>Your quote request</h2></div><b>{cartProducts.reduce((sum, item) => sum + item.quantity, 0)} pcs</b></div><p className="rfq-summary-copy">SupplyAI fills items and buyer details from your conversation.</p><div className="rfq-progress" role="tablist"><button className={rfqStep === "items" ? "current" : cartProducts.length ? "done" : ""} onClick={() => setRfqStep("items")}>1 <i>Items</i></button><button className={rfqStep === "details" ? "current" : buyerDetailsComplete ? "done" : ""} disabled={!cartProducts.length} onClick={() => setRfqStep("details")}>2 <i>Details</i></button><button className={rfqStep === "confirm" ? "current" : ""} disabled={!cartProducts.length || !buyerDetailsComplete} onClick={() => setRfqStep("confirm")}>3 <i>Confirm</i></button></div>{rfqStep === "items" && <div className="rfq-stage"><div className="rfq-stage-head"><strong>Products</strong><span>Review quantities before continuing.</span></div>{cartProducts.length ? <div className="chat-cart-items">{cartProducts.map(({ product, quantity }) => <article className={product.imageUrl ? "has-image" : "no-image"} key={product.id}>{product.imageUrl && <img src={product.imageUrl} alt="" onError={(event) => event.currentTarget.parentElement?.classList.add("no-image")} />}<div><strong>{product.name}</strong><small>{product.sku} · {quantity} pcs</small><b>{money(product.price * quantity)}</b><div className="chat-cart-item-actions"><label>Qty <input aria-label={`${product.name} quantity`} type="number" min="1" value={quantity} onChange={(event) => updateChatCart(product.id, event.currentTarget.valueAsNumber)} /></label><button type="button" aria-label={`Remove ${product.name}`} onClick={() => removeChatCart(product.id)}>Remove</button></div></div></article>)}</div> : <div className="chat-cart-empty"><strong>Your RFQ is empty</strong><span>Tell SupplyAI what you need, for example: “Add 50 outdoor sockets.”</span></div>}<button className="primary-button" disabled={!cartProducts.length} onClick={() => setRfqStep("details")}>Continue to details</button></div>}{rfqStep === "details" && <div className="rfq-stage"><div className="rfq-stage-head"><strong>Buyer details</strong><span>SupplyAI auto-fills these. Otherwise reply once with all details in chat.</span></div><div className="chat-rfq-form"><label>Name<input value={customer.name} onChange={(event) => setCustomer((current) => ({ ...current, name: event.target.value }))} autoComplete="name" /></label><label>Company<input value={customer.company} onChange={(event) => setCustomer((current) => ({ ...current, company: event.target.value }))} autoComplete="organization" /></label><label>Work email<input type="email" value={customer.email} onChange={(event) => setCustomer((current) => ({ ...current, email: event.target.value }))} autoComplete="email" /></label><label>Project note <small>(optional)</small><textarea rows={2} value={customer.note} onChange={(event) => setCustomer((current) => ({ ...current, note: event.target.value }))} placeholder="Site, deadline, or alternatives" /></label></div><button className="primary-button" disabled={!buyerDetailsComplete} onClick={() => setRfqStep("confirm")}>Review RFQ</button></div>}{rfqStep === "confirm" && <div className="rfq-stage chat-confirm"><strong>Ready to send this RFQ?</strong><p>{cartProducts.length} item{cartProducts.length === 1 ? "" : "s"} will be sent to the quote desk.</p><div className="chat-buyer-summary"><span>{customer.name}</span><strong>{customer.company}</strong><small>{customer.email}</small></div><div><button className="outline-button" onClick={() => setRfqStep("details")}>Back</button><button className="primary-button" disabled={saving} onClick={() => void submitChatRfq()}>Confirm and send</button></div></div>}</aside>
         </section>
       )}
@@ -946,7 +973,7 @@ export default function Home() {
           <form className="admin-login-card" onSubmit={login}>
             <p className="kicker">SupplierFlow / Secure access</p>
             <h2>Admin sign in</h2>
-            <p>Use the Supabase Auth account assigned the admin role.</p>
+            <p>Use a Supabase Auth account assigned a SupplierFlow staff role.</p>
             <label>
               Work email
               <input
@@ -982,9 +1009,14 @@ export default function Home() {
       {view === "admin" && adminToken && (
         <AdminPortal
           token={adminToken}
+          role={adminRole}
+          demoTier={demoTier}
           notify={showToast}
           onSignOut={() => {
             sessionStorage.removeItem("supplierflow-admin-token");
+            sessionStorage.removeItem("supplierflow-admin-refresh");
+            sessionStorage.removeItem("supplierflow-admin-role");
+            setAdminRole("admin");
             setAdminToken("");
             setView("catalog");
             showToast("Signed out.");
@@ -992,7 +1024,7 @@ export default function Home() {
         />
       )}
       {view !== "admin" && (
-        <SiteFooter onAdmin={() => setView("admin")} />
+        <SiteFooter logoUrl={logoUrl} companyName={companyName} onAdmin={() => setView("admin")} />
       )}
     </main>
   );

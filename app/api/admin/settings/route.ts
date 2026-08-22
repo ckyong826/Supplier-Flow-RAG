@@ -9,6 +9,12 @@ export async function PUT(request: Request) {
     await requireAdmin(request);
     const body = await request.json();
     if (!body.company_name?.trim()) return Response.json({ error: "Company name is required." }, { status: 400 });
+    const webhook = body.rfq_webhook_url?.trim() || null;
+    if (webhook) {
+      let url: URL;
+      try { url = new URL(webhook); } catch { return Response.json({ error: "RFQ webhook URL is invalid." }, { status: 400 }); }
+      if (!["http:", "https:"].includes(url.protocol) || (process.env.NODE_ENV === "production" && url.protocol !== "https:")) return Response.json({ error: "RFQ webhook must use HTTPS in production." }, { status: 400 });
+    }
     const response = await supabase("supplier_settings?on_conflict=id", { method: "POST", headers: { Prefer: "resolution=merge-duplicates,return=representation" }, body: JSON.stringify({ id: true, ...body, updated_at: new Date().toISOString() }) });
     return Response.json({ settings: (await response.json())[0] });
   } catch (error) { return errorResponse(error); }

@@ -21,11 +21,16 @@ function escapeRegex(text) {
 }
 
 // True when `needle` occurs in `haystack` as a whole token sequence.
+// A needle may list alternatives separated by "|" - any one of them matching is a pass.
+// Use this for facts a correct answer could word several ways ("photographs" / "photos"),
+// never to paper over a genuinely wrong value.
 export function contains(haystack, needle) {
-  const target = normalise(needle);
-  if (!target) return false;
-  const pattern = new RegExp(`(?<![a-z0-9])${escapeRegex(target)}(?![a-z0-9])`, "i");
-  return pattern.test(normalise(haystack));
+  const hay = normalise(haystack);
+  return String(needle)
+    .split("|")
+    .map((alternative) => normalise(alternative))
+    .filter(Boolean)
+    .some((target) => new RegExp(`(?<![a-z0-9])${escapeRegex(target)}(?![a-z0-9])`, "i").test(hay));
 }
 
 export function matchesAny(text, patterns = []) {
