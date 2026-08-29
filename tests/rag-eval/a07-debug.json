@@ -1,0 +1,1470 @@
+{
+  "topK": 5,
+  "minSimilarity": 0.35,
+  "modes": [
+    "keyword"
+  ],
+  "ranAt": "2026-08-29T17:35:12.520Z",
+  "byMode": {
+    "keyword": [
+      {
+        "id": "D01",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D02",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D04",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D07",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D08",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D09",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D10",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D11",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D14",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D15",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D17",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D18",
+        "category": "direct_lookup",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D19",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D21",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D23",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D25",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D26",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D27",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D28",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D29",
+        "category": "direct_lookup",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P01",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P02",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P03",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P04",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P05",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 3,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P06",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P07",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P08",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P09",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P10",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A01",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A02",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A03",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A04",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A05",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A06",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A07",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A08",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A09",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A10",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N01",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N02",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N03",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N04",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N05",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N06",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N07",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N08",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N09",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "How to order?",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N10",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      }
+    ]
+  }
+}

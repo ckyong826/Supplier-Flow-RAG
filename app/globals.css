@@ -1507,26 +1507,110 @@ textarea:focus-visible {
     monospace;
 }
 .app-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 19px max(24px, calc((100vw - 1240px) / 2));
+  display: grid;
+  gap: 26px;
+  padding: 40px max(24px, calc((100vw - 1240px) / 2)) 22px;
   border-top: 1px solid #1e293b;
   background: #111827;
   color: #94a3b8;
   font:
-    10px "Roboto Mono",
+    11px "Roboto Mono",
     monospace;
 }
-.app-footer span:first-child {
-  color: #fff;
-  font-weight: 500;
+.app-footer-top {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(0, 1.6fr);
+  gap: 40px;
 }
-.app-footer button {
+.app-footer-brand {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  max-width: 360px;
+}
+.app-footer-mark {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.app-footer-brand p {
+  margin: 0;
+  line-height: 1.7;
+}
+.app-footer-cta {
+  justify-self: start;
+  padding: 0 0 3px;
+  border: 0;
+  border-bottom: 1px solid #3b82f6;
+  background: none;
+  color: #bfdbfe;
+  font: inherit;
+  cursor: pointer;
+}
+.app-footer-cta:hover {
+  color: #fff;
+}
+.app-footer-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+.app-footer-nav h3 {
+  margin: 0 0 12px;
+  color: #e2e8f0;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.app-footer-nav ul {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.app-footer-nav button {
+  padding: 0;
   border: 0;
   background: none;
   color: #bfdbfe;
   font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.app-footer-nav button:hover {
+  color: #fff;
+}
+.app-footer-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  padding-top: 18px;
+  border-top: 1px solid #1e293b;
+  font-size: 10px;
+}
+.app-footer-copy {
+  color: #fff;
+  font-weight: 500;
+}
+.app-footer-legal {
+  flex: 1 1 240px;
+  min-width: 0;
+}
+@media (max-width: 900px) {
+  .app-footer-top {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+@media (max-width: 560px) {
+  .app-footer-nav {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
 }
 @media (max-width: 850px) {
   .topbar {
@@ -1678,13 +1762,6 @@ textarea:focus-visible {
   .quote-actions .draft-saved {
     width: 100%;
     margin-bottom: 5px;
-  }
-  .app-footer {
-    display: block;
-    line-height: 2;
-  }
-  .app-footer button {
-    float: right;
   }
 }
 .admin-login-overlay {
@@ -6371,5 +6448,834 @@ textarea::placeholder {
   .admin-toolbar-actions .admin-search {
     min-width: 0;
     flex: 1 1 220px;
+  }
+}
+
+/* Agentic chat response: compact progress is user-facing work status, not hidden reasoning. */
+.chat-message.agentic-assistant {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  width: min(92%, 720px);
+}
+
+.chat-message.agentic-assistant > p {
+  margin: 0;
+}
+
+.chat-message.agentic-activity {
+  display: grid !important;
+  width: min(92%, 720px);
+  min-height: 0;
+  padding: 12px 14px !important;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px 14px 14px 4px !important;
+  background: #ffffff;
+}
+
+.agent-workflow {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+}
+
+.agent-workflow-trigger {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.agent-workflow-trigger:hover {
+  color: #1e293b;
+}
+
+.agent-workflow-trigger:active {
+  transform: translateY(1px);
+}
+
+.agent-workflow-chevron {
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1;
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.agent-workflow-chevron.open {
+  transform: rotate(180deg);
+  color: #4f46e5;
+}
+
+.agent-pixel-loader {
+  display: grid;
+  flex: 0 0 auto;
+  grid-template-columns: repeat(3, 3px);
+  gap: 2px;
+  width: 13px;
+  height: 13px;
+  place-content: center;
+}
+
+.agent-pixel-loader i {
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #4f46e5;
+  opacity: 0.25;
+}
+
+.agent-pixel-loader i:nth-child(1),
+.agent-pixel-loader i:nth-child(5),
+.agent-pixel-loader i:nth-child(9) {
+  animation-delay: 120ms;
+}
+
+.agent-pixel-loader i:nth-child(2),
+.agent-pixel-loader i:nth-child(4),
+.agent-pixel-loader i:nth-child(6),
+.agent-pixel-loader i:nth-child(8) {
+  animation-delay: 240ms;
+}
+
+.agent-complete-mark {
+  display: grid;
+  width: 13px;
+  height: 13px;
+  place-items: center;
+  border-radius: 50%;
+  background: #ecfdf5;
+  color: #047857;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.agent-workflow-trace {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 220ms ease, opacity 220ms ease, margin-top 220ms ease;
+}
+
+.agent-workflow-trace.open {
+  grid-template-rows: 1fr;
+  margin-top: 5px;
+  opacity: 1;
+}
+
+.agent-workflow-trace-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: grid;
+  gap: 2px;
+  padding: 2px 0 2px 12px;
+  border-left: 1px solid #e2e8f0;
+}
+
+.agent-step {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  padding: 5px 6px;
+  border-radius: 7px;
+}
+
+.agent-step.active {
+  background: #f8faff;
+}
+
+.agent-step-icon {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  place-items: center;
+  color: #64748b;
+  font-family: "Roboto Mono", "JetBrains Mono", monospace;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.agent-step-icon.complete {
+  color: #059669;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.agent-step-spinner {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid #c7d2fe;
+  border-top-color: #4f46e5;
+  border-radius: 50%;
+}
+
+.agent-step-copy {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.agent-step-copy strong {
+  overflow: hidden;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agent-step.active .agent-step-copy strong {
+  color: #4338ca;
+}
+
+.agent-step-copy small {
+  overflow: hidden;
+  color: #94a3b8;
+  font: 10px/1.35 "Roboto Mono", "JetBrains Mono", monospace;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .agent-pixel-loader i {
+    animation: agent-pixel-pulse 720ms ease-in-out infinite;
+  }
+
+  .agent-step-spinner {
+    animation: agent-spin 800ms linear infinite;
+  }
+}
+
+@keyframes agent-pixel-pulse {
+  0%, 100% { opacity: 0.2; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes agent-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agent-workflow-chevron,
+  .agent-workflow-trace {
+    transition: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .chat-message.agentic-assistant,
+  .chat-message.agentic-activity {
+    width: 94%;
+  }
+
+  .agent-step-copy small {
+    white-space: normal;
+  }
+}
+
+/* Final AI shell correction: keep the workspace inside the viewport on desktop
+   and let the stacked mobile version use the page scroll. */
+.app-shell:has(.public-ai-page) {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app-shell:has(.public-ai-page) .topbar {
+  flex: 0 0 68px;
+  box-sizing: border-box;
+  height: 68px !important;
+  min-height: 68px;
+}
+
+.app-shell:has(.public-ai-page) .app-footer {
+  display: none;
+}
+
+.app-shell:has(.public-ai-page) .public-ai-page {
+  display: grid !important;
+  grid-template-columns: 220px minmax(0, 1fr) 330px !important;
+  grid-template-rows: 60px minmax(0, 1fr) !important;
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0;
+  padding: 0 !important;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.public-ai-page > .public-ai-heading,
+.public-ai-page > .chat-session-sidebar,
+.public-ai-page > .customer-chat,
+.public-ai-page > .chat-rfq-cart {
+  min-width: 0;
+}
+
+.public-ai-page > .public-ai-heading {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.public-ai-heading > div:first-child {
+  min-width: 0;
+}
+
+.public-ai-page > .chat-session-sidebar {
+  grid-column: 1;
+  grid-row: 2;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.public-ai-page > .customer-chat {
+  grid-column: 2;
+  grid-row: 2;
+  display: grid !important;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden;
+}
+
+.customer-chat-messages {
+  min-width: 0;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-y: auto !important;
+}
+
+.public-ai-page > .chat-rfq-cart {
+  grid-column: 3;
+  grid-row: 2;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+}
+
+.chat-message,
+.chat-message p,
+.agent-workflow,
+.customer-chat-form,
+.chat-suggestions {
+  min-width: 0;
+}
+
+.chat-message p,
+.agent-step-copy strong,
+.agent-step-copy small {
+  overflow-wrap: anywhere;
+}
+
+.chat-loading-overlay {
+  inset: 60px 330px 0 220px;
+}
+
+@media (max-width: 900px) and (min-width: 761px) {
+  .app-shell:has(.public-ai-page) .public-ai-page {
+    grid-template-columns: 180px minmax(0, 1fr) 290px !important;
+  }
+
+  .chat-loading-overlay {
+    inset: 60px 290px 0 180px;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-shell:has(.public-ai-page) {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .app-shell:has(.public-ai-page) .topbar {
+    flex: 0 0 auto;
+    height: auto !important;
+    min-height: 72px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 14px !important;
+  }
+
+  .app-shell:has(.public-ai-page) .main-nav {
+    width: 100%;
+    height: 36px;
+    min-width: 0;
+    gap: 14px;
+    overflow-x: auto;
+  }
+
+  .app-shell:has(.public-ai-page) .main-nav button {
+    flex: 0 0 auto;
+  }
+
+  .app-shell:has(.public-ai-page) .app-footer {
+    display: flex;
+  }
+
+  .app-shell:has(.public-ai-page) .public-ai-page {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible;
+  }
+
+  .public-ai-page > .public-ai-heading {
+    min-height: 0;
+    padding: 18px 14px !important;
+  }
+
+  .public-ai-heading h1 {
+    font-size: clamp(28px, 8vw, 36px) !important;
+    line-height: 1.05;
+  }
+
+  .ai-capabilities,
+  .public-ai-page > .chat-session-sidebar {
+    display: none !important;
+  }
+
+  .public-ai-page > .customer-chat {
+    height: clamp(460px, calc(100dvh - 210px), 640px) !important;
+    min-height: 460px !important;
+  }
+
+  .public-ai-page > .chat-rfq-cart {
+    height: auto !important;
+    overflow: visible !important;
+    border-top: 1px solid #e2e8f0 !important;
+    border-left: 0 !important;
+  }
+
+  .chat-loading-overlay {
+    inset: 76px 0 auto;
+    height: calc(100dvh - 150px);
+  }
+}
+
+/* AI thread surfaces: one bubble per message, with an unboxed agent trace. */
+.chat-message.user,
+.chat-message.assistant:not(.agentic-assistant):not(.agentic-activity),
+.chat-message.agentic-assistant {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.chat-message.user > p,
+.chat-message.assistant:not(.agentic-assistant):not(.agentic-activity) > p,
+.chat-message.agentic-assistant > p {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px 14px 14px 4px !important;
+  background: #ffffff !important;
+  color: #334155 !important;
+  padding: 11px 14px;
+}
+
+.chat-message.user > p {
+  border-color: #4f46e5;
+  border-radius: 14px 4px 14px 14px !important;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed) !important;
+  color: #ffffff !important;
+}
+
+.chat-message.user > p strong,
+.chat-message.user > p .chat-line {
+  color: inherit !important;
+}
+
+.chat-message.agentic-assistant,
+.chat-message.agentic-activity {
+  max-width: min(92%, 720px) !important;
+}
+
+.chat-message.agentic-assistant > .agent-workflow {
+  padding: 0 4px;
+}
+
+.agent-step-copy strong,
+.agent-step-copy small {
+  white-space: normal;
+}
+
+@media (max-width: 900px) {
+  .chat-message.agentic-assistant,
+  .chat-message.agentic-activity {
+    width: 100%;
+    max-width: 100% !important;
+  }
+}
+
+/* Keep the live workflow label horizontal; truncate only when the chat is narrow. */
+.agent-workflow-trigger {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-width: 0;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", Inter, Arial, sans-serif !important;
+  white-space: nowrap;
+}
+
+.agent-workflow-trigger > .agent-pixel-loader,
+.agent-workflow-trigger > .agent-complete-mark,
+.agent-workflow-trigger > .agent-workflow-chevron {
+  flex: 0 0 auto;
+}
+
+.agent-workflow-trigger > span:nth-child(2) {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: block !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #475569 !important;
+  line-height: 1.25 !important;
+  white-space: nowrap;
+}
+
+/* Use a real height boundary so the open trace cannot paint outside its card. */
+.chat-message.agentic-activity,
+.agent-workflow {
+  height: auto !important;
+  align-self: start;
+  overflow: visible !important;
+}
+
+.agent-workflow-trace {
+  display: block !important;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 220ms ease, opacity 220ms ease, margin-top 220ms ease;
+}
+
+.agent-workflow-trace.open {
+  max-height: 520px;
+  margin-top: 5px;
+  opacity: 1;
+}
+
+.agent-workflow-trace-inner {
+  display: grid;
+  min-height: 0;
+  overflow: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agent-workflow-trace {
+    transition: none;
+  }
+}
+
+/* Keep the live agent state readable and lightweight. */
+.chat-message.agentic-activity {
+  width: min(100%, 720px) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 0 4px !important;
+}
+
+.agent-workflow-trigger {
+  width: max-content !important;
+  max-width: 100% !important;
+  min-height: 28px;
+  padding: 0 !important;
+  gap: 8px !important;
+}
+
+.agent-workflow-trigger > span:nth-child(2) {
+  flex: 0 1 auto !important;
+}
+
+.agent-workflow-trace.open {
+  max-height: 640px;
+  margin-top: 7px;
+}
+
+.agent-workflow-trace-inner {
+  width: min(100%, 680px);
+  gap: 6px;
+  padding: 2px 0 4px 16px;
+  border-left: 1px solid #e2e8f0;
+}
+
+.agent-thinking-label {
+  margin: 0 0 2px;
+  color: #64748b;
+  font: 600 12px/1.4 "Plus Jakarta Sans", Inter, Arial, sans-serif;
+}
+
+.agent-step {
+  grid-template-columns: 14px minmax(0, 1fr) !important;
+  gap: 8px !important;
+  min-width: 0;
+  padding: 3px 0 !important;
+  background: transparent !important;
+}
+
+.agent-step-icon {
+  display: grid !important;
+  place-items: center;
+  width: 14px;
+  min-height: 18px;
+  color: #94a3b8 !important;
+  font-size: 11px;
+}
+
+.agent-step-icon.complete {
+  color: #64748b !important;
+}
+
+.agent-step-copy {
+  display: grid !important;
+  min-width: 0;
+  gap: 2px;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.agent-step-copy strong,
+.agent-step-copy small {
+  display: block !important;
+  visibility: visible !important;
+  overflow: visible !important;
+  color: #475569 !important;
+  opacity: 1 !important;
+  text-overflow: clip !important;
+  white-space: normal !important;
+}
+
+.agent-step-copy strong {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.agent-step-copy small {
+  color: #94a3b8 !important;
+  font: 12px/1.5 Inter, Arial, sans-serif;
+}
+
+@media (max-width: 900px) {
+  .chat-message.agentic-activity {
+    padding: 0 !important;
+  }
+}
+
+/* Avoid nested-grid shrink-to-content sizing on narrow chat viewports. */
+.chat-message.agentic-activity,
+.agent-workflow,
+.agent-workflow-trace,
+.agent-workflow-trace-inner {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box;
+}
+
+.agent-workflow-trace-inner {
+  overflow: visible;
+}
+
+.agent-step {
+  display: flex !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box;
+}
+
+.agent-step-icon {
+  flex: 0 0 14px;
+}
+
+.agent-step-copy {
+  display: block !important;
+  flex: 1 1 auto;
+  width: 0;
+  min-width: 0 !important;
+}
+
+.agent-step-copy strong,
+.agent-step-copy small {
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+
+/* The legacy .typing selector targets every workflow span. Neutralize it while the live state remains mounted. */
+.chat-message.typing.agentic-activity {
+  display: block !important;
+  min-height: 0 !important;
+  padding: 0 4px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.chat-message.typing.agentic-activity .agent-workflow span {
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  animation: none;
+}
+
+.chat-message.typing.agentic-activity .agent-workflow-trigger > .agent-pixel-loader {
+  display: grid !important;
+  width: 13px !important;
+  height: 13px !important;
+  flex: 0 0 13px !important;
+}
+
+.chat-message.typing.agentic-activity .agent-workflow-trigger > .agent-pixel-loader i {
+  display: block !important;
+  width: 3px !important;
+  height: 3px !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  background: #4f46e5 !important;
+  animation: agent-pixel-pulse 720ms ease-in-out infinite !important;
+}
+
+.chat-message.typing.agentic-activity .agent-step-icon {
+  display: grid !important;
+  width: 14px !important;
+  height: auto !important;
+  min-height: 18px !important;
+  flex: 0 0 14px !important;
+  background: transparent !important;
+}
+
+.chat-message.typing.agentic-activity .agent-step-copy {
+  width: 0 !important;
+}
+
+/* Use geometry instead of a font glyph for the workflow toggle. */
+.agent-workflow-chevron {
+  display: block !important;
+  width: 7px !important;
+  height: 7px !important;
+  flex: 0 0 7px !important;
+  margin: 0 2px 3px 1px !important;
+  border-right: 1.5px solid #94a3b8;
+  border-bottom: 1.5px solid #94a3b8;
+  border-radius: 0 !important;
+  background: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  transform: rotate(45deg) !important;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.agent-workflow-chevron.open {
+  border-color: #4f46e5;
+  transform: rotate(225deg) !important;
+}
+
+.agent-step-spinner {
+  display: block !important;
+  width: 10px !important;
+  height: 10px !important;
+  border: 1.5px solid #c7d2fe !important;
+  border-top-color: #4f46e5 !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+}
+
+/* While active, the trailing control is a loading ring—not a caret. */
+.agent-workflow[data-working="true"] .agent-workflow-chevron,
+.chat-message.typing.agentic-activity .agent-workflow[data-working="true"] .agent-workflow-chevron {
+  position: relative !important;
+  width: 11px !important;
+  height: 11px !important;
+  flex: 0 0 11px !important;
+  margin: 0 1px 0 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.agent-workflow[data-working="true"] .agent-workflow-chevron::before {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  content: "";
+  border: 1.5px solid #c7d2fe;
+  border-top-color: #4f46e5;
+  border-right-color: #4f46e5;
+  border-radius: 50%;
+  animation: agent-ring-spin 800ms linear infinite;
+}
+
+@keyframes agent-ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Active state uses one circular loader beside the working label. */
+.agent-workflow[data-working="true"] .agent-pixel-loader,
+.chat-message.typing.agentic-activity .agent-workflow[data-working="true"] .agent-pixel-loader {
+  position: relative !important;
+  display: block !important;
+  width: 12px !important;
+  height: 12px !important;
+  flex: 0 0 12px !important;
+  border: 1.5px solid #c7d2fe !important;
+  border-top-color: #4f46e5 !important;
+  border-right-color: #4f46e5 !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  animation: agent-ring-spin 800ms linear infinite !important;
+}
+
+.chat-message.typing.agentic-activity .agent-workflow[data-working="true"] .agent-pixel-loader i,
+.agent-workflow[data-working="true"] .agent-pixel-loader i {
+  display: none !important;
+}
+
+.agent-workflow[data-working="true"] .agent-workflow-chevron,
+.chat-message.typing.agentic-activity .agent-workflow[data-working="true"] .agent-workflow-chevron {
+  display: none !important;
+}
+
+/* Site footer layout — kept last so theme overrides above cannot flatten it. */
+.app-footer {
+  display: grid !important;
+  gap: 26px;
+  padding-top: 40px;
+  padding-bottom: 22px;
+}
+.app-shell:has(.public-ai-page) .app-footer {
+  display: none !important;
+}
+@media (max-width: 760px) {
+  .app-shell:has(.public-ai-page) .app-footer {
+    display: grid !important;
   }
 }

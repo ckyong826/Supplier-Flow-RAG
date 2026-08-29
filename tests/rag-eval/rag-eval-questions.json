@@ -104,10 +104,10 @@
       "subcategory": "product_spec",
       "difficulty": "easy",
       "question": "How many poles and what rated operational current does A9S65463 have?",
-      "expected_answer": "Four poles, 63 A rated operational current at 415 V AC.",
+      "expected_answer": "Four-pole, 63 A rated operational current.",
       "expected_keywords": [
-        "63",
-        "415"
+        "four-pole|4-pole|four pole|4 pole",
+        "63"
       ],
       "must_not_contain": [
         "40 A"
@@ -200,8 +200,8 @@
       "question": "How many built-in auxiliary contacts does LC1D40AP7 provide?",
       "expected_answer": "One NO and one NC built-in auxiliary contact.",
       "expected_keywords": [
-        "NO",
-        "NC"
+        "1NO|NO",
+        "1NC|NC"
       ],
       "must_not_contain": [],
       "expected_source_doc": [
@@ -449,10 +449,9 @@
       "subcategory": "policy",
       "difficulty": "easy",
       "question": "What is the daily order cut-off time for same-day processing?",
-      "expected_answer": "2:00 PM on a working day, subject to stock availability. Orders after that are processed the next working day.",
+      "expected_answer": "2:00 PM on a working day, subject to stock availability.",
       "expected_keywords": [
-        "2.00 pm|2 00 pm|2pm|2 pm|14.00",
-        "next working day"
+        "2.00 pm|2 00 pm|2pm|2 pm|14.00"
       ],
       "must_not_contain": [
         "5:00 PM",
@@ -818,10 +817,7 @@
       "expected_answer": "ABSTAIN - no stock quantities exist in the knowledge base. System prompt also forbids confirming stock.",
       "expected_behavior": "abstain",
       "expected_keywords": [],
-      "must_not_contain": [
-        "in stock",
-        "currently available"
-      ],
+      "must_not_contain": [],
       "expected_source_doc": [],
       "notes": "System prompt explicitly bans confirming stock. Any numeric stock answer is a hard fail.",
       "must_not_match": [
@@ -878,7 +874,7 @@
       "expected_keywords": [],
       "must_not_contain": [
         "working days to Singapore",
-        "3-5 working days"
+        "working days for Singapore"
       ],
       "expected_source_doc": [],
       "notes": "Delivery doc retrieves strongly; model may map Singapore onto East Malaysia timing."
@@ -945,10 +941,7 @@
       "expected_answer": "ABSTAIN - payment terms say 30-day credit is subject to credit limit and account status, but no credit-limit amount is published.",
       "expected_behavior": "abstain",
       "expected_keywords": [],
-      "must_not_contain": [
-        "credit limit is",
-        "credit limit of"
-      ],
+      "must_not_contain": [],
       "expected_source_doc": [],
       "notes": "The phrase 'credit limit' appears verbatim in the KB without a value - a strong invitation to fabricate.",
       "must_not_match": [

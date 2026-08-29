@@ -11,7 +11,28 @@ function scoreText(text, terms) {
 export function decomposeQuery(text) {
   const full = text.replace(/\s+/g, " ").trim();
   const clauses = full.split(/\n|;|\band\s+also\b|\balso\b/i).map((clause) => clause.trim()).filter(Boolean);
-  return [...new Set([full, ...clauses])].slice(0, 4);
+  const lower = full.toLowerCase();
+  const hasProductIntent = ["mcb", "rcbo", "rccb", "spd", "surge", "contactor", "breaker", "socket", "sku", "curve", "pole"]
+    .some((term) => lower.includes(term));
+  const hasPaymentIntent = ["payment", "deposit", "credit terms", "bank transfer"]
+    .some((term) => lower.includes(term));
+  const hasDeliveryIntent = ["delivery", "shipping", "lead time", "working days"]
+    .some((term) => lower.includes(term));
+  const hasSalesIntent = ["sales", "quotation", "quote", "follow up", "sop", "out of stock", "unavailable", "equivalent", "alternative"]
+    .some((term) => lower.includes(term));
+  const policyStart = full.search(/\b(?:payment|delivery|shipping|lead time|working days)\b/i);
+  const beforePolicy = policyStart >= 0 ? full.slice(0, policyStart).trim() : full;
+  const productQuery = beforePolicy.replace(/\b(?:what|which)\s+product\s+fits\b.*$/i, "").trim() || beforePolicy;
+  const intentQueries = [];
+  if (hasProductIntent && (hasPaymentIntent || hasDeliveryIntent) && productQuery !== full) intentQueries.push(productQuery);
+  if (hasPaymentIntent) intentQueries.push("payment terms");
+  if (hasDeliveryIntent) intentQueries.push(/\bkuala\s+lumpur\b/i.test(full) ? "Kuala Lumpur delivery lead time" : "delivery terms lead time");
+  if (hasSalesIntent) {
+    intentQueries.push(lower.includes("out of stock") || lower.includes("unavailable")
+      ? "sales quotation SOP unavailable equivalent alternative"
+      : "sales quotation SOP follow up 3 working days");
+  }
+  return [...new Set([full, ...clauses, ...intentQueries])].slice(0, 6);
 }
 
 export function fuseByKeywords(items, queries, textForItem) {
@@ -22,4 +43,22 @@ export function fuseByKeywords(items, queries, textForItem) {
     ranked.forEach(({ item }, index) => scores.set(item, (scores.get(item) || 0) + 1 / (61 + index)));
   }
   return [...scores.entries()].sort(([, left], [, right]) => right - left).map(([item]) => item);
+}
+
+export function fuseByKeywordsWithCoverage(items, queries, textForItem, limit) {
+  const selected = [];
+  const seen = new Set();
+  const add = (item) => {
+    if (!item) return;
+    const key = textForItem(item);
+    if (seen.has(key)) return;
+    seen.add(key);
+    selected.push(item);
+  };
+
+  // The first query is the original question. Reserve one result for each explicit
+  // subquery, then use the normal fused ranking to fill remaining context slots.
+  queries.slice(1).forEach((query) => add(fuseByKeywords(items, [query], textForItem)[0]));
+  fuseByKeywords(items, queries, textForItem).forEach(add);
+  return selected.slice(0, limit);
 }

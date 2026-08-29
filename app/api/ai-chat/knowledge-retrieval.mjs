@@ -9,7 +9,7 @@
 // retrieval problem can never take the chat endpoint down. Every call reports which mode
 // actually served it, so a silent permanent fallback is visible rather than invisible.
 
-import { fuseByKeywords } from "./retrieval.mjs";
+import { fuseByKeywordsWithCoverage } from "./retrieval.mjs";
 
 export const EMBEDDING_MODEL = "text-embedding-3-small";
 export const EMBEDDING_DIMENSIONS = 1536;
@@ -61,7 +61,7 @@ export async function keywordSearch({ supabase, queries, limit = 3, poolSize = 2
   if (rows.length >= poolSize) {
     console.warn(`[retrieval] keyword pool hit its ${poolSize}-row cap; some chunks are unreachable. Switch to vector mode or raise the cap.`);
   }
-  return fuseByKeywords(rows, queries, (row) => row.content).slice(0, limit).map(fromChunkRow);
+  return fuseByKeywordsWithCoverage(rows, queries, (row) => row.content, limit).map(fromChunkRow);
 }
 
 export async function vectorSearch({ supabase, question, limit = 3, minSimilarity = DEFAULT_MIN_SIMILARITY, embed = embedQuery }) {

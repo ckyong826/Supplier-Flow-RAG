@@ -2,7 +2,7 @@
 //
 // Reproduces the production path exactly:
 //   - chunking matches app/api/admin/knowledge/route.ts (180-word windows)
-//   - ranking uses the real decomposeQuery + fuseByKeywords from app/api/ai-chat/retrieval.mjs
+//   - ranking uses the real decomposeQuery + coverage-aware keyword retrieval
 //   - top-k is 3, matching the ai-chat route
 //
 // Measures whether the correct document reaches the context window at all. If retrieval
@@ -13,7 +13,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { decomposeQuery, fuseByKeywords } from "../../app/api/ai-chat/retrieval.mjs";
+import { decomposeQuery, fuseByKeywordsWithCoverage } from "../../app/api/ai-chat/retrieval.mjs";
 import { contains } from "./match.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -50,7 +50,7 @@ const docChunkCounts = chunks.reduce((counts, chunk) => {
 
 function retrieve(question) {
   const queries = decomposeQuery(question);
-  return fuseByKeywords(chunks, queries, (chunk) => chunk.content);
+  return fuseByKeywordsWithCoverage(chunks, queries, (chunk) => chunk.content, topK);
 }
 
 const results = [];

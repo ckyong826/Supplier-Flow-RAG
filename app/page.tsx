@@ -2,6 +2,7 @@
 
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AdminPortal } from "./AdminPortal";
+import { AgentWorkflow, type AgentStep } from "./components/AiAgentResponse";
 import { canViewPublic } from "./lib/demoTier";
 import { money } from "./lib/format";
 import { officialProducts } from "./lib/officialCatalogue";
@@ -29,9 +30,44 @@ type Product = {
 };
 type CartItem = { productId: string; quantity: number };
 type AiSource = { title: string; sourceType: string };
-type AiMessage = { role: "user" | "assistant"; content: string; matches?: Product[]; sources?: AiSource[]; track?: boolean };
+type AgentResult = { error?: string; action?: string | null; matches?: Product[]; sources?: AiSource[]; cartActions?: Array<{ productId: string; quantity: number }> };
+type AiMessage = { role: "user" | "assistant"; content: string; matches?: Product[]; sources?: AiSource[]; track?: boolean; agent?: { steps: AgentStep[]; durationMs: number } };
 type ChatSession = { id: string; title: string; createdAt: string };
 function priceLabel(price: number) { return price > 0 ? `From ${money(price)}` : "Price on request"; }
+
+function agentStepsFor(question: string, result?: AgentResult): AgentStep[] {
+  const hasProducts = Boolean(result?.matches?.length);
+  const hasCart = Boolean(result?.cartActions?.length);
+  const action = result?.action || (/(track|status|where is|follow.?up)/i.test(question) ? "TRACK_RFQ" : /\b(rfq|quote|quotation)\b/i.test(question) ? "CREATE_RFQ" : null);
+
+  return [
+    {
+      kind: "understand",
+      label: "Understand the request",
+      detail: question.toLowerCase().includes("rfq") || action === "CREATE_RFQ" ? "Quote request and buyer details" : "Product, specification, or status question",
+    },
+    {
+      kind: "search",
+      label: "Search the catalogue",
+      detail: result ? `${result.matches?.length || 0} relevant product${result.matches?.length === 1 ? "" : "s"} found` : "Matching names, SKUs, and specifications",
+    },
+    ...(result?.sources?.length ? [{
+      kind: "source" as const,
+      label: "Check support guidance",
+      detail: `${result.sources.length} support source${result.sources.length === 1 ? "" : "s"} checked`,
+    }] : []),
+    action === "TRACK_RFQ" ? {
+      kind: "track" as const,
+      label: "Open RFQ tracking",
+      detail: "Reference and work email are ready to verify",
+    } : {
+      kind: "rfq" as const,
+      label: hasCart ? "Update the RFQ" : action === "CREATE_RFQ" ? "Prepare the quote request" : "Prepare the next step",
+      detail: hasCart ? "Requested items added to your live RFQ" : hasProducts ? "Recommendations are ready for review" : "Ready for your follow-up",
+    },
+  ];
+}
+
 function ChatText({ content }: { content: string }) {
   return <>{content.split("\n").map((line, index) => {
     const parts = line.split(/(\*\*[^*]+\*\*)/g);
@@ -146,6 +182,7 @@ export default function Home() {
   const [chatLoading, setChatLoading] = useState(true);
   const chatOperationRef = useRef(0);
   const [askingAi, setAskingAi] = useState(false);
+  const [activeAgentSteps, setActiveAgentSteps] = useState<AgentStep[]>([]);
   const [rfqStep, setRfqStep] = useState<"items" | "details" | "confirm">("items");
 
   function showToast(message: string) {
@@ -404,10 +441,70 @@ export default function Home() {
     }
   }
   async function sendChat(event: FormEvent) {
-    event.preventDefault(); if (!aiQuestion.trim() || askingAi) return;
-    const question = aiQuestion.trim(); const history = aiMessages.map(({ role, content }) => ({ role, content }));
-    setAiQuestion(""); setAiMessages((current) => [...current, { role: "user", content: question }]); setAskingAi(true);
-    try { const response = await fetch("/api/ai-chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ message: question, history, customer }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error); const nextCustomer = { ...customer, ...data.customer }; if (data.customer) setCustomer(nextCustomer); const cartActions = data.cartActions || (data.cartAction ? [data.cartAction] : []); for (const cartAction of cartActions) add(cartAction.productId, cartAction.quantity, true); setAiMessages((current) => [...current, { role: "assistant", content: data.answer, matches: data.matches || [], sources: data.sources || [], track: data.action === "TRACK_RFQ" }, ...(cartActions.length && !(nextCustomer.name.trim() && nextCustomer.company.trim() && nextCustomer.email.trim()) ? [{ role: "assistant" as const, content: "To complete your RFQ, reply once with your full name, company name, and work email. You can add an optional project note too." }] : [])]); void loadChatSessions(); if (data.action === "TRACK_RFQ") { const reference = question.match(/\bRFQ-\d{4}-[A-Z0-9-]+\b/i)?.[0] || ""; setTrack((current) => ({ ...current, reference: reference || current.reference, email: data.customer?.email || current.email || customer.email, error: "", quotation: null })); } } catch (error) { const message = error instanceof Error ? error.message : "SupplyAI could not answer."; setAiMessages((current) => [...current, { role: "assistant", content: "Sorry, I could not check that right now. Please try again or submit an RFQ for the supplier team." }]); showToast(message); } finally { setAskingAi(false); }
+    event.preventDefault();
+    if (!aiQuestion.trim() || askingAi) return;
+
+    const question = aiQuestion.trim();
+    const history = aiMessages.map(({ role, content }) => ({ role, content }));
+    const startedAt = performance.now();
+    setAiQuestion("");
+    setActiveAgentSteps(agentStepsFor(question));
+    setAiMessages((current) => [...current, { role: "user", content: question }]);
+    setAskingAi(true);
+
+    try {
+      const response = await fetch("/api/ai-chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: question, history, customer }),
+      });
+      const data = await response.json() as AgentResult & {
+        answer: string;
+        customer?: typeof customer;
+        cartAction?: { productId: string; quantity: number } | null;
+      };
+      if (!response.ok) throw new Error(data.error);
+
+      const nextCustomer = { ...customer, ...data.customer };
+      if (data.customer) setCustomer(nextCustomer);
+      const cartActions = data.cartActions || (data.cartAction ? [data.cartAction] : []);
+      for (const cartAction of cartActions) add(cartAction.productId, cartAction.quantity, true);
+
+      const agentSteps = agentStepsFor(question, { ...data, cartActions });
+      const durationMs = Math.max(100, Math.round(performance.now() - startedAt));
+      setActiveAgentSteps(agentSteps);
+      setAiMessages((current) => [
+        ...current,
+        {
+          role: "assistant",
+          content: data.answer,
+          matches: data.matches || [],
+          sources: data.sources || [],
+          track: data.action === "TRACK_RFQ",
+          agent: { steps: agentSteps, durationMs },
+        },
+        ...(cartActions.length && !(nextCustomer.name.trim() && nextCustomer.company.trim() && nextCustomer.email.trim())
+          ? [{ role: "assistant" as const, content: "To complete your RFQ, reply once with your full name, company name, and work email. You can add an optional project note too." }]
+          : []),
+      ]);
+      void loadChatSessions();
+      if (data.action === "TRACK_RFQ") {
+        const reference = question.match(/\bRFQ-\d{4}-[A-Z0-9-]+\b/i)?.[0] || "";
+        setTrack((current) => ({
+          ...current,
+          reference: reference || current.reference,
+          email: data.customer?.email || current.email || customer.email,
+          error: "",
+          quotation: null,
+        }));
+      }
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "SupplyAI could not answer.";
+      setAiMessages((current) => [...current, { role: "assistant", content: "Sorry, I could not check that right now. Please try again or submit an RFQ for the supplier team." }]);
+      showToast(message);
+    } finally {
+      setAskingAi(false);
+    }
   }
   async function newChat(initialQuestion = "") {
     const operation = ++chatOperationRef.current;
@@ -420,6 +517,7 @@ export default function Home() {
       setActiveChatId(data.id);
       setChatSessions((current) => [{ id: data.id, title: "New conversation", createdAt: new Date().toISOString() }, ...current]);
       setAiMessages([{ role: "assistant", content: "Hi, I am SupplyAI. What can I help you source today?" }]);
+      setActiveAgentSteps([]);
       showToast("New chat started.");
     } finally {
       if (operation === chatOperationRef.current) setChatLoading(false);
@@ -449,6 +547,7 @@ export default function Home() {
       setAiMessages([{ role: "assistant", content: "Chat cleared. What can I help you with?" }]);
       setChatSessions((current) => current.map((session) => session.id === activeChatId ? { ...session, title: "New conversation" } : session));
       setAiQuestion("");
+      setActiveAgentSteps([]);
       showToast("Chat cleared.");
     } catch (error) {
       showToast(error instanceof Error ? error.message : "Chat could not be cleared.");
@@ -841,7 +940,7 @@ export default function Home() {
         <section className="public-ai-page">
           {chatLoading && <div className="chat-loading-overlay" role="status" aria-label="Loading conversation"><div className="chat-loading-card"><span /><span /><span /></div></div>}
           <div className="public-ai-heading"><div><p className="kicker">SupplyAI / customer support</p><h1>Source smarter. <em>Request faster.</em></h1><p>Ask naturally. SupplyAI finds products, builds your RFQ and helps you track it afterwards.</p></div><div className="ai-capabilities"><span>Product matching</span><span>RFQ assistant</span><span>Status tracking</span></div></div>
-          <aside className="chat-session-sidebar"><button className="new-chat-button" onClick={() => void newChat()}>＋ New chat</button><div className="chat-session-label">Conversations</div>{chatSessions.length ? chatSessions.map((session) => <button className={`current-chat ${session.id === activeChatId ? "active" : ""}`} key={session.id} onClick={() => void selectChat(session.id)}><span>{session.id === activeChatId ? "●" : "○"}</span><div><strong>{session.title}</strong><small>{session.id === activeChatId ? "Current conversation" : "Open conversation"}</small></div></button>) : <p>Start a new conversation to keep it here.</p>}<p>New chats keep your earlier conversations available.</p></aside><div className="customer-chat"><div className="customer-chat-header"><span className="ai-avatar">S</span><div><strong>SupplyAI</strong><small>Customer support · Online</small></div><span className="chat-header-actions"><button onClick={clearChat}>Clear chat</button></span></div><div className="customer-chat-messages" aria-live="polite">{aiMessages.map((message, index) => <div className={`chat-message ${message.role}`} key={`${message.role}-${index}`}><p><ChatText content={message.content} /></p>{message.matches?.map((product) => <article className={`chat-product ${product.imageUrl ? "has-image" : "no-image"}`} key={product.id}>{product.imageUrl && <img src={product.imageUrl} alt="" onError={(event) => event.currentTarget.parentElement?.classList.add("no-image")} />}<div><strong>{product.name}</strong><small>{product.sku} · {product.availability}</small><b>From {money(product.price)}</b></div><button className="outline-button" onClick={() => add(product.id)}>Add to RFQ</button></article>)}{message.track && <form className="chat-track-card" onSubmit={trackRfq}><strong>Track an RFQ</strong><label>RFQ reference<input required value={track.reference} onChange={(event) => setTrack((current) => ({ ...current, reference: event.target.value }))} placeholder="RFQ-2026-0001" /></label><label>Work email<input required type="email" value={track.email} onChange={(event) => setTrack((current) => ({ ...current, email: event.target.value }))} placeholder="you@company.com" /></label><button className="primary-button" disabled={track.loading}>{track.loading ? "Checking..." : "Check status"}</button>{track.error && <small className="form-error">{track.error}</small>}{track.status && <div className="chat-track-status"><span>{track.reference}</span><strong className={`track-status ${track.status.toLowerCase()}`}>{track.status}</strong><p>{track.status === "NEW" ? "Received — the quote desk will review your request." : track.status === "REVIEWING" ? "Reviewing — availability and pricing are being checked." : track.status === "QUOTED" ? "Quoted — your quotation is ready." : track.status === "WON" ? "Accepted — fulfilment will follow." : "This RFQ is closed."}</p></div>}</form>}</div>)}{askingAi && <div className="chat-message assistant typing"><span></span><span></span><span></span></div>}</div><div className="chat-suggestions"><button onClick={() => setAiQuestion("I need an outdoor waterproof industrial socket.")}>Find a product</button><button onClick={() => setAiQuestion("I want to request a quote.")}>Create RFQ</button><button onClick={() => setAiQuestion("Track my RFQ status.")}>Track RFQ</button></div><form className="customer-chat-form" onSubmit={sendChat}><input required value={aiQuestion} onChange={(e) => setAiQuestion(e.target.value)} placeholder="Message SupplyAI..." /><button className="primary-button" disabled={askingAi}>{askingAi ? "Replying..." : "Send"}</button></form></div>
+          <aside className="chat-session-sidebar"><button className="new-chat-button" onClick={() => void newChat()}>＋ New chat</button><div className="chat-session-label">Conversations</div>{chatSessions.length ? chatSessions.map((session) => <button className={`current-chat ${session.id === activeChatId ? "active" : ""}`} key={session.id} onClick={() => void selectChat(session.id)}><span>{session.id === activeChatId ? "●" : "○"}</span><div><strong>{session.title}</strong><small>{session.id === activeChatId ? "Current conversation" : "Open conversation"}</small></div></button>) : <p>Start a new conversation to keep it here.</p>}<p>New chats keep your earlier conversations available.</p></aside><div className="customer-chat"><div className="customer-chat-header"><span className="ai-avatar">S</span><div><strong>SupplyAI</strong><small>Customer support · Online</small></div><span className="chat-header-actions"><button onClick={clearChat}>Clear chat</button></span></div><div className="customer-chat-messages" aria-live="polite">{aiMessages.map((message, index) => <div className={`chat-message ${message.role} ${message.agent ? "agentic-assistant" : ""}`} key={`${message.role}-${index}`}>{message.agent && <AgentWorkflow steps={message.agent.steps} durationMs={message.agent.durationMs} />}<p><ChatText content={message.content} /></p>{message.matches?.map((product) => <article className={`chat-product ${product.imageUrl ? "has-image" : "no-image"}`} key={product.id}>{product.imageUrl && <img src={product.imageUrl} alt="" onError={(event) => event.currentTarget.parentElement?.classList.add("no-image")} />}<div><strong>{product.name}</strong><small>{product.sku} · {product.availability}</small><b>From {money(product.price)}</b></div><button className="outline-button" onClick={() => add(product.id)}>Add to RFQ</button></article>)}{message.track && <form className="chat-track-card" onSubmit={trackRfq}><strong>Track an RFQ</strong><label>RFQ reference<input required value={track.reference} onChange={(event) => setTrack((current) => ({ ...current, reference: event.target.value }))} placeholder="RFQ-2026-0001" /></label><label>Work email<input required type="email" value={track.email} onChange={(event) => setTrack((current) => ({ ...current, email: event.target.value }))} placeholder="you@company.com" /></label><button className="primary-button" disabled={track.loading}>{track.loading ? "Checking..." : "Check status"}</button>{track.error && <small className="form-error">{track.error}</small>}{track.status && <div className="chat-track-status"><span>{track.reference}</span><strong className={`track-status ${track.status.toLowerCase()}`}>{track.status}</strong><p>{track.status === "NEW" ? "Received. The quote desk will review your request." : track.status === "REVIEWING" ? "Reviewing. Availability and pricing are being checked." : track.status === "QUOTED" ? "Quoted. Your quotation is ready." : track.status === "WON" ? "Accepted. Fulfilment will follow." : "This RFQ is closed."}</p></div>}</form>}</div>)}{askingAi && activeAgentSteps.length > 0 && <div className="chat-message assistant typing agentic-activity" role="status" aria-label="SupplyAI is working"><AgentWorkflow steps={activeAgentSteps} isWorking /></div>}</div><div className="chat-suggestions"><button onClick={() => setAiQuestion("I need an outdoor waterproof industrial socket.")}>Find a product</button><button onClick={() => setAiQuestion("I want to request a quote.")}>Create RFQ</button><button onClick={() => setAiQuestion("Track my RFQ status.")}>Track RFQ</button></div><form className="customer-chat-form" onSubmit={sendChat}><input required value={aiQuestion} onChange={(e) => setAiQuestion(e.target.value)} placeholder="Message SupplyAI..." /><button className="primary-button" disabled={askingAi}>{askingAi ? "Replying..." : "Send"}</button></form></div>
           <aside className="chat-rfq-cart"><div className="rfq-summary-head"><div><span className="track-label">LIVE RFQ</span><h2>Your quote request</h2></div><b>{cartProducts.reduce((sum, item) => sum + item.quantity, 0)} pcs</b></div><p className="rfq-summary-copy">SupplyAI fills items and buyer details from your conversation.</p><div className="rfq-progress" role="tablist"><button className={rfqStep === "items" ? "current" : cartProducts.length ? "done" : ""} onClick={() => setRfqStep("items")}>1 <i>Items</i></button><button className={rfqStep === "details" ? "current" : buyerDetailsComplete ? "done" : ""} disabled={!cartProducts.length} onClick={() => setRfqStep("details")}>2 <i>Details</i></button><button className={rfqStep === "confirm" ? "current" : ""} disabled={!cartProducts.length || !buyerDetailsComplete} onClick={() => setRfqStep("confirm")}>3 <i>Confirm</i></button></div>{rfqStep === "items" && <div className="rfq-stage"><div className="rfq-stage-head"><strong>Products</strong><span>Review quantities before continuing.</span></div>{cartProducts.length ? <div className="chat-cart-items">{cartProducts.map(({ product, quantity }) => <article className={product.imageUrl ? "has-image" : "no-image"} key={product.id}>{product.imageUrl && <img src={product.imageUrl} alt="" onError={(event) => event.currentTarget.parentElement?.classList.add("no-image")} />}<div><strong>{product.name}</strong><small>{product.sku} · {quantity} pcs</small><b>{money(product.price * quantity)}</b><div className="chat-cart-item-actions"><label>Qty <input aria-label={`${product.name} quantity`} type="number" min="1" value={quantity} onChange={(event) => updateChatCart(product.id, event.currentTarget.valueAsNumber)} /></label><button type="button" aria-label={`Remove ${product.name}`} onClick={() => removeChatCart(product.id)}>Remove</button></div></div></article>)}</div> : <div className="chat-cart-empty"><strong>Your RFQ is empty</strong><span>Tell SupplyAI what you need, for example: “Add 50 outdoor sockets.”</span></div>}<button className="primary-button" disabled={!cartProducts.length} onClick={() => setRfqStep("details")}>Continue to details</button></div>}{rfqStep === "details" && <div className="rfq-stage"><div className="rfq-stage-head"><strong>Buyer details</strong><span>SupplyAI auto-fills these. Otherwise reply once with all details in chat.</span></div><div className="chat-rfq-form"><label>Name<input value={customer.name} onChange={(event) => setCustomer((current) => ({ ...current, name: event.target.value }))} autoComplete="name" /></label><label>Company<input value={customer.company} onChange={(event) => setCustomer((current) => ({ ...current, company: event.target.value }))} autoComplete="organization" /></label><label>Work email<input type="email" value={customer.email} onChange={(event) => setCustomer((current) => ({ ...current, email: event.target.value }))} autoComplete="email" /></label><label>Project note <small>(optional)</small><textarea rows={2} value={customer.note} onChange={(event) => setCustomer((current) => ({ ...current, note: event.target.value }))} placeholder="Site, deadline, or alternatives" /></label></div><button className="primary-button" disabled={!buyerDetailsComplete} onClick={() => setRfqStep("confirm")}>Review RFQ</button></div>}{rfqStep === "confirm" && <div className="rfq-stage chat-confirm"><strong>Ready to send this RFQ?</strong><p>{cartProducts.length} item{cartProducts.length === 1 ? "" : "s"} will be sent to the quote desk.</p><div className="chat-buyer-summary"><span>{customer.name}</span><strong>{customer.company}</strong><small>{customer.email}</small></div><div><button className="outline-button" onClick={() => setRfqStep("details")}>Back</button><button className="primary-button" disabled={saving} onClick={() => void submitChatRfq()}>Confirm and send</button></div></div>}</aside>
         </section>
       )}
@@ -1024,7 +1123,7 @@ export default function Home() {
         />
       )}
       {view !== "admin" && (
-        <SiteFooter logoUrl={logoUrl} companyName={companyName} onAdmin={() => setView("admin")} />
+        <SiteFooter demoTier={demoTier} logoUrl={logoUrl} companyName={companyName} onView={(nextView) => { if (canViewPublic(demoTier, nextView)) setView(nextView); }} onAdmin={() => setView("admin")} />
       )}
     </main>
   );

@@ -12,7 +12,7 @@
 //      otherwise SUPPORT KNOWLEDGE is empty and every policy question will fail
 //
 // Run: node tests/rag-eval/run-live-eval.mjs [--base http://localhost:3000] [--json out.json]
-//                                            [--delay 400] [--only D01,A09]
+//                                            [--delay 400] [--only D01,A09] [--concurrency 2]
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -26,6 +26,7 @@ const flag = (name, fallback) => (args.includes(name) ? args[args.indexOf(name) 
 const base = flag("--base", process.env.EVAL_BASE_URL || "http://localhost:3000").replace(/\/$/, "");
 const jsonOut = flag("--json", null);
 const delayMs = Number(flag("--delay", 400));
+const concurrency = Math.max(1, Math.floor(Number(flag("--concurrency", 1)) || 1));
 const only = flag("--only", null)?.split(",").map((id) => id.trim());
 
 const suite = JSON.parse(readFileSync(join(here, "rag-eval-questions.json"), "utf8"));
@@ -44,7 +45,7 @@ async function ask(question) {
   });
   if (!response.ok) throw new Error(`HTTP ${response.status} ${await response.text()}`);
   const data = await response.json();
-  return { answer: data.answer || "", matches: data.matches || [], action: data.action || null, ms: Date.now() - started };
+  return { answer: data.answer || "", matches: data.matches || [], sources: data.sources || [], action: data.action || null, ms: Date.now() - started };
 }
 
 function grade(question, answer) {
@@ -74,6 +75,7 @@ function grade(question, answer) {
 
 console.log(`Target: ${base}/api/ai-chat`);
 console.log(`Questions: ${questions.length}\n`);
+console.log(`Concurrency: ${Math.min(concurrency, questions.length || 1)}\n`);
 
 // Fail fast with a useful message rather than 50 confusing errors.
 try {
@@ -85,8 +87,7 @@ try {
   process.exit(2);
 }
 
-const results = [];
-for (const question of questions) {
+async function evaluate(question) {
   let outcome;
   try {
     const response = await ask(question.question);
@@ -99,6 +100,7 @@ for (const question of questions) {
       question: question.question,
       answer: response.answer,
       matchedSkus: response.matches.map((match) => match.sku),
+      sources: response.sources.map((source) => source.title || source).filter(Boolean),
       latencyMs: response.ms,
       pass: graded.pass,
       abstained: graded.abstained,
@@ -108,14 +110,27 @@ for (const question of questions) {
     outcome = {
       id: question.id, category: question.category, subcategory: question.subcategory,
       difficulty: question.difficulty, question: question.question, answer: "",
-      matchedSkus: [], latencyMs: 0, pass: false, abstained: false,
+      matchedSkus: [], sources: [], latencyMs: 0, pass: false, abstained: false,
       reasons: [`request failed: ${error.message}`]
     };
   }
-  results.push(outcome);
-  process.stdout.write(`${outcome.pass ? "PASS" : "FAIL"}  ${outcome.id}  ${outcome.question.slice(0, 62)}\n`);
-  if (delayMs) await sleep(delayMs);
+  return outcome;
 }
+
+const results = new Array(questions.length);
+let nextIndex = 0;
+async function worker() {
+  while (true) {
+    const index = nextIndex++;
+    if (index >= questions.length) return;
+    const outcome = await evaluate(questions[index]);
+    results[index] = outcome;
+    process.stdout.write(`${outcome.pass ? "PASS" : "FAIL"}  ${outcome.id}  ${outcome.question.slice(0, 62)}\n`);
+    if (delayMs) await sleep(delayMs);
+  }
+}
+
+await Promise.all(Array.from({ length: Math.min(concurrency, questions.length || 1) }, worker));
 
 const line = "-".repeat(78);
 const passed = results.filter((result) => result.pass);
@@ -157,6 +172,7 @@ if (failures.length) {
     console.log(`\n[${failure.id}] ${failure.subcategory} / ${failure.difficulty}`);
     console.log(`  Q: ${failure.question}`);
     console.log(`  A: ${failure.answer.replace(/\s+/g, " ").slice(0, 300)}`);
+    console.log(`  Sources: ${failure.sources.join(", ") || "(none returned)"}`);
     for (const reason of failure.reasons) console.log(`  -> ${reason}`);
   }
 }
