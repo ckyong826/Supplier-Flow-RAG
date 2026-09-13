@@ -1,7 +1,7 @@
 import { errorResponse, requireAdmin, supabase } from "../../_supabase";
 import { extractPdfText } from "../pdf";
 
-function chunks(text: string) { const words = text.trim().split(/\s+/); return Array.from({ length: Math.ceil(words.length / 180) }, (_, index) => words.slice(index * 180, (index + 1) * 180).join(" ")).filter(Boolean); }
+function chunks(text: string) { const words = text.trim().split(/\s+/); return Array.from({ length: Math.ceil(words.length / 100) }, (_, index) => words.slice(index * 100, (index + 1) * 100).join(" ")).filter(Boolean); }
 
 async function embeddings(input: string[]) {
   if (!process.env.OPENAI_API_KEY) return [];

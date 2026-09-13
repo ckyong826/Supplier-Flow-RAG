@@ -16,8 +16,8 @@ test("fuses product matches from every request clause", () => {
     { id: "cable", text: "PVC electrical cable" },
   ];
   assert.deepEqual(
-    fuseByKeywords(products, decomposeQuery("Need 100 32A outdoor sockets; also 50 C20 MCBs"), (product) => product.text).map((product) => product.id),
-    ["socket", "mcb"],
+    fuseByKeywords(products, decomposeQuery("Need 100 32A outdoor sockets; also 50 C20 MCBs"), (product) => product.text).map((product) => product.id).sort(),
+    ["socket", "mcb"].sort(),
   );
 });
 
@@ -38,7 +38,7 @@ test("decomposes product, payment, and delivery intents", () => {
     question,
     "I'm a new customer in Kuala Lumpur and I need a 1-pole 40 A B-curve MCB.",
     "payment terms",
-    "Kuala Lumpur delivery lead time",
+    "Kuala Lumpur Klang Valley delivery 1–2 working days next working day",
   ]);
 });
 

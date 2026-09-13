@@ -1,0 +1,190 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T16:33:38.439Z",
+  "metrics": {
+    "total": 4,
+    "passed": 4,
+    "passRate": 1,
+    "hallucinationRate": 0,
+    "answerAccuracy": 1,
+    "faithfulness": 1,
+    "contextRelevance": 0.4000000000000001,
+    "contextCoverage": 1,
+    "abstentionPrecision": 1,
+    "abstentionRecall": 1,
+    "falseAnswerRate": 0,
+    "overAbstentionRate": 0,
+    "latencyMs": {
+      "totalClient": {
+        "p50": 3440,
+        "p95": 5852,
+        "count": 4
+      },
+      "serverTotal": {
+        "p50": 3250,
+        "p95": 5638,
+        "count": 4
+      },
+      "retrieval": {
+        "p50": 407,
+        "p95": 428,
+        "count": 4
+      },
+      "generation": {
+        "p50": 1887,
+        "p95": 4255,
+        "count": 4
+      }
+    },
+    "tokens": {
+      "measuredQueries": 4,
+      "prompt": 7243,
+      "completion": 1045,
+      "total": 8288,
+      "average": 2072
+    },
+    "costUsd": {
+      "total": 0.001683352,
+      "averagePerQuery": 0.000420838,
+      "pricingPerMillionTokens": {
+        "inputCacheHit": 0.007,
+        "inputCacheMiss": 0.22,
+        "output": 0.66
+      },
+      "pricingSource": "https://api-docs.deepseek.com/quick_start/pricing/"
+    }
+  },
+  "results": [
+    {
+      "id": "D54",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which TeSys D DC-coil terminal is positive?",
+      "answer": "For TeSys D DC-coil contactors, **A1 is the positive terminal** (as marked on the contactor). The coil is polarity-sensitive — connect **A1 positive** and **A2 negative**. Always double-check the exact SKU marking and wiring diagram before energising.\n\nSources:\n- Reference Tesys Dc Coil\n- Reference Tesys Deca Installation\n- SupplierFlow Official Knowledge\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Dc Coil",
+        "Reference Tesys Deca Installation",
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 3155,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 1,
+      "contextRelevance": 0.2,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 339,
+      "generationMs": 1865,
+      "serverTotalMs": 2970,
+      "promptTokens": 1997,
+      "completionTokens": 186,
+      "totalTokens": 2183,
+      "costUsd": 0.000453044
+    },
+    {
+      "id": "D56",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Why is the named place important in an Incoterms 2020 rule?",
+      "answer": "The named place is critical in an Incoterms® 2020 rule because it pinpoints **where delivery occurs** — the delivery point — and, depending on the rule, the exact moment risk transfers from seller to buyer.\n\nA few key points:\n\n- For most rules, the named place defines the delivery point and the risk-transfer point.\n- For “C” rules (e.g., CPT, CIP), the named place is the destination the seller pays to ship to, **but risk can transfer earlier** — when goods are handed to the first carrier.\n- Always specify the rule, the year (2020), and the named place precisely in your contract.\n\nIncoterms only allocates responsibilities and risk — it does **not** set delivery times, prices, stock, taxes, or payment terms. Those stay part of the commercial quotation.\n\nSources:\n- Reference Incoterms Rules Overview\n- Reference Incoterms Risk Transfer\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms Risk Transfer",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 5852,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 428,
+      "generationMs": 4255,
+      "serverTotalMs": 5638,
+      "promptTokens": 1801,
+      "completionTokens": 464,
+      "totalTokens": 2265,
+      "costUsd": 0.000538876
+    },
+    {
+      "id": "A33",
+      "category": "adversarial",
+      "subcategory": "spd_cartridge_boundary",
+      "difficulty": "hard",
+      "question": "Can any Type 3 cartridge replace any Type 2 iPRD device?",
+      "answer": "No — a Type 3 cartridge cannot replace just any Type 2 iPRD device. They are not automatically equivalent.\n\nA Type 3 cartridge is only suitable if the **exact replacement cartridge is compatible with that specific iPRD device family**. Also note that a replacement cartridge is not the same as a complete SPD assembly — keep the device reference and cartridge reference separate.\n\nIf you share the exact iPRD device reference, I can help check what’s listed for it.\n\nSources:\n- Reference Acti9 Iprd Catalogue\n- SupplierFlow Official Knowledge\n- Reference Acti9 Iprd Brochure",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Iprd Catalogue",
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Iprd Brochure"
+      ],
+      "latencyMs": 4208,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 3,
+      "contextRelevance": 0.6,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 422,
+      "generationMs": 2533,
+      "serverTotalMs": 3912,
+      "promptTokens": 1936,
+      "completionTokens": 250,
+      "totalTokens": 2186,
+      "costUsd": 0.00042733599999999995
+    },
+    {
+      "id": "N09",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What credit limit do you give to approved account customers?",
+      "answer": "We don’t publish a standard credit limit figure. Approved account customers may receive 30-day credit terms, but the actual limit depends on their credit limit and account status. If you’d like, I can have the sales team confirm what would apply to your account.\n\nSources:\n- Payment Terms\n- Reference Incoterms 2020\n- Reference Incoterms Rules Overview\n- Reference Incoterms Cost Insurance\n- Reference Rccb Selectivity Coordination",
+      "matchedSkus": [],
+      "sources": [
+        "Payment Terms",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms Cost Insurance",
+        "Reference Rccb Selectivity Coordination"
+      ],
+      "latencyMs": 3440,
+      "pass": true,
+      "abstained": true,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 0,
+      "contextRelevance": null,
+      "contextCoverage": null,
+      "faithful": null,
+      "retrievalMs": 407,
+      "generationMs": 1887,
+      "serverTotalMs": 3250,
+      "promptTokens": 1509,
+      "completionTokens": 145,
+      "totalTokens": 1654,
+      "costUsd": 0.000264096
+    }
+  ]
+}

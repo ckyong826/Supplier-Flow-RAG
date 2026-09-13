@@ -7,6 +7,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { retrieveKnowledge, formatKnowledge, DEFAULT_MIN_SIMILARITY } from "../../app/api/ai-chat/knowledge-retrieval.mjs";
+import { decomposeQuery, documentSummary, fuseByKeywords, rerankByCoverage, rewriteQuery } from "../../app/api/ai-chat/retrieval.mjs";
 
 const rows = [
   { content: "delivery takes 1-2 working days in klang valley", knowledge_documents: { title: "Delivery Policy", source_type: "policy" } },
@@ -76,6 +77,98 @@ test("hybrid abstains when the vector gate finds nothing", async () => {
   assert.equal(result.chunks.length, 0, "hybrid must not fall back to keyword when the gate is shut");
 });
 
+test("hybrid preserves one chunk for each decomposed subquery", async () => {
+  const product = { content: "product A9F73140", title: "Catalogue", source_type: "datasheet", similarity: 0.9 };
+  const payment = { content: "payment terms", title: "Payment Terms", source_type: "policy", similarity: 0.8 };
+  const delivery = { content: "Klang Valley delivery 1-2 working days", title: "Delivery Policy", source_type: "policy", similarity: 0.7 };
+  const supabaseHybrid = async (path) => ({ json: async () => (path.startsWith("rpc/") ? [product] : [product, payment, delivery]) });
+  const result = await retrieveKnowledge({
+    supabase: supabaseHybrid,
+    question: "I need a product, payment and delivery terms",
+    queries: ["full", "product", "payment terms", "delivery terms"],
+    mode: "hybrid",
+    limit: 3,
+    embed: async () => zeroVector()
+  });
+  assert.deepEqual(
+    result.chunks.map((chunk) => chunk.title).sort(),
+    ["Catalogue", "Payment Terms", "Delivery Policy"].sort(),
+  );
+});
+
 test("similarity floor default is conservative but non-zero", () => {
   assert.ok(DEFAULT_MIN_SIMILARITY > 0 && DEFAULT_MIN_SIMILARITY < 1);
+});
+
+test("exact SKU terms outrank generic catalogue wording", () => {
+  const exact = { content: "LC1D09BD uses a 24 V DC coil", title: "Official" };
+  const generic = { content: "TeSys contactors have coil voltage options", title: "Generic" };
+  const ranked = fuseByKeywords([generic, exact], ["What coil voltage does LC1D09BD use?"], (item) => item.content);
+  assert.equal(ranked[0], exact);
+});
+
+test("Kuala Lumpur delivery decomposition includes the policy's regional name", () => {
+  assert.ok(decomposeQuery("What delivery time applies in Kuala Lumpur?").includes("Kuala Lumpur Klang Valley delivery 1–2 working days next working day"));
+});
+
+test("auxiliary-terminal questions decompose into the terminal identifiers", () => {
+  assert.ok(decomposeQuery("Does 1NO + 1NC tell me the auxiliary terminal IDs?").some((query) => query.includes("13 14 21 22")));
+});
+
+test("policy questions decompose into exact published values", () => {
+  const queries = decomposeQuery("How long is a quotation valid?");
+  assert.ok(queries.includes("quotation validity 14 calendar days"));
+});
+
+test("history rewrite resolves a short follow-up to its prior SKU", () => {
+  assert.equal(
+    rewriteQuery("What coil voltage does it use?", "The customer wants TeSys Deca LC1D09BD."),
+    "The customer wants TeSys Deca LC1D09BD. What coil voltage does it use?",
+  );
+  assert.equal(rewriteQuery("What is the payment policy?", "Earlier product question."), "What is the payment policy?");
+});
+
+test("second-stage reranker promotes exact identifiers", () => {
+  const generic = { content: "TeSys contactors have several coil voltage options" };
+  const exact = { content: "LC1D09BD uses a 24 V DC coil" };
+  const ranked = rerankByCoverage(
+    [generic, exact],
+    ["What coil voltage does LC1D09BD use?"],
+    (item) => item.content,
+    2,
+  );
+  assert.equal(ranked[0], exact);
+});
+
+test("document summary preserves headings and technical fact lines", () => {
+  const summary = documentSummary("# Product card\n\n- SKU: A9F73140\n- Rated current: 40 A\n- unrelated installation prose");
+  assert.match(summary, /Product card/);
+  assert.match(summary, /A9F73140/);
+  assert.match(summary, /40 A/);
+});
+
+test("multi representation expands selected document summaries back to chunks", async () => {
+  const documents = [{
+    id: "doc-product",
+    title: "Product Catalogue",
+    source_type: "datasheet",
+    content: "# Product catalogue\n\n- SKU: A9F73140\n- Rated current: 40 A\n- B curve"
+  }];
+  const chunks = [{
+    document_id: "doc-product",
+    chunk_index: 0,
+    content: "A9F73140 is a 1-pole, 40 A B-curve MCB.",
+    knowledge_documents: { title: "Product Catalogue", source_type: "datasheet" }
+  }];
+  const fakeSupabase = async (path) => ({ json: async () => path.startsWith("knowledge_documents?") ? documents : chunks });
+  const result = await retrieveKnowledge({
+    supabase: fakeSupabase,
+    question: "What is A9F73140?",
+    queries: ["What is A9F73140?"],
+    mode: "multi",
+    limit: 1,
+  });
+  assert.equal(result.mode, "multi");
+  assert.equal(result.representation, "document-summary");
+  assert.equal(result.chunks[0].content, chunks[0].content);
 });

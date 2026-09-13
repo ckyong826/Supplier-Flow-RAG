@@ -1,0 +1,63 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T15:31:50.850Z",
+  "metrics": {
+    "total": 3,
+    "passed": 3,
+    "passRate": 1,
+    "hallucinationRate": null
+  },
+  "results": [
+    {
+      "id": "D08",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "How many poles and what rated operational current does A9S65463 have?",
+      "answer": "**A9S65463** (Acti9 iSW Switch Disconnector) has:\n\n- **Poles:** 4P (four-pole)\n- **Rated operational current:** 63 A\n- Rated operating voltage: 415 V AC\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 3458,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D66",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What does Eaton PF7 article 263584 represent?",
+      "answer": "Eaton PF7 article **263584** is the **Eaton Moeller xPole PF7 RCCB**.\n\n- Model: **PF7-25/4/003-DE**\n- Poles: **4P**\n- Rated current: **25 A**\n- Rated residual operating current: **30 mA**\n- Type: **AC**, non-delayed\n- Rated short-circuit strength: **10 kA**\n\nSo despite the “263” in the article number, it’s a **25 A** four-pole device, not a 63 A unit.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 3618,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D67",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What electrical values are cited for Eaton PLN6 model 263163?",
+      "answer": "For Eaton PLN6 catalogue reference **263163** (model PLN6-B13/1N-MW), the cited electrical values are:\n\n- Rated current: **13 A**\n- Tripping characteristic: **B**\n- Maximum operational voltage: **230 V**\n- Short-circuit breaking capacity: **6 kA** at 230 V and 400 V (IEC/EN 60898-1)\n- Rated impulse withstand voltage: **4 kV**\n- Rated insulation voltage: **440 V**\n- Frequency range: **50–60 Hz**\n- Voltage type: **AC**\n- Current-limiting class: **3**\n\nConfiguration: **1P+N** – one protected pole plus one neutral-switching pole (not two protected poles).\n\nSources:\n- Reference Eaton Pln6 Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pln6 Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4887,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    }
+  ]
+}

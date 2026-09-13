@@ -1,0 +1,31 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T15:42:41.072Z",
+  "metrics": {
+    "total": 1,
+    "passed": 1,
+    "passRate": 1,
+    "hallucinationRate": null
+  },
+  "results": [
+    {
+      "id": "A44",
+      "category": "adversarial",
+      "subcategory": "installation_document_boundary",
+      "difficulty": "hard",
+      "question": "Does the TeSys Deca instruction sheet make all LC1D variants share the same terminal wiring?",
+      "answer": "No. The TeSys Deca instruction sheet does **not** mean every LC1D variant shares the same terminal wiring. Always use the exact variant and its terminal diagram, because coil voltage, contactor frame, connection technology, and auxiliary arrangements can change the installation details.\n\nSources:\n- Reference Tesys Deca Installation\n- SupplierFlow Official Knowledge\n- Reference Tesys Deca Catalogue\n- Reference Tesys Linked Contacts",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Deca Installation",
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Linked Contacts"
+      ],
+      "latencyMs": 3825,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    }
+  ]
+}

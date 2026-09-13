@@ -17,7 +17,7 @@
 //   node scripts/import-knowledge.mjs --no-embed    # text only, keyword retrieval only
 //   node scripts/import-knowledge.mjs --include-sources   # also index the URL manifest
 
-import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -40,13 +40,15 @@ if (existsSync(envPath)) {
 
 const EMBEDDING_MODEL = "text-embedding-3-small";
 const EMBEDDING_DIMENSIONS = 1536;
-const CHUNK_WORDS = 180;
+const CHUNK_WORDS = 100;
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
 const replace = args.includes("--replace");
 const noEmbed = args.includes("--no-embed");
 const includeSources = args.includes("--include-sources");
+const metricsOut = args.includes("--metrics") ? args[args.indexOf("--metrics") + 1] : null;
+const importStarted = Date.now();
 
 // The retrieval eval found this file outranking the real answer document on every product
 // question: it is a list of source URLs, and the URLs contain the SKUs, so keyword scoring
@@ -61,7 +63,44 @@ const SOURCE_TYPES = {
   "rag-delivery-policy.md": "policy",
   "rag-payment-terms.md": "policy",
   "rag-warranty-policy.md": "policy",
-  "rag-sales-sop.md": "sop"
+  "rag-sales-sop.md": "sop",
+  "reference-mcb-tripping-curves.md": "faq",
+  "reference-rccb-current-types.md": "faq",
+  "reference-spd-selection.md": "faq",
+  "reference-tesys-auxiliary-contacts.md": "faq",
+  "reference-incoterms-2020.md": "policy",
+  "reference-mcb-current-limiting.md": "faq",
+  "reference-rccb-installation-systems.md": "faq",
+  "reference-rccb-operating-conditions.md": "faq",
+  "reference-tesys-linked-contacts.md": "faq",
+  "reference-incoterms-cost-insurance.md": "policy",
+  "reference-malaysia-sst-scope.md": "policy",
+  "reference-malaysia-hs-explorer.md": "policy",
+  "reference-mcb-selectivity.md": "faq",
+  "reference-tesys-utilization-categories.md": "faq",
+  "reference-spd-electrical-characteristics.md": "faq",
+  "reference-spd-connection-rules.md": "faq",
+  "reference-rccb-selective-types.md": "faq",
+  "reference-rccb-selectivity-coordination.md": "faq",
+  "reference-mcb-temperature-derating.md": "faq",
+  "reference-mcb-dc-applications.md": "faq",
+  "reference-rccb-overcurrent-protection.md": "faq",
+  "reference-rccb-type-f.md": "faq",
+  "reference-tesys-dc-coil.md": "faq",
+  "reference-spd-impulse-current.md": "faq",
+  "reference-incoterms-risk-transfer.md": "policy",
+  "reference-acti9-ic60-catalogue.md": "faq",
+  "reference-acti9-rcbo-catalogue.md": "faq",
+  "reference-acti9-iprd-catalogue.md": "faq",
+  "reference-acti9-iprd-brochure.md": "faq",
+  "reference-tesys-deca-catalogue.md": "faq",
+  "reference-tesys-overload-relays.md": "faq",
+  "reference-abb-s200-catalogue.md": "faq",
+  "reference-abb-f200-b-type.md": "faq",
+  "reference-abb-rcd-application.md": "faq",
+  "reference-eaton-pf7-catalogue.md": "faq",
+  "reference-eaton-pln6-catalogue.md": "faq",
+  "reference-incoterms-rules-overview.md": "policy"
 };
 
 // "rag-delivery-policy.md" -> "Delivery Policy"
@@ -156,6 +195,19 @@ const plan = files.map((name) => {
   };
 });
 
+const plannedTitles = new Set(plan.map((item) => item.title));
+const staleDocuments = existing.filter((document) => !plannedTitles.has(document.title));
+const sourceBytes = plan.reduce((sum, item) => sum + Buffer.byteLength(item.text, "utf8"), 0);
+const plannedChunkTextBytes = plan.reduce(
+  (sum, item) => sum + item.chunks.reduce((itemSum, chunk) => itemSum + Buffer.byteLength(chunk, "utf8"), 0),
+  0,
+);
+if (staleDocuments.length) {
+  console.log("Existing database documents outside the source set:");
+  for (const document of staleDocuments) console.log(`  - ${document.title}`);
+  console.log("");
+}
+
 console.log(`${"file".padEnd(38)} ${"title".padEnd(30)} ${"type".padEnd(10)} chunks  status`);
 console.log("-".repeat(104));
 for (const item of plan) {
@@ -170,10 +222,44 @@ console.log(`${todo.length} document(s), ${totalChunks} chunk(s) to import.`);
 
 if (dryRun) {
   console.log("\nDry run - nothing written.");
+  if (metricsOut) {
+    mkdirSync(dirname(metricsOut), { recursive: true });
+    writeFileSync(metricsOut, JSON.stringify({
+      ranAt: new Date().toISOString(),
+      status: "dry-run",
+      documents: files.length,
+      chunks: plan.reduce((sum, item) => sum + item.chunks.length, 0),
+      embeddedChunks: null,
+      embeddingDimensions: noEmbed ? null : EMBEDDING_DIMENSIONS,
+      sourceBytes,
+      plannedChunkTextBytes,
+      indexBuildMs: null,
+      elapsedMs: Date.now() - importStarted,
+      staleDocuments: staleDocuments.map((document) => document.title),
+    }, null, 2) + "\n");
+    console.log(`Wrote ${metricsOut}`);
+  }
   process.exit(0);
 }
 if (!todo.length) {
   console.log("\nNothing to do. Use --replace to re-import documents that already exist.");
+  if (metricsOut) {
+    mkdirSync(dirname(metricsOut), { recursive: true });
+    writeFileSync(metricsOut, JSON.stringify({
+      ranAt: new Date().toISOString(),
+      status: "no-op",
+      documents: files.length,
+      chunks: null,
+      embeddedChunks: null,
+      embeddingDimensions: noEmbed ? null : EMBEDDING_DIMENSIONS,
+      sourceBytes,
+      plannedChunkTextBytes,
+      indexBuildMs: 0,
+      elapsedMs: Date.now() - importStarted,
+      staleDocuments: staleDocuments.map((document) => document.title),
+    }, null, 2) + "\n");
+    console.log(`Wrote ${metricsOut}`);
+  }
   process.exit(0);
 }
 
@@ -206,12 +292,32 @@ for (const item of todo) {
   console.log(`  imported "${item.title}" - ${item.chunks.length} chunk(s)${noEmbed ? "" : ", embedded"}`);
 }
 
-const after = await (await supabase("knowledge_chunks?select=id,embedding")).json();
+const after = await (await supabase("knowledge_chunks?select=id,embedding,content")).json();
 const embedded = after.filter((row) => row.embedding !== null).length;
+const indexedChunkTextBytes = after.reduce((sum, row) => sum + Buffer.byteLength(row.content || "", "utf8"), 0);
 
 console.log(`\nCorpus now: ${after.length} chunk(s), ${embedded} embedded.`);
 if (embedded < after.length) {
   console.log(`${after.length - embedded} chunk(s) have no embedding and are invisible to vector search.`);
   console.log("Run: node scripts/backfill-embeddings.mjs");
+}
+if (metricsOut) {
+  mkdirSync(dirname(metricsOut), { recursive: true });
+  writeFileSync(metricsOut, JSON.stringify({
+    ranAt: new Date().toISOString(),
+    status: "imported",
+    documents: files.length,
+    importedDocuments: todo.length,
+    chunks: after.length,
+    embeddedChunks: embedded,
+    embeddingDimensions: noEmbed ? null : EMBEDDING_DIMENSIONS,
+    sourceBytes,
+    plannedChunkTextBytes,
+    indexedChunkTextBytes,
+    indexBuildMs: Date.now() - importStarted,
+    elapsedMs: Date.now() - importStarted,
+    staleDocuments: staleDocuments.map((document) => document.title),
+  }, null, 2) + "\n");
+  console.log(`Wrote ${metricsOut}`);
 }
 console.log("\nNext: node tests/rag-eval/run-ab-retrieval.mjs");

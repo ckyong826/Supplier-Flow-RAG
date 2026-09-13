@@ -1,0 +1,2753 @@
+{
+  "topK": 3,
+  "corpus": {
+    "chunks": 159,
+    "byDocument": {
+      "supplierflow-official-knowledge.md": 13,
+      "rag-delivery-policy.md": 2,
+      "rag-payment-terms.md": 2,
+      "rag-sales-sop.md": 2,
+      "rag-warranty-policy.md": 1,
+      "reference-mcb-tripping-curves.md": 2,
+      "reference-rccb-current-types.md": 2,
+      "reference-spd-selection.md": 2,
+      "reference-tesys-auxiliary-contacts.md": 2,
+      "reference-incoterms-2020.md": 2,
+      "reference-mcb-current-limiting.md": 1,
+      "reference-rccb-installation-systems.md": 2,
+      "reference-rccb-operating-conditions.md": 1,
+      "reference-tesys-linked-contacts.md": 1,
+      "reference-incoterms-cost-insurance.md": 2,
+      "reference-malaysia-sst-scope.md": 2,
+      "reference-malaysia-hs-explorer.md": 2,
+      "reference-mcb-selectivity.md": 2,
+      "reference-tesys-utilization-categories.md": 2,
+      "reference-spd-electrical-characteristics.md": 2,
+      "reference-spd-connection-rules.md": 2,
+      "reference-rccb-selective-types.md": 2,
+      "reference-rccb-selectivity-coordination.md": 2,
+      "reference-mcb-temperature-derating.md": 2,
+      "reference-mcb-dc-applications.md": 1,
+      "reference-rccb-overcurrent-protection.md": 1,
+      "reference-rccb-type-f.md": 1,
+      "reference-tesys-dc-coil.md": 1,
+      "reference-spd-impulse-current.md": 2,
+      "reference-incoterms-risk-transfer.md": 2,
+      "reference-acti9-ic60-catalogue.md": 8,
+      "reference-acti9-rcbo-catalogue.md": 7,
+      "reference-acti9-iprd-catalogue.md": 7,
+      "reference-acti9-iprd-brochure.md": 7,
+      "reference-tesys-deca-catalogue.md": 8,
+      "reference-tesys-overload-relays.md": 7,
+      "reference-abb-s200-catalogue.md": 7,
+      "reference-abb-f200-b-type.md": 6,
+      "reference-abb-rcd-application.md": 6,
+      "reference-eaton-pf7-catalogue.md": 6,
+      "reference-eaton-pln6-catalogue.md": 7,
+      "reference-incoterms-rules-overview.md": 6,
+      "reference-acti9-rcbo-installation.md": 7,
+      "reference-tesys-deca-installation.md": 7
+    }
+  },
+  "metrics": {
+    "scored": 114,
+    "recallAt1": 0.8245614035087719,
+    "recallAtK": 1,
+    "fullyAnswerable": 1,
+    "mrr": 0.9049707602339182
+  },
+  "results": [
+    {
+      "id": "D01",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated current and tripping curve of the Acti9 iC60N A9F73140?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#0",
+        "reference-acti9-rcbo-catalogue.md#5"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D02",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What breaking capacity does A9F73140 have under IEC/EN 60898-1?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#0",
+        "reference-eaton-pln6-catalogue.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D04",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What earth-leakage sensitivity does the A9D55610 RCBO provide?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#2",
+        "supplierflow-official-knowledge.md#1",
+        "reference-rccb-overcurrent-protection.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D07",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated operating voltage of the A9S65440 switch disconnector?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#2",
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#3"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D08",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "How many poles and what rated operational current does A9S65463 have?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#2",
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#3"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D09",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What are the surge rating and rated voltage of the A9L20100 surge arrester?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#3",
+        "reference-acti9-iprd-brochure.md#4",
+        "supplierflow-official-knowledge.md#2"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D10",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil supply range does the LC1D09BNE contactor use?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#3",
+        "supplierflow-official-knowledge.md#7",
+        "supplierflow-official-knowledge.md#4"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D11",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil voltage does LC1D09BD use?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#3",
+        "supplierflow-official-knowledge.md#4"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D14",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil voltage is specified for LC1D40AF7?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#5",
+        "reference-tesys-deca-catalogue.md#0",
+        "reference-tesys-deca-catalogue.md#2"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D15",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "How many built-in auxiliary contacts does LC1D40AP7 provide?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#5",
+        "reference-tesys-overload-relays.md#6",
+        "reference-tesys-deca-catalogue.md#4"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D17",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What AC-3 motor power at 400 V is stated for LC1D65ABNE?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#6",
+        "supplierflow-official-knowledge.md#4",
+        "reference-tesys-utilization-categories.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D18",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "hard",
+      "question": "How wide is the LC1D150M7 contactor?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#6",
+        "supplierflow-official-knowledge.md#7",
+        "supplierflow-official-knowledge.md#3"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D19",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What DC voltage and Icu can the ABB S200 M UC arc-extinguishing design handle?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#7",
+        "reference-abb-s200-catalogue.md#0",
+        "reference-abb-s200-catalogue.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D21",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What rated residual current is specified for the ABB F204AC-63/0.3?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#8",
+        "supplierflow-official-knowledge.md#9",
+        "supplierflow-official-knowledge.md#10"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D23",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What are the rated current and rated residual current of the ABB F202A-40/0.03?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#8",
+        "supplierflow-official-knowledge.md#9",
+        "supplierflow-official-knowledge.md#10"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D25",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What poles, rated current and tripping characteristic are listed for Eaton SKU 263164?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#10",
+        "reference-eaton-pln6-catalogue.md#0",
+        "reference-eaton-pln6-catalogue.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D26",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What is the rated fault current and short-circuit strength of the Eaton xPole PF7 263584?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#11",
+        "supplierflow-official-knowledge.md#0",
+        "reference-eaton-pf7-catalogue.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D27",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What rated AC voltage does the Eaton xPole Home HL MCB datasheet specify?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#11",
+        "supplierflow-official-knowledge.md#10",
+        "reference-eaton-pln6-catalogue.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D28",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What is the Imax range of the Schneider Acti9 iPRD surge protection range and which standard does it comply with?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#12",
+        "supplierflow-official-knowledge.md#0",
+        "reference-acti9-iprd-brochure.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D29",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "hard",
+      "question": "When sensitive loads sit more than 10 m from a Type 2 iPRD, what downstream protection is recommended?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#12",
+        "reference-spd-selection.md#1",
+        "reference-acti9-iprd-brochure.md#3"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "P01",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long does delivery normally take within Klang Valley?",
+      "status": "hit",
+      "rankOfFirstHit": 3,
+      "reciprocalRank": 0.3333333333333333,
+      "expectedDocs": [
+        "rag-delivery-policy.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-delivery-policy.md"
+      ],
+      "retrievedTopK": [
+        "reference-eaton-pf7-catalogue.md#4",
+        "reference-incoterms-2020.md#0",
+        "rag-delivery-policy.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "P02",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What is the normal delivery time for Peninsular Malaysia outside Klang Valley?",
+      "status": "hit",
+      "rankOfFirstHit": 3,
+      "reciprocalRank": 0.3333333333333333,
+      "expectedDocs": [
+        "rag-delivery-policy.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-delivery-policy.md"
+      ],
+      "retrievedTopK": [
+        "reference-eaton-pf7-catalogue.md#4",
+        "reference-incoterms-2020.md#0",
+        "rag-delivery-policy.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "P03",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long do East Malaysia deliveries normally take?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "rag-delivery-policy.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-delivery-policy.md"
+      ],
+      "retrievedTopK": [
+        "rag-delivery-policy.md#0",
+        "reference-rccb-selectivity-coordination.md#0",
+        "reference-rccb-selectivity-coordination.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "P04",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What is the daily order cut-off time for same-day processing?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "rag-delivery-policy.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-delivery-policy.md"
+      ],
+      "retrievedTopK": [
+        "rag-delivery-policy.md#0",
+        "rag-delivery-policy.md#1",
+        "rag-payment-terms.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "P05",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long is a quotation valid for?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "rag-payment-terms.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-payment-terms.md"
+      ],
+      "retrievedTopK": [
+        "rag-sales-sop.md#0",
+        "rag-payment-terms.md#0",
+        "rag-sales-sop.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "P06",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What are the payment requirements for a new customer?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "rag-payment-terms.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-payment-terms.md"
+      ],
+      "retrievedTopK": [
+        "rag-payment-terms.md#0",
+        "rag-sales-sop.md#0",
+        "reference-incoterms-rules-overview.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "P07",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What credit terms may approved account customers receive?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "rag-payment-terms.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-payment-terms.md"
+      ],
+      "retrievedTopK": [
+        "rag-payment-terms.md#0",
+        "reference-incoterms-2020.md#0",
+        "rag-sales-sop.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "P08",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What warranty do LED panel lights carry?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "rag-warranty-policy.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-warranty-policy.md"
+      ],
+      "retrievedTopK": [
+        "rag-warranty-policy.md#0",
+        "reference-eaton-pf7-catalogue.md#4",
+        "reference-spd-selection.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "P09",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What is required to submit a warranty claim?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "rag-warranty-policy.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-warranty-policy.md"
+      ],
+      "retrievedTopK": [
+        "rag-warranty-policy.md#0",
+        "rag-sales-sop.md#0",
+        "reference-tesys-utilization-categories.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "P10",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "How soon should the sales team follow up on a sent quotation?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "rag-sales-sop.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-sales-sop.md"
+      ],
+      "retrievedTopK": [
+        "rag-sales-sop.md#0",
+        "rag-sales-sop.md#1",
+        "rag-warranty-policy.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D31",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What range of multiples of rated current causes an MCB with a B curve to trip magnetically?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-mcb-tripping-curves.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-mcb-tripping-curves.md"
+      ],
+      "retrievedTopK": [
+        "reference-mcb-tripping-curves.md#0",
+        "reference-abb-rcd-application.md#1",
+        "supplierflow-official-knowledge.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D32",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What does the C curve describe on an MCB?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-mcb-tripping-curves.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-mcb-tripping-curves.md"
+      ],
+      "retrievedTopK": [
+        "reference-eaton-pln6-catalogue.md#2",
+        "reference-mcb-tripping-curves.md#0",
+        "reference-mcb-current-limiting.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D33",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What is the difference between Type AC and Type A residual-current detection?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-rccb-current-types.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-current-types.md"
+      ],
+      "retrievedTopK": [
+        "reference-rccb-current-types.md#0",
+        "reference-rccb-type-f.md#0",
+        "reference-abb-rcd-application.md#2"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D34",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What does IΔn mean on an RCCB, and is 30 mA automatically valid for every F200 SKU?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-rccb-current-types.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-current-types.md"
+      ],
+      "retrievedTopK": [
+        "reference-rccb-current-types.md#1",
+        "supplierflow-official-knowledge.md#8",
+        "supplierflow-official-knowledge.md#9"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D35",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Where is a Type 2 SPD installed in relation to the main service overcurrent protective device?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-spd-selection.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-spd-selection.md"
+      ],
+      "retrievedTopK": [
+        "reference-spd-selection.md#0",
+        "reference-spd-electrical-characteristics.md#0",
+        "reference-spd-impulse-current.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D36",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which terminal pair identifies the NO and NC auxiliary contacts on TeSys D contactors?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-auxiliary-contacts.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-auxiliary-contacts.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-auxiliary-contacts.md#0",
+        "reference-tesys-deca-catalogue.md#0",
+        "reference-tesys-deca-catalogue.md#4"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D37",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "How does a current-limiting circuit breaker reduce the effects of a short circuit?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-mcb-current-limiting.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-mcb-current-limiting.md"
+      ],
+      "retrievedTopK": [
+        "reference-mcb-current-limiting.md#0",
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#11"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D38",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "How does an RCD detect an earth fault?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-rccb-installation-systems.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-installation-systems.md"
+      ],
+      "retrievedTopK": [
+        "reference-rccb-installation-systems.md#0",
+        "reference-rccb-selectivity-coordination.md#0",
+        "reference-rccb-overcurrent-protection.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D39",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What ambient temperature range does the ABB F200 RCCB family page state?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-rccb-operating-conditions.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-operating-conditions.md"
+      ],
+      "retrievedTopK": [
+        "reference-rccb-operating-conditions.md#0",
+        "reference-abb-f200-b-type.md#5",
+        "supplierflow-official-knowledge.md#10"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D40",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Which TeSys D contactor range includes mirror and mechanically linked contacts?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-linked-contacts.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-linked-contacts.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-linked-contacts.md#0",
+        "reference-tesys-overload-relays.md#6",
+        "reference-tesys-deca-catalogue.md#4"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D41",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Where does the ICC say the costs associated with an Incoterms 2020 rule are listed?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-incoterms-cost-insurance.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-incoterms-cost-insurance.md"
+      ],
+      "retrievedTopK": [
+        "reference-incoterms-rules-overview.md#0",
+        "reference-incoterms-cost-insurance.md#0",
+        "reference-incoterms-risk-transfer.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D42",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "According to MySST, what kinds of goods can be subject to Malaysia sales tax?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-malaysia-sst-scope.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-malaysia-sst-scope.md"
+      ],
+      "retrievedTopK": [
+        "rag-sales-sop.md#0",
+        "reference-malaysia-sst-scope.md#0",
+        "rag-delivery-policy.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D43",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What is the purpose of the JKDM HS Explorer?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-malaysia-hs-explorer.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-malaysia-hs-explorer.md"
+      ],
+      "retrievedTopK": [
+        "reference-malaysia-hs-explorer.md#0",
+        "rag-warranty-policy.md#0",
+        "reference-malaysia-hs-explorer.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A01",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "What is the difference between the ABB F202A-40/0.03 and the F202AC-40/0.03?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#9",
+        "supplierflow-official-knowledge.md#8",
+        "supplierflow-official-knowledge.md#10"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A02",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "Which ABB RCCB is rated 40 A with 300 mA residual current, and what is its order code?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#8",
+        "supplierflow-official-knowledge.md#9",
+        "reference-eaton-pf7-catalogue.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A03",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "I need a 9 A TeSys Deca contactor. What is the difference between the LC1D09BNE and the LC1D09BD?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#3",
+        "supplierflow-official-knowledge.md#4",
+        "supplierflow-official-knowledge.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A04",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "We have two Acti9 iSW 4-pole 415 V AC switch disconnectors in the catalogue. Which one is 63 A and which one is 40 A?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#2",
+        "supplierflow-official-knowledge.md#3"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A05",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "Compare the A9D55610 and the A9D32625 RCBOs.",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#2",
+        "supplierflow-official-knowledge.md#1",
+        "reference-spd-impulse-current.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A06",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "hard",
+      "question": "Which contactor in the catalogue gives 30 kW AC-3 motor power at 400 V?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#6",
+        "supplierflow-official-knowledge.md#4",
+        "reference-tesys-deca-catalogue.md#4"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A07",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "hard",
+      "question": "List the ABB RCCBs in the catalogue rated 63 A and give the residual current of each.",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#10",
+        "supplierflow-official-knowledge.md#8",
+        "supplierflow-official-knowledge.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A08",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "If I confirm an order for LC1D150M7 at 3:00 PM on a Tuesday for delivery to Johor Bahru, when should I expect it?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "rag-delivery-policy.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-delivery-policy.md"
+      ],
+      "retrievedTopK": [
+        "reference-eaton-pf7-catalogue.md#4",
+        "rag-delivery-policy.md#0",
+        "rag-sales-sop.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A09",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "I'm a new customer in Kuala Lumpur and I need a 1-pole 40 A B-curve MCB. What product fits, and what payment and delivery terms apply?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "supplierflow-official-knowledge.md",
+        "rag-payment-terms.md",
+        "rag-delivery-policy.md"
+      ],
+      "docsFoundInTopK": [
+        "supplierflow-official-knowledge.md",
+        "rag-payment-terms.md",
+        "rag-delivery-policy.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#0",
+        "rag-payment-terms.md#0",
+        "rag-delivery-policy.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A10",
+      "category": "adversarial",
+      "subcategory": "procedural",
+      "difficulty": "medium",
+      "question": "The brand my customer asked for is out of stock. What does the SOP say I should do?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "rag-sales-sop.md"
+      ],
+      "docsFoundInTopK": [
+        "rag-sales-sop.md"
+      ],
+      "retrievedTopK": [
+        "rag-sales-sop.md#0",
+        "reference-acti9-rcbo-catalogue.md#0",
+        "reference-malaysia-sst-scope.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A11",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "medium",
+      "question": "Does a Type 2 SPD alone provide the final local protection for a sensitive load more than 10 m away?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-spd-selection.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-spd-selection.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#12",
+        "reference-spd-selection.md#1",
+        "reference-acti9-iprd-brochure.md#5"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A12",
+      "category": "adversarial",
+      "subcategory": "policy_boundary",
+      "difficulty": "medium",
+      "question": "Can I answer a customer's Singapore delivery time just from an Incoterms 2020 term?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-incoterms-2020.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-incoterms-2020.md"
+      ],
+      "retrievedTopK": [
+        "reference-eaton-pf7-catalogue.md#4",
+        "reference-incoterms-2020.md#0",
+        "reference-incoterms-risk-transfer.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A13",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_terminal_mapping",
+      "difficulty": "hard",
+      "question": "If a TeSys D contactor has 1NO + 1NC, does that alone tell me the auxiliary terminal IDs?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-auxiliary-contacts.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-auxiliary-contacts.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-auxiliary-contacts.md#0",
+        "reference-tesys-deca-installation.md#2",
+        "reference-tesys-deca-catalogue.md#4"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A14",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_semantics",
+      "difficulty": "hard",
+      "question": "Can an RCCB listed as Type A be treated as Type AC because both detect AC residual current?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-rccb-current-types.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-current-types.md"
+      ],
+      "retrievedTopK": [
+        "reference-rccb-current-types.md#0",
+        "reference-abb-rcd-application.md#2",
+        "reference-eaton-pf7-catalogue.md#3"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A15",
+      "category": "adversarial",
+      "subcategory": "numeric_semantics",
+      "difficulty": "hard",
+      "question": "Can current-limiting capacity replace checking a circuit breaker's rated breaking capacity?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-mcb-current-limiting.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-mcb-current-limiting.md"
+      ],
+      "retrievedTopK": [
+        "reference-mcb-current-limiting.md#0",
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#7"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A16",
+      "category": "adversarial",
+      "subcategory": "numeric_trap",
+      "difficulty": "hard",
+      "question": "Can we state one SST percentage for every electrical quotation from the MySST scope overview?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-malaysia-sst-scope.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-malaysia-sst-scope.md"
+      ],
+      "retrievedTopK": [
+        "rag-sales-sop.md#0",
+        "reference-malaysia-sst-scope.md#0",
+        "reference-incoterms-2020.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A17",
+      "category": "adversarial",
+      "subcategory": "classification_boundary",
+      "difficulty": "hard",
+      "question": "Can I derive the exact Malaysian HS code for A9F73140 just from the SKU?",
+      "status": "hit",
+      "rankOfFirstHit": 3,
+      "reciprocalRank": 0.3333333333333333,
+      "expectedDocs": [
+        "reference-malaysia-hs-explorer.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-malaysia-hs-explorer.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#1",
+        "reference-malaysia-hs-explorer.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D44",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What does discrimination or selectivity mean for coordinated MCBs?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-mcb-selectivity.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-mcb-selectivity.md"
+      ],
+      "retrievedTopK": [
+        "reference-mcb-selectivity.md#0",
+        "reference-rccb-overcurrent-protection.md#0",
+        "reference-abb-s200-catalogue.md#4"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D45",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What are the AC-1 and AC-3 utilization categories for a TeSys contactor?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-utilization-categories.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-utilization-categories.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-utilization-categories.md#0",
+        "reference-tesys-utilization-categories.md#1",
+        "reference-tesys-deca-catalogue.md#2"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D46",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What do Uc, Up, In and Imax mean on an SPD?",
+      "status": "hit",
+      "rankOfFirstHit": 3,
+      "reciprocalRank": 0.3333333333333333,
+      "expectedDocs": [
+        "reference-spd-electrical-characteristics.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-spd-electrical-characteristics.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-iprd-catalogue.md#4",
+        "reference-spd-selection.md#0",
+        "reference-spd-electrical-characteristics.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D47",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What is a Type S RCCB used for?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-rccb-selective-types.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-selective-types.md"
+      ],
+      "retrievedTopK": [
+        "reference-rccb-installation-systems.md#0",
+        "reference-rccb-selective-types.md#0",
+        "reference-acti9-iprd-catalogue.md#3"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D48",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What conditions help provide selectivity between upstream and downstream RCCBs?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-rccb-selectivity-coordination.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-selectivity-coordination.md"
+      ],
+      "retrievedTopK": [
+        "reference-rccb-selectivity-coordination.md#1",
+        "reference-abb-s200-catalogue.md#3",
+        "reference-spd-selection.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D49",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What maximum total connection length does the SPD guide recommend?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-spd-connection-rules.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-spd-connection-rules.md"
+      ],
+      "retrievedTopK": [
+        "reference-spd-connection-rules.md#0",
+        "reference-acti9-iprd-brochure.md#2",
+        "reference-spd-connection-rules.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A18",
+      "category": "adversarial",
+      "subcategory": "selectivity_boundary",
+      "difficulty": "hard",
+      "question": "Does partial discrimination guarantee that only the downstream MCB trips at every fault level?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-mcb-selectivity.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-mcb-selectivity.md"
+      ],
+      "retrievedTopK": [
+        "reference-mcb-selectivity.md#0",
+        "reference-abb-s200-catalogue.md#3",
+        "reference-abb-rcd-application.md#4"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A19",
+      "category": "adversarial",
+      "subcategory": "utilization_category_boundary",
+      "difficulty": "hard",
+      "question": "Can I use an AC-3 contactor rating as the AC-1 rating without checking the load?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-utilization-categories.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-utilization-categories.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-utilization-categories.md#0",
+        "reference-tesys-utilization-categories.md#1",
+        "reference-tesys-deca-installation.md#2"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A20",
+      "category": "adversarial",
+      "subcategory": "spd_numeric_semantics",
+      "difficulty": "hard",
+      "question": "Does a higher Imax alone prove that an SPD gives lower voltage at the equipment?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-spd-electrical-characteristics.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-spd-electrical-characteristics.md"
+      ],
+      "retrievedTopK": [
+        "reference-spd-electrical-characteristics.md#1",
+        "reference-abb-f200-b-type.md#5",
+        "reference-spd-electrical-characteristics.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A21",
+      "category": "adversarial",
+      "subcategory": "rccb_application_boundary",
+      "difficulty": "hard",
+      "question": "Can a Type S 30 mA RCCB be used for additional people protection just because it is selective?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-rccb-selective-types.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-selective-types.md"
+      ],
+      "retrievedTopK": [
+        "reference-rccb-selective-types.md#0",
+        "reference-abb-rcd-application.md#3",
+        "reference-acti9-rcbo-catalogue.md#3"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A22",
+      "category": "adversarial",
+      "subcategory": "rccb_selectivity_boundary",
+      "difficulty": "hard",
+      "question": "If upstream and downstream RCCBs have the same IΔn and no delay, is selectivity guaranteed?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-rccb-selectivity-coordination.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-selectivity-coordination.md"
+      ],
+      "retrievedTopK": [
+        "reference-abb-rcd-application.md#5",
+        "reference-rccb-selectivity-coordination.md#0",
+        "reference-acti9-ic60-catalogue.md#3"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A23",
+      "category": "adversarial",
+      "subcategory": "spd_installation_boundary",
+      "difficulty": "hard",
+      "question": "Can I ignore the 50 cm SPD connection rule when the quoted Up is low?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-spd-connection-rules.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-spd-connection-rules.md"
+      ],
+      "retrievedTopK": [
+        "reference-spd-connection-rules.md#0",
+        "reference-spd-connection-rules.md#1",
+        "supplierflow-official-knowledge.md#7"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D50",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Under IEC 60898-1, what reference temperature and conventional tripping current are used for iC60 testing?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-mcb-temperature-derating.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-mcb-temperature-derating.md"
+      ],
+      "retrievedTopK": [
+        "reference-mcb-temperature-derating.md#0",
+        "supplierflow-official-knowledge.md#1",
+        "supplierflow-official-knowledge.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D51",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What DC voltage range does Schneider state for Acti9 iC60N/H MCBs, and what must be checked?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-mcb-dc-applications.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-mcb-dc-applications.md"
+      ],
+      "retrievedTopK": [
+        "reference-mcb-dc-applications.md#0",
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D52",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What is the protection difference between an RCCB and an RCBO?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-rccb-overcurrent-protection.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-overcurrent-protection.md"
+      ],
+      "retrievedTopK": [
+        "reference-rccb-overcurrent-protection.md#0",
+        "reference-acti9-rcbo-catalogue.md#0",
+        "reference-abb-rcd-application.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D53",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What extra residual-current capability does an ABB Type F RCCB provide beyond Type A?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-rccb-type-f.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-type-f.md"
+      ],
+      "retrievedTopK": [
+        "reference-rccb-type-f.md#0",
+        "reference-abb-f200-b-type.md#0",
+        "supplierflow-official-knowledge.md#8"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D54",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which TeSys D DC-coil terminal is positive?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-dc-coil.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-dc-coil.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-dc-coil.md#0",
+        "reference-tesys-deca-installation.md#4",
+        "supplierflow-official-knowledge.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D55",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What are the Type 1 Iimp and Type 2 Imax surge waveforms?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-spd-impulse-current.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-spd-impulse-current.md"
+      ],
+      "retrievedTopK": [
+        "reference-spd-impulse-current.md#0",
+        "reference-spd-selection.md#0",
+        "reference-acti9-iprd-brochure.md#5"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D56",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Why is the named place important in an Incoterms 2020 rule?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-incoterms-risk-transfer.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-incoterms-risk-transfer.md"
+      ],
+      "retrievedTopK": [
+        "reference-incoterms-rules-overview.md#0",
+        "reference-incoterms-risk-transfer.md#0",
+        "reference-incoterms-2020.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A24",
+      "category": "adversarial",
+      "subcategory": "mcb_temperature_boundary",
+      "difficulty": "hard",
+      "question": "Can I apply one fixed iC60 overload threshold at every ambient temperature?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-mcb-temperature-derating.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-mcb-temperature-derating.md"
+      ],
+      "retrievedTopK": [
+        "reference-mcb-temperature-derating.md#0",
+        "supplierflow-official-knowledge.md#1",
+        "reference-mcb-dc-applications.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A25",
+      "category": "adversarial",
+      "subcategory": "mcb_dc_boundary",
+      "difficulty": "hard",
+      "question": "If an Acti9 iC60N is suitable up to 250 VDC, can any single-pole arrangement assume the full breaking capacity?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-mcb-dc-applications.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-mcb-dc-applications.md"
+      ],
+      "retrievedTopK": [
+        "reference-mcb-dc-applications.md#0",
+        "supplierflow-official-knowledge.md#1",
+        "reference-acti9-ic60-catalogue.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A26",
+      "category": "adversarial",
+      "subcategory": "rccb_overcurrent_boundary",
+      "difficulty": "hard",
+      "question": "Can an RCCB alone protect a circuit against overload and line-to-neutral short circuit?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-rccb-overcurrent-protection.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-overcurrent-protection.md"
+      ],
+      "retrievedTopK": [
+        "reference-abb-rcd-application.md#1",
+        "reference-rccb-overcurrent-protection.md#0",
+        "supplierflow-official-knowledge.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A27",
+      "category": "adversarial",
+      "subcategory": "rccb_type_boundary",
+      "difficulty": "hard",
+      "question": "Can an ABB Type F RCCB be treated as merely a Type AC device because both detect AC residual current?",
+      "status": "hit",
+      "rankOfFirstHit": 3,
+      "reciprocalRank": 0.3333333333333333,
+      "expectedDocs": [
+        "reference-rccb-type-f.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-rccb-type-f.md"
+      ],
+      "retrievedTopK": [
+        "reference-rccb-current-types.md#0",
+        "reference-abb-rcd-application.md#2",
+        "reference-rccb-type-f.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A28",
+      "category": "adversarial",
+      "subcategory": "tesys_coil_polarity",
+      "difficulty": "medium",
+      "question": "Can I wire a TeSys D DC coil with either polarity because it has a built-in suppressor?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-dc-coil.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-dc-coil.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-dc-coil.md#0",
+        "reference-tesys-deca-installation.md#4",
+        "supplierflow-official-knowledge.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A29",
+      "category": "adversarial",
+      "subcategory": "spd_waveform_boundary",
+      "difficulty": "hard",
+      "question": "Can I compare a Type 1 Iimp value directly with a Type 2 Imax value as the same SPD rating?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-spd-impulse-current.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-spd-impulse-current.md"
+      ],
+      "retrievedTopK": [
+        "reference-spd-impulse-current.md#0",
+        "reference-spd-selection.md#0",
+        "reference-acti9-iprd-brochure.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A30",
+      "category": "adversarial",
+      "subcategory": "incoterms_risk_boundary",
+      "difficulty": "hard",
+      "question": "If a CIP term names Singapore as the destination, does risk transfer only when the goods arrive in Singapore?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-incoterms-risk-transfer.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-incoterms-risk-transfer.md"
+      ],
+      "retrievedTopK": [
+        "reference-incoterms-rules-overview.md#1",
+        "reference-incoterms-risk-transfer.md#0",
+        "reference-incoterms-rules-overview.md#3"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D57",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Which protection families are included in Schneider's Acti 9 catalogue?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-acti9-ic60-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-acti9-ic60-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-ic60-catalogue.md#0",
+        "supplierflow-official-knowledge.md#3",
+        "reference-acti9-rcbo-catalogue.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D58",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What breaking capacities are listed for the Acti9 iC60N3 and iC60H3 RCBO families?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-acti9-rcbo-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-acti9-rcbo-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-rcbo-catalogue.md#0",
+        "reference-acti9-rcbo-catalogue.md#1",
+        "reference-acti9-rcbo-catalogue.md#5"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D59",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which earthing systems are covered by the Acti9/KQ F40r SPD catalogue?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-acti9-iprd-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-acti9-iprd-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-iprd-catalogue.md#0",
+        "reference-acti9-iprd-catalogue.md#1",
+        "reference-acti9-ic60-catalogue.md#4"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D60",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What distinction does the Acti9 SPD brochure make between iPRD1 and iPRD?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-acti9-iprd-brochure.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-acti9-iprd-brochure.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-iprd-brochure.md#0",
+        "supplierflow-official-knowledge.md#3",
+        "supplierflow-official-knowledge.md#12"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D61",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Which product ranges are listed alongside TeSys Deca contactors in the 2026 catalogue?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-deca-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-deca-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-deca-catalogue.md#0",
+        "reference-tesys-deca-catalogue.md#3",
+        "reference-tesys-deca-catalogue.md#5"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D62",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which overload-relay technologies are covered in the TeSys reference?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-overload-relays.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-overload-relays.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-overload-relays.md#0",
+        "reference-tesys-deca-catalogue.md#0",
+        "reference-tesys-deca-catalogue.md#5"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D63",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What must be checked before using an ABB S200 M UC breaker on DC?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-abb-s200-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-abb-s200-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-abb-s200-catalogue.md#0",
+        "supplierflow-official-knowledge.md#7",
+        "reference-abb-s200-catalogue.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D64",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What voltage range is the ABB F200 four-pole test circuit designed for in the cited no-neutral arrangement?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-abb-f200-b-type.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-abb-f200-b-type.md"
+      ],
+      "retrievedTopK": [
+        "reference-abb-f200-b-type.md#1",
+        "reference-rccb-operating-conditions.md#0",
+        "reference-abb-f200-b-type.md#5"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D65",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Does an RCCB alone protect against overload and short circuit?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-abb-rcd-application.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-abb-rcd-application.md"
+      ],
+      "retrievedTopK": [
+        "reference-abb-rcd-application.md#1",
+        "reference-rccb-overcurrent-protection.md#0",
+        "reference-tesys-overload-relays.md#4"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D66",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What does Eaton PF7 article 263584 represent?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-eaton-pf7-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-eaton-pf7-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#0",
+        "reference-eaton-pf7-catalogue.md#2",
+        "supplierflow-official-knowledge.md#11"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D67",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What electrical values are cited for Eaton PLN6 model 263163?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-eaton-pln6-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-eaton-pln6-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-eaton-pln6-catalogue.md#0",
+        "reference-eaton-pln6-catalogue.md#1",
+        "supplierflow-official-knowledge.md#10"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D68",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What does an Incoterms 2020 rule allocate between the parties?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-incoterms-rules-overview.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-incoterms-rules-overview.md"
+      ],
+      "retrievedTopK": [
+        "reference-incoterms-rules-overview.md#0",
+        "reference-incoterms-2020.md#0",
+        "reference-incoterms-risk-transfer.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D69",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which features does Schneider instruction sheet D384245 identify on an Acti9 iC60 RCBO?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-acti9-rcbo-installation.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-acti9-rcbo-installation.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-rcbo-installation.md#0",
+        "reference-acti9-rcbo-installation.md#1",
+        "reference-acti9-rcbo-catalogue.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "D70",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which document should guide installation of a TeSys Deca contactor?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-deca-installation.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-deca-installation.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-deca-installation.md#0",
+        "reference-tesys-deca-installation.md#1",
+        "reference-tesys-deca-catalogue.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A31",
+      "category": "adversarial",
+      "subcategory": "catalogue_scope_boundary",
+      "difficulty": "medium",
+      "question": "Does the maximum breaking-capacity figure in the Acti9 catalogue apply to every product family?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-acti9-ic60-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-acti9-ic60-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-ic60-catalogue.md#0",
+        "reference-mcb-dc-applications.md#0",
+        "reference-acti9-rcbo-catalogue.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A32",
+      "category": "adversarial",
+      "subcategory": "rcbo_rating_boundary",
+      "difficulty": "hard",
+      "question": "Can iC60N3 and iC60H3 be described as having the same short-circuit rating?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-acti9-rcbo-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-acti9-rcbo-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-rcbo-catalogue.md#1",
+        "reference-acti9-rcbo-catalogue.md#0",
+        "reference-acti9-rcbo-catalogue.md#5"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A33",
+      "category": "adversarial",
+      "subcategory": "spd_cartridge_boundary",
+      "difficulty": "hard",
+      "question": "Can any Type 3 cartridge replace any Type 2 iPRD device?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-acti9-iprd-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-acti9-iprd-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-iprd-catalogue.md#0",
+        "supplierflow-official-knowledge.md#12",
+        "reference-acti9-iprd-catalogue.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A34",
+      "category": "adversarial",
+      "subcategory": "spd_selection_boundary",
+      "difficulty": "hard",
+      "question": "Is a higher kA number alone enough to choose an Acti9 SPD?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-acti9-iprd-brochure.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-acti9-iprd-brochure.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-iprd-brochure.md#0",
+        "reference-mcb-dc-applications.md#0",
+        "supplierflow-official-knowledge.md#12"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A35",
+      "category": "adversarial",
+      "subcategory": "tesys_auxiliary_boundary",
+      "difficulty": "hard",
+      "question": "Does 1NO + 1NC alone prove the motor rating of a TeSys contactor?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-deca-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-deca-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-deca-catalogue.md#0",
+        "reference-tesys-deca-catalogue.md#4",
+        "reference-tesys-deca-installation.md#5"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A36",
+      "category": "adversarial",
+      "subcategory": "overload_protection_boundary",
+      "difficulty": "hard",
+      "question": "Can a TeSys overload relay replace the upstream short-circuit protective device?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-overload-relays.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-overload-relays.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-overload-relays.md#2",
+        "reference-tesys-overload-relays.md#4",
+        "reference-tesys-overload-relays.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A37",
+      "category": "adversarial",
+      "subcategory": "mcb_dc_boundary",
+      "difficulty": "hard",
+      "question": "Is an AC rating alone enough to approve an ABB S200 M UC breaker for DC?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-abb-s200-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-abb-s200-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-abb-s200-catalogue.md#0",
+        "supplierflow-official-knowledge.md#7",
+        "reference-abb-s200-catalogue.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A38",
+      "category": "adversarial",
+      "subcategory": "rccb_test_boundary",
+      "difficulty": "hard",
+      "question": "If a three-phase circuit has no neutral, does the ABB F200 test button automatically work without checking wiring?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-abb-f200-b-type.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-abb-f200-b-type.md"
+      ],
+      "retrievedTopK": [
+        "reference-abb-f200-b-type.md#5",
+        "reference-rccb-operating-conditions.md#0",
+        "reference-abb-f200-b-type.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A39",
+      "category": "adversarial",
+      "subcategory": "rccb_overcurrent_boundary",
+      "difficulty": "hard",
+      "question": "Can I rely on an RCCB alone to protect a cable from overload?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-abb-rcd-application.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-abb-rcd-application.md"
+      ],
+      "retrievedTopK": [
+        "reference-abb-rcd-application.md#1",
+        "reference-abb-rcd-application.md#0",
+        "reference-rccb-current-types.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A40",
+      "category": "adversarial",
+      "subcategory": "pf7_near_duplicate",
+      "difficulty": "hard",
+      "question": "Does Eaton article 263584 mean a 63 A four-pole PF7?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-eaton-pf7-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-eaton-pf7-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-eaton-pf7-catalogue.md#2",
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#11"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A41",
+      "category": "adversarial",
+      "subcategory": "pln6_pole_boundary",
+      "difficulty": "hard",
+      "question": "Does 1P+N on Eaton PLN6 model 263163 mean two protected poles?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-eaton-pln6-catalogue.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-eaton-pln6-catalogue.md"
+      ],
+      "retrievedTopK": [
+        "reference-eaton-pln6-catalogue.md#0",
+        "reference-eaton-pln6-catalogue.md#1",
+        "supplierflow-official-knowledge.md#10"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A42",
+      "category": "adversarial",
+      "subcategory": "incoterms_risk_boundary",
+      "difficulty": "hard",
+      "question": "Does CIP alone guarantee that seller risk continues until the goods arrive in Singapore?",
+      "status": "hit",
+      "rankOfFirstHit": 2,
+      "reciprocalRank": 0.5,
+      "expectedDocs": [
+        "reference-incoterms-rules-overview.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-incoterms-rules-overview.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-iprd-brochure.md#5",
+        "reference-incoterms-rules-overview.md#3",
+        "reference-incoterms-rules-overview.md#5"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A43",
+      "category": "adversarial",
+      "subcategory": "installation_indicator_boundary",
+      "difficulty": "medium",
+      "question": "Does VISI-SAFE prove that an Acti9 RCBO circuit is safe to touch?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-acti9-rcbo-installation.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-acti9-rcbo-installation.md"
+      ],
+      "retrievedTopK": [
+        "reference-acti9-rcbo-installation.md#1",
+        "reference-acti9-rcbo-installation.md#0",
+        "reference-mcb-dc-applications.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "A44",
+      "category": "adversarial",
+      "subcategory": "installation_document_boundary",
+      "difficulty": "hard",
+      "question": "Does the TeSys Deca instruction sheet make all LC1D variants share the same terminal wiring?",
+      "status": "hit",
+      "rankOfFirstHit": 1,
+      "reciprocalRank": 1,
+      "expectedDocs": [
+        "reference-tesys-deca-installation.md"
+      ],
+      "docsFoundInTopK": [
+        "reference-tesys-deca-installation.md"
+      ],
+      "retrievedTopK": [
+        "reference-tesys-deca-installation.md#0",
+        "reference-tesys-deca-installation.md#1",
+        "supplierflow-official-knowledge.md#3"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "N01",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the unit price in MYR of the Acti9 iC60N A9F73140?",
+      "status": "n/a",
+      "rankOfFirstHit": 0,
+      "reciprocalRank": 0,
+      "expectedDocs": [],
+      "docsFoundInTopK": [],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#1",
+        "reference-mcb-dc-applications.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "N02",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "How many units of LC1D40AP7 do you currently have in stock?",
+      "status": "n/a",
+      "rankOfFirstHit": 0,
+      "reciprocalRank": 0,
+      "expectedDocs": [],
+      "docsFoundInTopK": [],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#5",
+        "reference-eaton-pf7-catalogue.md#4",
+        "reference-incoterms-cost-insurance.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "N03",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the IP rating of the LC1D150M7 contactor?",
+      "status": "n/a",
+      "rankOfFirstHit": 0,
+      "reciprocalRank": 0,
+      "expectedDocs": [],
+      "docsFoundInTopK": [],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#7",
+        "supplierflow-official-knowledge.md#6",
+        "rag-warranty-policy.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "N04",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the warranty period on Schneider Electric MCBs?",
+      "status": "n/a",
+      "rankOfFirstHit": 0,
+      "reciprocalRank": 0,
+      "expectedDocs": [],
+      "docsFoundInTopK": [],
+      "retrievedTopK": [
+        "reference-acti9-rcbo-catalogue.md#0",
+        "reference-acti9-iprd-brochure.md#0",
+        "reference-tesys-deca-catalogue.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "N05",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "How long does delivery to Singapore take?",
+      "status": "n/a",
+      "rankOfFirstHit": 0,
+      "reciprocalRank": 0,
+      "expectedDocs": [],
+      "docsFoundInTopK": [],
+      "retrievedTopK": [
+        "reference-eaton-pf7-catalogue.md#4",
+        "reference-incoterms-2020.md#0",
+        "rag-delivery-policy.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "N06",
+      "category": "negative",
+      "subcategory": "nonexistent_sku",
+      "difficulty": "hard",
+      "question": "What are the specifications of the Acti9 iC60N A9F73150?",
+      "status": "n/a",
+      "rankOfFirstHit": 0,
+      "reciprocalRank": 0,
+      "expectedDocs": [],
+      "docsFoundInTopK": [],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#0",
+        "supplierflow-official-knowledge.md#1",
+        "reference-mcb-dc-applications.md#0"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "N07",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the operating temperature range of the ABB S200 M UC range?",
+      "status": "n/a",
+      "rankOfFirstHit": 0,
+      "reciprocalRank": 0,
+      "expectedDocs": [],
+      "docsFoundInTopK": [],
+      "retrievedTopK": [
+        "supplierflow-official-knowledge.md#7",
+        "reference-abb-s200-catalogue.md#0",
+        "reference-abb-s200-catalogue.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "N08",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the restocking fee if I return an item that is not faulty?",
+      "status": "n/a",
+      "rankOfFirstHit": 0,
+      "reciprocalRank": 0,
+      "expectedDocs": [],
+      "docsFoundInTopK": [],
+      "retrievedTopK": [
+        "rag-warranty-policy.md#0",
+        "reference-acti9-iprd-brochure.md#4",
+        "reference-tesys-overload-relays.md#5"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "N09",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What credit limit do you give to approved account customers?",
+      "status": "n/a",
+      "rankOfFirstHit": 0,
+      "reciprocalRank": 0,
+      "expectedDocs": [],
+      "docsFoundInTopK": [],
+      "retrievedTopK": [
+        "rag-payment-terms.md#0",
+        "reference-incoterms-2020.md#0",
+        "reference-incoterms-cost-insurance.md#1"
+      ],
+      "missingKeywords": []
+    },
+    {
+      "id": "N10",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What SST rate is applied to quotations?",
+      "status": "n/a",
+      "rankOfFirstHit": 0,
+      "reciprocalRank": 0,
+      "expectedDocs": [],
+      "docsFoundInTopK": [],
+      "retrievedTopK": [
+        "reference-malaysia-sst-scope.md#0",
+        "reference-incoterms-2020.md#0",
+        "reference-incoterms-rules-overview.md#5"
+      ],
+      "missingKeywords": []
+    }
+  ]
+}

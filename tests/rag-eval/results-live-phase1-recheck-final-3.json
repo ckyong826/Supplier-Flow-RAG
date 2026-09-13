@@ -1,0 +1,65 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T15:48:41.062Z",
+  "metrics": {
+    "total": 3,
+    "passed": 3,
+    "passRate": 1,
+    "hallucinationRate": null
+  },
+  "results": [
+    {
+      "id": "D56",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Why is the named place important in an Incoterms 2020 rule?",
+      "answer": "The named place is important because it defines **where delivery happens** and **where risk passes from seller to buyer** under the Incoterms 2020 rule you choose.\n\n- For most rules, the named place is the delivery point — that’s where the seller fulfills their obligation and where risk transfers.\n- For the **C rules** (like CPT, CIP), the named place is the destination the seller arranges and pays carriage to, but **risk can transfer earlier**, when goods are handed to the carrier.\n- Always state the rule, the year, and the exact named place in your contract — an Incoterms term alone doesn’t determine delivery time or guarantee serviceability.\n\nIf you have a specific Incoterms rule in mind, I can break down the buyer/seller responsibilities for it.\n\nSources:\n- Reference Incoterms Rules Overview\n- Reference Incoterms Risk Transfer\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms Risk Transfer",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 5268,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D64",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What voltage range is the ABB F200 four-pole test circuit designed for in the cited no-neutral arrangement?",
+      "answer": "The ABB F200 four-pole test circuit — wired between terminal pair 5/6 and terminal pair 7/8/N — is designed for operation between **110 V and 254 V** in that cited arrangement.\n\nThat range applies only to the arrangement covered by the ABB reference; it shouldn’t be assumed for every F200 device or wiring setup.\n\nSources:\n- Reference Abb F200 B Type\n- Reference Rccb Operating Conditions\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Abb F200 B Type",
+        "Reference Rccb Operating Conditions",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 6406,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A41",
+      "category": "adversarial",
+      "subcategory": "pln6_pole_boundary",
+      "difficulty": "hard",
+      "question": "Does 1P+N on Eaton PLN6 model 263163 mean two protected poles?",
+      "answer": "No. On the Eaton xPole PLN6 model **263163**, **1P+N** means **one protected pole plus a separate neutral switching pole** — two total poles, but only **one protected pole**. It is **not** two protected poles.\n\nSources:\n- Reference Eaton Pln6 Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pln6 Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4321,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    }
+  ]
+}

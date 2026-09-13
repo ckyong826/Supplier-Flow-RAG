@@ -1,0 +1,96 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T17:20:43.115Z",
+  "config": {
+    "retrievalMode": "keyword",
+    "reranker": "lexical",
+    "rewriteMode": "history"
+  },
+  "metrics": {
+    "total": 1,
+    "passed": 1,
+    "passRate": 1,
+    "hallucinationRate": null,
+    "answerAccuracy": 1,
+    "faithfulness": 1,
+    "contextRelevance": 0.4,
+    "contextCoverage": 1,
+    "abstentionPrecision": null,
+    "abstentionRecall": null,
+    "falseAnswerRate": null,
+    "overAbstentionRate": 0,
+    "latencyMs": {
+      "totalClient": {
+        "p50": 4984,
+        "p95": 4984,
+        "count": 1
+      },
+      "serverTotal": {
+        "p50": 4813,
+        "p95": 4813,
+        "count": 1
+      },
+      "retrieval": {
+        "p50": 407,
+        "p95": 407,
+        "count": 1
+      },
+      "generation": {
+        "p50": 3782,
+        "p95": 3782,
+        "count": 1
+      }
+    },
+    "tokens": {
+      "measuredQueries": 1,
+      "prompt": 1984,
+      "completion": 433,
+      "total": 2417,
+      "average": 2417
+    },
+    "costUsd": {
+      "total": 0.000531412,
+      "averagePerQuery": 0.000531412,
+      "pricingPerMillionTokens": {
+        "inputCacheHit": 0.007,
+        "inputCacheMiss": 0.22,
+        "output": 0.66
+      },
+      "pricingSource": "https://api-docs.deepseek.com/quick_start/pricing/"
+    }
+  },
+  "results": [
+    {
+      "id": "A12",
+      "category": "adversarial",
+      "subcategory": "policy_boundary",
+      "difficulty": "medium",
+      "question": "Can I answer a customer's Singapore delivery time just from an Incoterms 2020 term?",
+      "answer": "No. An Incoterms® 2020 term alone does **not** give you a Singapore delivery time.\n\nIncoterms allocate **responsibilities and costs** between buyer and seller — for example, who arranges carriage, who bears risk, and where delivery occurs (the named place / delivery point). They do **not** state a carrier transit time, a guaranteed delivery date, or any SupplierFlow-specific delivery commitment.\n\nTo estimate or confirm a delivery time to Singapore, you would need the selected Incoterms rule plus the actual commercial details — such as the carrier, route, shipment date, and the supplier’s delivery terms. No delivery time can be derived from the trade term name alone.\n\nSources:\n- Reference Incoterms Risk Transfer\n- Reference Incoterms 2020\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms Risk Transfer",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 4984,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 407,
+      "generationMs": 3782,
+      "serverTotalMs": 4813,
+      "promptTokens": 1984,
+      "completionTokens": 433,
+      "totalTokens": 2417,
+      "costUsd": 0.000531412
+    }
+  ]
+}

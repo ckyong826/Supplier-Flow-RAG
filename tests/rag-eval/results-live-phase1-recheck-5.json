@@ -1,0 +1,109 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T15:42:12.222Z",
+  "metrics": {
+    "total": 5,
+    "passed": 4,
+    "passRate": 0.8,
+    "hallucinationRate": 0
+  },
+  "results": [
+    {
+      "id": "A12",
+      "category": "adversarial",
+      "subcategory": "policy_boundary",
+      "difficulty": "medium",
+      "question": "Can I answer a customer's Singapore delivery time just from an Incoterms 2020 term?",
+      "answer": "No — an Incoterms 2020 term tells you who arranges carriage, where risk transfers, and how costs are split, but it does not give a delivery time or lead time. A Singapore delivery estimate would come from SupplierFlow’s own logistics/stock information, not from the Incoterms rule.\n\nI don’t have delivery lead times in the catalogue, so I can’t give you one here. Would you like me to note this for the sales team to confirm?\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms 2020\n- Reference Incoterms Rules Overview\n- Reference Incoterms Risk Transfer",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms Risk Transfer"
+      ],
+      "latencyMs": 6718,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "D47",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What is a Type S RCCB used for?",
+      "answer": "A **Type S RCCB** is a **selective, time-delayed** residual-current device. Its main job is **coordination**: it sits upstream and trips slightly slower than downstream devices, so the downstream RCD/MCB can clear the fault first without knocking out the whole installation.\n\nKey points from our reference:\n\n- **Purpose:** Delayed tripping to coordinate with faster downstream devices.\n- **Not for people protection:** Type S is **not intended** for circuits that need 30 mA or lower sensitivity, and it is not a substitute for additional protection of people.\n- **Typical use:** Upstream, usually with a higher sensitivity such as **100 mA or more**.\n\nIf you're choosing an RCCB for a specific circuit, it's best to confirm the exact device type and sensitivity needed. Would you like me to look at our available RCCBs?\n\nSources:\n- Reference Rccb Installation Systems\n- Reference Acti9 Iprd Catalogue\n- Reference Rccb Selective Types\n- Reference Abb F200 B Type",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Installation Systems",
+        "Reference Acti9 Iprd Catalogue",
+        "Reference Rccb Selective Types",
+        "Reference Abb F200 B Type"
+      ],
+      "latencyMs": 5925,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A44",
+      "category": "adversarial",
+      "subcategory": "installation_document_boundary",
+      "difficulty": "hard",
+      "question": "Does the TeSys Deca instruction sheet make all LC1D variants share the same terminal wiring?",
+      "answer": "No — the TeSys Deca instruction sheet does **not** mean every LC1D variant has identical terminal wiring.\n\nCoil type, contactor frame, connection technology, and accessory arrangements can all change the connection details, so you need to use the exact commercial reference and its terminal diagram before wiring.\n\nSources:\n- Reference Tesys Deca Installation\n- SupplierFlow Official Knowledge\n- Reference Tesys Deca Catalogue\n- Reference Tesys Linked Contacts",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Deca Installation",
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Linked Contacts"
+      ],
+      "latencyMs": 3876,
+      "pass": false,
+      "abstained": false,
+      "reasons": [
+        "missing required fact(s): BQT61825"
+      ]
+    },
+    {
+      "id": "N17",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What SST percentage should I add to a quotation for Eaton PF7 article 263584?",
+      "answer": "I don’t have a specific SST percentage for Eaton PF7 article 263584. The Malaysia SST scope note doesn’t state one universal rate — sales tax can apply to taxable goods imported or manufactured, but the exact rate depends on the goods and the seller’s registration.\n\nI can’t estimate that figure. Best next step is to have our sales team confirm the correct SST treatment for that exact article before you finalise the quotation. Want me to include it in an RFQ for that confirmation?\n\nSources:\n- Sales SOP\n- Reference Malaysia Sst Scope\n- Reference Incoterms Rules Overview\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "Reference Malaysia Sst Scope",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 7875,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N18",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the minimum order quantity for Acti9 iC60N A9F73140?",
+      "answer": "I don’t have a minimum order quantity listed for the **Acti9 iC60N MCB (A9F73140)** in the catalogue. Stock isn’t tracked either, and the status shows **Check availability**.\n\nI can have the sales team confirm the MOQ and availability for you. Want me to prepare that request?\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Catalogue\n- Reference Mcb Dc Applications\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Mcb Dc Applications",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 3045,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    }
+  ]
+}

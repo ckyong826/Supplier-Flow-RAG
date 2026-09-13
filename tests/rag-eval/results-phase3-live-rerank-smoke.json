@@ -1,0 +1,198 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T17:09:47.171Z",
+  "config": {
+    "retrievalMode": null,
+    "reranker": "lexical",
+    "rewriteMode": null
+  },
+  "metrics": {
+    "total": 4,
+    "passed": 4,
+    "passRate": 1,
+    "hallucinationRate": 0,
+    "answerAccuracy": 1,
+    "faithfulness": 1,
+    "contextRelevance": 0.5333333333333333,
+    "contextCoverage": 1,
+    "abstentionPrecision": 1,
+    "abstentionRecall": 1,
+    "falseAnswerRate": 0,
+    "overAbstentionRate": 0,
+    "latencyMs": {
+      "totalClient": {
+        "p50": 3746,
+        "p95": 5743,
+        "count": 4
+      },
+      "serverTotal": {
+        "p50": 3546,
+        "p95": 5571,
+        "count": 4
+      },
+      "retrieval": {
+        "p50": 410,
+        "p95": 424,
+        "count": 4
+      },
+      "generation": {
+        "p50": 2500,
+        "p95": 4256,
+        "count": 4
+      }
+    },
+    "tokens": {
+      "measuredQueries": 4,
+      "prompt": 7972,
+      "completion": 1112,
+      "total": 9084,
+      "average": 2271
+    },
+    "costUsd": {
+      "total": 0.001342672,
+      "averagePerQuery": 0.000335668,
+      "pricingPerMillionTokens": {
+        "inputCacheHit": 0.007,
+        "inputCacheMiss": 0.22,
+        "output": 0.66
+      },
+      "pricingSource": "https://api-docs.deepseek.com/quick_start/pricing/"
+    }
+  },
+  "results": [
+    {
+      "id": "D01",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated current and tripping curve of the Acti9 iC60N A9F73140?",
+      "answer": "The Acti9 iC60N **A9F73140** has:\n\n- **Rated current:** 40 A\n- **Tripping curve:** B curve\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Catalogue\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 2986,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 393,
+      "generationMs": 1690,
+      "serverTotalMs": 2800,
+      "promptTokens": 2141,
+      "completionTokens": 124,
+      "totalTokens": 2265,
+      "costUsd": 0.000307484
+    },
+    {
+      "id": "A05",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "Compare the A9D55610 and the A9D32625 RCBOs.",
+      "answer": "Here’s how the two RCBOs compare:\n\n- **Acti9 iDPN N Vigi RCBO (A9D55610)** — 1P+N RCBO with **10 A** rating, **B curve**, **Type AC** residual-current, **30 mA** sensitivity, **6 kA** rated short-circuit capacity.\n\n- **Acti9 iDPN N Vigi RCBO (A9D32625)** — 1P+N RCBO with **25 A** rating, **C curve**, **Type A** residual-current, **30 mA** sensitivity, **6 kA** rated short-circuit capacity.\n\nSo both are 1P+N, 30 mA, 6 kA RCBOs. The key differences: the A9D55610 is 10 A with a B curve and Type AC; the A9D32625 is 25 A with a C curve and Type A. Choose based on your circuit’s rated current, tripping curve, and residual-current type needs.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Spd Impulse Current\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Impulse Current",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 5743,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 410,
+      "generationMs": 4256,
+      "serverTotalMs": 5571,
+      "promptTokens": 2165,
+      "completionTokens": 448,
+      "totalTokens": 2613,
+      "costUsd": 0.00033575600000000004
+    },
+    {
+      "id": "A09",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "I'm a new customer in Kuala Lumpur and I need a 1-pole 40 A B-curve MCB. What product fits, and what payment and delivery terms apply?",
+      "answer": "The product that fits is the **Acti9 iC60N MCB — SKU A9F73140**:\n\n- 1-pole\n- 40 A\n- B curve\n- 6 kA at 230 V AC\n- 10 kA at 220–240 V AC\n\nStatus: Check availability · Stock: Not tracked · Price: Price on request\n\n**Payment terms for a new customer:**\n- Payment is required before delivery unless approved credit terms are confirmed in writing.\n- Standard quotation is valid for 14 calendar days from the quotation date.\n- Prices exclude delivery charges unless specifically included.\n\n**Delivery for Kuala Lumpur:**\n- Klang Valley deliveries normally take **1–2 working days** after order confirmation and stock allocation.\n- Orders confirmed before **2:00 PM** on a working day are processed the same day, subject to stock.\n\nWant me to add the **A9F73140** to your RFQ cart? If so, please provide:\n- Your name\n- Company name\n- Work email\n- Optional project note\n\nSources:\n- Delivery Policy\n- SupplierFlow Official Knowledge\n- Sales SOP\n- Payment Terms",
+      "matchedSkus": [
+        "A9F73140",
+        "2CSF202201R2630",
+        "S200-M-UC"
+      ],
+      "sources": [
+        "Delivery Policy",
+        "SupplierFlow Official Knowledge",
+        "Sales SOP",
+        "Payment Terms"
+      ],
+      "latencyMs": 4285,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 4,
+      "contextRelevance": 0.8,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 424,
+      "generationMs": 2985,
+      "serverTotalMs": 4069,
+      "promptTokens": 2058,
+      "completionTokens": 337,
+      "totalTokens": 2395,
+      "costUsd": 0.000429804
+    },
+    {
+      "id": "N05",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "How long does delivery to Singapore take?",
+      "answer": "I don’t have a specific delivery time to Singapore in the catalogue — transit times depend on the route, carrier, and confirmed shipment schedule, and aren’t set by the Incoterms rule alone.\n\nI can have our sales team confirm the current logistics estimate for your order. Would you like me to arrange that? If so, just let me know the items you’re interested in.\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms Rules Overview\n- Reference Incoterms 2020\n- Reference Incoterms Risk Transfer",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Risk Transfer"
+      ],
+      "latencyMs": 3746,
+      "pass": true,
+      "abstained": true,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 0,
+      "contextRelevance": null,
+      "contextCoverage": null,
+      "faithful": null,
+      "retrievalMs": 417,
+      "generationMs": 2500,
+      "serverTotalMs": 3546,
+      "promptTokens": 1608,
+      "completionTokens": 203,
+      "totalTokens": 1811,
+      "costUsd": 0.00026962800000000006
+    }
+  ]
+}

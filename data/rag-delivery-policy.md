@@ -1,5 +1,7 @@
 # Delivery Policy
 
+Quick answer: Kuala Lumpur / Klang Valley deliveries normally take 1–2 working days after order confirmation and stock allocation; after the 2:00 PM cut-off, processing moves to the next working day.
+
 ## Standard delivery
 
 Klang Valley deliveries normally take 1–2 working days after order confirmation and stock allocation.

@@ -1,0 +1,71 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-29T18:22:27.920Z",
+  "metrics": {
+    "total": 3,
+    "passed": 3,
+    "passRate": 1,
+    "hallucinationRate": null
+  },
+  "results": [
+    {
+      "id": "D31",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What range of multiples of rated current causes an MCB with a B curve to trip magnetically?",
+      "answer": "An MCB with a **B curve** trips magnetically between **3 and 5 times** its rated current (`In`).\n\nSources:\n- Reference Mcb Tripping Curves\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [
+        "S200-M-UC",
+        "A9F73140",
+        "A9D55610"
+      ],
+      "sources": [
+        "Reference Mcb Tripping Curves",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 2062,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A12",
+      "category": "adversarial",
+      "subcategory": "policy_boundary",
+      "difficulty": "medium",
+      "question": "Can I answer a customer's Singapore delivery time just from an Incoterms 2020 term?",
+      "answer": "No — an Incoterms 2020 term alone doesn’t tell you a delivery time. Incoterms allocate responsibilities and costs between buyer and seller, but they don’t set SupplierFlow delivery times, shipping charges, taxes, or stock availability.\n\nFor a Singapore delivery, we also don’t have delivery timelines in the catalogue facts — our standard delivery policy covers Malaysia only (Klang Valley, Peninsular Malaysia, and East Malaysia). So I can’t give you a Singapore estimate from the term alone.\n\nYou’d need the named place, the commercial contract, and confirmation from our sales team. Want me to add an RFQ so the sales team can confirm delivery time and charges for Singapore?\n\nSources:\n- Reference Incoterms 2020\n- Payment Terms\n- Delivery Policy\n- Sales SOP\n- Reference Mcb Tripping Curves",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms 2020",
+        "Payment Terms",
+        "Delivery Policy",
+        "Sales SOP",
+        "Reference Mcb Tripping Curves"
+      ],
+      "latencyMs": 4538,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A14",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_semantics",
+      "difficulty": "hard",
+      "question": "Can an RCCB listed as Type A be treated as Type AC because both detect AC residual current?",
+      "answer": "No — Type A and Type AC are not automatically equivalent just because both respond to AC residual current.\n\n- **Type AC** detects residual **sinusoidal alternating current**.\n- **Type A** detects the Type AC waveform **and** specified pulsating DC residual waveforms, which can occur with rectified or electronic loads.\n\nSo a Type A device covers a broader set of residual-current waveforms, including the AC waveform a Type AC device would detect. But the two type classifications are not interchangeable for selection purposes — you should always keep the exact listed type for the SKU you are using.\n\nFor example, your catalogue ABB RCCBs are listed as **Type A** (e.g. SKU 2CSF202201R2630, 2CSF202101R1400, 2CSF202401R1630). I’d recommend keeping that Type A rating rather than treating them as Type AC.\n\nSources:\n- Reference Rccb Current Types\n- SupplierFlow Official Knowledge\n- Reference Spd Selection",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Current Types",
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Selection"
+      ],
+      "latencyMs": 5827,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    }
+  ]
+}

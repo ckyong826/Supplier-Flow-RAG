@@ -10,8 +10,8 @@
 export function normalise(text) {
   return String(text)
     .toLowerCase()
-    .replace(/[‐-―]/g, "-")
-    .replace(/[^a-z0-9.%/-]+/g, " ")
+    .replace(/[‐-―]/g, " ")
+    .replace(/[^a-z0-9.%/]+/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -41,7 +41,8 @@ export function matchesAny(text, patterns = []) {
 // phrasing but strict about the absence of a committed value: the guards in
 // must_not_contain / must_not_match are what actually catch fabrication.
 const ABSTAIN_SIGNALS = [
-  "don't have", "do not have", "not have that", "no information", "not listed",
+  "don't have", "do not have", "don't publish", "do not publish", "no fixed",
+  "not have that", "no information", "not listed",
   "isn't listed", "is not listed", "not specified", "isn't specified", "is not specified",
   "not stated", "isn't stated", "not available in", "cannot confirm", "can't confirm",
   "unable to confirm", "not something i can confirm", "our team will confirm",

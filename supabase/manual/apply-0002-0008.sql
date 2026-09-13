@@ -14,7 +14,9 @@ create or replace function public.match_knowledge_chunks(
   min_similarity float default 0.0
 )
 returns table(id uuid, content text, title text, source_type text, similarity float)
-language sql stable as $$
+language sql stable
+set ivfflat.probes = 10
+as $$
   select c.id, c.content, d.title, d.source_type, 1 - (c.embedding <=> query_embedding) as similarity
   from public.knowledge_chunks c
   join public.knowledge_documents d on d.id = c.document_id
@@ -76,7 +78,9 @@ create or replace function public.match_knowledge_chunks(
   public_only boolean default true
 )
 returns table(id uuid, content text, title text, source_type text, similarity float)
-language sql stable as $$
+language sql stable
+set ivfflat.probes = 10
+as $$
   select c.id, c.content, d.title, d.source_type, 1 - (c.embedding <=> query_embedding) as similarity
   from public.knowledge_chunks c
   join public.knowledge_documents d on d.id = c.document_id

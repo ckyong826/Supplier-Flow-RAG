@@ -1,0 +1,191 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T17:17:54.865Z",
+  "config": {
+    "retrievalMode": "keyword",
+    "reranker": "lexical",
+    "rewriteMode": "history"
+  },
+  "metrics": {
+    "total": 4,
+    "passed": 4,
+    "passRate": 1,
+    "hallucinationRate": 0,
+    "answerAccuracy": 1,
+    "faithfulness": 1,
+    "contextRelevance": 0.5333333333333333,
+    "contextCoverage": 1,
+    "abstentionPrecision": 1,
+    "abstentionRecall": 1,
+    "falseAnswerRate": 0,
+    "overAbstentionRate": 0,
+    "latencyMs": {
+      "totalClient": {
+        "p50": 3165,
+        "p95": 4558,
+        "count": 4
+      },
+      "serverTotal": {
+        "p50": 2796,
+        "p95": 4367,
+        "count": 4
+      },
+      "retrieval": {
+        "p50": 406,
+        "p95": 425,
+        "count": 4
+      },
+      "generation": {
+        "p50": 1791,
+        "p95": 3353,
+        "count": 4
+      }
+    },
+    "tokens": {
+      "measuredQueries": 4,
+      "prompt": 8379,
+      "completion": 854,
+      "total": 9233,
+      "average": 2308.25
+    },
+    "costUsd": {
+      "total": 0.000662124,
+      "averagePerQuery": 0.000165531,
+      "pricingPerMillionTokens": {
+        "inputCacheHit": 0.007,
+        "inputCacheMiss": 0.22,
+        "output": 0.66
+      },
+      "pricingSource": "https://api-docs.deepseek.com/quick_start/pricing/"
+    }
+  },
+  "results": [
+    {
+      "id": "D42",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "According to MySST, what kinds of goods can be subject to Malaysia sales tax?",
+      "answer": "According to the Royal Malaysian Customs Department's MySST portal, Malaysia sales tax can apply to:\n\n- **Taxable goods manufactured in Malaysia** by registered persons and sold by them\n- **Taxable goods imported into Malaysia**\n\nThe reference is a scope note and does not state one universal sales tax rate or percentage.\n\nSources:\n- Reference Malaysia Sst Scope\n- Sales SOP\n- Delivery Policy\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Malaysia Sst Scope",
+        "Sales SOP",
+        "Delivery Policy",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 2804,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 1,
+      "contextRelevance": 0.2,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 425,
+      "generationMs": 1614,
+      "serverTotalMs": 2622,
+      "promptTokens": 1825,
+      "completionTokens": 159,
+      "totalTokens": 1984,
+      "costUsd": 0.000124744
+    },
+    {
+      "id": "A40",
+      "category": "adversarial",
+      "subcategory": "pf7_near_duplicate",
+      "difficulty": "hard",
+      "question": "Does Eaton article 263584 mean a 63 A four-pole PF7?",
+      "answer": "No — Eaton article **263584** is a four-pole PF7, but it is **not** a 63 A device.\n\nThe catalogue designation is **PF7-25/4/003-DE**:\n\n- Poles: 4P\n- Rated current: **25 A**\n- Rated residual operating current: **30 mA**\n- Type: AC\n- Short-circuit strength: 10 kA\n\nThe article number can be easily confused with nearby 63 A or 40 A four-pole entries, but pole count alone doesn't determine the current rating. For 263584, the rating is **25 A**.\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4558,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 3,
+      "contextRelevance": 0.6,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 393,
+      "generationMs": 3353,
+      "serverTotalMs": 4367,
+      "promptTokens": 2089,
+      "completionTokens": 395,
+      "totalTokens": 2484,
+      "costUsd": 0.000284056
+    },
+    {
+      "id": "A41",
+      "category": "adversarial",
+      "subcategory": "pln6_pole_boundary",
+      "difficulty": "hard",
+      "question": "Does 1P+N on Eaton PLN6 model 263163 mean two protected poles?",
+      "answer": "No — **1P+N** on the Eaton xPole PLN6 model **263163** means **one protected pole plus one neutral switching pole** (two total poles). It does **not** mean two protected poles. The neutral pole is for switching, not protection.\n\nSources:\n- Reference Eaton Pln6 Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pln6 Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 3168,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 4,
+      "contextRelevance": 0.8,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 406,
+      "generationMs": 1791,
+      "serverTotalMs": 2821,
+      "promptTokens": 2114,
+      "completionTokens": 161,
+      "totalTokens": 2275,
+      "costUsd": 0.000135116
+    },
+    {
+      "id": "N11",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the unit price in MYR of the Acti9 RCBO A9D55610?",
+      "answer": "I don’t have a specific MYR price for the Acti9 iDPN N Vigi RCBO (A9D55610). The catalogue lists it as **Price on request** and stock is not tracked.\n\nI can have the sales team confirm pricing and availability for you. Just share your name, company, and work email, and I’ll prepare the request.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Installation\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Installation",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 3165,
+      "pass": true,
+      "abstained": true,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 0,
+      "contextRelevance": null,
+      "contextCoverage": null,
+      "faithful": null,
+      "retrievalMs": 413,
+      "generationMs": 1800,
+      "serverTotalMs": 2796,
+      "promptTokens": 2351,
+      "completionTokens": 139,
+      "totalTokens": 2490,
+      "costUsd": 0.00011820800000000002
+    }
+  ]
+}

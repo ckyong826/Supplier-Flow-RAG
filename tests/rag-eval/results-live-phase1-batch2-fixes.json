@@ -1,0 +1,75 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-29T18:36:54.228Z",
+  "metrics": {
+    "total": 3,
+    "passed": 3,
+    "passRate": 1,
+    "hallucinationRate": null
+  },
+  "results": [
+    {
+      "id": "D37",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "How does a current-limiting circuit breaker reduce the effects of a short circuit?",
+      "answer": "A current-limiting circuit breaker reduces the effects of a short circuit mainly by:\n\n- **Reducing the amplitude of the short-circuit current** – it limits the peak current that actually flows.\n- **Reducing dissipated power / thermal stress** – because the current is limited, the heat and mechanical stress on cables and equipment are lower.\n\nManufacturers like Schneider describe this behaviour with **limiting curves** using:\n- prospective short-circuit current\n- limited peak current\n- thermal stress\n\nOne important point: a current-limiting curve is **not a substitute for the breaker’s rated breaking capacity**. Correct protection and discrimination still depend on the breaker itself, upstream devices, installation conditions, and the applicable coordination tables.\n\nDo you need help selecting a specific breaker or comparing catalogue items?\n\nSources:\n- Reference Mcb Current Limiting\n- SupplierFlow Official Knowledge\n- Reference Mcb Tripping Curves\n- Reference Spd Selection",
+      "matchedSkus": [
+        "263584",
+        "2CSF202101R1400",
+        "2CSF202401R1630"
+      ],
+      "sources": [
+        "Reference Mcb Current Limiting",
+        "SupplierFlow Official Knowledge",
+        "Reference Mcb Tripping Curves",
+        "Reference Spd Selection"
+      ],
+      "latencyMs": 5847,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D38",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "How does an RCD detect an earth fault?",
+      "answer": "An RCD (residual current device) detects an earth fault by measuring the current flowing in the phase conductor versus the neutral conductor. Normally these currents are equal and opposite, so they cancel out.\n\nIf some current leaks to earth (for example through a faulty appliance or damaged cable), the balance is broken — there's an unbalanced current. The RCD senses this difference and trips, cutting off the supply.\n\nA quick note: this principle relies on a system where the neutral and protective conductors are separate, so it isn't suitable for TN-C systems where the neutral also serves as the protective earth conductor.\n\nSources:\n- Reference Rccb Installation Systems\n- Warranty Policy\n- Reference Incoterms 2020\n- Reference Rccb Current Types\n- Reference Malaysia Sst Scope",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Installation Systems",
+        "Warranty Policy",
+        "Reference Incoterms 2020",
+        "Reference Rccb Current Types",
+        "Reference Malaysia Sst Scope"
+      ],
+      "latencyMs": 3287,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A16",
+      "category": "adversarial",
+      "subcategory": "numeric_trap",
+      "difficulty": "hard",
+      "question": "Can we state one SST percentage for every electrical quotation from the MySST scope overview?",
+      "answer": "No — you cannot state one SST percentage for every electrical quotation from the MySST scope overview.\n\nThat reference is a **scope note**, not a quotation tax calculation. It explains that:\n\n- Sales tax applies to taxable goods manufactured/imported into Malaysia under certain conditions.\n- Service tax applies to taxable services provided by a taxable person.\n- It does **not** provide a universal SST percentage for every electrical product or quotation.\n\nSo for each quotation, the applicable rate, exemption, classification, and effective order must be confirmed from the current official SST material. I’d suggest we verify this with the sales team before finalising your quotation.\n\nSources:\n- Sales SOP\n- Reference Malaysia Sst Scope\n- SupplierFlow Official Knowledge\n- Warranty Policy\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "Reference Malaysia Sst Scope",
+        "SupplierFlow Official Knowledge",
+        "Warranty Policy",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 3241,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    }
+  ]
+}

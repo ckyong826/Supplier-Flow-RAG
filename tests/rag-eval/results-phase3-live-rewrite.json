@@ -1,0 +1,714 @@
+{
+  "ranAt": "2026-08-30T17:11:07.613Z",
+  "base": "http://localhost:3100",
+  "metrics": {
+    "scenarios": 5,
+    "questionOnlyPass": 3,
+    "historyAwarePass": 4,
+    "questionOnlyRate": 0.6,
+    "historyAwareRate": 0.8
+  },
+  "rows": [
+    {
+      "id": "QW01",
+      "question": "What is its breaking capacity?",
+      "questionOnly": {
+        "pass": true,
+        "missing": []
+      },
+      "historyAware": {
+        "pass": true,
+        "missing": []
+      },
+      "rewrittenQuery": "I need the Acti9 iC60N A9F73140 MCB. What is its breaking capacity?",
+      "questionOnlyTelemetry": {
+        "requestedMode": "keyword",
+        "mode": "keyword",
+        "rewriteMode": "none",
+        "retrievalQuestion": "What is its breaking capacity?",
+        "rewriteMs": 0,
+        "rerankMode": null,
+        "candidateCount": 5,
+        "representation": "chunk",
+        "gated": false,
+        "degradedReason": null,
+        "retrievalMs": 380,
+        "generationMs": 3161,
+        "totalMs": 4281,
+        "retrievedChunks": [
+          {
+            "content": "to 65 kA and complies with IEC/EN 61643-11. ## 1. Acti9 iC60N MCB — A9F73140 Category: Miniature circuit breaker (MCB) - 1-pole circuit breaker with one protected pole. - Rated current: 40 A; B tripping curve. - Breaking capacity: 6 kA at 230 V AC to IEC/EN 60898-1, and 10 kA at 220–240 V AC to IEC/EN 60947-2. - Designed to protect circuits against overload and short-circuit current. Source: https://eshop.se.com/sg/miniature-circuit-breaker-mcb-acti9-ic60n-1p-40a-b-curve-6000a-iec-en-60898-1-10ka-iec-en-60947-2-a9f73140.html ## 2. Acti9 iDPN N Vigi RCBO — A9D55610 Category: Residual-current breaker with overcurrent protection (RCBO) - 1P+N RCBO rated at 10 A with B curve. - Residual-current type: AC;",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "contactor with three normally open contacts. - AC-3/AC-3e rated current: 150 A at up to 440 V. - Coil supply: 220 V AC, 50/60 Hz. - Width: 120 mm. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3no-ac-3-ac-3e-440v-150a-220v-ac-50-60hz-coil-screw-clamp-terminals-lc1d150m7.html ## 16. ABB S200 M UC range Category: DC/AC miniature circuit breaker (MCB) - Supports both AC and DC applications. - Its permanent-magnet arcing chutes can extinguish an arc up to 500 V DC with Icu of 4.5 kA. - Available in single-pole and multipole versions with rated currents from 0.2 to 63 A. - The range has a 10 kA breaking capacity for industrial applications. Source: https://new.abb.com/low-voltage/products/system-pro-m/miniature-circuit-breakers/s200-m-uc-range ##",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "concerns the residual-current trip threshold. A 30 mA sensitivity should not be silently replaced with 100 mA, and a 6 A product should not be represented as a 16 A product because both belong to the same family. When comparing two references, show current, sensitivity, poles, curve, breaking capacity and device family as separate rows. ## Protection claim boundaries The catalogue describes protection against short circuits, cable overloads and electric shock for the covered RCBO products. That describes the intended protective functions of the device. It does not prove that every installation is safe, selective or compliant. Cable sizing, prospective",
+            "title": "Reference Acti9 Rcbo Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "fault current, earthing system, disconnection time and local code still require engineering verification. An RCBO is not the same as an RCCB plus any arbitrary MCB. The combined device has its own thermal, magnetic and residual-current characteristics, terminals and accessories. If the user asks for a substitute, identify the required standard, poles, curve, current, residual-current type and breaking capacity before suggesting one. ## Monitoring and accessories The catalogue mentions connectivity with PowerTag Energy Sensors, Universal Panel Server and EcoStruxure Energy Hub for remote monitoring. These communication or energy-monitoring features are complementary. They should not be described as changing the fundamental",
+            "title": "Reference Acti9 Rcbo Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "trip rating of the RCBO. Padlocking and other accessories also need exact compatibility checks. An accessory that fits one Acti9 family may not fit another family with a similar appearance. Product questions should therefore retrieve the product table and accessory table together when the user asks for a complete assembly. ## Selection workflow First identify whether the user needs an RCBO, RCCB or MCB. Next capture the number of phases and poles. Then capture rated current, tripping curve, residual-current sensitivity and type, breaking capacity, voltage and standard. Only after those fields are known should the assistant compare the iC60N3 and",
+            "title": "Reference Acti9 Rcbo Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          }
+        ],
+        "catalogueFacts": "ABB S200 M UC MCB Range | SKU S200-M-UC | DC/AC miniature circuit breaker (MCB) | MCB range for AC and DC applications. | Specs: 0.2–63 A range, Up to 500 V DC, 4.5 kA Icu at 500 V DC, 10 kA industrial breaking capacity | Status: Check availability | Stock: Not tracked | Price: Price on request",
+        "supportKnowledge": "SupplierFlow Official Knowledge: to 65 kA and complies with IEC/EN 61643-11. ## 1. Acti9 iC60N MCB — A9F73140 Category: Miniature circuit breaker (MCB) - 1-pole circuit breaker with one protected pole. - Rated current: 40 A; B tripping curve. - Breaking capacity: 6 kA at 230 V AC to IEC/EN 60898-1, and 10 kA at 220–240 V AC to IEC/EN 60947-2. - Designed to protect circuits against overload and short-circuit current. Source: https://eshop.se.com/sg/miniature-circuit-breaker-mcb-acti9-ic60n-1p-40a-b-curve-6000a-iec-en-60898-1-10ka-iec-en-60947-2-a9f73140.html ## 2. Acti9 iDPN N Vigi RCBO — A9D55610 Category: Residual-current breaker with overcurrent protection (RCBO) - 1P+N RCBO rated at 10 A with B curve. - Residual-current type: AC;\n\nSupplierFlow Official Knowledge: contactor with three normally open contacts. - AC-3/AC-3e rated current: 150 A at up to 440 V. - Coil supply: 220 V AC, 50/60 Hz. - Width: 120 mm. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3no-ac-3-ac-3e-440v-150a-220v-ac-50-60hz-coil-screw-clamp-terminals-lc1d150m7.html ## 16. ABB S200 M UC range Category: DC/AC miniature circuit breaker (MCB) - Supports both AC and DC applications. - Its permanent-magnet arcing chutes can extinguish an arc up to 500 V DC with Icu of 4.5 kA. - Available in single-pole and multipole versions with rated currents from 0.2 to 63 A. - The range has a 10 kA breaking capacity for industrial applications. Source: https://new.abb.com/low-voltage/products/system-pro-m/miniature-circuit-breakers/s200-m-uc-range ##\n\nReference Acti9 Rcbo Catalogue: concerns the residual-current trip threshold. A 30 mA sensitivity should not be silently replaced with 100 mA, and a 6 A product should not be represented as a 16 A product because both belong to the same family. When comparing two references, show current, sensitivity, poles, curve, breaking capacity and device family as separate rows. ## Protection claim boundaries The catalogue describes protection against short circuits, cable overloads and electric shock for the covered RCBO products. That describes the intended protective functions of the device. It does not prove that every installation is safe, selective or compliant. Cable sizing, prospective\n\nReference Acti9 Rcbo Catalogue: fault current, earthing system, disconnection time and local code still require engineering verification. An RCBO is not the same as an RCCB plus any arbitrary MCB. The combined device has its own thermal, magnetic and residual-current characteristics, terminals and accessories. If the user asks for a substitute, identify the required standard, poles, curve, current, residual-current type and breaking capacity before suggesting one. ## Monitoring and accessories The catalogue mentions connectivity with PowerTag Energy Sensors, Universal Panel Server and EcoStruxure Energy Hub for remote monitoring. These communication or energy-monitoring features are complementary. They should not be described as changing the fundamental\n\nReference Acti9 Rcbo Catalogue: trip rating of the RCBO. Padlocking and other accessories also need exact compatibility checks. An accessory that fits one Acti9 family may not fit another family with a similar appearance. Product questions should therefore retrieve the product table and accessory table together when the user asks for a complete assembly. ## Selection workflow First identify whether the user needs an RCBO, RCCB or MCB. Next capture the number of phases and poles. Then capture rated current, tripping curve, residual-current sensitivity and type, breaking capacity, voltage and standard. Only after those fields are known should the assistant compare the iC60N3 and",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "prompt_tokens": 1946,
+          "completion_tokens": 433,
+          "total_tokens": 2379,
+          "prompt_tokens_details": {
+            "cached_tokens": 896
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 351
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 1050
+        }
+      },
+      "historyAwareTelemetry": {
+        "requestedMode": "keyword",
+        "mode": "keyword",
+        "rewriteMode": "history",
+        "retrievalQuestion": "I need the Acti9 iC60N A9F73140 MCB. What is its breaking capacity?",
+        "rewriteMs": 0,
+        "rerankMode": null,
+        "candidateCount": 5,
+        "representation": "chunk",
+        "gated": false,
+        "degradedReason": null,
+        "retrievalMs": 441,
+        "generationMs": 1662,
+        "totalMs": 2835,
+        "retrievedChunks": [
+          {
+            "content": "to 65 kA and complies with IEC/EN 61643-11. ## 1. Acti9 iC60N MCB — A9F73140 Category: Miniature circuit breaker (MCB) - 1-pole circuit breaker with one protected pole. - Rated current: 40 A; B tripping curve. - Breaking capacity: 6 kA at 230 V AC to IEC/EN 60898-1, and 10 kA at 220–240 V AC to IEC/EN 60947-2. - Designed to protect circuits against overload and short-circuit current. Source: https://eshop.se.com/sg/miniature-circuit-breaker-mcb-acti9-ic60n-1p-40a-b-curve-6000a-iec-en-60898-1-10ka-iec-en-60947-2-a9f73140.html ## 2. Acti9 iDPN N Vigi RCBO — A9D55610 Category: Residual-current breaker with overcurrent protection (RCBO) - 1P+N RCBO rated at 10 A with B curve. - Residual-current type: AC;",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "# SupplierFlow official product knowledge Concise factual cards derived from the linked manufacturer resources. Check the live manufacturer page before using these data for selection, quotation, or installation. ## Exact lookup index - `LC1D09BD` uses a 24 V DC coil. - `A9S65440` is the 40 A Acti9 iSW 4-pole 415 V AC switch disconnector; `A9S65463` is the 63 A version. - `A9F73140` is the 1-pole, 40 A, B-curve Acti9 iC60N MCB. - Eaton xPole PF7 article `263584` has 30 mA rated residual current and 10 kA short-circuit strength. - The Schneider Acti9 iPRD range has an Imax range of 8",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "# Acti9 iC60 DC-application reference Reference facts for checking whether an Acti9 iC60 MCB can be used on a DC supply. - Schneider states that Acti9 iC60N/H MCBs can be used for DC applications from 12 VDC to 250 VDC. - The usable voltage and achieved breaking capacity depend on the number of poles connected in series and the required breaking capacity. - A statement that the family is suitable for DC does not establish the breaking capacity of every single-pole or multi-pole wiring arrangement. Check the device diagram and the applicable product documentation. Source: https://www.se.com/au/en/faqs/FA272282/",
+            "title": "Reference Mcb Dc Applications",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "trip rating of the RCBO. Padlocking and other accessories also need exact compatibility checks. An accessory that fits one Acti9 family may not fit another family with a similar appearance. Product questions should therefore retrieve the product table and accessory table together when the user asks for a complete assembly. ## Selection workflow First identify whether the user needs an RCBO, RCCB or MCB. Next capture the number of phases and poles. Then capture rated current, tripping curve, residual-current sensitivity and type, breaking capacity, voltage and standard. Only after those fields are known should the assistant compare the iC60N3 and",
+            "title": "Reference Acti9 Rcbo Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "products are intended to simplify professional distribution-board installation. The catalogue highlights compatibility with the Acti9 system, reduced wiring connections, selectivity and cascading options, and accessories such as padlocking devices. Those system features do not remove the need to check the installation diagram. ## Main performance distinction The iC60N3 family is listed with a 6000 A, or 6 kA, breaking capacity. The iC60H3 family is listed with a 10000 A, or 10 kA, breaking capacity. These are not two spellings for one value. A comparison that says both devices have the same short-circuit capacity is wrong unless the exact table says",
+            "title": "Reference Acti9 Rcbo Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          }
+        ],
+        "catalogueFacts": "Acti9 iC60N MCB | SKU A9F73140 | Miniature circuit breaker (MCB) | 1-pole MCB for overload and short-circuit protection. | Specs: 1P, 40 A, B curve, 6 kA at 230 V AC, 10 kA at 220–240 V AC | Status: Check availability | Stock: Not tracked | Price: Price on request\nActi9 iDPN N Vigi RCBO | SKU A9D55610 | Residual-current breaker with overcurrent protection (RCBO) | 1P+N RCBO with overload and residual-current protection. | Specs: 1P+N, 10 A, B curve, Type AC, 30 mA, 6 kA | Status: Check availability | Stock: Not tracked | Price: Price on request\nActi9 iDPN N Vigi RCBO | SKU A9D32625 | Residual-current breaker with overcurrent protection (RCBO) | 1P+N RCBO for residual-current and overcurrent protection. | Specs: 1P+N, 25 A, C curve, Type A, 30 mA, 6 kA | Status: Check availability | Stock: Not tracked | Price: Price on request",
+        "supportKnowledge": "SupplierFlow Official Knowledge: to 65 kA and complies with IEC/EN 61643-11. ## 1. Acti9 iC60N MCB — A9F73140 Category: Miniature circuit breaker (MCB) - 1-pole circuit breaker with one protected pole. - Rated current: 40 A; B tripping curve. - Breaking capacity: 6 kA at 230 V AC to IEC/EN 60898-1, and 10 kA at 220–240 V AC to IEC/EN 60947-2. - Designed to protect circuits against overload and short-circuit current. Source: https://eshop.se.com/sg/miniature-circuit-breaker-mcb-acti9-ic60n-1p-40a-b-curve-6000a-iec-en-60898-1-10ka-iec-en-60947-2-a9f73140.html ## 2. Acti9 iDPN N Vigi RCBO — A9D55610 Category: Residual-current breaker with overcurrent protection (RCBO) - 1P+N RCBO rated at 10 A with B curve. - Residual-current type: AC;\n\nSupplierFlow Official Knowledge: # SupplierFlow official product knowledge Concise factual cards derived from the linked manufacturer resources. Check the live manufacturer page before using these data for selection, quotation, or installation. ## Exact lookup index - `LC1D09BD` uses a 24 V DC coil. - `A9S65440` is the 40 A Acti9 iSW 4-pole 415 V AC switch disconnector; `A9S65463` is the 63 A version. - `A9F73140` is the 1-pole, 40 A, B-curve Acti9 iC60N MCB. - Eaton xPole PF7 article `263584` has 30 mA rated residual current and 10 kA short-circuit strength. - The Schneider Acti9 iPRD range has an Imax range of 8\n\nReference Mcb Dc Applications: # Acti9 iC60 DC-application reference Reference facts for checking whether an Acti9 iC60 MCB can be used on a DC supply. - Schneider states that Acti9 iC60N/H MCBs can be used for DC applications from 12 VDC to 250 VDC. - The usable voltage and achieved breaking capacity depend on the number of poles connected in series and the required breaking capacity. - A statement that the family is suitable for DC does not establish the breaking capacity of every single-pole or multi-pole wiring arrangement. Check the device diagram and the applicable product documentation. Source: https://www.se.com/au/en/faqs/FA272282/\n\nReference Acti9 Rcbo Catalogue: trip rating of the RCBO. Padlocking and other accessories also need exact compatibility checks. An accessory that fits one Acti9 family may not fit another family with a similar appearance. Product questions should therefore retrieve the product table and accessory table together when the user asks for a complete assembly. ## Selection workflow First identify whether the user needs an RCBO, RCCB or MCB. Next capture the number of phases and poles. Then capture rated current, tripping curve, residual-current sensitivity and type, breaking capacity, voltage and standard. Only after those fields are known should the assistant compare the iC60N3 and\n\nReference Acti9 Rcbo Catalogue: products are intended to simplify professional distribution-board installation. The catalogue highlights compatibility with the Acti9 system, reduced wiring connections, selectivity and cascading options, and accessories such as padlocking devices. Those system features do not remove the need to check the installation diagram. ## Main performance distinction The iC60N3 family is listed with a 6000 A, or 6 kA, breaking capacity. The iC60H3 family is listed with a 10000 A, or 10 kA, breaking capacity. These are not two spellings for one value. A comparison that says both devices have the same short-circuit capacity is wrong unless the exact table says",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "prompt_tokens": 2082,
+          "completion_tokens": 190,
+          "total_tokens": 2272,
+          "prompt_tokens_details": {
+            "cached_tokens": 1152
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 108
+          },
+          "prompt_cache_hit_tokens": 1152,
+          "prompt_cache_miss_tokens": 930
+        }
+      }
+    },
+    {
+      "id": "QW02",
+      "question": "What residual current does it provide?",
+      "questionOnly": {
+        "pass": true,
+        "missing": []
+      },
+      "historyAware": {
+        "pass": true,
+        "missing": []
+      },
+      "rewrittenQuery": "Please quote the A9D55610 RCBO for my project. What residual current does it provide?",
+      "questionOnlyTelemetry": {
+        "requestedMode": "keyword",
+        "mode": "keyword",
+        "rewriteMode": "none",
+        "retrievalQuestion": "What residual current does it provide?",
+        "rewriteMs": 0,
+        "rerankMode": null,
+        "candidateCount": 5,
+        "representation": "chunk",
+        "gated": false,
+        "degradedReason": null,
+        "retrievalMs": 391,
+        "generationMs": 8279,
+        "totalMs": 9311,
+        "retrievedChunks": [
+          {
+            "content": "# RCCB selectivity-coordination reference Reference rules for coordinating upstream and downstream residual-current devices. Quick answer: upstream IΔn should be at least two times (2×) the downstream IΔn, and the upstream minimum no-trip time should be longer than the downstream maximum trip time. A delayed or selective upstream device is normally used. - Selective coordination is achieved when the upstream and downstream RCD trip zones do not overlap, so a downstream fault does not unnecessarily trip the upstream device. - ABB's application guide gives a usual threshold rule: the upstream rated residual current IΔn should be at least two times the",
+            "title": "Reference Rccb Selectivity Coordination",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "number, designation and table row must be kept together. ## Type AC boundary The table section identifies the listed devices as Type AC and conditionally surge-current-proof 250 A in the shown category. This is a device-type statement. It does not mean the product is Type A, Type F or Type B. If the customer’s load can produce pulsating DC or mixed-frequency residual currents, the assistant should not silently upgrade the PF7 Type AC description. Ask for the required residual-current type and retrieve a product family that explicitly supports it. ## Poles and packaging Two-pole and four-pole devices are different forms.",
+            "title": "Reference Eaton Pf7 Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "# SupplierFlow official product knowledge Concise factual cards derived from the linked manufacturer resources. Check the live manufacturer page before using these data for selection, quotation, or installation. ## Exact lookup index - `LC1D09BD` uses a 24 V DC coil. - `A9S65440` is the 40 A Acti9 iSW 4-pole 415 V AC switch disconnector; `A9S65463` is the 63 A version. - `A9F73140` is the 1-pole, 40 A, B-curve Acti9 iC60N MCB. - Eaton xPole PF7 article `263584` has 30 mA rated residual current and 10 kA short-circuit strength. - The Schneider Acti9 iPRD range has an Imax range of 8",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "17. ABB F204AC-63/0.3 — 2CSF204001R3630 Category: Residual-current circuit breaker (RCCB) - F200-series, four-pole RCCB rated at 63 A. - Rated residual current: 300 mA; residual-current type: AC. - Rated operational voltage: 480Y/277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF204001R3630 ## 18. ABB F202A-63/0.03 APR — 2CSF202401R1630 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 63 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202401R1630 ## 19. ABB F202A-40/0.03 — 2CSF202101R1400 Category: Residual-current circuit breaker",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "(RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202101R1400 ## 20. ABB F202AC-40/0.3 — 2CSF202001R3400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 300 mA; residual-current type: AC. - The product designation identifies it as an F202AC-40/0.3 model. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202001R3400 ## 21. ABB F202AC-40/0.03 — 2CSF202001R1400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA;",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          }
+        ],
+        "catalogueFacts": "ABB F202A-40/0.03 | SKU 2CSF202101R1400 | Residual-current circuit breaker (RCCB) | Two-pole RCCB from the ABB F200 series. | Specs: 2P, 40 A, 30 mA, Type A, 277 V AC | Status: Check availability | Stock: Not tracked | Price: Price on request\nABB F202A-63/0.03 APR | SKU 2CSF202401R1630 | Residual-current circuit breaker (RCCB) | Two-pole RCCB from the ABB F200 series. | Specs: 2P, 63 A, 30 mA, Type A, 277 V AC | Status: Check availability | Stock: Not tracked | Price: Price on request\nABB F202AC-40/0.03 | SKU 2CSF202001R1400 | Residual-current circuit breaker (RCCB) | Two-pole RCCB from the ABB F200 series. | Specs: 2P, 40 A, 30 mA, Type AC, 277 V AC | Status: Check availability | Stock: Not tracked | Price: Price on request",
+        "supportKnowledge": "Reference Rccb Selectivity Coordination: # RCCB selectivity-coordination reference Reference rules for coordinating upstream and downstream residual-current devices. Quick answer: upstream IΔn should be at least two times (2×) the downstream IΔn, and the upstream minimum no-trip time should be longer than the downstream maximum trip time. A delayed or selective upstream device is normally used. - Selective coordination is achieved when the upstream and downstream RCD trip zones do not overlap, so a downstream fault does not unnecessarily trip the upstream device. - ABB's application guide gives a usual threshold rule: the upstream rated residual current IΔn should be at least two times the\n\nReference Eaton Pf7 Catalogue: number, designation and table row must be kept together. ## Type AC boundary The table section identifies the listed devices as Type AC and conditionally surge-current-proof 250 A in the shown category. This is a device-type statement. It does not mean the product is Type A, Type F or Type B. If the customer’s load can produce pulsating DC or mixed-frequency residual currents, the assistant should not silently upgrade the PF7 Type AC description. Ask for the required residual-current type and retrieve a product family that explicitly supports it. ## Poles and packaging Two-pole and four-pole devices are different forms.\n\nSupplierFlow Official Knowledge: # SupplierFlow official product knowledge Concise factual cards derived from the linked manufacturer resources. Check the live manufacturer page before using these data for selection, quotation, or installation. ## Exact lookup index - `LC1D09BD` uses a 24 V DC coil. - `A9S65440` is the 40 A Acti9 iSW 4-pole 415 V AC switch disconnector; `A9S65463` is the 63 A version. - `A9F73140` is the 1-pole, 40 A, B-curve Acti9 iC60N MCB. - Eaton xPole PF7 article `263584` has 30 mA rated residual current and 10 kA short-circuit strength. - The Schneider Acti9 iPRD range has an Imax range of 8\n\nSupplierFlow Official Knowledge: 17. ABB F204AC-63/0.3 — 2CSF204001R3630 Category: Residual-current circuit breaker (RCCB) - F200-series, four-pole RCCB rated at 63 A. - Rated residual current: 300 mA; residual-current type: AC. - Rated operational voltage: 480Y/277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF204001R3630 ## 18. ABB F202A-63/0.03 APR — 2CSF202401R1630 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 63 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202401R1630 ## 19. ABB F202A-40/0.03 — 2CSF202101R1400 Category: Residual-current circuit breaker\n\nSupplierFlow Official Knowledge: (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202101R1400 ## 20. ABB F202AC-40/0.3 — 2CSF202001R3400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 300 mA; residual-current type: AC. - The product designation identifies it as an F202AC-40/0.3 model. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202001R3400 ## 21. ABB F202AC-40/0.03 — 2CSF202001R1400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA;",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "prompt_tokens": 2209,
+          "completion_tokens": 930,
+          "total_tokens": 3139,
+          "prompt_tokens_details": {
+            "cached_tokens": 1152
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 790
+          },
+          "prompt_cache_hit_tokens": 1152,
+          "prompt_cache_miss_tokens": 1057
+        }
+      },
+      "historyAwareTelemetry": {
+        "requestedMode": "keyword",
+        "mode": "keyword",
+        "rewriteMode": "history",
+        "retrievalQuestion": "Please quote the A9D55610 RCBO for my project. What residual current does it provide?",
+        "rewriteMs": 0,
+        "rerankMode": null,
+        "candidateCount": 5,
+        "representation": "chunk",
+        "gated": false,
+        "degradedReason": null,
+        "retrievalMs": 403,
+        "generationMs": 4301,
+        "totalMs": 5371,
+        "retrievedChunks": [
+          {
+            "content": "# Sales Quotation SOP 1. Confirm customer company name, contact name, email, delivery location, requested quantity, required date, and preferred brand. 2. Search the product database for an exact SKU match. Verify technical specifications against the product record or datasheet notes. 3. If the requested brand is unavailable, present a technically suitable equivalent and mark it as an alternative in the quotation. 4. Use the product database for public prices. Confirm project pricing, discount, SST, delivery fee, and payment terms before sending. 5. Save the quotation as Draft for internal review. Only mark it Sent after sales approval. 6. Follow",
+            "title": "Sales SOP",
+            "sourceType": "sop",
+            "similarity": null
+          },
+          {
+            "content": "sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/sg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-10a-b-curve-6000a-ac-type-30ma-a9d55610.html ## 3. Acti9 iDPN N Vigi RCBO — A9D32625 Category: Residual-current breaker with overcurrent protection (RCBO) - 1P+N RCBO rated at 25 A with C curve. - Residual-current type: A; sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/eg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-25a-c-curve-6000a-a-type-30ma-a9d32625.html ## 4. Acti9 iSW switch disconnector — A9S65440 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational current: 40 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65440-acti9-isw-switch-4p-40a-415vac.html ## 5. Acti9 iSW switch disconnector — A9S65463 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "17. ABB F204AC-63/0.3 — 2CSF204001R3630 Category: Residual-current circuit breaker (RCCB) - F200-series, four-pole RCCB rated at 63 A. - Rated residual current: 300 mA; residual-current type: AC. - Rated operational voltage: 480Y/277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF204001R3630 ## 18. ABB F202A-63/0.03 APR — 2CSF202401R1630 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 63 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202401R1630 ## 19. ABB F202A-40/0.03 — 2CSF202101R1400 Category: Residual-current circuit breaker",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "(RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202101R1400 ## 20. ABB F202AC-40/0.3 — 2CSF202001R3400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 300 mA; residual-current type: AC. - The product designation identifies it as an F202AC-40/0.3 model. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202001R3400 ## 21. ABB F202AC-40/0.03 — 2CSF202001R1400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA;",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "# SupplierFlow official product knowledge Concise factual cards derived from the linked manufacturer resources. Check the live manufacturer page before using these data for selection, quotation, or installation. ## Exact lookup index - `LC1D09BD` uses a 24 V DC coil. - `A9S65440` is the 40 A Acti9 iSW 4-pole 415 V AC switch disconnector; `A9S65463` is the 63 A version. - `A9F73140` is the 1-pole, 40 A, B-curve Acti9 iC60N MCB. - Eaton xPole PF7 article `263584` has 30 mA rated residual current and 10 kA short-circuit strength. - The Schneider Acti9 iPRD range has an Imax range of 8",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          }
+        ],
+        "catalogueFacts": "ABB F202AC-40/0.3 | SKU 2CSF202001R3400 | Residual-current circuit breaker (RCCB) | Two-pole RCCB from the ABB F200 series. | Specs: 2P, 40 A, 300 mA, Type AC | Status: Check availability | Stock: Not tracked | Price: Price on request\nABB F204AC-63/0.3 | SKU 2CSF204001R3630 | Residual-current circuit breaker (RCCB) | Four-pole RCCB from the ABB F200 series. | Specs: 4P, 63 A, 300 mA, Type AC, 480Y/277 V AC | Status: Check availability | Stock: Not tracked | Price: Price on request\nActi9 iDPN N Vigi RCBO | SKU A9D55610 | Residual-current breaker with overcurrent protection (RCBO) | 1P+N RCBO with overload and residual-current protection. | Specs: 1P+N, 10 A, B curve, Type AC, 30 mA, 6 kA | Status: Check availability | Stock: Not tracked | Price: Price on request",
+        "supportKnowledge": "Sales SOP: # Sales Quotation SOP 1. Confirm customer company name, contact name, email, delivery location, requested quantity, required date, and preferred brand. 2. Search the product database for an exact SKU match. Verify technical specifications against the product record or datasheet notes. 3. If the requested brand is unavailable, present a technically suitable equivalent and mark it as an alternative in the quotation. 4. Use the product database for public prices. Confirm project pricing, discount, SST, delivery fee, and payment terms before sending. 5. Save the quotation as Draft for internal review. Only mark it Sent after sales approval. 6. Follow\n\nSupplierFlow Official Knowledge: sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/sg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-10a-b-curve-6000a-ac-type-30ma-a9d55610.html ## 3. Acti9 iDPN N Vigi RCBO — A9D32625 Category: Residual-current breaker with overcurrent protection (RCBO) - 1P+N RCBO rated at 25 A with C curve. - Residual-current type: A; sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/eg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-25a-c-curve-6000a-a-type-30ma-a9d32625.html ## 4. Acti9 iSW switch disconnector — A9S65440 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational current: 40 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65440-acti9-isw-switch-4p-40a-415vac.html ## 5. Acti9 iSW switch disconnector — A9S65463 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational\n\nSupplierFlow Official Knowledge: 17. ABB F204AC-63/0.3 — 2CSF204001R3630 Category: Residual-current circuit breaker (RCCB) - F200-series, four-pole RCCB rated at 63 A. - Rated residual current: 300 mA; residual-current type: AC. - Rated operational voltage: 480Y/277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF204001R3630 ## 18. ABB F202A-63/0.03 APR — 2CSF202401R1630 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 63 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202401R1630 ## 19. ABB F202A-40/0.03 — 2CSF202101R1400 Category: Residual-current circuit breaker\n\nSupplierFlow Official Knowledge: (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202101R1400 ## 20. ABB F202AC-40/0.3 — 2CSF202001R3400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 300 mA; residual-current type: AC. - The product designation identifies it as an F202AC-40/0.3 model. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202001R3400 ## 21. ABB F202AC-40/0.03 — 2CSF202001R1400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA;\n\nSupplierFlow Official Knowledge: # SupplierFlow official product knowledge Concise factual cards derived from the linked manufacturer resources. Check the live manufacturer page before using these data for selection, quotation, or installation. ## Exact lookup index - `LC1D09BD` uses a 24 V DC coil. - `A9S65440` is the 40 A Acti9 iSW 4-pole 415 V AC switch disconnector; `A9S65463` is the 63 A version. - `A9F73140` is the 1-pole, 40 A, B-curve Acti9 iC60N MCB. - Eaton xPole PF7 article `263584` has 30 mA rated residual current and 10 kA short-circuit strength. - The Schneider Acti9 iPRD range has an Imax range of 8",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "prompt_tokens": 2409,
+          "completion_tokens": 380,
+          "total_tokens": 2789,
+          "prompt_tokens_details": {
+            "cached_tokens": 896
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 269
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 1513
+        }
+      }
+    },
+    {
+      "id": "QW03",
+      "question": "What coil voltage does it use?",
+      "questionOnly": {
+        "pass": false,
+        "missing": [
+          "24 V DC"
+        ]
+      },
+      "historyAware": {
+        "pass": true,
+        "missing": []
+      },
+      "rewrittenQuery": "The customer wants TeSys Deca contactor LC1D09BD. What coil voltage does it use?",
+      "questionOnlyTelemetry": {
+        "requestedMode": "keyword",
+        "mode": "keyword",
+        "rewriteMode": "none",
+        "retrievalQuestion": "What coil voltage does it use?",
+        "rewriteMs": 0,
+        "rerankMode": null,
+        "candidateCount": 5,
+        "representation": "chunk",
+        "gated": false,
+        "degradedReason": null,
+        "retrievalMs": 372,
+        "generationMs": 2594,
+        "totalMs": 3632,
+        "retrievedChunks": [
+          {
+            "content": "BQT61825 instruction sheet is a separate installation reference for TeSys Deca contactors. It should be used for mounting, connection, operating orientation, terminal identification and safety information. A catalogue statement such as “TeSys Deca contactor” does not prove that every Deca variant has identical terminal markings or connection steps. Coil type, contactor frame, connection technology and accessory arrangement can change the installation details. ## Identify the exact device Before wiring, record the full commercial reference and compare it with the instruction sheet. Similar LC1D codes can differ in coil voltage, auxiliary contacts, connection arrangement or suppression. The last characters of a",
+            "title": "Reference Tesys Deca Installation",
+            "sourceType": "policy",
+            "similarity": null
+          },
+          {
+            "content": "# TeSys Deca motor-starter catalogue Source: Schneider Electric, [TeSys Catalog 2026](https://www.se.com/us/en/download/document/MKTED210011EN/), document MKTED210011EN. This reference digest covers the structure of the TeSys catalogue. It is not a SupplierFlow quote, price list, stock record, delivery commitment or warranty statement. Exact contactor and accessory selection must use the current manufacturer table. Quick answer: 1NO + 1NC auxiliary contacts alone do not prove a contactor's AC-3 motor rating or coil voltage; those fields require the exact product row. The catalogue lists TeSys Deca Contactors, TeSys Deca overload relays, GV2 and GV3 ranges. ## Catalogue scope The catalogue groups ready-to-use motor starters and the",
+            "title": "Reference Tesys Deca Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "tells the installer how the conductors are connected and which product range supports that connection method. The maximum motor power mentioned for a connection solution should not be copied to every contactor in the TeSys range. Motor power depends on voltage, efficiency, power factor, utilization category and duty. The exact table is still required. ## Auxiliary contacts Auxiliary contacts are control and indication contacts. “1NO + 1NC” tells how many normally open and normally closed auxiliary paths are available; it does not by itself state the motor’s AC-3 power, the coil voltage or the short-circuit rating. The terminal numbering and",
+            "title": "Reference Tesys Deca Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "of poles, auxiliary contacts, mounting arrangement and required accessories. AC-1 and AC-3 are not interchangeable application labels. A contactor suitable for a resistive AC-1 duty may not have the same motor-switching rating in AC-3. The coil voltage identifies the control circuit, not the load circuit. Two contactors with the same AC-3 current can have different coils and different auxiliary arrangements. A SKU comparison must keep the coil suffix and the power-contact rating separate. ## Motor-starter components A motor starter usually needs a switching device and protection. The contactor controls the motor circuit. An overload relay protects against sustained overload. Short-circuit",
+            "title": "Reference Tesys Deca Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "1NC” is not a complete statement about motor protection. “The coil is 24 V” is not a statement about the motor’s operating voltage. ## Connection technology The current TeSys range includes different connection technologies and the catalogue identifies SNAP IN solutions for some motor-starter applications. The presence of a tool-less or spring connection feature does not mean that the terminals can be wired without the specified conductor preparation, stripping length, insertion direction or verification step. Use the installation sheet for the exact connection process. Do not copy a screw-terminal procedure to a spring-terminal product or assume that two visually similar",
+            "title": "Reference Tesys Deca Installation",
+            "sourceType": "policy",
+            "similarity": null
+          }
+        ],
+        "catalogueFacts": "TeSys D Contactor | SKU LC1D25P7 | Contactor | Three-pole contactor for motor control. | Specs: 3P / 3NO, 25 A AC-3, 230 V AC coil, 11 kW at 400 V | Status: Check availability | Stock: Not tracked | Price: Price on request\nTeSys D Contactor | SKU LC1D40AP7 | Contactor | Three-pole contactor for motor control. | Specs: 3P / 3NO, 40 A AC-3, 230 V AC, 50/60 Hz coil, 1NO + 1NC auxiliary | Status: Check availability | Stock: Not tracked | Price: Price on request\nTeSys D Contactor | SKU LC1D40AF7 | Contactor | Three-pole contactor for motor control. | Specs: 3P / 3NO, 40 A AC-3/AC-3e, 110 V AC, 50/60 Hz coil, 1NO + 1NC auxiliary | Status: Check availability | Stock: Not tracked | Price: Price on request",
+        "supportKnowledge": "Reference Tesys Deca Installation: BQT61825 instruction sheet is a separate installation reference for TeSys Deca contactors. It should be used for mounting, connection, operating orientation, terminal identification and safety information. A catalogue statement such as “TeSys Deca contactor” does not prove that every Deca variant has identical terminal markings or connection steps. Coil type, contactor frame, connection technology and accessory arrangement can change the installation details. ## Identify the exact device Before wiring, record the full commercial reference and compare it with the instruction sheet. Similar LC1D codes can differ in coil voltage, auxiliary contacts, connection arrangement or suppression. The last characters of a\n\nReference Tesys Deca Catalogue: # TeSys Deca motor-starter catalogue Source: Schneider Electric, [TeSys Catalog 2026](https://www.se.com/us/en/download/document/MKTED210011EN/), document MKTED210011EN. This reference digest covers the structure of the TeSys catalogue. It is not a SupplierFlow quote, price list, stock record, delivery commitment or warranty statement. Exact contactor and accessory selection must use the current manufacturer table. Quick answer: 1NO + 1NC auxiliary contacts alone do not prove a contactor's AC-3 motor rating or coil voltage; those fields require the exact product row. The catalogue lists TeSys Deca Contactors, TeSys Deca overload relays, GV2 and GV3 ranges. ## Catalogue scope The catalogue groups ready-to-use motor starters and the\n\nReference Tesys Deca Catalogue: tells the installer how the conductors are connected and which product range supports that connection method. The maximum motor power mentioned for a connection solution should not be copied to every contactor in the TeSys range. Motor power depends on voltage, efficiency, power factor, utilization category and duty. The exact table is still required. ## Auxiliary contacts Auxiliary contacts are control and indication contacts. “1NO + 1NC” tells how many normally open and normally closed auxiliary paths are available; it does not by itself state the motor’s AC-3 power, the coil voltage or the short-circuit rating. The terminal numbering and\n\nReference Tesys Deca Catalogue: of poles, auxiliary contacts, mounting arrangement and required accessories. AC-1 and AC-3 are not interchangeable application labels. A contactor suitable for a resistive AC-1 duty may not have the same motor-switching rating in AC-3. The coil voltage identifies the control circuit, not the load circuit. Two contactors with the same AC-3 current can have different coils and different auxiliary arrangements. A SKU comparison must keep the coil suffix and the power-contact rating separate. ## Motor-starter components A motor starter usually needs a switching device and protection. The contactor controls the motor circuit. An overload relay protects against sustained overload. Short-circuit\n\nReference Tesys Deca Installation: 1NC” is not a complete statement about motor protection. “The coil is 24 V” is not a statement about the motor’s operating voltage. ## Connection technology The current TeSys range includes different connection technologies and the catalogue identifies SNAP IN solutions for some motor-starter applications. The presence of a tool-less or spring connection feature does not mean that the terminals can be wired without the specified conductor preparation, stripping length, insertion direction or verification step. Use the installation sheet for the exact connection process. Do not copy a screw-terminal procedure to a spring-terminal product or assume that two visually similar",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "prompt_tokens": 1902,
+          "completion_tokens": 256,
+          "total_tokens": 2158,
+          "prompt_tokens_details": {
+            "cached_tokens": 1152
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 153
+          },
+          "prompt_cache_hit_tokens": 1152,
+          "prompt_cache_miss_tokens": 750
+        }
+      },
+      "historyAwareTelemetry": {
+        "requestedMode": "keyword",
+        "mode": "keyword",
+        "rewriteMode": "history",
+        "retrievalQuestion": "The customer wants TeSys Deca contactor LC1D09BD. What coil voltage does it use?",
+        "rewriteMs": 0,
+        "rerankMode": null,
+        "candidateCount": 5,
+        "representation": "chunk",
+        "gated": false,
+        "degradedReason": null,
+        "retrievalMs": 414,
+        "generationMs": 788,
+        "totalMs": 1785,
+        "retrievedChunks": [
+          {
+            "content": "current: 63 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65463-acti9-isw-switch-4p-63a-415vac.html ## 6. Acti9 iPRD20 surge arrester — A9L20100 Category: Surge protection device (SPD) - iPRD 20 surge arrester with 20 kA rating. - Rated voltage: 350 V. - Single-pole device. Source: https://eshop.se.com/sa/iprd-20-20-ka-350v-1p-a9l20100.html ## 7. TeSys Deca contactor — LC1D09BNE Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated current: 9 A at up to 440 V. - Coil supply: 24–60 V AC/DC. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3-no-ac-3-ac-3e-0-to-440v-9a-24-60vac-dc-coil-lc1d09bne.html ## 8. TeSys Deca contactor — LC1D09BD Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "current: 9 A at up to 440 V. - Coil supply: 24 V DC. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3-no-ac-3-ac-3e-0-to-440v-9a-24vdc-coil-lc1d09bd.html ## 9. TeSys D contactor — LC1D25P7 Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3 rated current: 25 A at up to 440 V. - Coil supply: 230 V AC. - AC-3 motor power at 400 V: 11 kW. Source: https://eshop.se.com/sg/tesys-d-contactor-3p3-no-ac-3-440-v-25-a-230-v-ac-coil-lc1d25p7.html ## 10. TeSys Deca contactor — LC1D32G7 Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated current: 32 A at up to 440 V. - Coil supply: 120 V AC, 50/60 Hz. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3no-ac-3-ac-3e-440v-32a-120v-ac-50-60hz-coil-lc1d32g7.html ##",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "# SupplierFlow official product knowledge Concise factual cards derived from the linked manufacturer resources. Check the live manufacturer page before using these data for selection, quotation, or installation. ## Exact lookup index - `LC1D09BD` uses a 24 V DC coil. - `A9S65440` is the 40 A Acti9 iSW 4-pole 415 V AC switch disconnector; `A9S65463` is the 63 A version. - `A9F73140` is the 1-pole, 40 A, B-curve Acti9 iC60N MCB. - Eaton xPole PF7 article `263584` has 30 mA rated residual current and 10 kA short-circuit strength. - The Schneider Acti9 iPRD range has an Imax range of 8",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "BQT61825 instruction sheet is a separate installation reference for TeSys Deca contactors. It should be used for mounting, connection, operating orientation, terminal identification and safety information. A catalogue statement such as “TeSys Deca contactor” does not prove that every Deca variant has identical terminal markings or connection steps. Coil type, contactor frame, connection technology and accessory arrangement can change the installation details. ## Identify the exact device Before wiring, record the full commercial reference and compare it with the instruction sheet. Similar LC1D codes can differ in coil voltage, auxiliary contacts, connection arrangement or suppression. The last characters of a",
+            "title": "Reference Tesys Deca Installation",
+            "sourceType": "policy",
+            "similarity": null
+          },
+          {
+            "content": "# TeSys Deca motor-starter catalogue Source: Schneider Electric, [TeSys Catalog 2026](https://www.se.com/us/en/download/document/MKTED210011EN/), document MKTED210011EN. This reference digest covers the structure of the TeSys catalogue. It is not a SupplierFlow quote, price list, stock record, delivery commitment or warranty statement. Exact contactor and accessory selection must use the current manufacturer table. Quick answer: 1NO + 1NC auxiliary contacts alone do not prove a contactor's AC-3 motor rating or coil voltage; those fields require the exact product row. The catalogue lists TeSys Deca Contactors, TeSys Deca overload relays, GV2 and GV3 ranges. ## Catalogue scope The catalogue groups ready-to-use motor starters and the",
+            "title": "Reference Tesys Deca Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          }
+        ],
+        "catalogueFacts": "TeSys Deca Contactor | SKU LC1D09BD | Contactor | Three-pole contactor for motor control. | Specs: 3P / 3NO, 9 A AC-3/AC-3e, Up to 440 V, 24 V DC coil | Status: Check availability | Stock: Not tracked | Price: Price on request\nTeSys Deca Contactor | SKU LC1D150M7 | Contactor | Three-pole contactor for motor control. | Specs: 3P / 3NO, 150 A AC-3/AC-3e, 220 V AC, 50/60 Hz coil, 120 mm width | Status: Check availability | Stock: Not tracked | Price: Price on request\nTeSys Deca Contactor | SKU LC1D09BNE | Contactor | Three-pole contactor for motor control. | Specs: 3P / 3NO, 9 A AC-3/AC-3e, Up to 440 V, 24–60 V AC/DC coil | Status: Check availability | Stock: Not tracked | Price: Price on request",
+        "supportKnowledge": "SupplierFlow Official Knowledge: current: 63 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65463-acti9-isw-switch-4p-63a-415vac.html ## 6. Acti9 iPRD20 surge arrester — A9L20100 Category: Surge protection device (SPD) - iPRD 20 surge arrester with 20 kA rating. - Rated voltage: 350 V. - Single-pole device. Source: https://eshop.se.com/sa/iprd-20-20-ka-350v-1p-a9l20100.html ## 7. TeSys Deca contactor — LC1D09BNE Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated current: 9 A at up to 440 V. - Coil supply: 24–60 V AC/DC. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3-no-ac-3-ac-3e-0-to-440v-9a-24-60vac-dc-coil-lc1d09bne.html ## 8. TeSys Deca contactor — LC1D09BD Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated\n\nSupplierFlow Official Knowledge: current: 9 A at up to 440 V. - Coil supply: 24 V DC. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3-no-ac-3-ac-3e-0-to-440v-9a-24vdc-coil-lc1d09bd.html ## 9. TeSys D contactor — LC1D25P7 Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3 rated current: 25 A at up to 440 V. - Coil supply: 230 V AC. - AC-3 motor power at 400 V: 11 kW. Source: https://eshop.se.com/sg/tesys-d-contactor-3p3-no-ac-3-440-v-25-a-230-v-ac-coil-lc1d25p7.html ## 10. TeSys Deca contactor — LC1D32G7 Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated current: 32 A at up to 440 V. - Coil supply: 120 V AC, 50/60 Hz. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3no-ac-3-ac-3e-440v-32a-120v-ac-50-60hz-coil-lc1d32g7.html ##\n\nSupplierFlow Official Knowledge: # SupplierFlow official product knowledge Concise factual cards derived from the linked manufacturer resources. Check the live manufacturer page before using these data for selection, quotation, or installation. ## Exact lookup index - `LC1D09BD` uses a 24 V DC coil. - `A9S65440` is the 40 A Acti9 iSW 4-pole 415 V AC switch disconnector; `A9S65463` is the 63 A version. - `A9F73140` is the 1-pole, 40 A, B-curve Acti9 iC60N MCB. - Eaton xPole PF7 article `263584` has 30 mA rated residual current and 10 kA short-circuit strength. - The Schneider Acti9 iPRD range has an Imax range of 8\n\nReference Tesys Deca Installation: BQT61825 instruction sheet is a separate installation reference for TeSys Deca contactors. It should be used for mounting, connection, operating orientation, terminal identification and safety information. A catalogue statement such as “TeSys Deca contactor” does not prove that every Deca variant has identical terminal markings or connection steps. Coil type, contactor frame, connection technology and accessory arrangement can change the installation details. ## Identify the exact device Before wiring, record the full commercial reference and compare it with the instruction sheet. Similar LC1D codes can differ in coil voltage, auxiliary contacts, connection arrangement or suppression. The last characters of a\n\nReference Tesys Deca Catalogue: # TeSys Deca motor-starter catalogue Source: Schneider Electric, [TeSys Catalog 2026](https://www.se.com/us/en/download/document/MKTED210011EN/), document MKTED210011EN. This reference digest covers the structure of the TeSys catalogue. It is not a SupplierFlow quote, price list, stock record, delivery commitment or warranty statement. Exact contactor and accessory selection must use the current manufacturer table. Quick answer: 1NO + 1NC auxiliary contacts alone do not prove a contactor's AC-3 motor rating or coil voltage; those fields require the exact product row. The catalogue lists TeSys Deca Contactors, TeSys Deca overload relays, GV2 and GV3 ranges. ## Catalogue scope The catalogue groups ready-to-use motor starters and the",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "prompt_tokens": 2320,
+          "completion_tokens": 48,
+          "total_tokens": 2368,
+          "prompt_tokens_details": {
+            "cached_tokens": 896
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 25
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 1424
+        }
+      }
+    },
+    {
+      "id": "QW04",
+      "question": "How many poles does it have?",
+      "questionOnly": {
+        "pass": false,
+        "missing": [
+          "four-pole"
+        ]
+      },
+      "historyAware": {
+        "pass": false,
+        "missing": [
+          "four-pole"
+        ]
+      },
+      "rewrittenQuery": "I am checking the Acti9 iSW switch disconnector A9S65463. How many poles does it have?",
+      "questionOnlyTelemetry": {
+        "requestedMode": "keyword",
+        "mode": "keyword",
+        "rewriteMode": "none",
+        "retrievalQuestion": "How many poles does it have?",
+        "rewriteMs": 0,
+        "rerankMode": null,
+        "candidateCount": 5,
+        "representation": "chunk",
+        "gated": false,
+        "degradedReason": null,
+        "retrievalMs": 370,
+        "generationMs": 1695,
+        "totalMs": 2691,
+        "retrievedChunks": [
+          {
+            "content": "tells the installer how the conductors are connected and which product range supports that connection method. The maximum motor power mentioned for a connection solution should not be copied to every contactor in the TeSys range. Motor power depends on voltage, efficiency, power factor, utilization category and duty. The exact table is still required. ## Auxiliary contacts Auxiliary contacts are control and indication contacts. “1NO + 1NC” tells how many normally open and normally closed auxiliary paths are available; it does not by itself state the motor’s AC-3 power, the coil voltage or the short-circuit rating. The terminal numbering and",
+            "title": "Reference Tesys Deca Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "concerns the residual-current trip threshold. A 30 mA sensitivity should not be silently replaced with 100 mA, and a 6 A product should not be represented as a 16 A product because both belong to the same family. When comparing two references, show current, sensitivity, poles, curve, breaking capacity and device family as separate rows. ## Protection claim boundaries The catalogue describes protection against short circuits, cable overloads and electric shock for the covered RCBO products. That describes the intended protective functions of the device. It does not prove that every installation is safe, selective or compliant. Cable sizing, prospective",
+            "title": "Reference Acti9 Rcbo Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "# Acti9 iC60 DC-application reference Reference facts for checking whether an Acti9 iC60 MCB can be used on a DC supply. - Schneider states that Acti9 iC60N/H MCBs can be used for DC applications from 12 VDC to 250 VDC. - The usable voltage and achieved breaking capacity depend on the number of poles connected in series and the required breaking capacity. - A statement that the family is suitable for DC does not establish the breaking capacity of every single-pole or multi-pole wiring arrangement. Check the device diagram and the applicable product documentation. Source: https://www.se.com/au/en/faqs/FA272282/",
+            "title": "Reference Mcb Dc Applications",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "number, designation and table row must be kept together. ## Type AC boundary The table section identifies the listed devices as Type AC and conditionally surge-current-proof 250 A in the shown category. This is a device-type statement. It does not mean the product is Type A, Type F or Type B. If the customer’s load can produce pulsating DC or mixed-frequency residual currents, the assistant should not silently upgrade the PF7 Type AC description. Ask for the required residual-current type and retrieve a product family that explicitly supports it. ## Poles and packaging Two-pole and four-pole devices are different forms.",
+            "title": "Reference Eaton Pf7 Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "Four poles do not mean four independently protected overcurrent poles; an RCCB is not an MCB. The exact device symbol and terminal arrangement must be used for wiring. The catalogue also includes units-per-package information. Packaging quantity is a logistics field, not an electrical rating. It should never be interpreted as the number of poles, the number of protected conductors or the number of devices installed. ## What the catalogue does not say The product table does not establish current stock, local price, delivery lead time, warranty term or a compatible MCB for every installation. Those are separate operational or design",
+            "title": "Reference Eaton Pf7 Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          }
+        ],
+        "catalogueFacts": "",
+        "supportKnowledge": "Reference Tesys Deca Catalogue: tells the installer how the conductors are connected and which product range supports that connection method. The maximum motor power mentioned for a connection solution should not be copied to every contactor in the TeSys range. Motor power depends on voltage, efficiency, power factor, utilization category and duty. The exact table is still required. ## Auxiliary contacts Auxiliary contacts are control and indication contacts. “1NO + 1NC” tells how many normally open and normally closed auxiliary paths are available; it does not by itself state the motor’s AC-3 power, the coil voltage or the short-circuit rating. The terminal numbering and\n\nReference Acti9 Rcbo Catalogue: concerns the residual-current trip threshold. A 30 mA sensitivity should not be silently replaced with 100 mA, and a 6 A product should not be represented as a 16 A product because both belong to the same family. When comparing two references, show current, sensitivity, poles, curve, breaking capacity and device family as separate rows. ## Protection claim boundaries The catalogue describes protection against short circuits, cable overloads and electric shock for the covered RCBO products. That describes the intended protective functions of the device. It does not prove that every installation is safe, selective or compliant. Cable sizing, prospective\n\nReference Mcb Dc Applications: # Acti9 iC60 DC-application reference Reference facts for checking whether an Acti9 iC60 MCB can be used on a DC supply. - Schneider states that Acti9 iC60N/H MCBs can be used for DC applications from 12 VDC to 250 VDC. - The usable voltage and achieved breaking capacity depend on the number of poles connected in series and the required breaking capacity. - A statement that the family is suitable for DC does not establish the breaking capacity of every single-pole or multi-pole wiring arrangement. Check the device diagram and the applicable product documentation. Source: https://www.se.com/au/en/faqs/FA272282/\n\nReference Eaton Pf7 Catalogue: number, designation and table row must be kept together. ## Type AC boundary The table section identifies the listed devices as Type AC and conditionally surge-current-proof 250 A in the shown category. This is a device-type statement. It does not mean the product is Type A, Type F or Type B. If the customer’s load can produce pulsating DC or mixed-frequency residual currents, the assistant should not silently upgrade the PF7 Type AC description. Ask for the required residual-current type and retrieve a product family that explicitly supports it. ## Poles and packaging Two-pole and four-pole devices are different forms.\n\nReference Eaton Pf7 Catalogue: Four poles do not mean four independently protected overcurrent poles; an RCCB is not an MCB. The exact device symbol and terminal arrangement must be used for wiring. The catalogue also includes units-per-package information. Packaging quantity is a logistics field, not an electrical rating. It should never be interpreted as the number of poles, the number of protected conductors or the number of devices installed. ## What the catalogue does not say The product table does not establish current stock, local price, delivery lead time, warranty term or a compatible MCB for every installation. Those are separate operational or design",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "prompt_tokens": 1623,
+          "completion_tokens": 146,
+          "total_tokens": 1769,
+          "prompt_tokens_details": {
+            "cached_tokens": 896
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 88
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 727
+        }
+      },
+      "historyAwareTelemetry": {
+        "requestedMode": "keyword",
+        "mode": "keyword",
+        "rewriteMode": "history",
+        "retrievalQuestion": "I am checking the Acti9 iSW switch disconnector A9S65463. How many poles does it have?",
+        "rewriteMs": 0,
+        "rerankMode": null,
+        "candidateCount": 5,
+        "representation": "chunk",
+        "gated": false,
+        "degradedReason": null,
+        "retrievalMs": 405,
+        "generationMs": 1489,
+        "totalMs": 2534,
+        "retrievedChunks": [
+          {
+            "content": "sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/sg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-10a-b-curve-6000a-ac-type-30ma-a9d55610.html ## 3. Acti9 iDPN N Vigi RCBO — A9D32625 Category: Residual-current breaker with overcurrent protection (RCBO) - 1P+N RCBO rated at 25 A with C curve. - Residual-current type: A; sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/eg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-25a-c-curve-6000a-a-type-30ma-a9d32625.html ## 4. Acti9 iSW switch disconnector — A9S65440 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational current: 40 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65440-acti9-isw-switch-4p-40a-415vac.html ## 5. Acti9 iSW switch disconnector — A9S65463 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "# SupplierFlow official product knowledge Concise factual cards derived from the linked manufacturer resources. Check the live manufacturer page before using these data for selection, quotation, or installation. ## Exact lookup index - `LC1D09BD` uses a 24 V DC coil. - `A9S65440` is the 40 A Acti9 iSW 4-pole 415 V AC switch disconnector; `A9S65463` is the 63 A version. - `A9F73140` is the 1-pole, 40 A, B-curve Acti9 iC60N MCB. - Eaton xPole PF7 article `263584` has 30 mA rated residual current and 10 kA short-circuit strength. - The Schneider Acti9 iPRD range has an Imax range of 8",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "current: 63 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65463-acti9-isw-switch-4p-63a-415vac.html ## 6. Acti9 iPRD20 surge arrester — A9L20100 Category: Surge protection device (SPD) - iPRD 20 surge arrester with 20 kA rating. - Rated voltage: 350 V. - Single-pole device. Source: https://eshop.se.com/sa/iprd-20-20-ka-350v-1p-a9l20100.html ## 7. TeSys Deca contactor — LC1D09BNE Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated current: 9 A at up to 440 V. - Coil supply: 24–60 V AC/DC. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3-no-ac-3-ac-3e-0-to-440v-9a-24-60vac-dc-coil-lc1d09bne.html ## 8. TeSys Deca contactor — LC1D09BD Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "# Acti9 iC60 DC-application reference Reference facts for checking whether an Acti9 iC60 MCB can be used on a DC supply. - Schneider states that Acti9 iC60N/H MCBs can be used for DC applications from 12 VDC to 250 VDC. - The usable voltage and achieved breaking capacity depend on the number of poles connected in series and the required breaking capacity. - A statement that the family is suitable for DC does not establish the breaking capacity of every single-pole or multi-pole wiring arrangement. Check the device diagram and the applicable product documentation. Source: https://www.se.com/au/en/faqs/FA272282/",
+            "title": "Reference Mcb Dc Applications",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "and poles Acti9 MCB families use different tripping curves and current ranges. A B-curve device, a C-curve device and a D-curve device can have the same nominal current while responding differently to magnetic inrush. The curve is therefore part of the product identity, not a decorative label. Pole count is another selection field. A one-pole device, a one-pole-plus-neutral device and a two-, three- or four-pole device do not create the same switching or isolation arrangement. “1P+N” also needs careful wording: one pole may be protected while the neutral pole is switched, depending on the family. The catalogue contains product ranges",
+            "title": "Reference Acti9 Ic60 Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          }
+        ],
+        "catalogueFacts": "Acti9 iSW Switch Disconnector | SKU A9S65463 | Switch disconnector | Four-pole switch disconnector for isolation. | Specs: 4P, 63 A, 415 V AC | Status: Check availability | Stock: Not tracked | Price: Price on request\nActi9 iSW Switch Disconnector | SKU A9S65440 | Switch disconnector | Four-pole switch disconnector for isolation. | Specs: 4P, 40 A, 415 V AC | Status: Check availability | Stock: Not tracked | Price: Price on request\nActi9 iC60N MCB | SKU A9F73140 | Miniature circuit breaker (MCB) | 1-pole MCB for overload and short-circuit protection. | Specs: 1P, 40 A, B curve, 6 kA at 230 V AC, 10 kA at 220–240 V AC | Status: Check availability | Stock: Not tracked | Price: Price on request",
+        "supportKnowledge": "SupplierFlow Official Knowledge: sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/sg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-10a-b-curve-6000a-ac-type-30ma-a9d55610.html ## 3. Acti9 iDPN N Vigi RCBO — A9D32625 Category: Residual-current breaker with overcurrent protection (RCBO) - 1P+N RCBO rated at 25 A with C curve. - Residual-current type: A; sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/eg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-25a-c-curve-6000a-a-type-30ma-a9d32625.html ## 4. Acti9 iSW switch disconnector — A9S65440 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational current: 40 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65440-acti9-isw-switch-4p-40a-415vac.html ## 5. Acti9 iSW switch disconnector — A9S65463 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational\n\nSupplierFlow Official Knowledge: # SupplierFlow official product knowledge Concise factual cards derived from the linked manufacturer resources. Check the live manufacturer page before using these data for selection, quotation, or installation. ## Exact lookup index - `LC1D09BD` uses a 24 V DC coil. - `A9S65440` is the 40 A Acti9 iSW 4-pole 415 V AC switch disconnector; `A9S65463` is the 63 A version. - `A9F73140` is the 1-pole, 40 A, B-curve Acti9 iC60N MCB. - Eaton xPole PF7 article `263584` has 30 mA rated residual current and 10 kA short-circuit strength. - The Schneider Acti9 iPRD range has an Imax range of 8\n\nSupplierFlow Official Knowledge: current: 63 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65463-acti9-isw-switch-4p-63a-415vac.html ## 6. Acti9 iPRD20 surge arrester — A9L20100 Category: Surge protection device (SPD) - iPRD 20 surge arrester with 20 kA rating. - Rated voltage: 350 V. - Single-pole device. Source: https://eshop.se.com/sa/iprd-20-20-ka-350v-1p-a9l20100.html ## 7. TeSys Deca contactor — LC1D09BNE Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated current: 9 A at up to 440 V. - Coil supply: 24–60 V AC/DC. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3-no-ac-3-ac-3e-0-to-440v-9a-24-60vac-dc-coil-lc1d09bne.html ## 8. TeSys Deca contactor — LC1D09BD Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated\n\nReference Mcb Dc Applications: # Acti9 iC60 DC-application reference Reference facts for checking whether an Acti9 iC60 MCB can be used on a DC supply. - Schneider states that Acti9 iC60N/H MCBs can be used for DC applications from 12 VDC to 250 VDC. - The usable voltage and achieved breaking capacity depend on the number of poles connected in series and the required breaking capacity. - A statement that the family is suitable for DC does not establish the breaking capacity of every single-pole or multi-pole wiring arrangement. Check the device diagram and the applicable product documentation. Source: https://www.se.com/au/en/faqs/FA272282/\n\nReference Acti9 Ic60 Catalogue: and poles Acti9 MCB families use different tripping curves and current ranges. A B-curve device, a C-curve device and a D-curve device can have the same nominal current while responding differently to magnetic inrush. The curve is therefore part of the product identity, not a decorative label. Pole count is another selection field. A one-pole device, a one-pole-plus-neutral device and a two-, three- or four-pole device do not create the same switching or isolation arrangement. “1P+N” also needs careful wording: one pole may be protected while the neutral pole is switched, depending on the family. The catalogue contains product ranges",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "prompt_tokens": 2290,
+          "completion_tokens": 153,
+          "total_tokens": 2443,
+          "prompt_tokens_details": {
+            "cached_tokens": 896
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 113
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 1394
+        }
+      }
+    },
+    {
+      "id": "QW05",
+      "question": "What voltage is it rated for?",
+      "questionOnly": {
+        "pass": true,
+        "missing": []
+      },
+      "historyAware": {
+        "pass": true,
+        "missing": []
+      },
+      "rewrittenQuery": "We are selecting the Acti9 iPRD20 surge arrester A9L20100. What voltage is it rated for?",
+      "questionOnlyTelemetry": {
+        "requestedMode": "keyword",
+        "mode": "keyword",
+        "rewriteMode": "none",
+        "retrievalQuestion": "What voltage is it rated for?",
+        "rewriteMs": 0,
+        "rerankMode": null,
+        "candidateCount": 5,
+        "representation": "chunk",
+        "gated": false,
+        "degradedReason": null,
+        "retrievalMs": 378,
+        "generationMs": 925,
+        "totalMs": 1986,
+        "retrievedChunks": [
+          {
+            "content": "sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/sg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-10a-b-curve-6000a-ac-type-30ma-a9d55610.html ## 3. Acti9 iDPN N Vigi RCBO — A9D32625 Category: Residual-current breaker with overcurrent protection (RCBO) - 1P+N RCBO rated at 25 A with C curve. - Residual-current type: A; sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/eg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-25a-c-curve-6000a-a-type-30ma-a9d32625.html ## 4. Acti9 iSW switch disconnector — A9S65440 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational current: 40 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65440-acti9-isw-switch-4p-40a-415vac.html ## 5. Acti9 iSW switch disconnector — A9S65463 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "current: 63 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65463-acti9-isw-switch-4p-63a-415vac.html ## 6. Acti9 iPRD20 surge arrester — A9L20100 Category: Surge protection device (SPD) - iPRD 20 surge arrester with 20 kA rating. - Rated voltage: 350 V. - Single-pole device. Source: https://eshop.se.com/sa/iprd-20-20-ka-350v-1p-a9l20100.html ## 7. TeSys Deca contactor — LC1D09BNE Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated current: 9 A at up to 440 V. - Coil supply: 24–60 V AC/DC. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3-no-ac-3-ac-3e-0-to-440v-9a-24-60vac-dc-coil-lc1d09bne.html ## 8. TeSys Deca contactor — LC1D09BD Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "contactor with three normally open contacts. - AC-3/AC-3e rated current: 150 A at up to 440 V. - Coil supply: 220 V AC, 50/60 Hz. - Width: 120 mm. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3no-ac-3-ac-3e-440v-150a-220v-ac-50-60hz-coil-screw-clamp-terminals-lc1d150m7.html ## 16. ABB S200 M UC range Category: DC/AC miniature circuit breaker (MCB) - Supports both AC and DC applications. - Its permanent-magnet arcing chutes can extinguish an arc up to 500 V DC with Icu of 4.5 kA. - Available in single-pole and multipole versions with rated currents from 0.2 to 63 A. - The range has a 10 kA breaking capacity for industrial applications. Source: https://new.abb.com/low-voltage/products/system-pro-m/miniature-circuit-breakers/s200-m-uc-range ##",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "17. ABB F204AC-63/0.3 — 2CSF204001R3630 Category: Residual-current circuit breaker (RCCB) - F200-series, four-pole RCCB rated at 63 A. - Rated residual current: 300 mA; residual-current type: AC. - Rated operational voltage: 480Y/277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF204001R3630 ## 18. ABB F202A-63/0.03 APR — 2CSF202401R1630 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 63 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202401R1630 ## 19. ABB F202A-40/0.03 — 2CSF202101R1400 Category: Residual-current circuit breaker",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "(RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202101R1400 ## 20. ABB F202AC-40/0.3 — 2CSF202001R3400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 300 mA; residual-current type: AC. - The product designation identifies it as an F202AC-40/0.3 model. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202001R3400 ## 21. ABB F202AC-40/0.03 — 2CSF202001R1400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA;",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          }
+        ],
+        "catalogueFacts": "",
+        "supportKnowledge": "SupplierFlow Official Knowledge: sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/sg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-10a-b-curve-6000a-ac-type-30ma-a9d55610.html ## 3. Acti9 iDPN N Vigi RCBO — A9D32625 Category: Residual-current breaker with overcurrent protection (RCBO) - 1P+N RCBO rated at 25 A with C curve. - Residual-current type: A; sensitivity: 30 mA. - Rated short-circuit capacity: 6 kA. Source: https://eshop.se.com/eg/residual-current-breaker-with-overcurrent-protection-rcbo-acti9-idpn-n-vigi-1p-n-25a-c-curve-6000a-a-type-30ma-a9d32625.html ## 4. Acti9 iSW switch disconnector — A9S65440 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational current: 40 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65440-acti9-isw-switch-4p-40a-415vac.html ## 5. Acti9 iSW switch disconnector — A9S65463 Category: Switch disconnector - Four-pole switch disconnector. - Rated operational\n\nSupplierFlow Official Knowledge: current: 63 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65463-acti9-isw-switch-4p-63a-415vac.html ## 6. Acti9 iPRD20 surge arrester — A9L20100 Category: Surge protection device (SPD) - iPRD 20 surge arrester with 20 kA rating. - Rated voltage: 350 V. - Single-pole device. Source: https://eshop.se.com/sa/iprd-20-20-ka-350v-1p-a9l20100.html ## 7. TeSys Deca contactor — LC1D09BNE Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated current: 9 A at up to 440 V. - Coil supply: 24–60 V AC/DC. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3-no-ac-3-ac-3e-0-to-440v-9a-24-60vac-dc-coil-lc1d09bne.html ## 8. TeSys Deca contactor — LC1D09BD Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated\n\nSupplierFlow Official Knowledge: contactor with three normally open contacts. - AC-3/AC-3e rated current: 150 A at up to 440 V. - Coil supply: 220 V AC, 50/60 Hz. - Width: 120 mm. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3no-ac-3-ac-3e-440v-150a-220v-ac-50-60hz-coil-screw-clamp-terminals-lc1d150m7.html ## 16. ABB S200 M UC range Category: DC/AC miniature circuit breaker (MCB) - Supports both AC and DC applications. - Its permanent-magnet arcing chutes can extinguish an arc up to 500 V DC with Icu of 4.5 kA. - Available in single-pole and multipole versions with rated currents from 0.2 to 63 A. - The range has a 10 kA breaking capacity for industrial applications. Source: https://new.abb.com/low-voltage/products/system-pro-m/miniature-circuit-breakers/s200-m-uc-range ##\n\nSupplierFlow Official Knowledge: 17. ABB F204AC-63/0.3 — 2CSF204001R3630 Category: Residual-current circuit breaker (RCCB) - F200-series, four-pole RCCB rated at 63 A. - Rated residual current: 300 mA; residual-current type: AC. - Rated operational voltage: 480Y/277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF204001R3630 ## 18. ABB F202A-63/0.03 APR — 2CSF202401R1630 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 63 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202401R1630 ## 19. ABB F202A-40/0.03 — 2CSF202101R1400 Category: Residual-current circuit breaker\n\nSupplierFlow Official Knowledge: (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA; residual-current type: A. - Rated operational voltage: 277 V AC. - Listed standards: IEC/EN 61008 and UL 1053. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202101R1400 ## 20. ABB F202AC-40/0.3 — 2CSF202001R3400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 300 mA; residual-current type: AC. - The product designation identifies it as an F202AC-40/0.3 model. Source: https://empower.abb.com/ecatalog/ec/EN_NA/p/2CSF202001R3400 ## 21. ABB F202AC-40/0.03 — 2CSF202001R1400 Category: Residual-current circuit breaker (RCCB) - F200-series, two-pole RCCB rated at 40 A. - Rated residual current: 30 mA;",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "prompt_tokens": 2399,
+          "completion_tokens": 67,
+          "total_tokens": 2466,
+          "prompt_tokens_details": {
+            "cached_tokens": 896
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 41
+          },
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 1503
+        }
+      },
+      "historyAwareTelemetry": {
+        "requestedMode": "keyword",
+        "mode": "keyword",
+        "rewriteMode": "history",
+        "retrievalQuestion": "We are selecting the Acti9 iPRD20 surge arrester A9L20100. What voltage is it rated for?",
+        "rewriteMs": 0,
+        "rerankMode": null,
+        "candidateCount": 5,
+        "representation": "chunk",
+        "gated": false,
+        "degradedReason": null,
+        "retrievalMs": 401,
+        "generationMs": 1653,
+        "totalMs": 2761,
+        "retrievedChunks": [
+          {
+            "content": "current: 63 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65463-acti9-isw-switch-4p-63a-415vac.html ## 6. Acti9 iPRD20 surge arrester — A9L20100 Category: Surge protection device (SPD) - iPRD 20 surge arrester with 20 kA rating. - Rated voltage: 350 V. - Single-pole device. Source: https://eshop.se.com/sa/iprd-20-20-ka-350v-1p-a9l20100.html ## 7. TeSys Deca contactor — LC1D09BNE Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated current: 9 A at up to 440 V. - Coil supply: 24–60 V AC/DC. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3-no-ac-3-ac-3e-0-to-440v-9a-24-60vac-dc-coil-lc1d09bne.html ## 8. TeSys Deca contactor — LC1D09BD Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated",
+            "title": "SupplierFlow Official Knowledge",
+            "sourceType": "datasheet",
+            "similarity": null
+          },
+          {
+            "content": "rather than a single breaker datasheet. It includes iC60N, iC60H, iC60L, C120N and C120H circuit breakers, as well as residual-current devices such as iID and Vigi iC60. It also groups complementary equipment: iPRD surge protection, iTL impulse relays, iCT contactors, Smartlink communication and connection accessories. That family view matters when answering a product question. A reference to “Acti9” does not identify one device. The assistant must preserve the family name, commercial reference, pole arrangement, curve, current rating and voltage before comparing two entries. ## Circuit-breaker selection fields The catalogue presents the fields normally needed to select a miniature circuit breaker.",
+            "title": "Reference Acti9 Ic60 Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "# Acti9 iPRD1 and iPRD surge-protection brochure Source: Schneider Electric, [Acti9 & Resi9 new SPD Digital Brochure](https://www.se.com/uk/en/download/document/Acti9-Resi9_Brochure/). This reference digest summarizes the manufacturer brochure at a selection level. It does not create a local SupplierFlow price, stock, delivery, warranty or installation approval. The original brochure and the applicable national rules remain authoritative. Quick answer: a higher SPD kA number alone is not enough; check the network system, nominal voltage, earthing arrangement and coordination. ## Two protection roles The brochure distinguishes the Acti9 iPRD1 family from the Acti9 iPRD family. The “1” in iPRD1 is associated with Type 1 surge-protection applications,",
+            "title": "Reference Acti9 Iprd Brochure",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "# MCB tripping-curve reference Reference facts for understanding Acti9 miniature circuit-breaker (MCB) curve labels. These are general technical notes, not a substitute for the product datasheet or an installation design. Quick answer: the C curve describes magnetic tripping between 5 and 10 times rated current (`In`). - The curve letter describes the magnetic short-circuit tripping range as a multiple of the breaker rated current (`In`). It is not the rated current and it is not the breaking capacity. - B curve: magnetic tripping between 3 and 5 times `In`. - C curve: magnetic tripping between 5 and 10 times `In`.",
+            "title": "Reference Mcb Tripping Curves",
+            "sourceType": "faq",
+            "similarity": null
+          },
+          {
+            "content": "# Acti9 and KQ iPRD F40r surge-protection catalogue Source: Schneider Electric, [Acti9/KQ SPD Plug and Play Catalog](https://www.se.com/in/en/download/document/CA903020/), document CA903020. This is a source digest of the manufacturer catalogue for Acti9 and KQ iPRD F40r surge protection. It is not a SupplierFlow stock list or a promise that a particular cartridge is available locally. Exact compatibility must be checked against the original catalogue and board system. Quick answer: the covered network systems are TT, TN-S and TN-C-S. A Type 3 cartridge cannot replace a Type 2 iPRD device unless the exact replacement cartridge is compatible with that device family. ## Product",
+            "title": "Reference Acti9 Iprd Catalogue",
+            "sourceType": "faq",
+            "similarity": null
+          }
+        ],
+        "catalogueFacts": "Acti9 iPRD20 Surge Arrester | SKU A9L20100 | Surge protection device (SPD) | Single-pole 20 kA surge protection device. | Specs: 1P, 20 kA, 350 V | Status: Check availability | Stock: Not tracked | Price: Price on request\nSchneider Electric Acti9 iPRD Range | SKU ACTI9-IPRD | Surge protection device (SPD) | DIN-rail surge protection range for indirect lightning strike protection. | Specs: Type 2, Type 3, and Type 2+3, 8–65 kA Imax, IEC/EN 61643-11 | Status: Check availability | Stock: Not tracked | Price: Price on request\nActi9 iC60N MCB | SKU A9F73140 | Miniature circuit breaker (MCB) | 1-pole MCB for overload and short-circuit protection. | Specs: 1P, 40 A, B curve, 6 kA at 230 V AC, 10 kA at 220–240 V AC | Status: Check availability | Stock: Not tracked | Price: Price on request",
+        "supportKnowledge": "SupplierFlow Official Knowledge: current: 63 A. - Rated operating voltage: 415 V AC. Source: https://eshop.se.com/sg/a9s65463-acti9-isw-switch-4p-63a-415vac.html ## 6. Acti9 iPRD20 surge arrester — A9L20100 Category: Surge protection device (SPD) - iPRD 20 surge arrester with 20 kA rating. - Rated voltage: 350 V. - Single-pole device. Source: https://eshop.se.com/sa/iprd-20-20-ka-350v-1p-a9l20100.html ## 7. TeSys Deca contactor — LC1D09BNE Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated current: 9 A at up to 440 V. - Coil supply: 24–60 V AC/DC. Source: https://eshop.se.com/sg/contactor-tesys-deca-3p3-no-ac-3-ac-3e-0-to-440v-9a-24-60vac-dc-coil-lc1d09bne.html ## 8. TeSys Deca contactor — LC1D09BD Category: Contactor - Three-pole contactor with three normally open contacts. - AC-3/AC-3e rated\n\nReference Acti9 Ic60 Catalogue: rather than a single breaker datasheet. It includes iC60N, iC60H, iC60L, C120N and C120H circuit breakers, as well as residual-current devices such as iID and Vigi iC60. It also groups complementary equipment: iPRD surge protection, iTL impulse relays, iCT contactors, Smartlink communication and connection accessories. That family view matters when answering a product question. A reference to “Acti9” does not identify one device. The assistant must preserve the family name, commercial reference, pole arrangement, curve, current rating and voltage before comparing two entries. ## Circuit-breaker selection fields The catalogue presents the fields normally needed to select a miniature circuit breaker.\n\nReference Acti9 Iprd Brochure: # Acti9 iPRD1 and iPRD surge-protection brochure Source: Schneider Electric, [Acti9 & Resi9 new SPD Digital Brochure](https://www.se.com/uk/en/download/document/Acti9-Resi9_Brochure/). This reference digest summarizes the manufacturer brochure at a selection level. It does not create a local SupplierFlow price, stock, delivery, warranty or installation approval. The original brochure and the applicable national rules remain authoritative. Quick answer: a higher SPD kA number alone is not enough; check the network system, nominal voltage, earthing arrangement and coordination. ## Two protection roles The brochure distinguishes the Acti9 iPRD1 family from the Acti9 iPRD family. The “1” in iPRD1 is associated with Type 1 surge-protection applications,\n\nReference Mcb Tripping Curves: # MCB tripping-curve reference Reference facts for understanding Acti9 miniature circuit-breaker (MCB) curve labels. These are general technical notes, not a substitute for the product datasheet or an installation design. Quick answer: the C curve describes magnetic tripping between 5 and 10 times rated current (`In`). - The curve letter describes the magnetic short-circuit tripping range as a multiple of the breaker rated current (`In`). It is not the rated current and it is not the breaking capacity. - B curve: magnetic tripping between 3 and 5 times `In`. - C curve: magnetic tripping between 5 and 10 times `In`.\n\nReference Acti9 Iprd Catalogue: # Acti9 and KQ iPRD F40r surge-protection catalogue Source: Schneider Electric, [Acti9/KQ SPD Plug and Play Catalog](https://www.se.com/in/en/download/document/CA903020/), document CA903020. This is a source digest of the manufacturer catalogue for Acti9 and KQ iPRD F40r surge protection. It is not a SupplierFlow stock list or a promise that a particular cartridge is available locally. Exact compatibility must be checked against the original catalogue and board system. Quick answer: the covered network systems are TT, TN-S and TN-C-S. A Type 3 cartridge cannot replace a Type 2 iPRD device unless the exact replacement cartridge is compatible with that device family. ## Product",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "prompt_tokens": 2179,
+          "completion_tokens": 111,
+          "total_tokens": 2290,
+          "prompt_tokens_details": {
+            "cached_tokens": 1152
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 85
+          },
+          "prompt_cache_hit_tokens": 1152,
+          "prompt_cache_miss_tokens": 1027
+        }
+      }
+    }
+  ]
+}

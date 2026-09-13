@@ -1,0 +1,17 @@
+{
+  "ranAt": "2026-08-30T16:27:07.479Z",
+  "status": "imported",
+  "documents": 44,
+  "importedDocuments": 44,
+  "chunks": 160,
+  "embeddedChunks": 160,
+  "embeddingDimensions": 1536,
+  "sourceBytes": 96867,
+  "plannedChunkTextBytes": 96169,
+  "indexedChunkTextBytes": 96260,
+  "indexBuildMs": 47859,
+  "elapsedMs": 47859,
+  "staleDocuments": [
+    "How to order?"
+  ]
+}

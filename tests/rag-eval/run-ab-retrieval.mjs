@@ -1,4 +1,4 @@
-// A/B retrieval comparison: keyword vs vector vs hybrid on the same 50 questions.
+// A/B retrieval comparison: keyword vs vector vs hybrid on the same fixture.
 //
 // Unlike run-retrieval-eval.mjs (pure offline, reads data/*.md), this hits the real Supabase
 // corpus so the vector path exercises the actual embeddings you backfilled. It does NOT need
@@ -39,6 +39,8 @@ if (existsSync(envPath)) {
 const args = process.argv.slice(2);
 const flag = (name, fallback) => (args.includes(name) ? args[args.indexOf(name) + 1] : fallback);
 const topK = Number(flag("--k", 3));
+const evaluationKs = [1, 3, 5, 10];
+const retrievalLimit = Math.max(topK, ...evaluationKs);
 const minSimilarity = Number(flag("--min-similarity", DEFAULT_MIN_SIMILARITY));
 const modes = flag("--modes", "keyword,vector,hybrid").split(",").map((mode) => mode.trim());
 const jsonOut = flag("--json", null);
@@ -62,7 +64,7 @@ async function supabase(path, init = {}) {
 }
 
 // Disk-cached query embeddings: the eval is meant to be re-run after every retrieval tweak,
-// and re-paying for 50 identical embeddings each time is pure waste.
+// and re-paying for identical embeddings each time is pure waste.
 const cacheDir = join(here, ".cache");
 const cachePath = join(cacheDir, "query-embeddings.json");
 const cache = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, "utf8")) : {};
@@ -137,9 +139,9 @@ function titleMatchesDoc(title, docFilename) {
 
 async function retrieveFor(mode, question) {
   const queries = decomposeQuery(question);
-  if (mode === "keyword") return keywordSearch({ supabase, queries, limit: topK });
-  if (mode === "vector") return vectorSearch({ supabase, question, limit: topK, minSimilarity, embed: cachedEmbed });
-  const result = await retrieveKnowledge({ supabase, question, queries, limit: topK, mode: "hybrid", minSimilarity, embed: cachedEmbed });
+  if (mode === "keyword") return keywordSearch({ supabase, queries, limit: retrievalLimit });
+  if (mode === "vector") return vectorSearch({ supabase, question, limit: retrievalLimit, minSimilarity, embed: cachedEmbed });
+  const result = await retrieveKnowledge({ supabase, question, queries, limit: retrievalLimit, mode: "hybrid", minSimilarity, embed: cachedEmbed });
   return result.chunks;
 }
 
@@ -149,14 +151,26 @@ function score(question, chunks) {
   for (let index = 0; index < chunks.length; index += 1) {
     if (wanted.some((doc) => titleMatchesDoc(chunks[index].title, doc))) { rank = index + 1; break; }
   }
-  const text = chunks.map((chunk) => chunk.content).join("\n");
+  const selected = chunks.slice(0, topK);
+  const text = selected.map((chunk) => chunk.content).join("\n");
   const missing = question.expected_keywords.filter((keyword) => !contains(text, keyword));
+  const metricsAtK = Object.fromEntries(evaluationKs.map((k) => {
+    const atK = chunks.slice(0, k);
+    const relevantCount = atK.filter((chunk) => wanted.some((doc) => titleMatchesDoc(chunk.title, doc))).length;
+    const atKText = atK.map((chunk) => chunk.content).join("\n");
+    return [k, {
+      hitRate: atK.some((chunk) => wanted.some((doc) => titleMatchesDoc(chunk.title, doc))),
+      precision: relevantCount / k,
+      answerable: question.expected_keywords.length > 0 && question.expected_keywords.every((keyword) => contains(atKText, keyword))
+    }];
+  }));
   return {
     rank,
     answerable: question.expected_keywords.length > 0 && missing.length === 0,
     missing,
-    retrieved: chunks.map((chunk) => ({ title: chunk.title, similarity: chunk.similarity })),
-    returnedNothing: chunks.length === 0
+    retrieved: selected.map((chunk) => ({ title: chunk.title, similarity: chunk.similarity })),
+    returnedNothing: chunks.length === 0,
+    metricsAtK
   };
 }
 
@@ -168,7 +182,7 @@ for (const mode of modes) {
       const chunks = await retrieveFor(mode, question.question);
       results.push({ id: question.id, category: question.category, difficulty: question.difficulty, ...score(question, chunks) });
     } catch (error) {
-      results.push({ id: question.id, category: question.category, difficulty: question.difficulty, rank: 0, answerable: false, missing: [], retrieved: [], returnedNothing: true, error: String(error) });
+      results.push({ id: question.id, category: question.category, difficulty: question.difficulty, rank: 0, answerable: false, missing: [], retrieved: [], returnedNothing: true, metricsAtK: {}, error: String(error) });
     }
   }
   byMode[mode] = results;
@@ -193,7 +207,7 @@ for (const mode of modes) {
   const pos = results.filter((result) => positives.includes(result.id));
   const neg = results.filter((result) => negatives.includes(result.id));
   const at1 = pos.filter((result) => result.rank === 1).length;
-  const atK = pos.filter((result) => result.rank > 0).length;
+  const atK = pos.filter((result) => result.rank > 0 && result.rank <= topK).length;
   const answerable = pos.filter((result) => result.answerable).length;
   const mrr = pos.reduce((sum, result) => sum + (result.rank ? 1 / result.rank : 0), 0) / pos.length;
   // For negatives, returning nothing is the desired retrieval behaviour: it lets the route
@@ -203,6 +217,20 @@ for (const mode of modes) {
     `${mode.padEnd(10)} ${pct(at1, pos.length).padEnd(10)} ${pct(atK, pos.length).padEnd(10)} ` +
     `${pct(answerable, pos.length).padEnd(12)} ${mrr.toFixed(3).padEnd(7)} ${abstained}/${neg.length}`
   );
+}
+
+console.log("\nRetrieval metrics by k (positive questions)");
+console.log("| Mode | k | Hit rate / Recall | Precision | Fully answerable |");
+console.log("|---|---:|---:|---:|---:|");
+for (const mode of modes) {
+  const pos = byMode[mode].filter((result) => positives.includes(result.id));
+  for (const k of evaluationKs) {
+    const rows = pos.map((result) => result.metricsAtK[k]);
+    const hitRate = rows.filter((row) => row?.hitRate).length / rows.length;
+    const precision = rows.reduce((sum, row) => sum + (row?.precision || 0), 0) / rows.length;
+    const answerable = rows.filter((row) => row?.answerable).length / rows.length;
+    console.log(`| ${mode} | ${k} | ${pct(hitRate, 1)} | ${pct(precision, 1)} | ${pct(answerable, 1)} |`);
+  }
 }
 
 // Per-question deltas are where the real decision lives: an aggregate tie can hide one mode
@@ -232,10 +260,19 @@ console.log(`\n${line}`);
 console.log("Abstained = retrieval returned zero chunks for an unanswerable question.");
 console.log("Keyword mode cannot abstain by design: term overlap is never exactly zero, so it");
 console.log("always hands the model something. Only the vector similarity floor can return");
-console.log("nothing, which is why it matters for N01-N10.");
+console.log("nothing, which is why it matters for N01-N25.");
 console.log(line);
 
 if (jsonOut) {
-  writeFileSync(jsonOut, JSON.stringify({ topK, minSimilarity, modes, ranAt: new Date().toISOString(), byMode }, null, 2) + "\n");
+  const metricsByMode = Object.fromEntries(modes.map((mode) => [mode, Object.fromEntries(evaluationKs.map((k) => {
+    const pos = byMode[mode].filter((result) => positives.includes(result.id));
+    const rows = pos.map((result) => result.metricsAtK[k]);
+    return [k, {
+      hitRate: rows.filter((row) => row?.hitRate).length / rows.length,
+      precision: rows.reduce((sum, row) => sum + (row?.precision || 0), 0) / rows.length,
+      fullyAnswerable: rows.filter((row) => row?.answerable).length / rows.length
+    }];
+  }))]));
+  writeFileSync(jsonOut, JSON.stringify({ topK, minSimilarity, modes, ranAt: new Date().toISOString(), metricsByMode, byMode }, null, 2) + "\n");
   console.log(`\nWrote ${jsonOut}`);
 }

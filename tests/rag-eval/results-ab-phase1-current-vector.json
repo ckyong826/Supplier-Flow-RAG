@@ -1,0 +1,2670 @@
+{
+  "topK": 5,
+  "minSimilarity": 0.35,
+  "modes": [
+    "vector"
+  ],
+  "ranAt": "2026-08-30T14:56:42.571Z",
+  "byMode": {
+    "vector": [
+      {
+        "id": "D01",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.635557726295794
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.628978656318602
+          },
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.62814019622363
+          },
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.569316994939477
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.496244456372849
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D02",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.562597427330613
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.526678429707798
+          },
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.519658346073107
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.518737480482742
+          },
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.503924559273539
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D04",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.577372493721272
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.528471142687343
+          },
+          {
+            "title": "Reference Rccb Overcurrent Protection",
+            "similarity": 0.526562060718314
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.525963663340106
+          },
+          {
+            "title": "Reference Rccb Selective Types",
+            "similarity": 0.489061656361978
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D07",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.579131619695002
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.506588941776697
+          },
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.470435145531772
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.448484609287525
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.444590238040244
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D08",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.508599982689727
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.475836720012064
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.463108649558739
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.443947051763319
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.428726839375998
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D09",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.516028392576742
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.475848468294842
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.452054828700344
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.450183247158659
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.426242241142903
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D10",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.613974211749739
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.590585594614449
+          },
+          {
+            "title": "Reference Tesys Dc Coil",
+            "similarity": 0.517415333468784
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.508874147608428
+          },
+          {
+            "title": "Reference Tesys Linked Contacts",
+            "similarity": 0.496229289473247
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D11",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 2,
+        "answerable": false,
+        "missing": [
+          "24 V DC"
+        ],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Dc Coil",
+            "similarity": 0.429842143051868
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.411058096330348
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.391311454585754
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.36491035466523
+          },
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.35896558530757
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D14",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.441474526340118
+          },
+          {
+            "title": "Reference Tesys Dc Coil",
+            "similarity": 0.416327632035451
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.403727416154907
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.386235108766193
+          },
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.372661477960853
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D15",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 2,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.473893887168082
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.470844724995658
+          },
+          {
+            "title": "Reference Tesys Linked Contacts",
+            "similarity": 0.467695343701179
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.441220791650903
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.409992758780777
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D17",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.601793094077344
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.571192610053628
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.509084758834931
+          },
+          {
+            "title": "Reference Tesys Utilization Categories",
+            "similarity": 0.502766993794635
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.47377463836865
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D18",
+        "category": "direct_lookup",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.55536125113103
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.549967917434625
+          },
+          {
+            "title": "Reference Tesys Linked Contacts",
+            "similarity": 0.526871739507168
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.476343923123313
+          },
+          {
+            "title": "Reference Tesys Utilization Categories",
+            "similarity": 0.464088857527752
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D19",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.586162230543628
+          },
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.547656871794349
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.544992998435222
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.52549274490022
+          },
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.473349104150958
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D21",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.774135300484215
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.657272170942574
+          },
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.652228977691057
+          },
+          {
+            "title": "Reference Rccb Type F",
+            "similarity": 0.631279246692897
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.573327470905803
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D23",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.736096264984074
+          },
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.670046981334977
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.632400960064277
+          },
+          {
+            "title": "Reference Rccb Type F",
+            "similarity": 0.584938164519406
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.531260339215229
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D25",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.660304715554251
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.608888449931789
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.5269511996518
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.508429268778182
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.497931112522221
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D26",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.659635394983264
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.640774302946827
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.503583398646249
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.499437291955712
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.494807164145832
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D27",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.715672656666013
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.636715950919473
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.539094196704523
+          },
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.527132716970986
+          },
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.505842915006578
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D28",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.646797657029379
+          },
+          {
+            "title": "Reference Spd Electrical Characteristics",
+            "similarity": 0.545304891742957
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.532396572280567
+          },
+          {
+            "title": "Reference Spd Impulse Current",
+            "similarity": 0.532242083079971
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.513807335386298
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D29",
+        "category": "direct_lookup",
+        "difficulty": "hard",
+        "rank": 3,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.58501882651444
+          },
+          {
+            "title": "Reference Spd Connection Rules",
+            "similarity": 0.547643176078222
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.537464643739205
+          },
+          {
+            "title": "Reference Rccb Selective Types",
+            "similarity": 0.498800300643808
+          },
+          {
+            "title": "Reference Rccb Selectivity Coordination",
+            "similarity": 0.497788957822037
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P01",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.749543252383667
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P02",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.706794402028014
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P03",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.690531482405203
+          },
+          {
+            "title": "Reference Malaysia Sst Scope",
+            "similarity": 0.388788361528707
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P04",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.420120274027784
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P05",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": 0.588941880957332
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": 0.425277270415954
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": 0.365749368465956
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P06",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": 0.445423532151299
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P07",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": 0.524570350804197
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P08",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": 0.755910893027822
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P09",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": 0.466292641828077
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P10",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": 0.607178571254965
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": 0.497245613796593
+          },
+          {
+            "title": "How to order?",
+            "similarity": 0.372577415362891
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.370305645769159
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D31",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.747183538143926
+          },
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.582024548210862
+          },
+          {
+            "title": "Reference Mcb Current Limiting",
+            "similarity": 0.581568404171255
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.538021959650387
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.53612350985842
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D32",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.736616130699264
+          },
+          {
+            "title": "Reference Mcb Current Limiting",
+            "similarity": 0.581908898044459
+          },
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.541680806269839
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.519436344628767
+          },
+          {
+            "title": "Reference Mcb Selectivity",
+            "similarity": 0.479765448368121
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D33",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.698477417771201
+          },
+          {
+            "title": "Reference Rccb Type F",
+            "similarity": 0.641397921773985
+          },
+          {
+            "title": "Reference Rccb Selective Types",
+            "similarity": 0.582342596129009
+          },
+          {
+            "title": "Reference Rccb Installation Systems",
+            "similarity": 0.570954291892005
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.507877104000348
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D34",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.626111416079421
+          },
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.575463026119656
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.561760862393175
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.557183103411052
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.547758742969763
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D35",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.715288516392778
+          },
+          {
+            "title": "Reference Spd Connection Rules",
+            "similarity": 0.573527197360868
+          },
+          {
+            "title": "Reference Spd Electrical Characteristics",
+            "similarity": 0.50716387067757
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.506999219537051
+          },
+          {
+            "title": "Reference Spd Impulse Current",
+            "similarity": 0.49908869973902
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D36",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.809705019200294
+          },
+          {
+            "title": "Reference Tesys Linked Contacts",
+            "similarity": 0.625366812377721
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.609828796073593
+          },
+          {
+            "title": "Reference Tesys Dc Coil",
+            "similarity": 0.568523454870303
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.539287818208453
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D37",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Current Limiting",
+            "similarity": 0.66910560935948
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.452791587386328
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.427494487583602
+          },
+          {
+            "title": "Reference Mcb Selectivity",
+            "similarity": 0.416493682717748
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.393938206581431
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D38",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Installation Systems",
+            "similarity": 0.548762866852994
+          },
+          {
+            "title": "Reference Rccb Overcurrent Protection",
+            "similarity": 0.546594068350066
+          },
+          {
+            "title": "Reference Rccb Type F",
+            "similarity": 0.483332762054213
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.479117258360491
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.431391525516629
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D39",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.813749071176993
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.672995910552487
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.628254315090313
+          },
+          {
+            "title": "Reference Rccb Type F",
+            "similarity": 0.614095335405826
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.568398484787972
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D40",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Linked Contacts",
+            "similarity": 0.816415183100426
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.63626069396504
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.615822601949073
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.596264478577794
+          },
+          {
+            "title": "Reference Tesys Dc Coil",
+            "similarity": 0.584858931962611
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D41",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Incoterms Cost Insurance",
+            "similarity": 0.713592225333719
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": 0.672944656755749
+          },
+          {
+            "title": "Reference Incoterms Risk Transfer",
+            "similarity": 0.58594892574463
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D42",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Malaysia Sst Scope",
+            "similarity": 0.748254774070781
+          },
+          {
+            "title": "Reference Malaysia Hs Explorer",
+            "similarity": 0.467647707026118
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.356632062271498
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D43",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Malaysia Hs Explorer",
+            "similarity": 0.614202583085777
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A01",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.640290471370434
+          },
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.533631207445536
+          },
+          {
+            "title": "Reference Rccb Type F",
+            "similarity": 0.494238433313395
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.482228775521257
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.457969743651092
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A02",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.650360266880112
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.642575680488086
+          },
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.606839049101432
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.589388087842338
+          },
+          {
+            "title": "Reference Rccb Installation Systems",
+            "similarity": 0.566824327175834
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A03",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.68988418268032
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.677892325809404
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.652665537607125
+          },
+          {
+            "title": "Reference Tesys Linked Contacts",
+            "similarity": 0.643661044661749
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.598527915898535
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A04",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.68448939907632
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.607067332289304
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.544219480538941
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.529593717945499
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.517301153365079
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A05",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.606665176201718
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.542680770190472
+          },
+          {
+            "title": "Reference Rccb Overcurrent Protection",
+            "similarity": 0.494897761399818
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.490045633996265
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.489045103372999
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A06",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.691546927157109
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.681893439195606
+          },
+          {
+            "title": "Reference Tesys Utilization Categories",
+            "similarity": 0.668692724929187
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.579320054559596
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.514882852328627
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A07",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.677951470161231
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.672746324291527
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.646720649051834
+          },
+          {
+            "title": "Reference Rccb Installation Systems",
+            "similarity": 0.642292993176826
+          },
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.633235419305415
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A08",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.601822666816398
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A09",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 2,
+        "answerable": false,
+        "missing": [
+          "before delivery"
+        ],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.459758808504437
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.447213185272276
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.417911237430325
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.402363179188418
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.393381146808187
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A10",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": 0.456239297065539
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A11",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.690670976324687
+          },
+          {
+            "title": "Reference Spd Connection Rules",
+            "similarity": 0.639452663831564
+          },
+          {
+            "title": "Reference Spd Electrical Characteristics",
+            "similarity": 0.526133483971798
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.515573337508334
+          },
+          {
+            "title": "Reference Spd Impulse Current",
+            "similarity": 0.508298154976132
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A12",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": 0.631662752813013
+          },
+          {
+            "title": "Reference Incoterms Cost Insurance",
+            "similarity": 0.536476521702119
+          },
+          {
+            "title": "Reference Incoterms Risk Transfer",
+            "similarity": 0.531781092793416
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.449292414726537
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": 0.398203355054585
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A13",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.819318757837526
+          },
+          {
+            "title": "Reference Tesys Linked Contacts",
+            "similarity": 0.629557060006871
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.605013558873909
+          },
+          {
+            "title": "Reference Tesys Dc Coil",
+            "similarity": 0.580917684088637
+          },
+          {
+            "title": "Reference Tesys Utilization Categories",
+            "similarity": 0.548654606978299
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A14",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.701220003345456
+          },
+          {
+            "title": "Reference Rccb Installation Systems",
+            "similarity": 0.681469144167881
+          },
+          {
+            "title": "Reference Rccb Type F",
+            "similarity": 0.643881709957277
+          },
+          {
+            "title": "Reference Rccb Overcurrent Protection",
+            "similarity": 0.634327170443197
+          },
+          {
+            "title": "Reference Rccb Selective Types",
+            "similarity": 0.597271803640245
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A15",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Current Limiting",
+            "similarity": 0.672736767624881
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.471722926410542
+          },
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.455283134582751
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.449546000048646
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.428940405606642
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A16",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Malaysia Sst Scope",
+            "similarity": 0.635366910476954
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": 0.413454831303288
+          },
+          {
+            "title": "Reference Tesys Utilization Categories",
+            "similarity": 0.391677797065204
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.369827504186808
+          },
+          {
+            "title": "Reference Spd Connection Rules",
+            "similarity": 0.354885801840645
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A17",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Malaysia Hs Explorer",
+            "similarity": 0.551995053538363
+          },
+          {
+            "title": "Reference Malaysia Sst Scope",
+            "similarity": 0.473954692425895
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D44",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Selectivity",
+            "similarity": 0.741230389644864
+          },
+          {
+            "title": "Reference Rccb Selectivity Coordination",
+            "similarity": 0.571363760857555
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.455339405915086
+          },
+          {
+            "title": "Reference Rccb Selective Types",
+            "similarity": 0.451775637354269
+          },
+          {
+            "title": "Reference Rccb Overcurrent Protection",
+            "similarity": 0.449911275470836
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D45",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Utilization Categories",
+            "similarity": 0.825234280500754
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.713739735866892
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.692659165839417
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.637803468184781
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.562274105677634
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D46",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Electrical Characteristics",
+            "similarity": 0.681067461926379
+          },
+          {
+            "title": "Reference Spd Impulse Current",
+            "similarity": 0.504834745685071
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.455935767137082
+          },
+          {
+            "title": "Reference Spd Connection Rules",
+            "similarity": 0.389357959689085
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.374224359970402
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D47",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Selective Types",
+            "similarity": 0.637374962834562
+          },
+          {
+            "title": "Reference Rccb Installation Systems",
+            "similarity": 0.581687779065691
+          },
+          {
+            "title": "Reference Rccb Overcurrent Protection",
+            "similarity": 0.543324745363695
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.538417002352771
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.538189055277433
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D48",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Selectivity Coordination",
+            "similarity": 0.654606093822371
+          },
+          {
+            "title": "Reference Mcb Selectivity",
+            "similarity": 0.559916562736725
+          },
+          {
+            "title": "Reference Rccb Overcurrent Protection",
+            "similarity": 0.51477684334168
+          },
+          {
+            "title": "Reference Rccb Selective Types",
+            "similarity": 0.500499753881613
+          },
+          {
+            "title": "Reference Rccb Installation Systems",
+            "similarity": 0.496856289473677
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D49",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Connection Rules",
+            "similarity": 0.722354133867765
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.506788496185195
+          },
+          {
+            "title": "Reference Spd Electrical Characteristics",
+            "similarity": 0.453518176363028
+          },
+          {
+            "title": "Reference Spd Impulse Current",
+            "similarity": 0.435270490320285
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.390257789453084
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A18",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Selectivity",
+            "similarity": 0.679842049565975
+          },
+          {
+            "title": "Reference Rccb Selectivity Coordination",
+            "similarity": 0.535148315997032
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.493648219428932
+          },
+          {
+            "title": "Reference Rccb Selective Types",
+            "similarity": 0.440239749536945
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.438970585520727
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A19",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Utilization Categories",
+            "similarity": 0.679299395014302
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.572454216443858
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.529417759940877
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.485398492267262
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.4591391741724
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A20",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Electrical Characteristics",
+            "similarity": 0.577358815431076
+          },
+          {
+            "title": "Reference Spd Impulse Current",
+            "similarity": 0.554375737696821
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.477416581460949
+          },
+          {
+            "title": "Reference Spd Connection Rules",
+            "similarity": 0.451174899735395
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.425912993327867
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A21",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Selective Types",
+            "similarity": 0.64218388543235
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.549125963926944
+          },
+          {
+            "title": "Reference Rccb Overcurrent Protection",
+            "similarity": 0.525533890643563
+          },
+          {
+            "title": "Reference Rccb Selectivity Coordination",
+            "similarity": 0.52153583904451
+          },
+          {
+            "title": "Reference Rccb Installation Systems",
+            "similarity": 0.50592360838008
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A22",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Selectivity Coordination",
+            "similarity": 0.662687319885793
+          },
+          {
+            "title": "Reference Mcb Selectivity",
+            "similarity": 0.591567377129811
+          },
+          {
+            "title": "Reference Rccb Selective Types",
+            "similarity": 0.510193291799148
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.495152191512237
+          },
+          {
+            "title": "Reference Rccb Overcurrent Protection",
+            "similarity": 0.449095303327358
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A23",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Connection Rules",
+            "similarity": 0.638190679714271
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.46589010211726
+          },
+          {
+            "title": "Reference Spd Electrical Characteristics",
+            "similarity": 0.462186346394981
+          },
+          {
+            "title": "Reference Rccb Selectivity Coordination",
+            "similarity": 0.418193822352214
+          },
+          {
+            "title": "Reference Spd Impulse Current",
+            "similarity": 0.375779333278474
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D50",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.713986373510143
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.492497473516824
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.481051366901701
+          },
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.481016022614172
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.46574820782323
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D51",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.764129347990566
+          },
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.684038227704795
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.612648244969853
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.565188142844853
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.541084707570702
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D52",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Overcurrent Protection",
+            "similarity": 0.753037236720353
+          },
+          {
+            "title": "Reference Rccb Installation Systems",
+            "similarity": 0.550096631718607
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.50010761200344
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.497424748642954
+          },
+          {
+            "title": "Reference Rccb Selective Types",
+            "similarity": 0.485632386599231
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D53",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Type F",
+            "similarity": 0.781003563376213
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.676626551493221
+          },
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.674010878162929
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.669150011356286
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.658913469677474
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D54",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Dc Coil",
+            "similarity": 0.714513453174836
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.597716911749751
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.546656540595655
+          },
+          {
+            "title": "Reference Tesys Linked Contacts",
+            "similarity": 0.520430802463601
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.487874109345712
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D55",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Impulse Current",
+            "similarity": 0.639459548364891
+          },
+          {
+            "title": "Reference Spd Electrical Characteristics",
+            "similarity": 0.470743391293124
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.377015668853844
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.365492514130987
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D56",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Incoterms Risk Transfer",
+            "similarity": 0.664510593551408
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": 0.575625866275336
+          },
+          {
+            "title": "Reference Incoterms Cost Insurance",
+            "similarity": 0.529595026101743
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A24",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.572399683342015
+          },
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.388358205031255
+          },
+          {
+            "title": "Reference Spd Electrical Characteristics",
+            "similarity": 0.379738153799654
+          },
+          {
+            "title": "Reference Tesys Utilization Categories",
+            "similarity": 0.375228916389268
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.367051388329964
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A25",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.737668568374607
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.604899070418168
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.548075876576517
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.541232429369192
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.524223961787277
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A26",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Overcurrent Protection",
+            "similarity": 0.706293844500496
+          },
+          {
+            "title": "Reference Rccb Installation Systems",
+            "similarity": 0.615107993061651
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.510792098746318
+          },
+          {
+            "title": "Reference Rccb Selectivity Coordination",
+            "similarity": 0.498395694234498
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.481704246733354
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A27",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Type F",
+            "similarity": 0.765058689339677
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.687360474797597
+          },
+          {
+            "title": "Reference Rccb Installation Systems",
+            "similarity": 0.654963421726623
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.620253174557039
+          },
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.61272333309969
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A28",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Dc Coil",
+            "similarity": 0.767199362580428
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.501763550427928
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.495174303468606
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.477237178241464
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.472578004470243
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A29",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Impulse Current",
+            "similarity": 0.708936636276743
+          },
+          {
+            "title": "Reference Spd Electrical Characteristics",
+            "similarity": 0.591028441700582
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.524408268222566
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.447565949568241
+          },
+          {
+            "title": "Reference Spd Connection Rules",
+            "similarity": 0.428192160420414
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A30",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Incoterms Risk Transfer",
+            "similarity": 0.589878747185333
+          },
+          {
+            "title": "Reference Incoterms Cost Insurance",
+            "similarity": 0.425632760705878
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": 0.415959690330935
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N01",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.407812291848688
+          },
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.405013450506314
+          },
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.36463443375125
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N02",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.387381459270125
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.355711470400897
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N03",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.568009399699548
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.554683935356974
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.523290351105117
+          },
+          {
+            "title": "Reference Tesys Utilization Categories",
+            "similarity": 0.517341714586117
+          },
+          {
+            "title": "Reference Tesys Linked Contacts",
+            "similarity": 0.489078126399409
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N04",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.516861457723226
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": 0.46921105594325
+          },
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.457389573568414
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.45416783946412
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.446084254032875
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N05",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.537175038946529
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N06",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Dc Applications",
+            "similarity": 0.510449495286993
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.482616474929142
+          },
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.449313550526306
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.387857717558984
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N07",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Operating Conditions",
+            "similarity": 0.626292523149891
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.510252948707392
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.506805332872489
+          },
+          {
+            "title": "Reference Mcb Temperature Derating",
+            "similarity": 0.456471839783833
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.434295550244408
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N08",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [],
+        "returnedNothing": true
+      },
+      {
+        "id": "N09",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [],
+        "returnedNothing": true
+      },
+      {
+        "id": "N10",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Malaysia Sst Scope",
+            "similarity": 0.507568774194239
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": 0.45906008564396
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": 0.439850383922701
+          }
+        ],
+        "returnedNothing": false
+      }
+    ]
+  }
+}

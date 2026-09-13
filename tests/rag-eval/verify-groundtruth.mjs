@@ -37,8 +37,8 @@ for (const question of suite.questions) {
     if (question.expected_keywords.length) {
       problems.push(`${question.id}: negative question must not require keywords`);
     }
-    if (!question.must_not_contain.length) {
-      problems.push(`${question.id}: negative question needs must_not_contain guards`);
+    if (!question.must_not_contain.length && !(question.must_not_match || []).length) {
+      problems.push(`${question.id}: negative question needs a must_not_contain or must_not_match guard`);
     }
     continue;
   }

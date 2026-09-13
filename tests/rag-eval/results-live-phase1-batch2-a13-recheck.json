@@ -1,0 +1,32 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-29T18:43:46.851Z",
+  "metrics": {
+    "total": 1,
+    "passed": 1,
+    "passRate": 1,
+    "hallucinationRate": null
+  },
+  "results": [
+    {
+      "id": "A13",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_terminal_mapping",
+      "difficulty": "hard",
+      "question": "If a TeSys D contactor has 1NO + 1NC, does that alone tell me the auxiliary terminal IDs?",
+      "answer": "No — not by itself.  \n\n`1NO + 1NC` tells you the contact *types* (one normally open, one normally closed), but not the terminal numbers.  \n\nFor Schneider TeSys D contactors, the standard markings are:\n\n- NO auxiliary contact: terminals **13 and 14**\n- NC auxiliary contact: terminals **21 and 22**\n\nHowever, the exact contact arrangement and terminal assignment should be confirmed on the SKU's wiring diagram before installation. The `1NO + 1NC` listing alone doesn't identify the physical terminals.\n\nSources:\n- Reference Tesys Auxiliary Contacts\n- Reference Tesys Linked Contacts\n- SupplierFlow Official Knowledge\n- Reference Incoterms 2020\n- Reference Rccb Installation Systems",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Auxiliary Contacts",
+        "Reference Tesys Linked Contacts",
+        "SupplierFlow Official Knowledge",
+        "Reference Incoterms 2020",
+        "Reference Rccb Installation Systems"
+      ],
+      "latencyMs": 3909,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-29T18:25:32.041Z",
+  "metrics": {
+    "total": 1,
+    "passed": 1,
+    "passRate": 1,
+    "hallucinationRate": null
+  },
+  "results": [
+    {
+      "id": "A07",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "hard",
+      "question": "List the ABB RCCBs in the catalogue rated 63 A and give the residual current of each.",
+      "answer": "Here are the ABB RCCBs rated 63 A in the catalogue:\n\n- **ABB F202A-63/0.03 APR** — SKU `2CSF202401R1630`  \n  Rated residual current: **30 mA** (Type A, 2P, 277 V AC)\n\n- **ABB F204AC-63/0.3** — SKU `2CSF204001R3630`  \n  Rated residual current: **300 mA** (Type AC, 4P, 480Y/277 V AC)\n\n- **ABB F202AS-63/0.1** — SKU `2CSF202201R2630`  \n  Rated residual current: **100 mA** (Type A, 2P, 277 V AC)\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Rccb Current Types",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 8649,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    }
+  ]
+}

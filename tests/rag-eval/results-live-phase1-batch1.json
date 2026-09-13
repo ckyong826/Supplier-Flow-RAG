@@ -1,0 +1,1134 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-29T18:20:02.123Z",
+  "metrics": {
+    "total": 60,
+    "passed": 57,
+    "passRate": 0.95,
+    "hallucinationRate": 0
+  },
+  "results": [
+    {
+      "id": "D01",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated current and tripping curve of the Acti9 iC60N A9F73140?",
+      "answer": "The Acti9 iC60N (SKU A9F73140) is rated **40 A** and has a **B tripping curve**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Mcb Tripping Curves",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Mcb Tripping Curves"
+      ],
+      "latencyMs": 2878,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D02",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What breaking capacity does A9F73140 have under IEC/EN 60898-1?",
+      "answer": "A9F73140 在 IEC/EN 60898-1 下的分断能力是 **6 kA at 230 V AC**。\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Mcb Tripping Curves\n- Reference Tesys Auxiliary Contacts\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Mcb Tripping Curves",
+        "Reference Tesys Auxiliary Contacts",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 2591,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D04",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What earth-leakage sensitivity does the A9D55610 RCBO provide?",
+      "answer": "The A9D55610 Acti9 iDPN N Vigi RCBO provides a residual-current sensitivity of **30 mA** (Type AC).\n\nSources:\n- SupplierFlow Official Knowledge\n- Warranty Policy\n- Reference Tesys Auxiliary Contacts\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Warranty Policy",
+        "Reference Tesys Auxiliary Contacts",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 2557,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D07",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated operating voltage of the A9S65440 switch disconnector?",
+      "answer": "The rated operating voltage of the **Acti9 iSW Switch Disconnector (A9S65440)** is **415 V AC**.\n\nSources:\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 3022,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D08",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "How many poles and what rated operational current does A9S65463 have?",
+      "answer": "A9S65463 is a **four-pole** switch disconnector with a **rated operational current of 63 A**.\n\nSources:\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 2863,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D09",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What are the surge rating and rated voltage of the A9L20100 surge arrester?",
+      "answer": "The A9L20100 has:\n\n- **Surge rating:** 20 kA\n- **Rated voltage:** 350 V\n\nIt’s a single-pole surge protection device (SPD).\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Spd Selection",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Selection"
+      ],
+      "latencyMs": 3555,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D10",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil supply range does the LC1D09BNE contactor use?",
+      "answer": "The LC1D09BNE contactor uses a **24–60 V AC/DC** coil supply range.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Tesys Auxiliary Contacts\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Auxiliary Contacts",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 2562,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D11",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil voltage does LC1D09BD use?",
+      "answer": "LC1D09BD uses a **24 V DC coil**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Warranty Policy\n- Reference Tesys Auxiliary Contacts\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Warranty Policy",
+        "Reference Tesys Auxiliary Contacts",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 2361,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D14",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil voltage is specified for LC1D40AF7?",
+      "answer": "The coil voltage for **LC1D40AF7** is **110 V AC, 50/60 Hz**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Rccb Current Types",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 2386,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D15",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "How many built-in auxiliary contacts does LC1D40AP7 provide?",
+      "answer": "LC1D40AP7 provides **2 built-in auxiliary contacts**: **1 NO + 1 NC**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Tesys Auxiliary Contacts\n- Warranty Policy",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Auxiliary Contacts",
+        "Warranty Policy"
+      ],
+      "latencyMs": 2496,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D17",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What AC-3 motor power at 400 V is stated for LC1D65ABNE?",
+      "answer": "For **LC1D65ABNE** (TeSys Deca Contactor), the stated AC-3 motor power at 400 V is **30 kW**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Warranty Policy",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Warranty Policy"
+      ],
+      "latencyMs": 1807,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D18",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "hard",
+      "question": "How wide is the LC1D150M7 contactor?",
+      "answer": "The LC1D150M7 (TeSys Deca contactor) is **120 mm wide**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Tesys Auxiliary Contacts",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Auxiliary Contacts"
+      ],
+      "latencyMs": 1696,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D19",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What DC voltage and Icu can the ABB S200 M UC arc-extinguishing design handle?",
+      "answer": "The ABB S200 M UC arc-extinguishing design (permanent-magnet arcing chutes) can handle:\n\n- **DC voltage:** up to 500 V DC\n- **Icu:** 4.5 kA at 500 V DC\n\nFor reference, the range also has a **10 kA industrial breaking capacity**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Rccb Current Types",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 3068,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D21",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What rated residual current is specified for the ABB F204AC-63/0.3?",
+      "answer": "The ABB F204AC-63/0.3 (SKU 2CSF204001R3630) is specified with a rated residual current of **300 mA**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Rccb Current Types",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 2612,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D23",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What are the rated current and rated residual current of the ABB F202A-40/0.03?",
+      "answer": "The ABB F202A-40/0.03 (SKU 2CSF202101R1400) has:\n\n- **Rated current:** 40 A\n- **Rated residual current:** 30 mA\n- **Residual-current type:** A\n- **Poles:** 2P\n- **Rated operational voltage:** 277 V AC\n\nLet me know if you'd like to add it to an RFQ.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Rccb Current Types",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 3232,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D25",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What poles, rated current and tripping characteristic are listed for Eaton SKU 263164?",
+      "answer": "For Eaton SKU 263164 (Eaton xPole PLN6 MCB):\n\n- **Poles:** 1P+N\n- **Rated current:** 16 A\n- **Tripping characteristic:** B\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Mcb Tripping Curves\n- Reference Rccb Current Types",
+      "matchedSkus": [
+        "263584",
+        "263164",
+        "2CSF202101R1400"
+      ],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Mcb Tripping Curves",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 2201,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D26",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What is the rated fault current and short-circuit strength of the Eaton xPole PF7 263584?",
+      "answer": "For the **Eaton xPole PF7 RCCB (SKU 263584)**:\n\n- **Rated residual operating current (residual-current sensitivity):** 30 mA\n- **Short-circuit strength:** 10 kA\n\nOther specs: 4-pole, 25 A rated current, Type AC. Price is on request — I can add it to your RFQ cart if you'd like.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Mcb Tripping Curves\n- Reference Spd Selection",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Mcb Tripping Curves",
+        "Reference Spd Selection"
+      ],
+      "latencyMs": 3273,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D27",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What rated AC voltage does the Eaton xPole Home HL MCB datasheet specify?",
+      "answer": "The Eaton xPole Home HL MCB technical data specifies a rated AC voltage of **230/400 V AC**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Mcb Tripping Curves\n- Reference Rccb Current Types",
+      "matchedSkus": [
+        "XPOLE-HL-MCB",
+        "263164",
+        "263584"
+      ],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Mcb Tripping Curves",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 2153,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D28",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What is the Imax range of the Schneider Acti9 iPRD surge protection range and which standard does it comply with?",
+      "answer": "The **Schneider Acti9 iPRD surge protection range** has:\n\n- **Imax range:** 8–65 kA\n- **Standard:** IEC/EN 61643-11\n\nThe range covers **Type 2, Type 3, and Type 2+3** SPDs and is designed for DIN-rail installation against indirect lightning strikes.\n\nWould you like help adding a specific iPRD product to your RFQ cart?\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Spd Selection\n- Reference Tesys Auxiliary Contacts\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Selection",
+        "Reference Tesys Auxiliary Contacts",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 3091,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D29",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "hard",
+      "question": "When sensitive loads sit more than 10 m from a Type 2 iPRD, what downstream protection is recommended?",
+      "answer": "A **Type 3 SPD** is recommended, installed close to the sensitive load.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Spd Selection\n- Reference Rccb Current Types",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Selection",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 2692,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P01",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long does delivery normally take within Klang Valley?",
+      "answer": "Klang Valley deliveries normally take **1–2 working days** after order confirmation and stock allocation.\n\nSources:\n- Reference Incoterms 2020\n- Delivery Policy\n- Sales SOP\n- Reference Spd Selection\n- Payment Terms",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms 2020",
+        "Delivery Policy",
+        "Sales SOP",
+        "Reference Spd Selection",
+        "Payment Terms"
+      ],
+      "latencyMs": 2223,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P02",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What is the normal delivery time for Peninsular Malaysia outside Klang Valley?",
+      "answer": "Normal delivery for Peninsular Malaysia outside Klang Valley is **2–4 working days** after order confirmation and stock allocation.\n\nSources:\n- Reference Incoterms 2020\n- Delivery Policy\n- Payment Terms\n- Sales SOP\n- Reference Mcb Tripping Curves",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms 2020",
+        "Delivery Policy",
+        "Payment Terms",
+        "Sales SOP",
+        "Reference Mcb Tripping Curves"
+      ],
+      "latencyMs": 2299,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P03",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long do East Malaysia deliveries normally take?",
+      "answer": "East Malaysia deliveries normally take **3–5 working days**.\n\nSources:\n- Delivery Policy\n- Reference Tesys Auxiliary Contacts\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Delivery Policy",
+        "Reference Tesys Auxiliary Contacts",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 1864,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P04",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What is the daily order cut-off time for same-day processing?",
+      "answer": "Orders confirmed before **2:00 PM** on a working day are processed the same day, subject to stock availability.\n\nSources:\n- Delivery Policy\n- Payment Terms\n- SupplierFlow Official Knowledge\n- Reference Mcb Tripping Curves\n- Sales SOP",
+      "matchedSkus": [],
+      "sources": [
+        "Delivery Policy",
+        "Payment Terms",
+        "SupplierFlow Official Knowledge",
+        "Reference Mcb Tripping Curves",
+        "Sales SOP"
+      ],
+      "latencyMs": 2495,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P05",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long is a quotation valid for?",
+      "answer": "Quotations are valid for **14 calendar days** from the quotation date, unless stated otherwise on the quotation itself.\n\nSources:\n- Sales SOP\n- SupplierFlow Official Knowledge\n- Payment Terms\n- Delivery Policy\n- Warranty Policy",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "SupplierFlow Official Knowledge",
+        "Payment Terms",
+        "Delivery Policy",
+        "Warranty Policy"
+      ],
+      "latencyMs": 1762,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P06",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What are the payment requirements for a new customer?",
+      "answer": "For new customers, payment is **due before delivery** unless approved credit terms have been confirmed in writing.\n\nA couple of related points:\n\n- Bank transfer payments must include the quotation or invoice number in the reference.\n- Prices exclude delivery charges unless the quotation states otherwise.\n\nWould you like to start an RFQ? If so, please share your **name, company, and work email**, plus any project note you'd like to include.\n\nSources:\n- Payment Terms\n- Sales SOP\n- Reference Incoterms 2020\n- Reference Rccb Current Types\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Payment Terms",
+        "Sales SOP",
+        "Reference Incoterms 2020",
+        "Reference Rccb Current Types",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 2687,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P07",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What credit terms may approved account customers receive?",
+      "answer": "Approved account customers may receive **30-day credit terms**, subject to their credit limit and account status.\n\nSources:\n- Payment Terms\n- Reference Incoterms 2020\n- Sales SOP\n- Warranty Policy\n- Delivery Policy",
+      "matchedSkus": [],
+      "sources": [
+        "Payment Terms",
+        "Reference Incoterms 2020",
+        "Sales SOP",
+        "Warranty Policy",
+        "Delivery Policy"
+      ],
+      "latencyMs": 2074,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P08",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What warranty do LED panel lights carry?",
+      "answer": "LED panel lights carry a **3-year manufacturer warranty**.\n\nIf you ever need to make a claim, you'll need the original invoice or quotation reference, clear photos of the product, and a description of the fault.\n\nSources:\n- Warranty Policy\n- Reference Spd Selection\n- SupplierFlow Official Knowledge\n- Reference Tesys Auxiliary Contacts",
+      "matchedSkus": [],
+      "sources": [
+        "Warranty Policy",
+        "Reference Spd Selection",
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Auxiliary Contacts"
+      ],
+      "latencyMs": 2869,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P09",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What is required to submit a warranty claim?",
+      "answer": "To submit a warranty claim, you’ll need:\n\n- The **original invoice or quotation reference**\n- **Clear product photographs** showing the fault\n- A **description of the fault**\n\nThe supplier may also ask you to return the item for inspection before approving a replacement or credit.\n\nSources:\n- Warranty Policy\n- Sales SOP",
+      "matchedSkus": [],
+      "sources": [
+        "Warranty Policy",
+        "Sales SOP"
+      ],
+      "latencyMs": 2527,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P10",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "How soon should the sales team follow up on a sent quotation?",
+      "answer": "The sales team follows up on a sent quotation **within 3 working days**, and they'll record the outcome and your feedback in the RFQ activity log.\n\nSources:\n- Sales SOP\n- Delivery Policy\n- SupplierFlow Official Knowledge\n- Warranty Policy\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "Delivery Policy",
+        "SupplierFlow Official Knowledge",
+        "Warranty Policy",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 2451,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "D31",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What range of multiples of rated current causes an MCB with a B curve to trip magnetically?",
+      "answer": "A B-curve MCB trips magnetically between **3 and 5 times** its rated current (In).\n\nSources:\n- Reference Mcb Tripping Curves\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [
+        "S200-M-UC",
+        "A9F73140",
+        "A9D55610"
+      ],
+      "sources": [
+        "Reference Mcb Tripping Curves",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 1689,
+      "pass": false,
+      "abstained": false,
+      "reasons": [
+        "missing required fact(s): B curve"
+      ]
+    },
+    {
+      "id": "D32",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What does the C curve describe on an MCB?",
+      "answer": "The **C curve** describes the magnetic short-circuit tripping range of an MCB, expressed as a multiple of its rated current (`In`).\n\n- C curve: magnetic tripping between **5 and 10 times `In`**\n\nFor example, a C-curve breaker rated 16 A would trip magnetically (instantaneously) somewhere between 80 A and 160 A. It is **not** the rated current and **not** the breaking capacity.\n\nCurve selection depends on the connected load, inrush current, conductor impedance, coordination, and local requirements — so it shouldn't be chosen from the load name alone. Let me know if you'd like help comparing specific breakers!\n\nSources:\n- Reference Mcb Tripping Curves\n- SupplierFlow Official Knowledge\n- Reference Tesys Auxiliary Contacts",
+      "matchedSkus": [
+        "A9F73140",
+        "S200-M-UC",
+        "A9D55610"
+      ],
+      "sources": [
+        "Reference Mcb Tripping Curves",
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Auxiliary Contacts"
+      ],
+      "latencyMs": 4936,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D33",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What is the difference between Type AC and Type A residual-current detection?",
+      "answer": "**Type AC** detects residual sinusoidal alternating current only.\n\n**Type A** detects everything Type AC detects **plus** specified pulsating DC residual waveforms, which can occur with rectified or electronic loads.\n\nSo if your installation has electronic equipment, variable-speed drives, or other loads that can produce pulsating DC fault currents, a Type A RCCB is generally the safer choice. For purely sinusoidal AC installations, Type AC is often sufficient — though final selection should always follow the manufacturer's guidance and local standards.\n\nSources:\n- Reference Rccb Current Types\n- SupplierFlow Official Knowledge\n- Reference Mcb Tripping Curves",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Current Types",
+        "SupplierFlow Official Knowledge",
+        "Reference Mcb Tripping Curves"
+      ],
+      "latencyMs": 3281,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D34",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What does IΔn mean on an RCCB, and is 30 mA automatically valid for every F200 SKU?",
+      "answer": "**IΔn** is the **rated residual current** — the sensitivity of the RCCB, i.e. the level of leakage current at which it trips. Common values are 30 mA, 100 mA, and 300 mA.\n\n**No, 30 mA is not automatic for every F200 SKU.** The sensitivity belongs to the individual SKU, not to the whole family. For example:\n\n- ABB F202A-40/0.03 (2CSF202101R1400) — **30 mA**\n- ABB F202A-63/0.03 APR (2CSF202401R1630) — **30 mA**\n- ABB F202AC-40/0.03 (2CSF202001R1400) — **30 mA**\n\nBut other F200 SKUs differ, e.g.:\n- ABB F202AS-63/0.1 (2CSF202201R2630) — **100 mA**\n- ABB F202AC-40/0.3 (2CSF202001R3400) — **300 mA**\n- ABB F204AC-63/0.3 (2CSF204001R3630) — **300 mA**\n\nSo always check the specific SKU's listed sensitivity before selecting.\n\nSources:\n- Reference Rccb Current Types\n- SupplierFlow Official Knowledge\n- Reference Tesys Auxiliary Contacts\n- Warranty Policy",
+      "matchedSkus": [
+        "2CSF202101R1400",
+        "2CSF202401R1630",
+        "2CSF202001R1400"
+      ],
+      "sources": [
+        "Reference Rccb Current Types",
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Auxiliary Contacts",
+        "Warranty Policy"
+      ],
+      "latencyMs": 4266,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D35",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Where is a Type 2 SPD installed in relation to the main service overcurrent protective device?",
+      "answer": "A Type 2 SPD is installed on the **load side** of the main service overcurrent protective device. It also needs appropriately rated upstream overcurrent protection, coordinated with the manufacturer’s instructions.\n\nSources:\n- Reference Spd Selection\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Spd Selection",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 2157,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D36",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which terminal pair identifies the NO and NC auxiliary contacts on TeSys D contactors?",
+      "answer": "On TeSys D contactors:\n\n- **NO auxiliary contact** → terminals **13 and 14**\n- **NC auxiliary contact** → terminals **21 and 22**\n\nRemember: NO/NC describes the contact state when the coil is de-energised, while the terminal numbers identify the physical connection points. Always confirm the exact wiring on the SKU's wiring diagram before installation.\n\nSources:\n- Reference Tesys Auxiliary Contacts\n- SupplierFlow Official Knowledge\n- Reference Rccb Current Types",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Auxiliary Contacts",
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 2211,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A01",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "What is the difference between the ABB F202A-40/0.03 and the F202AC-40/0.03?",
+      "answer": "The main difference is the **residual-current type**:\n\n- **ABB F202A-40/0.03** — SKU `2CSF202101R1400` — **Type A**\n- **ABB F202AC-40/0.03** — SKU `2CSF202001R1400` — **Type AC**\n\nBoth are two-pole RCCBs rated at 40 A, 30 mA, and 277 V AC. So the only listed difference is Type A vs Type AC residual-current sensitivity.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Mcb Tripping Curves\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Mcb Tripping Curves",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 4050,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A02",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "Which ABB RCCB is rated 40 A with 300 mA residual current, and what is its order code?",
+      "answer": "The ABB RCCB rated **40 A with 300 mA residual current** is:\n\n- **ABB F202AC-40/0.3** — SKU **2CSF202001R3400**\n  - 2-pole, 40 A\n  - Rated residual current: 300 mA\n  - Residual-current type: AC\n\nOrder code: **2CSF202001R3400**\n\nSources:\n- Reference Rccb Current Types\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Current Types",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 2987,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A03",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "I need a 9 A TeSys Deca contactor. What is the difference between the LC1D09BNE and the LC1D09BD?",
+      "answer": "Both are **TeSys Deca 3-pole contactors** with the same main specs:\n\n- 3P / 3NO\n- 9 A AC-3/AC-3e\n- Up to 440 V\n\nThe difference is the coil:\n\n- **LC1D09BNE** — coil supply: **24–60 V AC/DC**\n- **LC1D09BD** — coil supply: **24 V DC**\n\nSo if your control circuit is fixed 24 V DC, **LC1D09BD** is the simpler match. If you need flexibility across 24–60 V AC/DC, choose **LC1D09BNE**.\n\nWould you like me to add one of these to your RFQ? If yes, please confirm the SKU and provide:\n\n- Your name\n- Company\n- Work email\n- Optional project note\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Tesys Auxiliary Contacts\n- Reference Mcb Tripping Curves",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Auxiliary Contacts",
+        "Reference Mcb Tripping Curves"
+      ],
+      "latencyMs": 6505,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A04",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "We have two Acti9 iSW 4-pole 415 V AC switch disconnectors in the catalogue. Which one is 63 A and which one is 40 A?",
+      "answer": "- **A9S65463** – Acti9 iSW Switch Disconnector, 4P, **63 A**, 415 V AC  \n- **A9S65440** – Acti9 iSW Switch Disconnector, 4P, **40 A**, 415 V AC\n\nSources:\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 3136,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A05",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "Compare the A9D55610 and the A9D32625 RCBOs.",
+      "answer": "Here’s the comparison between the two Acti9 iDPN N Vigi RCBOs:\n\n**A9D55610**\n- 1P+N RCBO with overload and residual-current protection\n- Rated current: 10 A\n- **B curve**\n- Residual-current type: **Type AC**\n- Sensitivity: 30 mA\n- Rated short-circuit capacity: 6 kA\n- Status: Check availability | Stock: Not tracked | Price: Price on request\n\n**A9D32625**\n- 1P+N RCBO for residual-current and overcurrent protection\n- Rated current: 25 A\n- **C curve**\n- Residual-current type: **Type A**\n- Sensitivity: 30 mA\n- Rated short-circuit capacity: 6 kA\n- Status: Check availability | Stock: Not tracked | Price: Price on request\n\nSo the main differences: A9D55610 is **10 A, B curve, Type AC**, while A9D32625 is **25 A, C curve, Type A**. Both share 1P+N, 30 mA sensitivity and 6 kA breaking capacity.\n\nWould you like me to add either (or both) to your RFQ? If so, just let me know the quantities and I’ll prepare the request.\n\nSources:\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4252,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A06",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "hard",
+      "question": "Which contactor in the catalogue gives 30 kW AC-3 motor power at 400 V?",
+      "answer": "The contactor with **30 kW AC-3 motor power at 400 V** is:\n\n**TeSys Deca Contactor — SKU LC1D65ABNE**\n- Three-pole, 3 NO\n- 65 A AC-3/AC-3e\n- Coil: 24–60 V AC/DC\n- Motor power: 30 kW at 400 V\n\nLet me know if you’d like to add it to an RFQ.\n\nSources:\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 3333,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A07",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "hard",
+      "question": "List the ABB RCCBs in the catalogue rated 63 A and give the residual current of each.",
+      "answer": "Here are the ABB RCCBs rated 63 A from the catalogue:\n\n- **ABB F202A-63/0.03 APR** — SKU 2CSF202401R1630  \n  Rated residual current: **30 mA** · Type A · Two-pole, 277 V AC\n\n- **ABB F202AS-63/0.1** — SKU 2CSF202201R2630  \n  Rated residual current: **100 mA** · Type A · Two-pole, 277 V AC\n\n- **ABB F204AC-63/0.3** — SKU 2CSF204001R3630  \n  Rated residual current: **300 mA** · Type AC · Four-pole, 480Y/277 V AC\n\nLet me know if you’d like any of these added to your RFQ cart.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Rccb Current Types",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 6755,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A08",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "If I confirm an order for LC1D150M7 at 3:00 PM on a Tuesday for delivery to Johor Bahru, when should I expect it?",
+      "answer": "Based on our delivery policy:\n\n- Your order is confirmed at **3:00 PM**, which is after the **2:00 PM cut-off**, so it would be processed on the **next working day (Wednesday)**.\n- Delivery to **Johor Bahru** (Peninsular Malaysia, outside Klang Valley) normally takes **2–4 working days** after processing.\n\nSo you could expect delivery roughly from **Thursday to the following Monday**, depending on stock allocation and courier schedules.\n\nThese are estimates — the sales team will confirm the exact delivery date once stock is allocated.\n\nSources:\n- Reference Incoterms 2020\n- Delivery Policy\n- Payment Terms\n- Sales SOP\n- Reference Spd Selection",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms 2020",
+        "Delivery Policy",
+        "Payment Terms",
+        "Sales SOP",
+        "Reference Spd Selection"
+      ],
+      "latencyMs": 7246,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A09",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "I'm a new customer in Kuala Lumpur and I need a 1-pole 40 A B-curve MCB. What product fits, and what payment and delivery terms apply?",
+      "answer": "The **Acti9 iC60N MCB (SKU A9F73140)** matches exactly: **1-pole, 40 A, B curve**. It's also rated 6 kA at 230 V AC and 10 kA at 220–240 V AC.\n\n**Payment terms for new customers:**\n- Payment is required **before delivery** unless approved credit terms are confirmed in writing.\n- Quotations are valid for **14 calendar days**.\n- Prices exclude delivery charges unless stated otherwise.\n\n**Delivery to Kuala Lumpur (Klang Valley):**\n- Typically **1–2 working days** after order confirmation and stock allocation.\n- Orders confirmed before **2:00 PM** are processed the same day, subject to availability.\n- Delivery charges are confirmed before quotation approval.\n\nNote: stock is not tracked in the catalogue and the price is on request, so the sales team will confirm availability and pricing.\n\nWould you like me to add this to your RFQ cart? If so, please provide your **name, company, work email, quantity**, and an optional **project note** in one message.\n\nSources:\n- SupplierFlow Official Knowledge\n- Payment Terms\n- Delivery Policy\n- Reference Incoterms 2020\n- Sales SOP",
+      "matchedSkus": [
+        "A9F73140",
+        "263164",
+        "S200-M-UC"
+      ],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Payment Terms",
+        "Delivery Policy",
+        "Reference Incoterms 2020",
+        "Sales SOP"
+      ],
+      "latencyMs": 8744,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A10",
+      "category": "adversarial",
+      "subcategory": "procedural",
+      "difficulty": "medium",
+      "question": "The brand my customer asked for is out of stock. What does the SOP say I should do?",
+      "answer": "Per the Sales SOP, if the requested brand is unavailable, present a technically suitable equivalent and mark it as an alternative in the quotation.\n\nSources:\n- Sales SOP\n- Warranty Policy\n- Delivery Policy\n- Reference Incoterms 2020\n- Payment Terms",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "Warranty Policy",
+        "Delivery Policy",
+        "Reference Incoterms 2020",
+        "Payment Terms"
+      ],
+      "latencyMs": 2486,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A11",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "medium",
+      "question": "Does a Type 2 SPD alone provide the final local protection for a sensitive load more than 10 m away?",
+      "answer": "No — if a sensitive load is more than 10 m from a Type 2 iPRD, Schneider recommends a Type 3 SPD close to the load to complete the protection. So a Type 2 alone would typically not be sufficient as final local protection in that situation.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Spd Selection\n- Reference Mcb Tripping Curves\n- Reference Rccb Current Types",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Selection",
+        "Reference Mcb Tripping Curves",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 2841,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A12",
+      "category": "adversarial",
+      "subcategory": "policy_boundary",
+      "difficulty": "medium",
+      "question": "Can I answer a customer's Singapore delivery time just from an Incoterms 2020 term?",
+      "answer": "No — an Incoterms 2020 term alone doesn't tell you a Singapore delivery time. Incoterms define who handles carriage, clearance, costs and risk, but they don't publish shipping durations, stock availability, or carrier transit times.\n\nFor Singapore specifically, we don't have a standard delivery time listed in our catalogue or policy. The sales team would need to confirm the actual delivery estimate based on the product, stock, and shipping method.\n\nSo the right move is to tell the customer we can't confirm a Singapore delivery date from the trade term alone, and offer to have the sales team check it for them.\n\nSources:\n- Reference Incoterms 2020\n- Payment Terms\n- Delivery Policy\n- Sales SOP\n- Reference Mcb Tripping Curves",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms 2020",
+        "Payment Terms",
+        "Delivery Policy",
+        "Sales SOP",
+        "Reference Mcb Tripping Curves"
+      ],
+      "latencyMs": 6039,
+      "pass": false,
+      "abstained": true,
+      "reasons": [
+        "missing required fact(s): does not|not | buyer | seller"
+      ]
+    },
+    {
+      "id": "A13",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_terminal_mapping",
+      "difficulty": "hard",
+      "question": "If a TeSys D contactor has 1NO + 1NC, does that alone tell me the auxiliary terminal IDs?",
+      "answer": "No — not by itself.\n\n- `NO` and `NC` describe the contact state when the contactor coil is **de-energised**.\n- Auxiliary terminal numbers identify the **physical connection points** — that is separate information.\n\nAs a general reference for TeSys D auxiliary contacts:\n- Normally open: terminals **13 and 14**\n- Normally closed: terminals **21 and 22**\n\nStill, always confirm the exact contact arrangement on the specific SKU’s wiring diagram before installation.\n\nSources:\n- Reference Tesys Auxiliary Contacts\n- SupplierFlow Official Knowledge\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Auxiliary Contacts",
+        "SupplierFlow Official Knowledge",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 3898,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A14",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_semantics",
+      "difficulty": "hard",
+      "question": "Can an RCCB listed as Type A be treated as Type AC because both detect AC residual current?",
+      "answer": "Yes, functionally a **Type A RCCB** also detects the AC residual currents that a **Type AC** device detects, and it additionally detects specified pulsating DC residual currents.\n\nSo Type A is broader in detection capability. However, whether you can substitute one for the other on a specific installation still depends on the design requirements, the load type, and local standards — the datasheet and the person specifying the installation should confirm.\n\nIf you’d like, I can add a specific Type A RCCB from the catalogue to your RFQ cart.\n\nSources:\n- Reference Rccb Current Types\n- SupplierFlow Official Knowledge\n- Reference Spd Selection",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Current Types",
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Selection"
+      ],
+      "latencyMs": 7385,
+      "pass": false,
+      "abstained": false,
+      "reasons": [
+        "missing required fact(s): not|cannot"
+      ]
+    },
+    {
+      "id": "N01",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the unit price in MYR of the Acti9 iC60N A9F73140?",
+      "answer": "The price for the **Acti9 iC60N MCB (SKU A9F73140)** is listed as **Price on request** — I don’t have a unit price in MYR available.\n\nI can have the sales team confirm pricing for you. Would you like me to prepare an RFQ for this item?\n\nSources:\n- SupplierFlow Official Knowledge\n- Payment Terms\n- Reference Mcb Tripping Curves",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Payment Terms",
+        "Reference Mcb Tripping Curves"
+      ],
+      "latencyMs": 2806,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N02",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "How many units of LC1D40AP7 do you currently have in stock?",
+      "answer": "I don't have live stock figures for LC1D40AP7 — stock isn't tracked in the catalogue. The sales team can confirm current availability and lead time for you. Would you like me to add it to an RFQ so they can check?\n\nSources:\n- SupplierFlow Official Knowledge\n- Warranty Policy\n- Delivery Policy\n- Reference Tesys Auxiliary Contacts",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Warranty Policy",
+        "Delivery Policy",
+        "Reference Tesys Auxiliary Contacts"
+      ],
+      "latencyMs": 3299,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N03",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the IP rating of the LC1D150M7 contactor?",
+      "answer": "I don’t have the IP rating for the TeSys Deca contactor LC1D150M7 in the catalogue information available to me. I can have the sales team confirm that for you if you’d like.\n\nSources:\n- SupplierFlow Official Knowledge\n- Warranty Policy",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Warranty Policy"
+      ],
+      "latencyMs": 2791,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N04",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the warranty period on Schneider Electric MCBs?",
+      "answer": "I don’t have a stated warranty period for Schneider Electric MCBs in the catalogue. The general policy is that electrical products are covered by the manufacturer warranty where stated on the listing or quotation.\n\nI can have the sales team confirm the exact warranty for the MCB you’re interested in — just let me know which SKU you’d like checked.\n\nSources:\n- SupplierFlow Official Knowledge\n- Warranty Policy\n- Reference Spd Selection",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Warranty Policy",
+        "Reference Spd Selection"
+      ],
+      "latencyMs": 3989,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N05",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "How long does delivery to Singapore take?",
+      "answer": "I don't have delivery timeframes for Singapore in our standard policy — our estimates cover Klang Valley, Peninsular Malaysia, and East Malaysia only.\n\nI can have the sales team confirm Singapore delivery availability, timing, and charges for you. Would you like me to arrange that?\n\nSources:\n- Reference Incoterms 2020\n- Delivery Policy\n- Payment Terms\n- Sales SOP\n- Reference Spd Selection",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms 2020",
+        "Delivery Policy",
+        "Payment Terms",
+        "Sales SOP",
+        "Reference Spd Selection"
+      ],
+      "latencyMs": 3908,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N06",
+      "category": "negative",
+      "subcategory": "nonexistent_sku",
+      "difficulty": "hard",
+      "question": "What are the specifications of the Acti9 iC60N A9F73150?",
+      "answer": "I don’t have specifications for the **Acti9 iC60N A9F73150** in the catalogue. I can have the sales team confirm the details for you — would you like me to arrange that?\n\nSources:\n- SupplierFlow Official Knowledge\n- Warranty Policy\n- Reference Mcb Tripping Curves",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Warranty Policy",
+        "Reference Mcb Tripping Curves"
+      ],
+      "latencyMs": 2138,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N07",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the operating temperature range of the ABB S200 M UC range?",
+      "answer": "I don’t have the operating temperature range for the ABB S200 M UC range in the catalogue facts available to me.\n\nI can have our sales team confirm that detail for you — just let me know if you’d like me to arrange that.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Mcb Tripping Curves\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Mcb Tripping Curves",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 3367,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N08",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the restocking fee if I return an item that is not faulty?",
+      "answer": "I don’t have information about restocking fees or non-faulty returns in the catalogue or support documentation.\n\nI can have the sales team confirm their return policy for you — just let me know if you’d like me to arrange that.\n\nSources:\n- Warranty Policy\n- Reference Tesys Auxiliary Contacts\n- Sales SOP\n- Reference Incoterms 2020\n- Payment Terms",
+      "matchedSkus": [],
+      "sources": [
+        "Warranty Policy",
+        "Reference Tesys Auxiliary Contacts",
+        "Sales SOP",
+        "Reference Incoterms 2020",
+        "Payment Terms"
+      ],
+      "latencyMs": 2990,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N09",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What credit limit do you give to approved account customers?",
+      "answer": "We don’t publish a standard credit limit figure. Approved account customers may receive 30-day credit terms, but the actual limit depends on their credit assessment and account status.\n\nIf you'd like a specific limit confirmed for your company, I can have our sales team check and let you know.\n\nSources:\n- Payment Terms\n- Reference Incoterms 2020\n- Warranty Policy\n- Reference Spd Selection\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Payment Terms",
+        "Reference Incoterms 2020",
+        "Warranty Policy",
+        "Reference Spd Selection",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4098,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N10",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What SST rate is applied to quotations?",
+      "answer": "I don't have the SST rate available in the catalogue information. Our sales team confirms SST, along with pricing and payment terms, before a quotation is sent.\n\nWould you like me to prepare an RFQ so the team can confirm the applicable SST rate for your order? If so, could you please provide:\n\n- Your name\n- Company name\n- Work email\n- Optional project note\n\nSources:\n- Sales SOP\n- SupplierFlow Official Knowledge\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "SupplierFlow Official Knowledge",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 3948,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    }
+  ]
+}

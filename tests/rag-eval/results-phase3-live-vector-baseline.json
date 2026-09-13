@@ -1,0 +1,206 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T17:12:25.996Z",
+  "config": {
+    "retrievalMode": "vector",
+    "reranker": null,
+    "rewriteMode": "none"
+  },
+  "metrics": {
+    "total": 4,
+    "passed": 3,
+    "passRate": 0.75,
+    "hallucinationRate": null,
+    "answerAccuracy": 0.75,
+    "faithfulness": 0.75,
+    "contextRelevance": 0.35,
+    "contextCoverage": 1,
+    "abstentionPrecision": 0,
+    "abstentionRecall": null,
+    "falseAnswerRate": null,
+    "overAbstentionRate": 0.25,
+    "latencyMs": {
+      "totalClient": {
+        "p50": 2885,
+        "p95": 6780,
+        "count": 4
+      },
+      "serverTotal": {
+        "p50": 2709,
+        "p95": 6593,
+        "count": 4
+      },
+      "retrieval": {
+        "p50": 451,
+        "p95": 495,
+        "count": 4
+      },
+      "generation": {
+        "p50": 1571,
+        "p95": 5513,
+        "count": 4
+      }
+    },
+    "tokens": {
+      "measuredQueries": 4,
+      "prompt": 7634,
+      "completion": 1002,
+      "total": 8636,
+      "average": 2159
+    },
+    "costUsd": {
+      "total": 0.001359296,
+      "averagePerQuery": 0.000339824,
+      "pricingPerMillionTokens": {
+        "inputCacheHit": 0.007,
+        "inputCacheMiss": 0.22,
+        "output": 0.66
+      },
+      "pricingSource": "https://api-docs.deepseek.com/quick_start/pricing/"
+    }
+  },
+  "results": [
+    {
+      "id": "D31",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What range of multiples of rated current causes an MCB with a B curve to trip magnetically?",
+      "answer": "For a **B-curve** MCB, magnetic tripping occurs between **3 and 5 times rated current (In)**.\n\nSources:\n- Reference Mcb Tripping Curves\n- Reference Acti9 Ic60 Catalogue\n- Reference Acti9 Rcbo Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [
+        "S200-M-UC",
+        "A9F73140",
+        "A9D55610"
+      ],
+      "sources": [
+        "Reference Mcb Tripping Curves",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Acti9 Rcbo Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 2445,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "vector",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 451,
+      "generationMs": 1170,
+      "serverTotalMs": 2261,
+      "promptTokens": 1971,
+      "completionTokens": 97,
+      "totalTokens": 2068,
+      "costUsd": 0.00025226400000000004
+    },
+    {
+      "id": "D32",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What does the C curve describe on an MCB?",
+      "answer": "The C curve describes the magnetic short-circuit tripping range: **5 to 10 times the rated current (In)**.\n\nIt’s not the rated current and not the breaking capacity — just the magnetic trip threshold. For example, a 40 A C-curve MCB would trip magnetically between roughly 200 A and 400 A.\n\nSources:\n- Reference Mcb Tripping Curves\n- Reference Acti9 Ic60 Catalogue\n- Reference Mcb Current Limiting\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [
+        "A9F73140",
+        "S200-M-UC",
+        "A9D55610"
+      ],
+      "sources": [
+        "Reference Mcb Tripping Curves",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Mcb Current Limiting",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 2885,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "vector",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 495,
+      "generationMs": 1571,
+      "serverTotalMs": 2709,
+      "promptTokens": 1994,
+      "completionTokens": 134,
+      "totalTokens": 2128,
+      "costUsd": 0.000281744
+    },
+    {
+      "id": "A12",
+      "category": "adversarial",
+      "subcategory": "policy_boundary",
+      "difficulty": "medium",
+      "question": "Can I answer a customer's Singapore delivery time just from an Incoterms 2020 term?",
+      "answer": "No. An Incoterms 2020 rule only allocates responsibilities between buyer and seller — it identifies the delivery point, risk transfer, and carriage obligations. It does **not** provide a transit time, carrier schedule, or guaranteed delivery date for Singapore or anywhere else.\n\nWe also don’t have Singapore delivery times in our catalogue facts. If you need a delivery estimate, I’d suggest checking with the sales team or your carrier partner — they can confirm based on the actual route and stock position. I can’t promise a date from the Incoterms term alone.\n\nSources:\n- Reference Incoterms Rules Overview\n- Reference Incoterms 2020\n- Reference Incoterms Cost Insurance\n- Reference Incoterms Risk Transfer",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Cost Insurance",
+        "Reference Incoterms Risk Transfer"
+      ],
+      "latencyMs": 6780,
+      "pass": false,
+      "abstained": true,
+      "reasons": [
+        "missing required fact(s): delivery time"
+      ],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "vector",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 1,
+      "contextRelevance": 0.2,
+      "contextCoverage": true,
+      "faithful": false,
+      "retrievalMs": 481,
+      "generationMs": 5513,
+      "serverTotalMs": 6593,
+      "promptTokens": 1880,
+      "completionTokens": 590,
+      "totalTokens": 2470,
+      "costUsd": 0.00053036
+    },
+    {
+      "id": "D46",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What do Uc, Up, In and Imax mean on an SPD?",
+      "answer": "On an SPD:\n\n- **Uc** – Maximum continuous operating voltage the SPD can handle.\n- **Up** – Voltage protection level: the residual voltage at the SPD’s stated nominal discharge current.\n- **In** – Nominal discharge current, normally tested with an 8/20 µs wave for Type 2 SPDs.\n- **Imax** – Maximum discharge-current peak the SPD can handle for the specified test waveform and duty.\n\nChoosing a larger Imax alone doesn’t guarantee better protection — selection also considers Uc, Up, In, SPD type, installation system, and the coordinated short-circuit protective device.\n\nNeed anything else, like comparing SPD types or checking the Acti9 iPRD range?\n\nSources:\n- Reference Spd Electrical Characteristics\n- Reference Spd Impulse Current\n- Reference Spd Selection\n- Reference Spd Connection Rules",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Spd Electrical Characteristics",
+        "Reference Spd Impulse Current",
+        "Reference Spd Selection",
+        "Reference Spd Connection Rules"
+      ],
+      "latencyMs": 3701,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "vector",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 448,
+      "generationMs": 2496,
+      "serverTotalMs": 3556,
+      "promptTokens": 1789,
+      "completionTokens": 181,
+      "totalTokens": 1970,
+      "costUsd": 0.000294928
+    }
+  ]
+}

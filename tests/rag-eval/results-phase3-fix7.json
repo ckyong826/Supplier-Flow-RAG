@@ -1,0 +1,108 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T17:30:36.510Z",
+  "config": {
+    "requested": {
+      "retrievalMode": null,
+      "reranker": null,
+      "rewriteMode": null
+    },
+    "observed": {
+      "retrievalMode": "keyword",
+      "reranker": "lexical",
+      "rewriteMode": "history"
+    }
+  },
+  "metrics": {
+    "total": 1,
+    "passed": 1,
+    "passRate": 1,
+    "hallucinationRate": null,
+    "answerAccuracy": 1,
+    "faithfulness": 1,
+    "contextRelevance": 0.2,
+    "contextCoverage": 1,
+    "abstentionPrecision": null,
+    "abstentionRecall": null,
+    "falseAnswerRate": null,
+    "overAbstentionRate": 0,
+    "latencyMs": {
+      "totalClient": {
+        "p50": 6239,
+        "p95": 6239,
+        "count": 1
+      },
+      "serverTotal": {
+        "p50": 5962,
+        "p95": 5962,
+        "count": 1
+      },
+      "retrieval": {
+        "p50": 400,
+        "p95": 400,
+        "count": 1
+      },
+      "generation": {
+        "p50": 4926,
+        "p95": 4926,
+        "count": 1
+      }
+    },
+    "tokens": {
+      "measuredQueries": 1,
+      "prompt": 1974,
+      "completion": 516,
+      "total": 2490,
+      "average": 2490
+    },
+    "costUsd": {
+      "total": 0.000556728,
+      "averagePerQuery": 0.000556728,
+      "pricingPerMillionTokens": {
+        "inputCacheHit": 0.007,
+        "inputCacheMiss": 0.22,
+        "output": 0.66
+      },
+      "pricingSource": "https://api-docs.deepseek.com/quick_start/pricing/"
+    }
+  },
+  "results": [
+    {
+      "id": "A22",
+      "category": "adversarial",
+      "subcategory": "rccb_selectivity_boundary",
+      "difficulty": "hard",
+      "question": "If upstream and downstream RCCBs have the same IΔn and no delay, is selectivity guaranteed?",
+      "answer": "No. Equal IΔn with no intentional time delay does **not** guarantee selectivity between upstream and downstream RCCBs.\n\nFor coordinated selectivity, a common design rule is:\n\n- Upstream IΔn should be **at least 2×** the downstream IΔn.\n- The upstream device’s minimum no-trip time should be **longer** than the downstream device’s maximum trip time.\n- A **delayed or selective** upstream device is normally used.\n\nThe exact ratio and settings should come from the manufacturer’s coordination table, since selectivity is a system design property, not a given just because the two devices share the same sensitivity.\n\nSources:\n- Reference Abb Rcd Application\n- Reference Rccb Selectivity Coordination\n- Reference Abb S200 Catalogue\n- Reference Eaton Pln6 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Abb Rcd Application",
+        "Reference Rccb Selectivity Coordination",
+        "Reference Abb S200 Catalogue",
+        "Reference Eaton Pln6 Catalogue"
+      ],
+      "latencyMs": 6239,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "rewriteMode": "history",
+      "rerankMode": "lexical",
+      "candidateCount": 20,
+      "representation": "chunk",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 1,
+      "contextRelevance": 0.2,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 400,
+      "generationMs": 4926,
+      "serverTotalMs": 5962,
+      "promptTokens": 1974,
+      "completionTokens": 516,
+      "totalTokens": 2490,
+      "costUsd": 0.000556728
+    }
+  ]
+}

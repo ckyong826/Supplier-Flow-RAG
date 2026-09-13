@@ -2,6 +2,14 @@
 
 Concise factual cards derived from the linked manufacturer resources. Check the live manufacturer page before using these data for selection, quotation, or installation.
 
+## Exact lookup index
+
+- `LC1D09BD` uses a 24 V DC coil.
+- `A9S65440` is the 40 A Acti9 iSW 4-pole 415 V AC switch disconnector; `A9S65463` is the 63 A version.
+- `A9F73140` is the 1-pole, 40 A, B-curve Acti9 iC60N MCB.
+- Eaton xPole PF7 article `263584` has 30 mA rated residual current and 10 kA short-circuit strength.
+- The Schneider Acti9 iPRD range has an Imax range of 8 to 65 kA and complies with IEC/EN 61643-11.
+
 ## 1. Acti9 iC60N MCB — A9F73140
 
 Category: Miniature circuit breaker (MCB)

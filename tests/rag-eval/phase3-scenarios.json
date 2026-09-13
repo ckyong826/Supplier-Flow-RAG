@@ -1,0 +1,37 @@
+[
+  {
+    "id": "QW01",
+    "history": "I need the Acti9 iC60N A9F73140 MCB.",
+    "question": "What is its breaking capacity?",
+    "expected_source_doc": ["supplierflow-official-knowledge.md"],
+    "expected_keywords": ["A9F73140", "6 kA"]
+  },
+  {
+    "id": "QW02",
+    "history": "Please quote the A9D55610 RCBO for my project.",
+    "question": "What residual current does it provide?",
+    "expected_source_doc": ["supplierflow-official-knowledge.md"],
+    "expected_keywords": ["A9D55610", "30 mA"]
+  },
+  {
+    "id": "QW03",
+    "history": "The customer wants TeSys Deca contactor LC1D09BD.",
+    "question": "What coil voltage does it use?",
+    "expected_source_doc": ["supplierflow-official-knowledge.md"],
+    "expected_keywords": ["LC1D09BD", "24 V DC"]
+  },
+  {
+    "id": "QW04",
+    "history": "I am checking the Acti9 iSW switch disconnector A9S65463.",
+    "question": "How many poles does it have?",
+    "expected_source_doc": ["supplierflow-official-knowledge.md"],
+    "expected_keywords": ["A9S65463", "four-pole|4-pole|four poles|4 poles"]
+  },
+  {
+    "id": "QW05",
+    "history": "We are selecting the Acti9 iPRD20 surge arrester A9L20100.",
+    "question": "What voltage is it rated for?",
+    "expected_source_doc": ["supplierflow-official-knowledge.md"],
+    "expected_keywords": ["A9L20100", "350 V"]
+  }
+]

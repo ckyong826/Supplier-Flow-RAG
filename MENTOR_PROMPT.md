@@ -40,20 +40,21 @@ Your job is **not** to finish the work for me. Your job is to make me capable of
 - Generation: DeepSeek `deepseek-v4-flash`, temp 0.35, raw `fetch`
 - **No LangChain, no LlamaIndex, no vendor SDK.** Everything hand-rolled. This is a strength — it means every behaviour is inspectable.
 
-**Retrieval** — `app/api/ai-chat/knowledge-retrieval.mjs`, three modes selected by `RETRIEVAL_MODE`:
+**Retrieval** — `app/api/ai-chat/knowledge-retrieval.mjs`, four modes selected by `RETRIEVAL_MODE`:
 - `keyword` — term overlap + reciprocal rank fusion over a 200-row chunk pool
 - `vector` — query embedding → Postgres RPC `match_knowledge_chunks` → pgvector cosine
 - `hybrid` — both, fused by reciprocal rank (k=61), **gated**: returns empty if nothing clears the similarity floor
-- Params: `CHUNK_WORDS = 180`, no overlap, top-k = 3, similarity floor = 0.35
-- **Default is `keyword`.** Vector is opt-in via env var.
+- `multi` — extractive document-summary selection followed by full-chunk retrieval
+- Params: `CHUNK_WORDS = 100`, no overlap, top-k = 5, similarity floor = 0.35
+- **Default is `keyword` with history-aware rewriting and lexical coverage reranking.** Vector, multi and HyDE are opt-in.
 
 **Not agentic:** intent is detected by regex in `route.ts` (`/\b(rfq|quote|quotation)\b/i` etc.), and cart mutations work by parsing the model's prose output against a prompt contract. There is no function calling. Do not describe it as an agent.
 
-**Existing eval** — `tests/rag-eval/`: 50 labelled questions (30 direct-lookup, 10 adversarial, 10 negative), a ground-truth verification script, an A/B runner across all three modes, and a grader with its own unit tests. Last measured: 0.94 pass rate, 0.00 hallucination, recall@1 = 0.800 and MRR = 0.800 **identical across all three modes**.
+**Current eval** — `tests/rag-eval/`: 139 labelled questions (70 direct-lookup, 44 adversarial, 25 negative), a ground-truth verification script, A/B runners and a grader with its own unit tests. Phase 3 Tier 1 final live result: 139/139 passed, 0/25 hallucination, with precision/latency/token/cost/abstention telemetry over 44 documents / 159 file chunks.
 
-**The problem that drives this whole plan:** the corpus is **5 documents / 11 chunks**. With top-k=3, every query retrieves 27% of the entire corpus. That is why all three modes tie — not because they are equally good, but because retrieval is trivial at that size. Every metric currently measured is close to meaningless, and no new technique can be shown to help or hurt.
+**The starting problem that drove this plan:** the initial corpus was **5 documents / 11 chunks**. With top-k=3, every query retrieved 27% of the entire corpus. That is why all three modes tied — not because they were equally good, but because retrieval was trivial at that size. Phase 1 expanded the corpus before making technique claims.
 
-**Known broken:** migration 0003 is unapplied — `chat_sessions.owner_token` is missing and every chat request 502s. Fix this first.
+**Known broken at the starting checkpoint:** migration 0003 was unapplied — `chat_sessions.owner_token` was missing and every chat request 502ed. Treat this as resolved only if the current build/eval confirms it.
 
 ---
 
@@ -155,30 +156,36 @@ Apply migration 0003. Get tests passing. Reproduce the existing eval end to end.
 
 **Teach me:** how to read the existing eval harness. Walk me through `tests/rag-eval/` file by file so I understand what I already have before we extend it.
 
-### Phase 1 — Corpus expansion · 3–4 days ← the gate
-Grow to 40–60 documents / 150–400 chunks. Plant near-duplicates, contradictions, numeric traps. Push negatives from 10 to 25–30. Re-chunk as a measured experiment (180 fixed vs 15% overlap vs semantic). Hand-label 120–150 questions to ground truth.
+### Phase 1 — Corpus expansion · 3–4 days ← complete
+Grow to 40–60 documents / 150–400 chunks. Plant near-duplicates, contradictions, numeric traps. Push negatives from 10 to 25–30. Re-chunk as a measured experiment (100 fixed vs 15% overlap vs semantic). Hand-label 120–150 questions to ground truth.
 
 **Teach me:** what makes a *good* eval question versus a useless one; why hand-labelling cannot be skipped; what a "hard negative" is and how to write one; why an LLM-generated corpus evaluated by LLM retrieval is circular reasoning.
 
 **Warn me:** my current 0.94 / 0.00 numbers are void after this. They must be re-measured and they will get worse. Explain why that is the point.
 
-### Phase 2 — RagEvaluator · 2–3 days ← ship point
+### Phase 2 — RagEvaluator · 2–3 days ← complete
 Extend the existing harness — do not rebuild it. Add precision@k, faithfulness, context relevance, all four abstention metrics, latency and cost. One command → one comparison table. Results committed as JSON.
 
 **Teach me:** how to structure an eval harness so adding a metric or a config is cheap; why results belong in version control.
 
-### Phase 3 — Techniques, by measured return · 3–8 days
+### Phase 3 — Techniques, by measured return · 3–8 days ← Tier 1 complete
 
 | Do | Skip |
 |---|---|
-| Cross-encoder reranking (1–2d) — biggest expected gain | ColBERT — index blows up 10–100×, pgvector has no native MaxSim, will not beat a reranker at my scale |
+| Second-stage coverage reranking (1–2d) — lexical proxy for the ranking stage | ColBERT — index blows up 10–100×, pgvector has no native MaxSim, will not beat a reranker at my scale |
 | Query rewriting + HyDE (1d) | RAPTOR — needs real corpus depth; defer |
 | Multi-representation indexing (1–2d) | |
-| CRAG (2–3d) if time — it is my abstention thesis with a published name | |
+| CRAG-style closed-corpus gate (2–3d) if time | |
 
 **Teach me each technique before we build it:** the problem it solves, a SupplierFlow example of that problem, the simplest version that works, and how we will know from the metrics whether it helped. For the two we skip, teach me enough to explain *why* I skipped them — that is an interview answer in itself.
 
 **Rule:** one change at a time, measured against the frozen eval set, result recorded before the next change. No stacking three techniques and reporting the total.
+
+**Phase 3 result:** coverage rerank improved offline Recall@1 from 82.5% to 89.5%; history-aware
+rewrite improved live follow-ups from 2/5 to 5/5; multi-representation and HyDE remain opt-in after
+their measured latency/accuracy trade-offs. The full keyword + rerank + history configuration passed
+139/139 live with 0/25 hallucination. The reranker is not a claim that `bge-reranker-base` is deployed;
+that neural adapter needs a separately provided inference service.
 
 ---
 

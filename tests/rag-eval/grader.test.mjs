@@ -23,6 +23,7 @@ test("token boundaries keep near-duplicate specs apart", () => {
   assert.equal(contains("rated 40 A", "40"), true);
   assert.equal(contains("rated residual current: 300 mA", "30 mA"), false, "30 mA must not match inside 300 mA");
   assert.equal(contains("30 mA sensitivity", "30 mA"), true);
+  assert.equal(contains("A B-curve MCB", "B curve"), true, "hyphenated compound labels should match spaced labels");
 });
 
 test("keyword alternates accept equivalent phrasings only", () => {
@@ -56,6 +57,11 @@ test("N10 SST guards fire on a fabricated rate", () => {
   assert.ok(matchesAny("SST is charged at 6%.", guards("N10")).length > 0);
   assert.ok(matchesAny("Add 8 % SST to the subtotal.", guards("N10")).length > 0);
   assert.equal(matchesAny("SST is confirmed before the quotation is sent.", guards("N10")).length, 0);
+});
+
+test("N18 MOQ guard ignores the SKU in an abstention", () => {
+  assert.ok(matchesAny("The MOQ is 100 units.", guards("N18")).length > 0);
+  assert.equal(matchesAny("I don't have a minimum order quantity for A9F73140.", guards("N18")).length, 0);
 });
 
 test("N04 catches a warranty figure borrowed from an unrelated product", () => {

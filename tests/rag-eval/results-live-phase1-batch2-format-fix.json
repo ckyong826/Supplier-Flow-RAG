@@ -1,0 +1,56 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-29T18:51:02.780Z",
+  "metrics": {
+    "total": 2,
+    "passed": 1,
+    "passRate": 0.5,
+    "hallucinationRate": null
+  },
+  "results": [
+    {
+      "id": "D34",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What does IΔn mean on an RCCB, and is 30 mA automatically valid for every F200 SKU?",
+      "answer": "**IΔn** on an RCCB stands for the **rated residual current** – in other words, the device’s sensitivity. It’s the level of residual current (leakage current) at which the RCCB is designed to trip. Common values are 30 mA, 100 mA, and 300 mA.\n\n**No, 30 mA is not automatically valid for every F200 SKU.** The sensitivity belongs to each individual product code, not the whole family. For example:\n\n- ABB F202A-40/0.03 (SKU 2CSF202101R1400) → 30 mA\n- ABB F202AS-63/0.1 (SKU 2CSF202201R2630) → 100 mA\n- ABB F204AC-63/0.3 (SKU 2CSF204001R3630) → 300 mA\n\nSo always check the exact SKU and its markings to confirm the rated residual current. If you tell me which SKU you’re interested in, I can confirm the value from the catalogue.\n\nSources:\n- Reference Rccb Current Types\n- SupplierFlow Official Knowledge\n- Reference Rccb Operating Conditions\n- Reference Malaysia Sst Scope",
+      "matchedSkus": [
+        "2CSF202101R1400",
+        "2CSF202401R1630",
+        "2CSF202001R1400"
+      ],
+      "sources": [
+        "Reference Rccb Current Types",
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Operating Conditions",
+        "Reference Malaysia Sst Scope"
+      ],
+      "latencyMs": 7603,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A07",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "hard",
+      "question": "List the ABB RCCBs in the catalogue rated 63 A and give the residual current of each.",
+      "answer": "Here are the ABB RCCBs in the catalogue rated at 63 A, with their residual currents:\n\n- **ABB F202A-63/0.03 APR** — SKU `2CSF202401R1630`  \n  Rated 63 A, residual current **30 mA**, Type A, 2P, 277 V AC\n\n- **ABB F204AC-63/0.3** — SKU `2CSF204001R3630`  \n  Rated 63 A, residual current **300 mA**, Type AC, 4P, 480Y/277 V AC\n\nSources:\n- Reference Rccb Operating Conditions\n- SupplierFlow Official Knowledge\n- Reference Rccb Current Types\n- Reference Rccb Installation Systems",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Operating Conditions",
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Current Types",
+        "Reference Rccb Installation Systems"
+      ],
+      "latencyMs": 8621,
+      "pass": false,
+      "abstained": false,
+      "reasons": [
+        "missing required fact(s): 100 mA"
+      ]
+    }
+  ]
+}

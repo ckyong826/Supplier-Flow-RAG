@@ -1,0 +1,166 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T17:10:03.839Z",
+  "config": {
+    "retrievalMode": "multi",
+    "reranker": "lexical",
+    "rewriteMode": null
+  },
+  "metrics": {
+    "total": 3,
+    "passed": 3,
+    "passRate": 1,
+    "hallucinationRate": 0,
+    "answerAccuracy": 1,
+    "faithfulness": 1,
+    "contextRelevance": 0.6000000000000001,
+    "contextCoverage": 1,
+    "abstentionPrecision": 1,
+    "abstentionRecall": 1,
+    "falseAnswerRate": 0,
+    "overAbstentionRate": 0,
+    "latencyMs": {
+      "totalClient": {
+        "p50": 4514,
+        "p95": 4889,
+        "count": 3
+      },
+      "serverTotal": {
+        "p50": 4115,
+        "p95": 4697,
+        "count": 3
+      },
+      "retrieval": {
+        "p50": 521,
+        "p95": 1074,
+        "count": 3
+      },
+      "generation": {
+        "p50": 2899,
+        "p95": 2995,
+        "count": 3
+      }
+    },
+    "tokens": {
+      "measuredQueries": 3,
+      "prompt": 5807,
+      "completion": 807,
+      "total": 6614,
+      "average": 2204.6666666666665
+    },
+    "costUsd": {
+      "total": 0.000610544,
+      "averagePerQuery": 0.00020351466666666666,
+      "pricingPerMillionTokens": {
+        "inputCacheHit": 0.007,
+        "inputCacheMiss": 0.22,
+        "output": 0.66
+      },
+      "pricingSource": "https://api-docs.deepseek.com/quick_start/pricing/"
+    }
+  },
+  "results": [
+    {
+      "id": "D01",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated current and tripping curve of the Acti9 iC60N A9F73140?",
+      "answer": "The **Acti9 iC60N (SKU A9F73140)** has:\n\n- **Rated current:** 40 A\n- **Tripping curve:** B curve\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Catalogue\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 2902,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "multi",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 495,
+      "generationMs": 1542,
+      "serverTotalMs": 2679,
+      "promptTokens": 2141,
+      "completionTokens": 140,
+      "totalTokens": 2281,
+      "costUsd": 0.000127196
+    },
+    {
+      "id": "A09",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "I'm a new customer in Kuala Lumpur and I need a 1-pole 40 A B-curve MCB. What product fits, and what payment and delivery terms apply?",
+      "answer": "The product that fits your request is:\n\n- **Acti9 iC60N MCB** — SKU `A9F73140`\n  - 1-pole, 40 A, B curve\n  - 6 kA at 230 V AC / 10 kA at 220–240 V AC\n  - Status: check availability · Price on request\n\n**Payment terms**  \nAs a new customer, payment is required before delivery unless approved credit terms are confirmed in writing. Quotations are valid for 14 calendar days from the quotation date.\n\n**Delivery terms**  \nStandard delivery to Kuala Lumpur / Klang Valley is normally **1–2 working days** after order confirmation and stock allocation. Orders confirmed before **2:00 PM** on a working day are processed the same day, subject to stock. Delivery charges are not included unless stated in the quotation.\n\nWould you like me to add this MCB to your RFQ cart? If so, I’ll need your **name, company, and work email** to prepare the request.\n\nSources:\n- Delivery Policy\n- SupplierFlow Official Knowledge\n- Sales SOP\n- Payment Terms",
+      "matchedSkus": [
+        "A9F73140",
+        "2CSF202201R2630",
+        "S200-M-UC"
+      ],
+      "sources": [
+        "Delivery Policy",
+        "SupplierFlow Official Knowledge",
+        "Sales SOP",
+        "Payment Terms"
+      ],
+      "latencyMs": 4514,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "multi",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 4,
+      "contextRelevance": 0.8,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 521,
+      "generationMs": 2899,
+      "serverTotalMs": 4115,
+      "promptTokens": 2058,
+      "completionTokens": 342,
+      "totalTokens": 2400,
+      "costUsd": 0.000242256
+    },
+    {
+      "id": "N05",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "How long does delivery to Singapore take?",
+      "answer": "I don’t have a Singapore delivery time in the catalogue. Delivery estimates depend on the route, carrier, shipment details, and the specific Incoterms rule agreed — none of which are published here.\n\nI can have the sales team confirm a realistic lead time for your destination and product. Would you like me to arrange that?\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms Rules Overview\n- Reference Incoterms 2020\n- Reference Incoterms Risk Transfer",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Risk Transfer"
+      ],
+      "latencyMs": 4889,
+      "pass": true,
+      "abstained": true,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "multi",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 0,
+      "contextRelevance": null,
+      "contextCoverage": null,
+      "faithful": null,
+      "retrievalMs": 1074,
+      "generationMs": 2995,
+      "serverTotalMs": 4697,
+      "promptTokens": 1608,
+      "completionTokens": 325,
+      "totalTokens": 1933,
+      "costUsd": 0.000241092
+    }
+  ]
+}

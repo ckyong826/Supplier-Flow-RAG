@@ -1,0 +1,5222 @@
+{
+  "topK": 5,
+  "minSimilarity": 0.35,
+  "modes": [
+    "keyword",
+    "vector",
+    "hybrid"
+  ],
+  "ranAt": "2026-08-29T18:21:04.569Z",
+  "byMode": {
+    "keyword": [
+      {
+        "id": "D01",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D02",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D04",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D07",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D08",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D09",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D10",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D11",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D14",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D15",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D17",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D18",
+        "category": "direct_lookup",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D19",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D21",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D23",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D25",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D26",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D27",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D28",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D29",
+        "category": "direct_lookup",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P01",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 2,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P02",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 2,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P03",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P04",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P05",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 3,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P06",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P07",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P08",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P09",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P10",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D31",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D32",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D33",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D34",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D35",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D36",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A01",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A02",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 2,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A03",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A04",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A05",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A06",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A07",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A08",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 2,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A09",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A10",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A11",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 2,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A12",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A13",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A14",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N01",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N02",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N03",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N04",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N05",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N06",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N07",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N08",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N09",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N10",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      }
+    ],
+    "vector": [
+      {
+        "id": "D01",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.635557726295794
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.628978656318602
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.496244456372849
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.477349861807073
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.473550370400865
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D02",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.562597427330613
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.526678429707798
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.518737480482742
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.47995777161752
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.474689038450289
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D04",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.577372493721272
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.528471142687343
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.525963663340106
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.468488181139825
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.461549177667656
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D07",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.579131619695002
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.506588941776697
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.448484609287525
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.444590238040244
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.436382370661253
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D08",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.508599982689727
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.475836720012064
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.463108649558739
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.443947051763319
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.428726839375998
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D09",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.516028392576742
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.475848468294842
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.452054828700344
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.450183247158659
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.426242241142903
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D10",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.613974211749739
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.590585594614449
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.508874147608428
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.462436505017995
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.443972822184583
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D11",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": false,
+        "missing": [
+          "24 V DC"
+        ],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.411058096330348
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.391311454585754
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.36491035466523
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.357894724105234
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D14",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.441474526340118
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.403727416154907
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.386235108766193
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.370886908692209
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.366435152456717
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D15",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 2,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.473893887168082
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.470844724995658
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.441220791650903
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.409992758780777
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.3806205188115
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D17",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.601793094077344
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.571192610053628
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.509084758834931
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.47377463836865
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.46271747098393
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D18",
+        "category": "direct_lookup",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.55536125113103
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.549967917434625
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.476343923123313
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.441603739785672
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.42758716541519
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D19",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.586162230543628
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.544992998435222
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.52549274490022
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.46083122457245
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.453643271844236
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D21",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.774135300484215
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.657272170942574
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.573327470905803
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.56886342246915
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.500105997538329
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D23",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.736096264984074
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.632400960064277
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.531260339215229
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.52781237075447
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.484161157451546
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D25",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.660304715554251
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.608888449931789
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.5269511996518
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.508429268778182
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.497931112522221
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D26",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.659635394983264
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.640774302946827
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.503583398646249
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.499437291955712
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.494807164145832
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D27",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.715672656666013
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.636715950919473
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.539094196704523
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.494865227241392
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.489328450571261
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D28",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.646797657029379
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.532396572280567
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.513807335386298
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.505360171961802
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.436371210110812
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D29",
+        "category": "direct_lookup",
+        "difficulty": "hard",
+        "rank": 2,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.58501882651444
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.537464643739205
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.444285821269062
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.417170531449928
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.416175882724611
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P01",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.749543252383667
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P02",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.706794402028014
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P03",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.690531482405203
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P04",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.420120274027784
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P05",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": 0.588941880957332
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": 0.425277270415954
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": 0.365749368465956
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P06",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": 0.445423532151299
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P07",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": 0.524570350804197
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P08",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": 0.755910893027822
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P09",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": 0.466292641828077
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P10",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": 0.607178571254965
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": 0.497245613796593
+          },
+          {
+            "title": "How to order?",
+            "similarity": 0.372577415362891
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.370305645769159
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D31",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.747183538143926
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.538021959650387
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.53612350985842
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.501108772419853
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.490337461901916
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D32",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.736616130699264
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.519436344628767
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.477960958286689
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.428805430044827
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.411768651025916
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D33",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.698477417771201
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.507877104000348
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.494737591273729
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.452033835178799
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.450251181405001
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D34",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.626111416079421
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.561760862393175
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.557183103411052
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.547758742969763
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.485384691465268
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D35",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.715288516392778
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.506999219537051
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.416689261983855
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.400969603268843
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.388124493362479
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D36",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.809705019200294
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.609828796073593
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.539287818208453
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.532872849205872
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.37111970627419
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A01",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.640290471370434
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.482228775521257
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.457969743651092
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.438495251176252
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.383923046362365
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A02",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.650360266880112
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.642575680488086
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.589388087842338
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.541628508916205
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.469105888926418
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A03",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.68988418268032
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.677892325809404
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.652665537607125
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.598527915898535
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.511277389658125
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A04",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.68448939907632
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.607067332289304
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.544219480538941
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.529593717945499
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.517301153365079
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A05",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.606665176201718
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.542680770190472
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.490045633996265
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.489045103372999
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.485691730536265
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A06",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.691546927157109
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.681893439195606
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.579320054559596
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.514882852328627
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.512007347842057
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A07",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.677951470161231
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.672746324291527
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.646720649051834
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.570069926536837
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.489751404895513
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A08",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.601822666816398
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A09",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 2,
+        "answerable": false,
+        "missing": [
+          "before delivery"
+        ],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.459758808504437
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.447213185272276
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.417911237430325
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.402363179188418
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.393381146808187
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A10",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": 0.456239297065539
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A11",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Selection",
+            "similarity": 0.690670976324687
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.515573337508334
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.402409838046133
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.383932523709659
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.380364844876318
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A12",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": 0.631662752813013
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.449292414726537
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": 0.398203355054585
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A13",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": 0.819318757837526
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.605013558873909
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.524440946301692
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.503035391967285
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.360686785191001
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A14",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.701220003345456
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.587843639783438
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.566925073799723
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.497773755903898
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.440840569840319
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N01",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.407812291848688
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N02",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.387381459270125
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.355711470400897
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N03",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.568009399699548
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.554683935356974
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.523290351105117
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.468012564491646
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.434009544448296
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N04",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": 0.46921105594325
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.45416783946412
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.446084254032875
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.442860871016545
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.429881742860132
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N05",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": 0.537175038946529
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N06",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.482616474929142
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.387857717558984
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N07",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.510252948707392
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.506805332872489
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.434295550244408
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.381214514725047
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.361476328358881
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N08",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [],
+        "returnedNothing": true
+      },
+      {
+        "id": "N09",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [],
+        "returnedNothing": true
+      },
+      {
+        "id": "N10",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": 0.45906008564396
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": 0.439850383922701
+          }
+        ],
+        "returnedNothing": false
+      }
+    ],
+    "hybrid": [
+      {
+        "id": "D01",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.473550370400865
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D02",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.526678429707798
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.518737480482742
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D04",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.525963663340106
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.468488181139825
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D07",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.444590238040244
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D08",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.443947051763319
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D09",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.452054828700344
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.450183247158659
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D10",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.443972822184583
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D11",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.411058096330348
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.36491035466523
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D14",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D15",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 2,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.3806205188115
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D17",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.46271747098393
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D18",
+        "category": "direct_lookup",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.42758716541519
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D19",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.52549274490022
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D21",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D23",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D25",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.660304715554251
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.508429268778182
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D26",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.499437291955712
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D27",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.489328450571261
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D28",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.532396572280567
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D29",
+        "category": "direct_lookup",
+        "difficulty": "hard",
+        "rank": 2,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.416175882724611
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P01",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P02",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P03",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P04",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P05",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 2,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P06",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P07",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P08",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P09",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "P10",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": 0.497245613796593
+          },
+          {
+            "title": "How to order?",
+            "similarity": 0.372577415362891
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D31",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D32",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.428805430044827
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D33",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.450251181405001
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D34",
+        "category": "direct_lookup",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.547758742969763
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D35",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "D36",
+        "category": "direct_lookup",
+        "difficulty": "easy",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.37111970627419
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A01",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.438495251176252
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A02",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A03",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.511277389658125
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A04",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.544219480538941
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A05",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.542680770190472
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.490045633996265
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.489045103372999
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.485691730536265
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A06",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.514882852328627
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A07",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A08",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A09",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": 0.459758808504437
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.402363179188418
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A10",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A11",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.383932523709659
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A12",
+        "category": "adversarial",
+        "difficulty": "medium",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A13",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Tesys Auxiliary Contacts",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "A14",
+        "category": "adversarial",
+        "difficulty": "hard",
+        "rank": 1,
+        "answerable": true,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.440840569840319
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N01",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N02",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.355711470400897
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N03",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.468012564491646
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N04",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.45416783946412
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N05",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Delivery Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": null
+          },
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Reference Spd Selection",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N06",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Warranty Policy",
+            "similarity": null
+          },
+          {
+            "title": "Reference Mcb Tripping Curves",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N07",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": 0.434295550244408
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Rccb Current Types",
+            "similarity": 0.381214514725047
+          }
+        ],
+        "returnedNothing": false
+      },
+      {
+        "id": "N08",
+        "category": "negative",
+        "difficulty": "medium",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [],
+        "returnedNothing": true
+      },
+      {
+        "id": "N09",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [],
+        "returnedNothing": true
+      },
+      {
+        "id": "N10",
+        "category": "negative",
+        "difficulty": "hard",
+        "rank": 0,
+        "answerable": false,
+        "missing": [],
+        "retrieved": [
+          {
+            "title": "Sales SOP",
+            "similarity": null
+          },
+          {
+            "title": "Payment Terms",
+            "similarity": 0.439850383922701
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          },
+          {
+            "title": "Reference Incoterms 2020",
+            "similarity": null
+          },
+          {
+            "title": "SupplierFlow Official Knowledge",
+            "similarity": null
+          }
+        ],
+        "returnedNothing": false
+      }
+    ]
+  }
+}

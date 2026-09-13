@@ -1,0 +1,68 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-29T18:40:20.694Z",
+  "metrics": {
+    "total": 3,
+    "passed": 3,
+    "passRate": 1,
+    "hallucinationRate": null
+  },
+  "results": [
+    {
+      "id": "D07",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated operating voltage of the A9S65440 switch disconnector?",
+      "answer": "The rated operating voltage of the **Acti9 iSW switch disconnector (A9S65440)** is **415 V AC**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Rccb Operating Conditions",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Operating Conditions"
+      ],
+      "latencyMs": 2166,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A07",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "hard",
+      "question": "List the ABB RCCBs in the catalogue rated 63 A and give the residual current of each.",
+      "answer": "Here are the ABB RCCBs in the catalogue rated **63 A**, with their residual-current sensitivity:\n\n- **ABB F202A-63/0.03 APR** — SKU `2CSF202401R1630`  \n  Residual current: **30 mA** (Type A)\n\n- **ABB F202AS-63/0.1** — SKU `2CSF202201R2630`  \n  Residual current: **100 mA** (Type A)\n\n- **ABB F204AC-63/0.3** — SKU `2CSF204001R3630`  \n  Residual current: **300 mA** (Type AC)\n\nIf you'd like to add any to your RFQ cart, just let me know which ones and the quantities.\n\nSources:\n- Reference Rccb Operating Conditions\n- SupplierFlow Official Knowledge\n- Reference Rccb Current Types\n- Reference Rccb Installation Systems",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Operating Conditions",
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Current Types",
+        "Reference Rccb Installation Systems"
+      ],
+      "latencyMs": 5403,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A12",
+      "category": "adversarial",
+      "subcategory": "policy_boundary",
+      "difficulty": "medium",
+      "question": "Can I answer a customer's Singapore delivery time just from an Incoterms 2020 term?",
+      "answer": "No — an Incoterms 2020 term alone doesn’t tell you a delivery time. Incoterms allocate responsibilities and costs between buyer and seller (carriage, clearance, insurance, risk transfer), but they don’t set delivery lead times or shipping charges.\n\nFor an actual Singapore delivery estimate, we’d need the agreed Incoterms rule plus the named place and the commercial contract — and ideally SupplierFlow’s own delivery confirmation. I don’t have a Singapore delivery timeframe in the catalogue facts, so I’d suggest having the sales team confirm that for your customer.\n\nSources:\n- Reference Incoterms 2020\n- Reference Incoterms Cost Insurance\n- Payment Terms\n- Delivery Policy\n- Sales SOP",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms 2020",
+        "Reference Incoterms Cost Insurance",
+        "Payment Terms",
+        "Delivery Policy",
+        "Sales SOP"
+      ],
+      "latencyMs": 4248,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    }
+  ]
+}

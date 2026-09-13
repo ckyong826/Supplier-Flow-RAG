@@ -2,6 +2,11 @@
 
 A plain-language walkthrough. 用大白话解释。
 
+**Current checkpoint / 当前进度:** Phase 1 is complete. The final fixture has 139 questions over
+44 source documents; the live run passed 139/139 with 25/25 negatives and 0/25 hallucination.
+Some examples below explain the original 50-question baseline; see `README.md` for the current
+measurements.
+
 ---
 
 ## 0. The core idea / 核心概念
@@ -40,7 +45,7 @@ librarian separately.
 
 **EN.** When you upload a document via `POST /api/admin/knowledge`:
 
-1. **Cut it up.** The text is split into pieces of 180 words each ("chunks"). Why? Because
+1. **Cut it up.** The text is split into pieces of 100 words each ("chunks"). Why? Because
    sending a whole document to the AI wastes space and dilutes the answer. Small pieces are
    more precise.
 2. **Turn each piece into numbers.** OpenAI's `text-embedding-3-small` converts each chunk into
@@ -50,7 +55,7 @@ librarian separately.
 
 **中文。** 当你通过 `POST /api/admin/knowledge` 上传文件时：
 
-1. **切块。** 文字被切成每块 180 个词。为什么？因为把整份文件塞给 AI 很浪费，而且会稀释重点。
+1. **切块。** 文字被切成每块 100 个词。为什么？因为把整份文件塞给 AI 很浪费，而且会稀释重点。
    小块比较精准。
 2. **把每块变成数字。** OpenAI 的 `text-embedding-3-small` 把每一块转换成 1536 个数字
    （叫「向量 / embedding」）。你可以把它想成一个描述**语意**的坐标。

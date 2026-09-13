@@ -1,0 +1,198 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T17:24:05.177Z",
+  "config": {
+    "retrievalMode": null,
+    "reranker": null,
+    "rewriteMode": null
+  },
+  "metrics": {
+    "total": 4,
+    "passed": 4,
+    "passRate": 1,
+    "hallucinationRate": 0,
+    "answerAccuracy": 1,
+    "faithfulness": 1,
+    "contextRelevance": 0.5333333333333333,
+    "contextCoverage": 1,
+    "abstentionPrecision": 1,
+    "abstentionRecall": 1,
+    "falseAnswerRate": 0,
+    "overAbstentionRate": 0,
+    "latencyMs": {
+      "totalClient": {
+        "p50": 3745,
+        "p95": 6304,
+        "count": 4
+      },
+      "serverTotal": {
+        "p50": 3562,
+        "p95": 6111,
+        "count": 4
+      },
+      "retrieval": {
+        "p50": 394,
+        "p95": 424,
+        "count": 4
+      },
+      "generation": {
+        "p50": 2486,
+        "p95": 5006,
+        "count": 4
+      }
+    },
+    "tokens": {
+      "measuredQueries": 4,
+      "prompt": 8046,
+      "completion": 1456,
+      "total": 9502,
+      "average": 2375.5
+    },
+    "costUsd": {
+      "total": 0.001067976,
+      "averagePerQuery": 0.000266994,
+      "pricingPerMillionTokens": {
+        "inputCacheHit": 0.007,
+        "inputCacheMiss": 0.22,
+        "output": 0.66
+      },
+      "pricingSource": "https://api-docs.deepseek.com/quick_start/pricing/"
+    }
+  },
+  "results": [
+    {
+      "id": "A05",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "Compare the A9D55610 and the A9D32625 RCBOs.",
+      "answer": "Here’s how the two RCBOs compare:\n\n**Acti9 iDPN N Vigi RCBO — A9D55610**\n- 1P+N, 10 A, **B curve**\n- Residual-current type: AC\n- Sensitivity: 30 mA\n- Rated short-circuit capacity: 6 kA\n\n**Acti9 iDPN N Vigi RCBO — A9D32625**\n- 1P+N, 25 A, **C curve**\n- Residual-current type: A\n- Sensitivity: 30 mA\n- Rated short-circuit capacity: 6 kA\n\nBoth are 1P+N RCBOs with 30 mA sensitivity and 6 kA short-circuit capacity. The main differences: A9D55610 is 10 A with a **B curve** and Type AC, while A9D32625 is 25 A with a **C curve** and Type A.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Spd Impulse Current\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Impulse Current",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 3669,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 389,
+      "generationMs": 2457,
+      "serverTotalMs": 3479,
+      "promptTokens": 2242,
+      "completionTokens": 328,
+      "totalTokens": 2570,
+      "costUsd": 0.00024623200000000004
+    },
+    {
+      "id": "A09",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "I'm a new customer in Kuala Lumpur and I need a 1-pole 40 A B-curve MCB. What product fits, and what payment and delivery terms apply?",
+      "answer": "The product that fits is:\n\n- **Acti9 iC60N MCB** — SKU **A9F73140**\n  - 1-pole\n  - 40 A\n  - B curve\n  - 6 kA at 230 V AC / 10 kA at 220–240 V AC\n\nStatus is **Check availability**, stock is not tracked, and price is on request — so I can’t confirm stock or pricing here.\n\n**Payment terms**\n- Quotations are valid for **14 calendar days**.\n- As a new customer, **payment is required before delivery** unless approved credit terms are confirmed in writing.\n\n**Delivery terms**\n- Kuala Lumpur / Klang Valley: normally **1–2 working days** after order confirmation and stock allocation.\n- Orders confirmed **before 2:00 PM** on a working day are processed the same day, subject to stock.\n\nWould you like me to prepare an RFQ for this item? If so, please provide your **name, company, and work email** — and you can add an optional project note.\n\nSources:\n- Delivery Policy\n- SupplierFlow Official Knowledge\n- Sales SOP\n- Payment Terms",
+      "matchedSkus": [
+        "A9F73140",
+        "2CSF202201R2630",
+        "S200-M-UC"
+      ],
+      "sources": [
+        "Delivery Policy",
+        "SupplierFlow Official Knowledge",
+        "Sales SOP",
+        "Payment Terms"
+      ],
+      "latencyMs": 6304,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 4,
+      "contextRelevance": 0.8,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 424,
+      "generationMs": 5006,
+      "serverTotalMs": 6111,
+      "promptTokens": 2135,
+      "completionTokens": 553,
+      "totalTokens": 2688,
+      "costUsd": 0.000398456
+    },
+    {
+      "id": "A12",
+      "category": "adversarial",
+      "subcategory": "policy_boundary",
+      "difficulty": "medium",
+      "question": "Can I answer a customer's Singapore delivery time just from an Incoterms 2020 term?",
+      "answer": "No — an Incoterms 2020 term alone cannot answer a Singapore delivery time. It allocates buyer/seller responsibilities, costs, carriage arrangements, and risk transfer, but it does **not** provide the actual delivery time, shipping charge, stock availability, or guaranteed date.\n\nTo give a delivery time, you would need commercial details like carrier transit time, shipping method, stock status, and SupplierFlow-specific logistics terms — none of which come from the Incoterms rule itself.\n\nSources:\n- Reference Incoterms Risk Transfer\n- Reference Incoterms 2020\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms Risk Transfer",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 3745,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 394,
+      "generationMs": 2486,
+      "serverTotalMs": 3562,
+      "promptTokens": 1984,
+      "completionTokens": 264,
+      "totalTokens": 2248,
+      "costUsd": 0.00020176000000000002
+    },
+    {
+      "id": "N05",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "How long does delivery to Singapore take?",
+      "answer": "I don’t have a specific delivery time for Singapore in the catalogue. A transit estimate depends on route, carrier, shipment details, and the confirmed schedule — those aren’t published here.\n\nI can have the sales team confirm the expected lead time for your order. Would you like me to arrange that?\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms Rules Overview\n- Reference Incoterms 2020\n- Reference Incoterms Risk Transfer",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Risk Transfer"
+      ],
+      "latencyMs": 4524,
+      "pass": true,
+      "abstained": true,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 0,
+      "contextRelevance": null,
+      "contextCoverage": null,
+      "faithful": null,
+      "retrievalMs": 422,
+      "generationMs": 3231,
+      "serverTotalMs": 4341,
+      "promptTokens": 1685,
+      "completionTokens": 311,
+      "totalTokens": 1996,
+      "costUsd": 0.00022152800000000002
+    }
+  ]
+}

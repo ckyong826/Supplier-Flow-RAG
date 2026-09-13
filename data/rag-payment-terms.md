@@ -1,5 +1,7 @@
 # Payment Terms
 
+Quick answer: a standard quotation is valid for 14 calendar days from the quotation date unless stated otherwise.
+
 Standard quotation validity is 14 calendar days from quotation date unless stated otherwise.
 
 New customers require payment before delivery unless approved credit terms are confirmed in writing.

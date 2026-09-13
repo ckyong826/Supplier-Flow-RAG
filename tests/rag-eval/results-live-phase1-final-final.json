@@ -1,0 +1,2648 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T15:54:07.293Z",
+  "metrics": {
+    "total": 139,
+    "passed": 139,
+    "passRate": 1,
+    "hallucinationRate": 0
+  },
+  "results": [
+    {
+      "id": "D01",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated current and tripping curve of the Acti9 iC60N A9F73140?",
+      "answer": "The Acti9 iC60N **A9F73140** has a rated current of **40 A** and a **B tripping curve**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Catalogue\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 2729,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D02",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What breaking capacity does A9F73140 have under IEC/EN 60898-1?",
+      "answer": "The **A9F73140** (Acti9 iC60N MCB) has a breaking capacity of **6 kA at 230 V AC** under IEC/EN 60898-1.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pln6 Catalogue\n- Reference Acti9 Ic60 Catalogue\n- Reference Mcb Temperature Derating",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pln6 Catalogue",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Mcb Temperature Derating"
+      ],
+      "latencyMs": 6116,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D04",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What earth-leakage sensitivity does the A9D55610 RCBO provide?",
+      "answer": "The **A9D55610** RCBO provides **30 mA** residual-current sensitivity (Type AC).\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Rccb Overcurrent Protection\n- Reference Acti9 Iprd Brochure\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Rccb Overcurrent Protection",
+        "Reference Acti9 Iprd Brochure",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 2371,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D07",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated operating voltage of the A9S65440 switch disconnector?",
+      "answer": "The rated operating voltage of the **A9S65440** (Acti9 iSW Switch Disconnector) is **415 V AC**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Spd Electrical Characteristics\n- Reference Tesys Deca Installation",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Electrical Characteristics",
+        "Reference Tesys Deca Installation"
+      ],
+      "latencyMs": 2818,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D08",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "How many poles and what rated operational current does A9S65463 have?",
+      "answer": "**A9S65463** has **4 poles** and a rated operational current of **63 A** (415 V AC).\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 2811,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D09",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What are the surge rating and rated voltage of the A9L20100 surge arrester?",
+      "answer": "The A9L20100 surge arrester has:\n\n- **Surge rating:** 20 kA\n- **Rated voltage:** 350 V\n\nIt is a single-pole (1P) device.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Iprd Brochure\n- Reference Acti9 Ic60 Catalogue\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Iprd Brochure",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 2664,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D10",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil supply range does the LC1D09BNE contactor use?",
+      "answer": "The LC1D09BNE contactor uses a **24–60 V AC/DC** coil supply.\n\nSources:\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 2799,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D11",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil voltage does LC1D09BD use?",
+      "answer": "**LC1D09BD** uses a **24 V DC coil**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Tesys Deca Installation\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Deca Installation",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 2736,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D14",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What coil voltage is specified for LC1D40AF7?",
+      "answer": "For **LC1D40AF7**, the specified coil voltage is **110 V AC, 50/60 Hz**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Tesys Deca Catalogue\n- Reference Tesys Deca Installation",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Deca Installation"
+      ],
+      "latencyMs": 2336,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D15",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "How many built-in auxiliary contacts does LC1D40AP7 provide?",
+      "answer": "LC1D40AP7 provides **1 normally open (NO) + 1 normally closed (NC)** built-in auxiliary contact — so **2 auxiliary contacts** in total.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Tesys Overload Relays\n- Reference Tesys Deca Catalogue\n- Reference Abb S200 Catalogue\n- Reference Tesys Deca Installation",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Overload Relays",
+        "Reference Tesys Deca Catalogue",
+        "Reference Abb S200 Catalogue",
+        "Reference Tesys Deca Installation"
+      ],
+      "latencyMs": 2695,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D17",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What AC-3 motor power at 400 V is stated for LC1D65ABNE?",
+      "answer": "For **LC1D65ABNE** (TeSys Deca Contactor), the stated **AC-3 motor power at 400 V is 30 kW**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Tesys Utilization Categories\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Utilization Categories",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 2621,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D18",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "hard",
+      "question": "How wide is the LC1D150M7 contactor?",
+      "answer": "The LC1D150M7 (TeSys Deca contactor) is **120 mm wide**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Ic60 Catalogue\n- Reference Tesys Utilization Categories",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Tesys Utilization Categories"
+      ],
+      "latencyMs": 2494,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D19",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What DC voltage and Icu can the ABB S200 M UC arc-extinguishing design handle?",
+      "answer": "The ABB S200 M UC range uses permanent-magnet arcing chutes to extinguish arcs **up to 500 V DC**, with an **Icu of 4.5 kA at 500 V DC**. It also has a 10 kA industrial breaking capacity for AC applications.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Abb S200 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Abb S200 Catalogue"
+      ],
+      "latencyMs": 3091,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D21",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What rated residual current is specified for the ABB F204AC-63/0.3?",
+      "answer": "The ABB **F204AC-63/0.3** (SKU `2CSF204001R3630`) has a rated residual operating current of **300 mA**, with residual-current type **AC**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 2961,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D23",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What are the rated current and rated residual current of the ABB F202A-40/0.03?",
+      "answer": "The **ABB F202A-40/0.03** (SKU `2CSF202101R1400`) has:\n\n- **Rated current:** 40 A\n- **Rated residual current:** 30 mA (0.03 A)\n\nIt's a 2-pole, Type A RCCB rated at 277 V AC.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 3618,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D25",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What poles, rated current and tripping characteristic are listed for Eaton SKU 263164?",
+      "answer": "For Eaton SKU 263164 (Eaton xPole PLN6 MCB):\n\n- **Poles:** 1P+N — one protected pole plus a neutral pole (neutral switched)\n- **Rated current:** 16 A\n- **Tripping characteristic:** B\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pln6 Catalogue\n- Reference Acti9 Rcbo Catalogue\n- Reference Abb S200 Catalogue",
+      "matchedSkus": [
+        "263164",
+        "263584",
+        "2CSF202101R1400"
+      ],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pln6 Catalogue",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Abb S200 Catalogue"
+      ],
+      "latencyMs": 3603,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D26",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What is the rated fault current and short-circuit strength of the Eaton xPole PF7 263584?",
+      "answer": "For the **Eaton xPole PF7 RCCB (SKU 263584)**:\n\n- **Rated fault current** (rated residual operating current / residual-current sensitivity): **30 mA**\n- **Short-circuit strength**: **10 kA**\n\nIt's a 4-pole, 25 A, Type AC device. Anything else I can help with?\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 3841,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D27",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What rated AC voltage does the Eaton xPole Home HL MCB datasheet specify?",
+      "answer": "The Eaton xPole Home HL MCB datasheet specifies a rated AC voltage of **230/400 V AC**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pln6 Catalogue\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [
+        "XPOLE-HL-MCB",
+        "263164",
+        "263584"
+      ],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pln6 Catalogue",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 2773,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D28",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What is the Imax range of the Schneider Acti9 iPRD surge protection range and which standard does it comply with?",
+      "answer": "The Schneider Acti9 iPRD range has an **Imax range of 8–65 kA** and complies with **IEC/EN 61643-11**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Iprd Brochure\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Iprd Brochure",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 2880,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D29",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "hard",
+      "question": "When sensitive loads sit more than 10 m from a Type 2 iPRD, what downstream protection is recommended?",
+      "answer": "A **Type 3 SPD** is recommended close to the sensitive load when it is more than 10 m from a Type 2 iPRD. This is part of the Acti9 iPRD range, which includes Type 3 and Type 2+3 devices.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Spd Selection\n- Reference Acti9 Iprd Brochure\n- Reference Acti9 Iprd Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Selection",
+        "Reference Acti9 Iprd Brochure",
+        "Reference Acti9 Iprd Catalogue"
+      ],
+      "latencyMs": 3274,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P01",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long does delivery normally take within Klang Valley?",
+      "answer": "Deliveries within Klang Valley normally take **1–2 working days** after order confirmation and stock allocation. \n\nAlso, if an order is confirmed before 2:00 PM on a working day, it's processed the same day (subject to stock); after that cut-off, processing moves to the next working day.\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms Rules Overview\n- Delivery Policy",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms Rules Overview",
+        "Delivery Policy"
+      ],
+      "latencyMs": 4784,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P02",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What is the normal delivery time for Peninsular Malaysia outside Klang Valley?",
+      "answer": "For Peninsular Malaysia outside Klang Valley, normal delivery time is **2–4 working days** after order confirmation and stock allocation.\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms Cost Insurance\n- Reference Incoterms Rules Overview\n- Reference Incoterms 2020\n- Delivery Policy",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms Cost Insurance",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms 2020",
+        "Delivery Policy"
+      ],
+      "latencyMs": 2713,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P03",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long do East Malaysia deliveries normally take?",
+      "answer": "East Malaysia deliveries normally take **3–5 working days** after order confirmation and stock allocation. Remote areas may need extra transit time.\n\nSources:\n- Delivery Policy\n- Reference Rccb Selectivity Coordination\n- Reference Spd Impulse Current\n- Reference Spd Connection Rules",
+      "matchedSkus": [],
+      "sources": [
+        "Delivery Policy",
+        "Reference Rccb Selectivity Coordination",
+        "Reference Spd Impulse Current",
+        "Reference Spd Connection Rules"
+      ],
+      "latencyMs": 2434,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P04",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What is the daily order cut-off time for same-day processing?",
+      "answer": "The daily cut-off for same-day processing is **2:00 PM** on working days. Orders confirmed before that time are processed the same day, subject to stock availability.\n\nSources:\n- Delivery Policy\n- Reference Incoterms Rules Overview\n- Payment Terms",
+      "matchedSkus": [],
+      "sources": [
+        "Delivery Policy",
+        "Reference Incoterms Rules Overview",
+        "Payment Terms"
+      ],
+      "latencyMs": 2732,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P05",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "How long is a quotation valid for?",
+      "answer": "A standard quotation is valid for **14 calendar days** from the quotation date, unless stated otherwise on the quotation itself.\n\nSources:\n- Sales SOP\n- Payment Terms\n- Warranty Policy\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "Payment Terms",
+        "Warranty Policy",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 2997,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P06",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What are the payment requirements for a new customer?",
+      "answer": "For a new customer, payment is required **before delivery**, unless approved credit terms have been confirmed in writing.\n\nIf paying by bank transfer, please include the quotation or invoice number in the payment reference.\n\nSources:\n- Payment Terms\n- Reference Incoterms Rules Overview\n- Sales SOP",
+      "matchedSkus": [],
+      "sources": [
+        "Payment Terms",
+        "Reference Incoterms Rules Overview",
+        "Sales SOP"
+      ],
+      "latencyMs": 3198,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P07",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What credit terms may approved account customers receive?",
+      "answer": "Approved account customers may receive **30-day credit terms**, subject to their credit limit and account status.\n\nSources:\n- Payment Terms\n- Reference Incoterms Rules Overview\n- Reference Incoterms Cost Insurance\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Payment Terms",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms Cost Insurance",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 3072,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P08",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "easy",
+      "question": "What warranty do LED panel lights carry?",
+      "answer": "LED panel lights carry a **3-year manufacturer warranty**.\n\nSources:\n- Warranty Policy\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms Rules Overview\n- Reference Acti9 Rcbo Installation\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Warranty Policy",
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms Rules Overview",
+        "Reference Acti9 Rcbo Installation",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 3689,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "P09",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "What is required to submit a warranty claim?",
+      "answer": "To submit a warranty claim, you typically need:\n\n- **Original invoice or quotation reference**\n- **Clear product photographs** of the item\n- **A description of the fault**\n\nPlease note the warranty does **not** cover incorrect installation, physical damage, water ingress beyond the stated IP rating, electrical surge damage, modification, or use outside published technical specifications.\n\nThe supplier may also ask for the item to be returned for inspection before approving a replacement or credit. If you'd like, I can help pull up the warranty details for a specific product from the catalogue.\n\nSources:\n- Warranty Policy\n- Reference Incoterms Rules Overview\n- Reference Abb F200 B Type\n- Reference Acti9 Ic60 Catalogue\n- Reference Tesys Utilization Categories",
+      "matchedSkus": [],
+      "sources": [
+        "Warranty Policy",
+        "Reference Incoterms Rules Overview",
+        "Reference Abb F200 B Type",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Tesys Utilization Categories"
+      ],
+      "latencyMs": 3699,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "P10",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "How soon should the sales team follow up on a sent quotation?",
+      "answer": "Per the sales SOP, the team follows up on a sent quotation **within 3 working days**.\n\nSources:\n- Sales SOP\n- Warranty Policy\n- Delivery Policy\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "Warranty Policy",
+        "Delivery Policy",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 2938,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D31",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What range of multiples of rated current causes an MCB with a B curve to trip magnetically?",
+      "answer": "A B curve MCB trips magnetically between **3 and 5 times its rated current (In)**.\n\nSources:\n- Reference Mcb Tripping Curves\n- Reference Abb Rcd Application\n- Reference Acti9 Rcbo Catalogue\n- SupplierFlow Official Knowledge\n- Reference Abb S200 Catalogue",
+      "matchedSkus": [
+        "S200-M-UC",
+        "A9F73140",
+        "A9D55610"
+      ],
+      "sources": [
+        "Reference Mcb Tripping Curves",
+        "Reference Abb Rcd Application",
+        "Reference Acti9 Rcbo Catalogue",
+        "SupplierFlow Official Knowledge",
+        "Reference Abb S200 Catalogue"
+      ],
+      "latencyMs": 3286,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D32",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What does the C curve describe on an MCB?",
+      "answer": "The **C curve** describes the **magnetic tripping range** of an MCB – i.e. how many times the rated current (`In`) will trigger the instantaneous magnetic trip. For a C curve, that’s **5 to 10 × In**.\n\nIt is not the rated current and not the breaking capacity.\n\nSources:\n- Reference Eaton Pln6 Catalogue\n- Reference Mcb Current Limiting\n- Reference Abb S200 Catalogue\n- Reference Mcb Tripping Curves\n- Reference Abb Rcd Application",
+      "matchedSkus": [
+        "A9F73140",
+        "S200-M-UC",
+        "A9D55610"
+      ],
+      "sources": [
+        "Reference Eaton Pln6 Catalogue",
+        "Reference Mcb Current Limiting",
+        "Reference Abb S200 Catalogue",
+        "Reference Mcb Tripping Curves",
+        "Reference Abb Rcd Application"
+      ],
+      "latencyMs": 4709,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D33",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What is the difference between Type AC and Type A residual-current detection?",
+      "answer": "Type AC and Type A are two different residual-current detection classes, and they are **not automatically interchangeable**:\n\n- **Type AC** detects residual **sinusoidal alternating current (AC)**.\n- **Type A** detects everything Type AC detects, **plus specified pulsating DC residual currents** — the kind that can come from rectified or electronic loads.\n\nSo Type A is the broader capability. If your load can produce pulsating DC faults (e.g. from electronic/rectified equipment), you need Type A rather than Type AC. For a simple AC-only installation, Type AC is usually sufficient but you should always match the device to the installation requirements.\n\nIn our catalogue, the listed ABB F200 RCCBs are **Type AC** (40 A/30 mA, 40 A/300 mA, and 63 A/300 mA). We don't currently have a Type A RCCB listed. If you need Type A, let me know and I can check whether the sales team can source one.\n\nSources:\n- Reference Rccb Current Types\n- Reference Rccb Type F\n- Reference Abb Rcd Application\n- Reference Abb F200 B Type\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Current Types",
+        "Reference Rccb Type F",
+        "Reference Abb Rcd Application",
+        "Reference Abb F200 B Type",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 4958,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "D34",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What does IΔn mean on an RCCB, and is 30 mA automatically valid for every F200 SKU?",
+      "answer": "`IΔn` is the **rated residual current** — in plain terms, it’s the RCCB’s sensitivity. It tells you the leakage current level at which the device is designed to trip. Common values are **30 mA, 100 mA, and 300 mA**.\n\nAnd no — 30 mA is **not automatically valid for every F200 SKU**. The sensitivity belongs to each individual SKU, not to the whole family. ABB’s F200 family page lists sensitivities from **10 mA to 1000 mA**, so you always have to check the specific product code.\n\nFor example, in our catalogue:\n\n- ABB F202A-40/0.03 (2CSF202101R1400) → 30 mA\n- ABB F202A-63/0.03 APR (2CSF202401R1630) → 30 mA\n- ABB F202AC-40/0.03 (2CSF202001R1400) → 30 mA\n\nSo the 30 mA value is confirmed for these SKUs, but it shouldn’t be assumed for other F200 references. Need help finding a specific sensitivity or current rating?\n\nSources:\n- Reference Rccb Current Types\n- SupplierFlow Official Knowledge\n- Reference Abb F200 B Type\n- Reference Rccb Operating Conditions\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [
+        "2CSF202101R1400",
+        "2CSF202401R1630",
+        "2CSF202001R1400"
+      ],
+      "sources": [
+        "Reference Rccb Current Types",
+        "SupplierFlow Official Knowledge",
+        "Reference Abb F200 B Type",
+        "Reference Rccb Operating Conditions",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 5439,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D35",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Where is a Type 2 SPD installed in relation to the main service overcurrent protective device?",
+      "answer": "A Type 2 SPD is installed on the **load side** of the main service overcurrent protective device. It also needs appropriately rated upstream overcurrent protection that is coordinated with the installation.\n\nSources:\n- Reference Spd Selection\n- Reference Spd Electrical Characteristics\n- Reference Spd Impulse Current\n- SupplierFlow Official Knowledge\n- Reference Acti9 Iprd Brochure",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Spd Selection",
+        "Reference Spd Electrical Characteristics",
+        "Reference Spd Impulse Current",
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Iprd Brochure"
+      ],
+      "latencyMs": 3786,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D36",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which terminal pair identifies the NO and NC auxiliary contacts on TeSys D contactors?",
+      "answer": "On a TeSys D contactor with 1NO + 1NC auxiliary contacts:\n\n- **NO** (normally open): terminals **13 and 14**\n- **NC** (normally closed): terminals **21 and 22**\n\nThese numbers identify the connection points; NO/NC describe the contact state when the coil is de-energised.\n\nSources:\n- Reference Tesys Auxiliary Contacts\n- Reference Tesys Deca Catalogue\n- Reference Tesys Deca Installation\n- Reference Tesys Linked Contacts",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Auxiliary Contacts",
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Deca Installation",
+        "Reference Tesys Linked Contacts"
+      ],
+      "latencyMs": 3361,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D37",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "How does a current-limiting circuit breaker reduce the effects of a short circuit?",
+      "answer": "A current-limiting circuit breaker reduces the **amplitude** of a short-circuit current, which in turn lowers the **dissipated power / thermal stress** in the installation.\n\nHowever, keep in mind that a current-limiting curve is **not** a replacement for the breaker’s rated breaking capacity — they are separate properties. If you need specific kA values or coordination, check the product’s rated breaking capacity and the relevant coordination tables.\n\nSources:\n- Reference Mcb Current Limiting\n- Reference Acti9 Ic60 Catalogue\n- SupplierFlow Official Knowledge\n- Reference Eaton Pln6 Catalogue",
+      "matchedSkus": [
+        "263584",
+        "2CSF202101R1400",
+        "2CSF202401R1630"
+      ],
+      "sources": [
+        "Reference Mcb Current Limiting",
+        "Reference Acti9 Ic60 Catalogue",
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pln6 Catalogue"
+      ],
+      "latencyMs": 3654,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D38",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "How does an RCD detect an earth fault?",
+      "answer": "An RCD/RCCB detects an earth fault by comparing the current flowing in the phase conductor with the current returning in the neutral conductor. Under normal conditions these are equal and cancel out. If some phase current leaks to ground (an earth fault), the currents become unbalanced, and the RCD senses that difference and disconnects the circuit.\n\nOne important boundary: this principle isn’t suitable for a TN-C system where the neutral is also used as the protective conductor, because the imbalance wouldn’t be detected properly.\n\nWant me to help you find a suitable RCCB or RCBO from the catalogue?\n\nSources:\n- Reference Rccb Installation Systems\n- Reference Rccb Overcurrent Protection\n- Reference Rccb Selectivity Coordination\n- Reference Abb Rcd Application\n- Reference Tesys Overload Relays",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Installation Systems",
+        "Reference Rccb Overcurrent Protection",
+        "Reference Rccb Selectivity Coordination",
+        "Reference Abb Rcd Application",
+        "Reference Tesys Overload Relays"
+      ],
+      "latencyMs": 4310,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D39",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What ambient temperature range does the ABB F200 RCCB family page state?",
+      "answer": "The ABB F200 RCCB family page states an ambient temperature range of **-25°C to +55°C**.\n\nSources:\n- Reference Rccb Operating Conditions\n- Reference Abb F200 B Type\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Operating Conditions",
+        "Reference Abb F200 B Type",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 3042,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D40",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Which TeSys D contactor range includes mirror and mechanically linked contacts?",
+      "answer": "The TeSys D contactor range includes mirror contacts and mechanically linked contacts from **LC1D09 up to LC1D150**, per Schneider’s reference. This applies to the TeSys D contactors in the catalogue as well.\n\nFor a specific SKU, the exact auxiliary arrangement and terminal assignment still need to be confirmed from the wiring diagram.\n\nSources:\n- Reference Tesys Linked Contacts\n- Reference Tesys Overload Relays\n- Reference Tesys Deca Catalogue\n- Reference Tesys Deca Installation",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Linked Contacts",
+        "Reference Tesys Overload Relays",
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Deca Installation"
+      ],
+      "latencyMs": 3682,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D41",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Where does the ICC say the costs associated with an Incoterms 2020 rule are listed?",
+      "answer": "The ICC places the costs associated with each Incoterms 2020 rule in **article A9/B9**. The detailed obligations are then spelled out in the individual rule articles.\n\nSources:\n- Reference Incoterms Rules Overview\n- Reference Incoterms Cost Insurance\n- Reference Incoterms Risk Transfer\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms Cost Insurance",
+        "Reference Incoterms Risk Transfer",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 3379,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D42",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "According to MySST, what kinds of goods can be subject to Malaysia sales tax?",
+      "answer": "Based on the Malaysian SST scope reference:\n\n- Malaysia sales tax can apply to **taxable goods manufactured in Malaysia** by registered persons and sold by them.\n- It can also apply to **taxable goods imported into Malaysia**.\n\nThe scope note does not state one universal SST rate or percentage. Need more specifics? I can help with the RFQ process or products as well.\n\nSources:\n- Sales SOP\n- Reference Malaysia Sst Scope\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "Reference Malaysia Sst Scope",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 2931,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D43",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What is the purpose of the JKDM HS Explorer?",
+      "answer": "The JKDM HS Explorer is the Royal Malaysian Customs Department's online reference tool. Its purpose is to help you **search tariff rates** for products you're interested in — you select a tariff type and search criteria, and the result depends on how the product is classified and which tariff arrangement applies.\n\nOne important note: a product's SKU or marketing name alone is **not** an exact HS code. The correct code depends on the customs classification and the applicable tariff context, so it's best to use the official tool or get a customs ruling when you need certainty.\n\nSources:\n- Reference Malaysia Hs Explorer\n- Reference Spd Impulse Current\n- Reference Acti9 Ic60 Catalogue\n- Warranty Policy\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Malaysia Hs Explorer",
+        "Reference Spd Impulse Current",
+        "Reference Acti9 Ic60 Catalogue",
+        "Warranty Policy",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 3842,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A01",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "What is the difference between the ABB F202A-40/0.03 and the F202AC-40/0.03?",
+      "answer": "The difference is the **residual-current type**:\n\n- **ABB F202A-40/0.03** (SKU `2CSF202101R1400`) — **Type A** RCCB. Detects AC residual currents plus pulsed DC residual currents. Rated at 2P, 40 A, 30 mA, 277 V AC.\n- **ABB F202AC-40/0.03** (SKU `2CSF202001R1400`) — **Type AC** RCCB. Detects alternating (AC) residual currents. Rated at 2P, 40 A, 30 mA, 277 V AC.\n\nThey are **not automatically equivalent** — the letter in the model name indicates the trip characteristic for residual-current types. For applications where pulsed DC fault currents may occur, Type A is the more sensitive choice; for purely AC installations, Type AC is typically used. The listed current (40 A) and sensitivity (30 mA) are the same on both.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 4954,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A02",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "Which ABB RCCB is rated 40 A with 300 mA residual current, and what is its order code?",
+      "answer": "The ABB RCCB you're looking for is the **ABB F202AC-40/0.3** — a two-pole RCCB rated **40 A** with **300 mA** residual current, Type AC.\n\n**Order code (SKU):** `2CSF202001R3400`\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue\n- Reference Rccb Current Types",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 3534,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A03",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "I need a 9 A TeSys Deca contactor. What is the difference between the LC1D09BNE and the LC1D09BD?",
+      "answer": "Both are **9 A TeSys Deca contactors** with 3 poles / 3 NO contacts and AC-3/AC-3e rating up to 440 V. The only difference is the coil:\n\n- **LC1D09BNE** — **24–60 V AC/DC coil** (wide-range AC/DC control voltage)\n- **LC1D09BD** — **24 V DC coil** (DC coil only, fixed 24 V)\n\nSo the choice depends on your control supply: go with the **BNE** if you need flexibility across 24–60 V AC or DC, or the **BD** if you have a dedicated 24 V DC circuit.\n\nWould you like me to add one of these to your RFQ cart? If so, please confirm which SKU and quantity, and provide:\n- Your name\n- Company\n- Work email\n- Optional project note\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 4284,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A04",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "We have two Acti9 iSW 4-pole 415 V AC switch disconnectors in the catalogue. Which one is 63 A and which one is 40 A?",
+      "answer": "- **A9S65463** – Acti9 iSW 4-pole, **63 A**, 415 V AC\n- **A9S65440** – Acti9 iSW 4-pole, **40 A**, 415 V AC\n\nBoth are four-pole switch disconnectors for isolation at 415 V AC.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 3105,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A05",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_sku",
+      "difficulty": "hard",
+      "question": "Compare the A9D55610 and the A9D32625 RCBOs.",
+      "answer": "Here’s how the two Acti9 iDPN N Vigi RCBOs compare:\n\n**Acti9 iDPN N Vigi RCBO — A9D55610**\n- 1P+N RCBO with overload and residual-current protection\n- Rated current: 10 A\n- Tripping curve: B curve\n- Residual-current type: AC\n- Residual-current sensitivity: 30 mA\n- Rated short-circuit capacity: 6 kA\n\n**Acti9 iDPN N Vigi RCBO — A9D32625**\n- 1P+N RCBO with residual-current and overcurrent protection\n- Rated current: 25 A\n- Tripping curve: C curve\n- Residual-current type: A\n- Residual-current sensitivity: 30 mA\n- Rated short-circuit capacity: 6 kA\n\n**Key differences**\n- **Current rating:** A9D55610 is 10 A, A9D32625 is 25 A.\n- **Tripping curve:** A9D55610 is B curve, A9D32625 is C curve.\n- **Residual-current type:** A9D55610 is Type AC, A9D32625 is Type A.\n\nBoth are 1P+N, both have 30 mA sensitivity, and both have 6 kA short-circuit capacity.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Spd Impulse Current\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Impulse Current",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 4707,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A06",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "hard",
+      "question": "Which contactor in the catalogue gives 30 kW AC-3 motor power at 400 V?",
+      "answer": "The contactor with **30 kW AC-3 motor power at 400 V** is:\n\n**TeSys Deca Contactor — SKU LC1D65ABNE**\n- 3P / 3NO\n- 65 A AC-3/AC-3e\n- Coil: 24–60 V AC/DC\n- Motor power: 30 kW at 400 V\n\nWould you like me to add it to your RFQ cart?\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Tesys Deca Catalogue\n- Reference Tesys Utilization Categories",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Utilization Categories"
+      ],
+      "latencyMs": 3241,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A07",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "hard",
+      "question": "List the ABB RCCBs in the catalogue rated 63 A and give the residual current of each.",
+      "answer": "Here are the ABB RCCBs rated 63 A in the catalogue, with their rated residual currents:\n\n- **ABB F202A-63/0.03 APR** (SKU `2CSF202401R1630`) — rated residual current: 30 mA\n- **ABB F202AS-63/0.1** (SKU `2CSF202201R2630`) — rated residual current: 100 mA\n- **ABB F204AC-63/0.3** (SKU `2CSF204001R3630`) — rated residual current: 300 mA\n\nAll three are 63 A RCCBs from the ABB F200 series. Would you like me to add any of these to your RFQ cart?\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue\n- Reference Rccb Selectivity Coordination\n- Reference Abb F200 B Type",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Rccb Selectivity Coordination",
+        "Reference Abb F200 B Type"
+      ],
+      "latencyMs": 4306,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A08",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "If I confirm an order for LC1D150M7 at 3:00 PM on a Tuesday for delivery to Johor Bahru, when should I expect it?",
+      "answer": "For **LC1D150M7** (TeSys Deca Contactor) to Johor Bahru:\n\n- **3:00 PM Tuesday** – this is after the **2:00 PM cut-off**, so processing moves to the **next working day** (Wednesday).\n- **Johor Bahru** is in Peninsular Malaysia outside Klang Valley, so standard delivery is **2–4 working days** after order confirmation and stock allocation.\n\nThat would put expected delivery around **Friday to the following Tuesday**, depending on the exact allocation date and any remote-area factors.\n\nPlease note: this is based on our standard delivery policy — we can’t confirm a firm date until stock is allocated. Also, for this SKU availability is not tracked online, so we’d need to check with the sales team before confirming an actual delivery schedule.\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- Delivery Policy\n- Sales SOP\n- Reference Incoterms Rules Overview\n- Payment Terms",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "Delivery Policy",
+        "Sales SOP",
+        "Reference Incoterms Rules Overview",
+        "Payment Terms"
+      ],
+      "latencyMs": 14663,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A09",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "I'm a new customer in Kuala Lumpur and I need a 1-pole 40 A B-curve MCB. What product fits, and what payment and delivery terms apply?",
+      "answer": "The product that matches your requirement is the **Acti9 iC60N MCB (SKU A9F73140)** – a 1-pole, 40 A, B-curve miniature circuit breaker rated at 6 kA (230 V AC) and 10 kA (220–240 V AC).\n\nStatus and price:\n- **Status:** Check availability\n- **Stock:** Not tracked\n- **Price:** Price on request\n\n**Payment terms for a new customer:**\n- Payment is required **before delivery** unless approved credit terms are confirmed in writing.\n- Quotations are valid for 14 calendar days.\n- Prices exclude delivery charges unless included in the quotation.\n\n**Delivery terms for Kuala Lumpur / Klang Valley:**\n- Normally **1–2 working days** after order confirmation and stock allocation.\n- Orders confirmed before 2:00 PM on a working day are processed the same day, subject to stock.\n\nI don’t have live stock or a definitive delivery date, so please treat these as standard policy estimates.\n\nWould you like me to add the **Acti9 iC60N MCB (A9F73140)** to your RFQ cart? If so, please provide:\n- Your full name\n- Company name\n- Work email\n- Quantity needed (e.g., 10 units)\n- Optional project note\n\nSources:\n- SupplierFlow Official Knowledge\n- Payment Terms\n- Delivery Policy\n- Sales SOP\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [
+        "A9F73140",
+        "2CSF202201R2630",
+        "S200-M-UC"
+      ],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Payment Terms",
+        "Delivery Policy",
+        "Sales SOP",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 10674,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A10",
+      "category": "adversarial",
+      "subcategory": "procedural",
+      "difficulty": "medium",
+      "question": "The brand my customer asked for is out of stock. What does the SOP say I should do?",
+      "answer": "Per the Sales Quotation SOP, if the requested brand is unavailable, you should:\n\n- Present a **technically suitable equivalent** and mark it clearly as an **alternative** in the quotation.\n- Then continue with the normal quotation steps: verify the equivalent’s specifications, confirm pricing/discount/SST/delivery fee/payment terms, and save as Draft for internal review before sending.\n\nI can’t confirm stock or an exact replacement from the catalogue right now, but the sales team can help identify a suitable equivalent if you need one.\n\nSources:\n- Sales SOP\n- Reference Incoterms Rules Overview\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "Reference Incoterms Rules Overview",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 3902,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A11",
+      "category": "adversarial",
+      "subcategory": "constraint_filter",
+      "difficulty": "medium",
+      "question": "Does a Type 2 SPD alone provide the final local protection for a sensitive load more than 10 m away?",
+      "answer": "No — for a sensitive load more than 10 m from a Type 2 iPRD, a Type 2 SPD alone is not the recommended final local protection. Schneider’s guidance recommends adding a Type 3 SPD close to the load to complete the Type 2 protection.\n\nSo the practical setup would be: Type 2 at the distribution point, and a Type 3 near the sensitive equipment if the distance is over 10 m.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Spd Selection\n- Reference Acti9 Iprd Brochure\n- Reference Spd Impulse Current",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Spd Selection",
+        "Reference Acti9 Iprd Brochure",
+        "Reference Spd Impulse Current"
+      ],
+      "latencyMs": 4034,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A12",
+      "category": "adversarial",
+      "subcategory": "policy_boundary",
+      "difficulty": "medium",
+      "question": "Can I answer a customer's Singapore delivery time just from an Incoterms 2020 term?",
+      "answer": "No — an Incoterms 2020 term only allocates responsibilities, costs, and risk transfer between buyer and seller. It does not by itself give a carrier transit time or a delivery date for Singapore (or anywhere else).\n\nSo if a customer asks for a delivery time, you can explain what the Incoterms rule means for who arranges carriage and when risk transfers, but you should not quote a delivery time from the Incoterms word alone. The actual lead time depends on the carrier route, stock, and shipping arrangements — those aren't published in the catalogue. I'd recommend checking with the sales team for a specific delivery estimate.\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms 2020\n- Reference Incoterms Rules Overview\n- Reference Incoterms Risk Transfer",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms Risk Transfer"
+      ],
+      "latencyMs": 6334,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A13",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_terminal_mapping",
+      "difficulty": "hard",
+      "question": "If a TeSys D contactor has 1NO + 1NC, does that alone tell me the auxiliary terminal IDs?",
+      "answer": "Yes. For a TeSys D contactor marked **1NO + 1NC**, the auxiliary terminal identification is:\n\n- **NO** auxiliary contact: terminals **13 and 14**\n- **NC** auxiliary contact: terminals **21 and 22**\n\nThat marking tells you those terminal pairs, but it does not by itself identify the **A1/A2 coil terminals**, main power terminals, current ratings, or short-circuit coordination — those come from the specific SKU row.\n\nSources:\n- Reference Tesys Auxiliary Contacts\n- Reference Tesys Deca Installation\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Auxiliary Contacts",
+        "Reference Tesys Deca Installation",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 4070,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A14",
+      "category": "adversarial",
+      "subcategory": "near_duplicate_semantics",
+      "difficulty": "hard",
+      "question": "Can an RCCB listed as Type A be treated as Type AC because both detect AC residual current?",
+      "answer": "No — a Type A RCCB should **not** be treated as Type AC just because both can detect AC residual current.\n\n- **Type AC** detects residual sinusoidal alternating current.\n- **Type A** also detects the Type AC waveform **plus** specified pulsating DC residual currents, which can occur with rectified or electronic loads.\n\nSo Type A has a broader detection capability. They are not automatically interchangeable, and the exact residual-current type belongs to each individual SKU. Always match the device to the installation’s actual requirements and the product datasheet.\n\nSources:\n- Reference Rccb Current Types\n- Reference Abb Rcd Application\n- Reference Eaton Pf7 Catalogue\n- Reference Rccb Type F\n- Reference Rccb Installation Systems",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Current Types",
+        "Reference Abb Rcd Application",
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Rccb Type F",
+        "Reference Rccb Installation Systems"
+      ],
+      "latencyMs": 3389,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A15",
+      "category": "adversarial",
+      "subcategory": "numeric_semantics",
+      "difficulty": "hard",
+      "question": "Can current-limiting capacity replace checking a circuit breaker's rated breaking capacity?",
+      "answer": "No — current-limiting capacity does **not** replace a circuit breaker’s rated breaking capacity.\n\nThey are two different properties:\n\n- **Rated breaking capacity** is the maximum short-circuit current the breaker can safely interrupt.\n- **Current-limiting capacity** reduces the peak amplitude and thermal stress of a short-circuit current, but it doesn’t tell you the breaker’s interrupting limit.\n\nSo when checking whether a breaker can handle a fault, always refer to its rated breaking capacity (kA), not its limiting curve.\n\nSources:\n- Reference Mcb Current Limiting\n- SupplierFlow Official Knowledge\n- Reference Mcb Tripping Curves\n- Reference Eaton Pln6 Catalogue",
+      "matchedSkus": [
+        "S200-M-UC",
+        "2CSF202101R1400",
+        "2CSF202401R1630"
+      ],
+      "sources": [
+        "Reference Mcb Current Limiting",
+        "SupplierFlow Official Knowledge",
+        "Reference Mcb Tripping Curves",
+        "Reference Eaton Pln6 Catalogue"
+      ],
+      "latencyMs": 3430,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A16",
+      "category": "adversarial",
+      "subcategory": "numeric_trap",
+      "difficulty": "hard",
+      "question": "Can we state one SST percentage for every electrical quotation from the MySST scope overview?",
+      "answer": "No — you cannot state one SST percentage for every electrical quotation from the MySST scope overview.\n\nThe scope note explains that Malaysia sales tax can apply to taxable goods manufactured in Malaysia and taxable goods imported into Malaysia, but it does **not** give a single universal rate or percentage for all electrical products. The actual rate depends on the product classification, exemptions, and the current official SST material.\n\nFor a specific quotation, I don't have the applicable SST rate from the catalogue facts. I can have our sales team confirm the correct rate, exemption, and classification for your particular items before we prepare an RFQ.\n\nWould you like to proceed with an RFQ? If so, please provide:\n\n- Your name\n- Company\n- Work email\n- Optional project note\n\nAnd let me know which products and quantities you'd like to include.\n\nSources:\n- Sales SOP\n- Reference Malaysia Sst Scope\n- Reference Incoterms Rules Overview\n- Reference Incoterms 2020\n- Reference Incoterms Cost Insurance\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "Reference Malaysia Sst Scope",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Cost Insurance",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 3818,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A17",
+      "category": "adversarial",
+      "subcategory": "classification_boundary",
+      "difficulty": "hard",
+      "question": "Can I derive the exact Malaysian HS code for A9F73140 just from the SKU?",
+      "answer": "No — you can’t derive the exact Malaysian HS code from the SKU alone.\n\nAn SKU is a manufacturer’s product reference, not a customs classification. HS codes depend on how the product is classified under Malaysian customs rules, the specific tariff arrangement, and the applicable customs context. Even the same product can map differently depending on the classification details.\n\nSo for A9F73140, I don’t have an HS code in the catalogue facts. To get an exact code, you’d need to check the official JKDM HS Explorer or obtain a customs ruling.\n\nHappy to help with the product specs or the RFQ process for A9F73140 if that’s useful.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Malaysia Hs Explorer\n- Reference Tesys Deca Catalogue\n- Reference Rccb Operating Conditions",
+      "matchedSkus": [
+        "A9F73140"
+      ],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Malaysia Hs Explorer",
+        "Reference Tesys Deca Catalogue",
+        "Reference Rccb Operating Conditions"
+      ],
+      "latencyMs": 4225,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "D44",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What does discrimination or selectivity mean for coordinated MCBs?",
+      "answer": "Discrimination (also called selectivity) is coordination between an upstream and a downstream breaker so that **only the device immediately upstream of the fault trips**, while healthy circuits stay powered.\n\n- **Total discrimination** – this holds across the full prospective fault-current range of the installation and device pair.\n- **Partial discrimination** – guaranteed only up to a declared selectivity limit. Above that limit, the upstream breaker may also trip.\n\nSelectivity can’t be assumed from ratings alone — it depends on the exact breaker pair, their settings, the fault level, and the manufacturer’s coordination tables. If you have a specific combination in mind, I can check what the catalogue supports.\n\nSources:\n- Reference Mcb Selectivity\n- Reference Rccb Overcurrent Protection\n- Reference Abb S200 Catalogue\n- Reference Abb Rcd Application\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Mcb Selectivity",
+        "Reference Rccb Overcurrent Protection",
+        "Reference Abb S200 Catalogue",
+        "Reference Abb Rcd Application",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 3534,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D45",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What are the AC-1 and AC-3 utilization categories for a TeSys contactor?",
+      "answer": "The **AC-1** and **AC-3** are utilization categories defined in the TeSys reference notes:\n\n- **AC-1** – for non-inductive or resistive loads, or only slightly inductive loads (e.g. heating, distribution loads).\n- **AC-3** – for squirrel-cage motor duty, including starting and switching off the motor while running.\n\nThey are **not automatically interchangeable**. A contactor’s AC-3 rating must not simply be reused as an AC-1 rating — the load, selection table, and any required de-rating must be checked.\n\nFor the TeSys D contactors in our catalogue, the **AC-3** ratings are listed:\n\n- `LC1D25P7` – 25 A AC-3, 11 kW at 400 V\n- `LC1D40AP7` – 40 A AC-3\n\nWe do **not** have the **AC-1** rating in the catalogue facts for these SKUs. I can ask the sales team to confirm the exact AC-1 values if you need them. Also note: the coil voltage (e.g. 230 V AC) identifies the control circuit, not the load circuit — it stays separate from the AC-3 current rating.\n\nSources:\n- Reference Tesys Utilization Categories\n- Reference Tesys Deca Catalogue\n- Reference Tesys Deca Installation",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Utilization Categories",
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Deca Installation"
+      ],
+      "latencyMs": 6676,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "D46",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What do Uc, Up, In and Imax mean on an SPD?",
+      "answer": "On an SPD:\n\n- **Uc** – maximum continuous operating voltage that may be applied to the SPD.\n- **Up** – voltage protection level: the residual voltage at the stated nominal discharge current.\n- **In** – nominal discharge current, normally with an 8/20 µs current wave for Type 2 SPD selection.\n- **Imax** – maximum discharge-current peak.\n\nSources:\n- Reference Acti9 Iprd Catalogue\n- Reference Spd Selection\n- Reference Acti9 Rcbo Installation\n- Reference Spd Electrical Characteristics\n- Reference Abb S200 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Iprd Catalogue",
+        "Reference Spd Selection",
+        "Reference Acti9 Rcbo Installation",
+        "Reference Spd Electrical Characteristics",
+        "Reference Abb S200 Catalogue"
+      ],
+      "latencyMs": 3463,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D47",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What is a Type S RCCB used for?",
+      "answer": "A **Type S RCCB** is a **selective, time-delayed** residual-current device. Its main job is **coordination**: it’s installed upstream so that a downstream device trips first on a fault, while the Type S trips only after a short delay. That way you don’t lose power to the whole installation for a minor downstream fault.\n\nImportant points:\n\n- It is **not intended for personal protection** at 30 mA or below.\n- It’s generally used upstream with a **higher sensitivity, e.g. 100 mA or more**.\n- The delay is for selectivity, **not a substitute** for protecting people.\n\nIf you’re choosing an RCCB for a specific circuit, I’d be happy to help match the right type from our ABB F200 range.\n\nSources:\n- Reference Rccb Installation Systems\n- Reference Acti9 Iprd Catalogue\n- Reference Rccb Selective Types\n- Reference Abb F200 B Type",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Installation Systems",
+        "Reference Acti9 Iprd Catalogue",
+        "Reference Rccb Selective Types",
+        "Reference Abb F200 B Type"
+      ],
+      "latencyMs": 4277,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D48",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What conditions help provide selectivity between upstream and downstream RCCBs?",
+      "answer": "To help provide selectivity between upstream and downstream RCCBs:\n\n- **Residual-current setting ratio**: The upstream device’s rated residual current (IΔn) should be at least **2×** the downstream device’s IΔn. ABB also advises that a ratio of **3×** is advisable in practice.\n- **Trip timing**: The upstream device’s minimum no‑trip time should be **longer** than the downstream device’s maximum trip time.\n- **Device type**: A **delayed** or **selective** upstream RCCB is normally used for this purpose.\n\nThe actual product coordination table remains decisive for a specific combination, so always check the manufacturer’s data for the exact upstream and downstream references.\n\nSources:\n- Reference Rccb Selectivity Coordination\n- Reference Abb S200 Catalogue\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Selectivity Coordination",
+        "Reference Abb S200 Catalogue",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 4406,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D49",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What maximum total connection length does the SPD guide recommend?",
+      "answer": "The SPD installation guide recommends a **maximum total connection length of 50 cm** — that’s the combined length from the conductors to the SPD and back to the protective/equipotential connection. Keeping it short helps avoid extra inductive voltage drop during a surge.\n\nSources:\n- Reference Spd Connection Rules\n- Reference Acti9 Iprd Brochure\n- Reference Tesys Deca Catalogue\n- Reference Tesys Deca Installation",
+      "matchedSkus": [
+        "A9L20100",
+        "ACTI9-IPRD"
+      ],
+      "sources": [
+        "Reference Spd Connection Rules",
+        "Reference Acti9 Iprd Brochure",
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Deca Installation"
+      ],
+      "latencyMs": 2989,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A18",
+      "category": "adversarial",
+      "subcategory": "selectivity_boundary",
+      "difficulty": "hard",
+      "question": "Does partial discrimination guarantee that only the downstream MCB trips at every fault level?",
+      "answer": "No. **Partial discrimination** is only guaranteed up to a declared selectivity limit. Above that limit, the upstream device may also trip, so you can’t assume only the downstream MCB clears every fault level.\n\nFor full coverage across the entire prospective fault-current range, you’d need **total discrimination**. Even then, selectivity depends on the exact breaker pair, settings, fault level, and the manufacturer’s coordination tables.\n\nSources:\n- Reference Mcb Selectivity\n- Reference Abb S200 Catalogue\n- Reference Abb Rcd Application\n- Reference Eaton Pln6 Catalogue\n- Reference Acti9 Rcbo Catalogue\n- Reference Tesys Deca Installation\n- Reference Mcb Temperature Derating\n- Reference Acti9 Iprd Brochure",
+      "matchedSkus": [
+        "S200-M-UC",
+        "A9F73140",
+        "XPOLE-HL-MCB"
+      ],
+      "sources": [
+        "Reference Mcb Selectivity",
+        "Reference Abb S200 Catalogue",
+        "Reference Abb Rcd Application",
+        "Reference Eaton Pln6 Catalogue",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Tesys Deca Installation",
+        "Reference Mcb Temperature Derating",
+        "Reference Acti9 Iprd Brochure"
+      ],
+      "latencyMs": 3621,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A19",
+      "category": "adversarial",
+      "subcategory": "utilization_category_boundary",
+      "difficulty": "hard",
+      "question": "Can I use an AC-3 contactor rating as the AC-1 rating without checking the load?",
+      "answer": "No — an AC-3 rating is **not automatically usable as an AC-1 rating**. They cover different load duties:\n\n- **AC-1** – non-inductive or resistive loads, or only slightly inductive loads (e.g. heating, distribution).\n- **AC-3** – squirrel-cage motor duty, including starting and switching off the motor while running.\n\nThe same contactor can have **different allowable ratings** under AC-1 and AC-3, so you must always check the load, the manufacturer’s selection table, and any required de-rating. Never assume the AC-3 figure carries over.\n\nIf you have a specific contactor SKU in mind, share it and I can look up what we’ve got in the catalogue for you.\n\nSources:\n- Reference Tesys Utilization Categories\n- Reference Tesys Deca Installation\n- Reference Tesys Deca Catalogue\n- Reference Mcb Temperature Derating",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Utilization Categories",
+        "Reference Tesys Deca Installation",
+        "Reference Tesys Deca Catalogue",
+        "Reference Mcb Temperature Derating"
+      ],
+      "latencyMs": 6193,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A20",
+      "category": "adversarial",
+      "subcategory": "spd_numeric_semantics",
+      "difficulty": "hard",
+      "question": "Does a higher Imax alone prove that an SPD gives lower voltage at the equipment?",
+      "answer": "No. A higher Imax alone does **not** prove lower voltage at the equipment. \n\nImax is simply the maximum discharge current peak the SPD can handle for the specified test waveform. What matters for the voltage seen by your equipment is the **voltage protection level (Up)** — the residual voltage at the nominal discharge current (In). \n\nProper SPD selection also considers:\n- **Uc** – maximum continuous operating voltage\n- **In** – nominal discharge current\n- **SPD type** (Type 2, Type 3, etc.)\n- The **installation system**\n- The **coordinated short-circuit protective device**\n\nSo while a larger Imax may indicate a more robust surge-handling capability, it does not prove better voltage clamping. For our **Acti9 iPRD range** we list Imax values (8–65 kA) and types, but we don't have Up values in the catalogue facts — if you need a specific Up figure, I'd be happy to have our sales team confirm it for you.\n\nSources:\n- Reference Spd Electrical Characteristics\n- Reference Abb F200 B Type\n- Reference Incoterms Rules Overview\n- Reference Tesys Deca Installation",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Spd Electrical Characteristics",
+        "Reference Abb F200 B Type",
+        "Reference Incoterms Rules Overview",
+        "Reference Tesys Deca Installation"
+      ],
+      "latencyMs": 7208,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A21",
+      "category": "adversarial",
+      "subcategory": "rccb_application_boundary",
+      "difficulty": "hard",
+      "question": "Can a Type S 30 mA RCCB be used for additional people protection just because it is selective?",
+      "answer": "No — a Type S RCCB is not automatically suitable for additional people protection just because it is selective.\n\nType S is a **selective, time-delayed** device, meant to coordinate with downstream RCDs that trip faster. ABB specifically states that **Type S is not intended for people-protection applications**, and particularly **not on circuits with sensitivity at or below 30 mA**. It’s normally used upstream with a higher sensitivity, such as 100 mA or more.\n\nSo if you truly need 30 mA people protection, a Type S at 30 mA is not the right substitute — the selectivity doesn’t make it equivalent to a standard 30 mA RCCB for personal safety.\n\nSources:\n- Reference Rccb Selective Types\n- Reference Abb Rcd Application\n- Reference Acti9 Rcbo Catalogue\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Selective Types",
+        "Reference Abb Rcd Application",
+        "Reference Acti9 Rcbo Catalogue",
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 4931,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A22",
+      "category": "adversarial",
+      "subcategory": "rccb_selectivity_boundary",
+      "difficulty": "hard",
+      "question": "If upstream and downstream RCCBs have the same IΔn and no delay, is selectivity guaranteed?",
+      "answer": "No, selectivity is **not guaranteed** when the upstream and downstream RCCBs have the same IΔn and no time delay.\n\nWhen both devices have identical residual-current sensitivity and trip instantly, their tripping zones overlap. A downstream fault could trip both devices, so the upstream one may switch off the whole installation unnecessarily.\n\nFor coordinated selectivity, the usual design rule is:\n\n- Upstream IΔn should be at least **2×** the downstream IΔn.\n- The upstream device should have a **longer minimum no-trip time** (e.g. a delayed or selective type).\n\nAlways check the manufacturer's coordination table for the specific devices — the exact ratio and delay are design rules, not a universal product property.\n\nSources:\n- Reference Abb Rcd Application\n- Reference Acti9 Ic60 Catalogue\n- Reference Abb S200 Catalogue\n- Reference Rccb Selectivity Coordination",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Abb Rcd Application",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Abb S200 Catalogue",
+        "Reference Rccb Selectivity Coordination"
+      ],
+      "latencyMs": 5101,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A23",
+      "category": "adversarial",
+      "subcategory": "spd_installation_boundary",
+      "difficulty": "hard",
+      "question": "Can I ignore the 50 cm SPD connection rule when the quoted Up is low?",
+      "answer": "No — don’t ignore the 50 cm SPD connection rule just because the quoted `Up` is low.\n\nLong connection conductors add inductive voltage drop during a surge, so the effective protection level at your equipment can end up higher than the SPD’s quoted `Up`. Keep the total connection length as short as possible (Schneider’s guide gives a maximum total length of 50 cm for the described arrangement) and follow the manufacturer’s installation instructions.\n\nA low `Up` value is useful, but it doesn’t remove the need for proper connection practice.\n\nSources:\n- Reference Spd Connection Rules\n- Reference Acti9 Ic60 Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Spd Connection Rules",
+        "Reference Acti9 Ic60 Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4060,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D50",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Under IEC 60898-1, what reference temperature and conventional tripping current are used for iC60 testing?",
+      "answer": "Under IEC 60898-1, the iC60 reference values are:\n\n- **Reference temperature:** 30 °C\n- **Conventional non-tripping current:** 1.13 × In\n- **Conventional tripping current:** 1.45 × In for one hour\n\nExact derating still comes from the specific device table.\n\nSources:\n- Reference Mcb Temperature Derating\n- SupplierFlow Official Knowledge\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Mcb Temperature Derating",
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 3538,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D51",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What DC voltage range does Schneider state for Acti9 iC60N/H MCBs, and what must be checked?",
+      "answer": "Schneider states that Acti9 iC60N/H MCBs can be used on DC supplies from **12 VDC to 250 VDC**.\n\nHowever, the usable voltage and achieved breaking capacity depend on:\n\n- the number of poles connected in series\n- the required breaking capacity\n\nA general statement that the family is suitable for DC does **not** establish the breaking capacity for every single-pole or multi-pole wiring arrangement. You need to check the device diagram and the applicable product documentation for the specific configuration.\n\nSources:\n- Reference Mcb Dc Applications\n- SupplierFlow Official Knowledge\n- Reference Acti9 Ic60 Catalogue\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Mcb Dc Applications",
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 3085,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D52",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What is the protection difference between an RCCB and an RCBO?",
+      "answer": "An RCCB and an RCBO are **not the same**, and one does not replace the other without checking the full specification.\n\n**RCCB** (residual-current circuit breaker)\n- Detects residual/earth-leakage current only.\n- Does **not** include overload or short-circuit protection.\n- Must be coordinated in series with an MCB or fuse for overcurrent protection.\n\n**RCBO** (residual-current breaker with overcurrent protection)\n- Combines residual-current protection **and** overload/short-circuit protection in one device.\n- Can protect a circuit on its own, subject to its rated limits (current, curve, breaking capacity, etc.).\n\nSo the key difference: an **RCCB needs a separate MCB or fuse**; an **RCBO has both functions built in**.\n\nIf you’d like, I can help you pick a specific RCBO or check whether a particular product suits your circuit.\n\nSources:\n- Reference Rccb Overcurrent Protection\n- Reference Acti9 Rcbo Catalogue\n- Reference Abb Rcd Application",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Overcurrent Protection",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Abb Rcd Application"
+      ],
+      "latencyMs": 3702,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D53",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What extra residual-current capability does an ABB Type F RCCB provide beyond Type A?",
+      "answer": "An ABB Type F RCCB **adds detection of mixed-frequency residual currents up to 1000 Hz** on top of Type A protection. Type A already covers sinusoidal AC and pulsating DC residual currents. These mixed-frequency currents can occur downstream of some single-phase frequency converters.\n\nType F is **not** the same as Type AC — always check the exact device type and application before substituting.\n\nSources:\n- Reference Rccb Type F\n- Reference Abb F200 B Type\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Type F",
+        "Reference Abb F200 B Type",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 3527,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D54",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which TeSys D DC-coil terminal is positive?",
+      "answer": "For TeSys D contactors with a DC coil, **A1 is the positive terminal** as marked on the contactor.\n\nThe DC coil is polarity-sensitive because it has a built-in suppression device, so make sure to connect A1 to positive. Always double-check the marking on your exact SKU and its wiring diagram before energising.\n\nSources:\n- Reference Tesys Dc Coil\n- Reference Tesys Deca Installation\n- SupplierFlow Official Knowledge\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Dc Coil",
+        "Reference Tesys Deca Installation",
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 3399,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D55",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What are the Type 1 Iimp and Type 2 Imax surge waveforms?",
+      "answer": "For surge protection devices:\n\n- **Type 1 SPD — Iimp**: rated for the **10/350 µs** impulse wave (simulates direct lightning current).\n- **Type 2 SPD — Imax**: rated for the **8/20 µs** impulse wave (simulates induced/conducted transients).\n\nThese are **different ratings with different waveforms and test duties**, so their numeric values should not be compared directly. If you’re choosing an SPD, the correct type depends on your installation role and lightning-risk assessment — not just on a single kA figure.\n\nNeed help matching an SPD to your application? Let me know the system voltage, earthing system, poles, and installation location.\n\nSources:\n- Reference Spd Impulse Current\n- Reference Acti9 Iprd Brochure\n- Reference Spd Selection\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Spd Impulse Current",
+        "Reference Acti9 Iprd Brochure",
+        "Reference Spd Selection",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 3817,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D56",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Why is the named place important in an Incoterms 2020 rule?",
+      "answer": "The named place is one of the most important parts of an Incoterms 2020 rule because **it defines where delivery and risk transfer actually happen**.\n\n- For most rules, the named place marks the **delivery point** – the moment the seller has fulfilled their obligation and risk passes to the buyer.\n- For **C-rules (CPT, CIP, CFR, CIF)**, the named place is the **destination** the seller pays to ship to, but risk transfers earlier – usually when goods are handed to the first carrier.\n\nSo without a precise named place, the rule is incomplete. Always specify the **rule, year, and exact named place** in your sale contract.\n\nThat said, an Incoterms rule alone does **not** cover delivery times, pricing, stock, or taxes – those need to be confirmed separately in the commercial offer. If you’d like, I can help you prepare an RFQ with the right Incoterms for your shipment.\n\nSources:\n- Reference Incoterms Rules Overview\n- Reference Incoterms Risk Transfer\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms Risk Transfer",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 5060,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A24",
+      "category": "adversarial",
+      "subcategory": "mcb_temperature_boundary",
+      "difficulty": "hard",
+      "question": "Can I apply one fixed iC60 overload threshold at every ambient temperature?",
+      "answer": "No, you can’t use one fixed iC60 overload threshold for every ambient temperature. Thermal overload protection depends on ambient temperature, so the tripping threshold must be adjusted (derated) when the surrounding temperature differs from the manufacturer’s reference temperature.\n\nA few reference points from the iC60 documentation:\n\n- Under **IEC 60898-1**, the reference ambient temperature is **30°C**. At that temperature:\n  - Conventional non-tripping current = **1.13 × In**\n  - Conventional tripping current = **1.45 × In** (within one hour)\n- Under **IEC 60947-2**, the figures are:\n  - Conventional non-tripping current = **1.05 × In**\n  - Conventional tripping current = **1.3 × In** (within one hour)\n\nThese values apply only at the specified reference temperature. For other ambient temperatures, Schneider’s iC60 derating tables must be used — I don’t have the exact derating values in front of me, so I can’t give you those figures here. If you need them, I can ask the sales team to confirm the correct table for your specific iC60 device (e.g., the **Acti9 iC60N 40 A B curve, SKU A9F73140**).\n\nSources:\n- Reference Mcb Temperature Derating\n- SupplierFlow Official Knowledge\n- Reference Acti9 Ic60 Catalogue\n- Reference Acti9 Rcbo Installation\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Mcb Temperature Derating",
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Acti9 Rcbo Installation",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 7967,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A25",
+      "category": "adversarial",
+      "subcategory": "mcb_dc_boundary",
+      "difficulty": "hard",
+      "question": "If an Acti9 iC60N is suitable up to 250 VDC, can any single-pole arrangement assume the full breaking capacity?",
+      "answer": "No — you can’t assume that. A statement that the Acti9 iC60 family is suitable for DC from 12 VDC to 250 VDC does **not** by itself mean a single-pole arrangement carries the full breaking capacity. The usable voltage and the achieved breaking capacity depend on how many poles are connected in series and on the required breaking capacity.\n\nFor the specific SKU **Acti9 iC60N MCB (A9F73140)**, the catalogue only lists AC breaking capacities: 6 kA at 230 V AC and 10 kA at 220–240 V AC. No DC breaking capacity is listed for this unit, so I can’t give you that figure. I’d recommend checking the device diagram and product documentation — or I can have the sales team confirm the DC rating for that exact reference.\n\nSources:\n- Reference Mcb Dc Applications\n- Reference Acti9 Ic60 Catalogue\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Mcb Dc Applications",
+        "Reference Acti9 Ic60 Catalogue",
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 4617,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A26",
+      "category": "adversarial",
+      "subcategory": "rccb_overcurrent_boundary",
+      "difficulty": "hard",
+      "question": "Can an RCCB alone protect a circuit against overload and line-to-neutral short circuit?",
+      "answer": "No — an RCCB alone cannot protect against overload or line-to-neutral short circuits.\n\nAn RCCB only detects residual (earth-leakage) current and disconnects when that reaches its sensitivity threshold. It has **no integrated overload or short-circuit protection**, so it must be coordinated in series with an MCB or fuse for those faults.\n\nIf you need both functions in one device, you'd want an **RCBO**, which combines residual-current protection with overcurrent protection — subject to its own rated limits.\n\nNeed help finding a suitable RCCB, MCB, or RCBO from the catalogue? Just let me know.\n\nSources:\n- Reference Abb Rcd Application\n- Reference Rccb Overcurrent Protection\n- SupplierFlow Official Knowledge\n- Reference Abb F200 B Type",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Abb Rcd Application",
+        "Reference Rccb Overcurrent Protection",
+        "SupplierFlow Official Knowledge",
+        "Reference Abb F200 B Type"
+      ],
+      "latencyMs": 3564,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A27",
+      "category": "adversarial",
+      "subcategory": "rccb_type_boundary",
+      "difficulty": "hard",
+      "question": "Can an ABB Type F RCCB be treated as merely a Type AC device because both detect AC residual current?",
+      "answer": "No — they are **not automatically equivalent**.  \n\nType AC and Type F are different detection classes, even though both respond to AC residual current.  \n\n- **Type AC** detects sinusoidal alternating current residual currents.  \n- **Type F** covers the Type A range (sinusoidal AC and specified pulsating DC) **plus** mixed-frequency residual currents up to 1000 Hz, which can occur downstream of some single-phase frequency converters.  \n\nSo a Type F RCCB has broader capability than Type AC. You should not treat it as merely a Type AC device — the exact product type and installation requirements must be checked before any substitution.\n\nSources:\n- Reference Rccb Current Types\n- Reference Abb Rcd Application\n- Reference Rccb Type F\n- Reference Abb F200 B Type\n- Reference Rccb Installation Systems",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Rccb Current Types",
+        "Reference Abb Rcd Application",
+        "Reference Rccb Type F",
+        "Reference Abb F200 B Type",
+        "Reference Rccb Installation Systems"
+      ],
+      "latencyMs": 4330,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A28",
+      "category": "adversarial",
+      "subcategory": "tesys_coil_polarity",
+      "difficulty": "medium",
+      "question": "Can I wire a TeSys D DC coil with either polarity because it has a built-in suppressor?",
+      "answer": "No — do **not** wire it with either polarity. For TeSys D contactors with a DC control coil, the built-in suppression device makes the coil **polarity-sensitive**: **A1 is the positive terminal** as marked on the contactor.\n\nAlways check the exact SKU marking and the wiring diagram before energising.\n\nSources:\n- Reference Tesys Dc Coil\n- Reference Tesys Deca Installation\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Dc Coil",
+        "Reference Tesys Deca Installation",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 3734,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A29",
+      "category": "adversarial",
+      "subcategory": "spd_waveform_boundary",
+      "difficulty": "hard",
+      "question": "Can I compare a Type 1 Iimp value directly with a Type 2 Imax value as the same SPD rating?",
+      "answer": "No — they are not the same rating and shouldn't be compared directly.\n\n- **Type 1 `Iimp`** is the maximum discharge current for the **10/350 µs** impulse wave, tested with five discharges.\n- **Type 2 `Imax`** is the maximum discharge current for the **8/20 µs** impulse wave, described as withstandable at least once.\n\nDifferent waveforms, different test duties, and different protection roles. A numeric value in kA for one does not translate to the other. If you need to choose an SPD, the correct Type is based on the installation risk and arrangement, not just the kA number.\n\nSources:\n- Reference Spd Impulse Current\n- Reference Acti9 Iprd Brochure\n- Reference Spd Selection\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Spd Impulse Current",
+        "Reference Acti9 Iprd Brochure",
+        "Reference Spd Selection",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 4076,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A30",
+      "category": "adversarial",
+      "subcategory": "incoterms_risk_boundary",
+      "difficulty": "hard",
+      "question": "If a CIP term names Singapore as the destination, does risk transfer only when the goods arrive in Singapore?",
+      "answer": "No. Under **CIP**, risk does *not* transfer only when the goods arrive in Singapore.\n\n- **CIP** is a “C” rule: the seller arranges and pays for carriage to the named destination (Singapore), but **risk transfers earlier** — typically when the goods are handed to the first carrier.\n- The named destination (Singapore) identifies where carriage is paid to, **not** the point where risk passes.\n- So even if the seller handles shipping to Singapore, the buyer may bear risk during transit once the goods are handed over to the carrier.\n\nThis is an Incoterms allocation of risk and cost, **not** a SupplierFlow delivery-time or delivery-date promise. If you need actual delivery times or shipping charges, our sales team can check those separately.\n\nSources:\n- Reference Incoterms Rules Overview\n- Reference Incoterms Risk Transfer",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms Risk Transfer"
+      ],
+      "latencyMs": 6621,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "D57",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Which protection families are included in Schneider's Acti 9 catalogue?",
+      "answer": "The Acti 9 catalogue covers these protection families:\n\n- **iC60N** — miniature circuit breakers (MCBs)\n- **C120N** — higher-current MCBs\n- **iID / Vigi** — residual-current protection (RCCBs / add-on modules)\n- **iPRD** — surge protection devices (SPDs)\n\nSeparately, the compact three-phase RCBO catalogue covers the **iC60N3** and **iC60H3** RCBO families, which combine overcurrent and residual-current protection in one device.\n\nSources:\n- Reference Acti9 Ic60 Catalogue\n- Reference Acti9 Rcbo Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Acti9 Rcbo Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4525,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D58",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What breaking capacities are listed for the Acti9 iC60N3 and iC60H3 RCBO families?",
+      "answer": "The breaking capacities listed are:\n\n- **Acti9 iC60N3** – **6 kA** (6000 A) breaking capacity\n- **Acti9 iC60H3** – **10 kA** (10000 A) breaking capacity\n\nThese are two distinct values, not different ways of stating the same figure.\n\nSources:\n- Reference Acti9 Rcbo Catalogue\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 4248,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D59",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which earthing systems are covered by the Acti9/KQ F40r SPD catalogue?",
+      "answer": "The Acti9/KQ iPRD F40r surge-protection catalogue covers **TT, TN-S, and TN-C-S** earthing systems, for networks rated at **230/400 V**.\n\nSources:\n- Reference Acti9 Iprd Catalogue\n- Reference Acti9 Ic60 Catalogue\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Iprd Catalogue",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 4008,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D60",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What distinction does the Acti9 SPD brochure make between iPRD1 and iPRD?",
+      "answer": "The brochure's key distinction is about **protection role**:\n\n- **Acti9 iPRD1** — the \"1\" refers to **Type 1** surge-protection applications (associated with direct lightning strike protection).\n- **Acti9 iPRD** — the standard family, covering **Type 2, Type 3, and Type 2+3** SPDs for protection against **indirect lightning strikes** at incoming and secondary locations.\n\nSo the simplest way to think of it: *iPRD1 = Type 1 role*, *iPRD = Type 2/3 roles*.\n\nThe brochure also stresses that a higher kA rating alone isn't enough to choose a device — you also need to check the network system, nominal voltage, earthing arrangement, and coordination with other protection devices.\n\nWould you like me to narrow this down to a specific product or add an item to your RFQ list?\n\nSources:\n- Reference Acti9 Iprd Brochure\n- Reference Acti9 Ic60 Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Iprd Brochure",
+        "Reference Acti9 Ic60 Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 6097,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D61",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "Which product ranges are listed alongside TeSys Deca contactors in the 2026 catalogue?",
+      "answer": "Alongside TeSys Deca contactors, the 2026 catalogue includes:\n\n- TeSys Deca overload relays\n- GV2 and GV3 manual starters and protectors\n- Control relays\n- TeSys F contactors\n- TeSys Giga equipment\n- Motor-circuit protectors\n- TeSys island solutions\n\nLet me know if you need details on any of these ranges.\n\nSources:\n- Reference Tesys Deca Catalogue\n- Reference Tesys Deca Installation",
+      "matchedSkus": [
+        "LC1D150M7",
+        "LC1D09BNE",
+        "LC1D32G7"
+      ],
+      "sources": [
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Deca Installation"
+      ],
+      "latencyMs": 3822,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D62",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which overload-relay technologies are covered in the TeSys reference?",
+      "answer": "The TeSys reference covers **two overload-relay technologies**:\n\n- **Thermal overload relays** – respond to the heating effect of motor current; affected by current setting, trip class, ambient conditions, and the motor’s thermal state.\n- **Electronic overload relays** – use electronic sensing and adjustment, with different behaviour from thermal types.\n\nThey are not interchangeable — the technologies differ in sensing and adjustment, so the exact relay type should be matched to the application.\n\nSources:\n- Reference Tesys Overload Relays\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Overload Relays",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 4202,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D63",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "medium",
+      "question": "What must be checked before using an ABB S200 M UC breaker on DC?",
+      "answer": "Before using an ABB S200 M UC breaker on DC, check:\n\n- **DC operational voltage** – confirm it matches the installation.\n- **Number of poles connected in series** – a single-pole arrangement may have different DC capability than multipole.\n- **DC breaking capacity** – verify it covers the fault level of the installation.\n- **Polarity / connection instructions** – follow the manufacturer’s wiring guidance for DC.\n\nAlso, don't copy the AC ratings into a DC application — the AC data does not automatically apply.\n\nSources:\n- Reference Abb S200 Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [
+        "S200-M-UC",
+        "A9F73140",
+        "A9D55610"
+      ],
+      "sources": [
+        "Reference Abb S200 Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 3532,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D64",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What voltage range is the ABB F200 four-pole test circuit designed for in the cited no-neutral arrangement?",
+      "answer": "The ABB F200 four-pole test circuit in the cited arrangement is designed for operation between **110 V and 254 V**.\n\nSources:\n- Reference Abb F200 B Type\n- Reference Rccb Operating Conditions\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Abb F200 B Type",
+        "Reference Rccb Operating Conditions",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 3286,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D65",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Does an RCCB alone protect against overload and short circuit?",
+      "answer": "No. An RCCB alone does **not** protect against overload or short circuit.\n\nAn RCCB detects earth-leakage current and disconnects when it hits its residual-current threshold (e.g. 30 mA). It has no built-in overload or line-to-neutral short-circuit protection. To protect the circuit against those, you must coordinate it with a suitable MCB or fuse upstream.\n\nFor example, the **Eaton xPole PF7 RCCB (SKU 263584)** provides residual-current protection only — its 25 A rating and 10 kA short-circuit strength describe its own capabilities, not an overcurrent protection function. Pair it with the correct MCB or fuse.\n\nSources:\n- Reference Abb Rcd Application\n- Reference Rccb Overcurrent Protection\n- Reference Tesys Overload Relays\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Abb Rcd Application",
+        "Reference Rccb Overcurrent Protection",
+        "Reference Tesys Overload Relays",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 4241,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D66",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What does Eaton PF7 article 263584 represent?",
+      "answer": "Eaton xPole PF7 article **263584** is a **4-pole residual-current circuit breaker (RCCB)**, model **PF7-25/4/003-DE**.\n\nKey specs:\n\n- Rated current: **25 A**\n- Rated residual operating current: **30 mA**\n- Type: **AC, non-delayed**\n- Short-circuit strength: **10 kA**\n\nSo it’s a 25 A / 30 mA four-pole RCCB, not a 40 A or 63 A unit — pole count alone doesn’t determine the current rating.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 3770,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D67",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "medium",
+      "question": "What electrical values are cited for Eaton PLN6 model 263163?",
+      "answer": "For Eaton PLN6 model **263163**, the electrical values cited are:\n\n- **Rated current:** 13 A\n- **Tripping characteristic:** B\n- **Configuration:** 1P+N (one protected pole, two total poles — the extra pole is for neutral switching)\n- **Maximum operational voltage:** 230 V\n- **Short-circuit breaking capacity:** 6 kA at 230 V and 400 V (IEC/EN 60898-1)\n- **Rated impulse withstand voltage:** 4 kV\n- **Rated insulation voltage:** 440 V\n- **Frequency:** 50–60 Hz\n- **Voltage type:** AC\n- **Current-limiting class:** 3\n\nLet me know if you need any of these explained further or want to compare with another SKU.\n\nSources:\n- Reference Eaton Pln6 Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pln6 Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4528,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D68",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "What does an Incoterms 2020 rule allocate between the parties?",
+      "answer": "An Incoterms 2020 rule allocates **responsibilities and costs between buyer and seller** for a transaction. Specifically, it helps define:\n\n- **Delivery obligations** – where and how the seller delivers the goods\n- **Risk transfer** – the point at which risk passes from seller to buyer\n- **Carriage arrangements** – which party arranges and pays for transport\n- **Cost allocation** – which party covers certain costs like freight, insurance, export/import formalities\n- **Insurance obligations** – whether insurance is required and at what level (e.g., CIF vs CIP)\n\nIt’s important to note that an Incoterms rule alone does **not** set SupplierFlow-specific delivery times, shipping charges, taxes, credit terms, or product prices. Those need to be agreed separately in the quotation or contract. The **named place** attached to the rule is critical, because it identifies the delivery point and often the risk-transfer point.\n\nSources:\n- Reference Incoterms Rules Overview\n- Reference Incoterms 2020\n- Reference Incoterms Risk Transfer\n- Reference Incoterms Cost Insurance",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Risk Transfer",
+        "Reference Incoterms Cost Insurance"
+      ],
+      "latencyMs": 6410,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D69",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which features does Schneider instruction sheet D384245 identify on an Acti9 iC60 RCBO?",
+      "answer": "Schneider instruction sheet **D384245** for the Acti9 iC60 RCBO identifies these features:\n\n- DIN-rail mounting clip\n- Power-supply terminals\n- QR code for maintenance information\n- VISI-SAFE positive contact indication\n- Test button\n\nAlso worth noting: VISI-SAFE only shows the contact position — it does **not** prove the circuit is dead and doesn’t replace isolation and a voltage test.\n\nSources:\n- Reference Acti9 Rcbo Installation\n- Reference Acti9 Rcbo Catalogue\n- Reference Acti9 Ic60 Catalogue\n- Reference Mcb Dc Applications",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Rcbo Installation",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Mcb Dc Applications"
+      ],
+      "latencyMs": 4272,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "D70",
+      "category": "direct_lookup",
+      "subcategory": "reference_definition",
+      "difficulty": "easy",
+      "question": "Which document should guide installation of a TeSys Deca contactor?",
+      "answer": "The **TeSys Deca contactor instruction sheet** should guide installation — specifically Schneider Electric document **BQT61825**.\n\nIt covers mounting, connection, terminal identification, operating orientation, and safety. One important note: use the **exact contactor variant and its terminal diagram**, since coil type, frame, and connection details can differ between LC1D references.\n\nSources:\n- Reference Tesys Deca Installation\n- Reference Tesys Deca Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Deca Installation",
+        "Reference Tesys Deca Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 3324,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A31",
+      "category": "adversarial",
+      "subcategory": "catalogue_scope_boundary",
+      "difficulty": "medium",
+      "question": "Does the maximum breaking-capacity figure in the Acti9 catalogue apply to every product family?",
+      "answer": "No — the maximum breaking-capacity figure in the Acti9 catalogue is **not** a single universal value that applies to every product family.\n\nBreaking capacity varies by:\n\n- product family (e.g. iC60N vs iC60H vs C120)\n- number of poles\n- voltage (230 V AC vs 220–240 V AC)\n- applicable standard (IEC/EN 60898-1 vs IEC/EN 60947-2)\n\nFor example, the listed **Acti9 iC60N MCB (A9F73140)** has:\n- **6 kA** at 230 V AC to IEC/EN 60898-1\n- **10 kA** at 220–240 V AC to IEC/EN 60947-2\n\nBut that does **not** mean every other Acti9 MCB shares the same figure. Always check the exact family, reference, voltage and standard before relying on a breaking-capacity value.\n\nSources:\n- Reference Acti9 Ic60 Catalogue\n- Reference Mcb Dc Applications\n- Reference Acti9 Rcbo Catalogue\n- Reference Mcb Tripping Curves\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Installation",
+      "matchedSkus": [
+        "A9F73140",
+        "A9L20100",
+        "ACTI9-IPRD"
+      ],
+      "sources": [
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Mcb Dc Applications",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Mcb Tripping Curves",
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Installation"
+      ],
+      "latencyMs": 4571,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A32",
+      "category": "adversarial",
+      "subcategory": "rcbo_rating_boundary",
+      "difficulty": "hard",
+      "question": "Can iC60N3 and iC60H3 be described as having the same short-circuit rating?",
+      "answer": "No. The Acti9 iC60N3 and iC60H3 families do **not** have the same short-circuit rating.\n\n- **iC60N3** — 6000 A (6 kA) breaking capacity  \n- **iC60H3** — 10000 A (10 kA) breaking capacity  \n\nSo they’re different: 6 kA vs 10 kA. Treat them as distinct ratings, not interchangeable for short-circuit capacity.\n\nSources:\n- Reference Acti9 Rcbo Catalogue\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 4802,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A33",
+      "category": "adversarial",
+      "subcategory": "spd_cartridge_boundary",
+      "difficulty": "hard",
+      "question": "Can any Type 3 cartridge replace any Type 2 iPRD device?",
+      "answer": "No — a Type 3 cartridge is **not automatically a substitute** for a Type 2 iPRD device. They serve different roles in a coordinated surge-protection arrangement: Type 2 is normally at distribution level, while Type 3 is close to sensitive equipment.\n\nA Type 3 cartridge can only be used if it is the **exact replacement cartridge** that is compatible with that specific iPRD device family. Also, keep in mind that a replacement cartridge is not the same as a complete SPD assembly — always check the original catalogue for the exact compatible references.\n\nIf you have a specific iPRD device model in mind, I can help match the correct cartridge from the catalogue facts available.\n\nSources:\n- Reference Acti9 Iprd Catalogue\n- SupplierFlow Official Knowledge\n- Reference Acti9 Iprd Brochure",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Iprd Catalogue",
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Iprd Brochure"
+      ],
+      "latencyMs": 4314,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A34",
+      "category": "adversarial",
+      "subcategory": "spd_selection_boundary",
+      "difficulty": "hard",
+      "question": "Is a higher kA number alone enough to choose an Acti9 SPD?",
+      "answer": "A higher kA rating alone is **not enough** to choose an Acti9 SPD.  \n\nYou also need to check:\n\n- **Network system** – TN, TT, IT, etc.\n- **Nominal voltage** – must match your installation\n- **Earthing arrangement**\n- **Coordination** – e.g. whether a Type 2 at the incoming point needs a Type 3 close to sensitive loads (generally recommended if the distance is more than 10 m)\n\nThe Acti9 iPRD range itself covers Type 2, Type 3, and Type 2+3 SPDs, with Imax from 8 to 65 kA, but the correct kA rating must fit your site’s surge risk and protection coordination – it’s not a standalone criterion.\n\nSources:\n- Reference Acti9 Iprd Brochure\n- Reference Mcb Dc Applications\n- Reference Acti9 Ic60 Catalogue\n- Reference Acti9 Rcbo Installation\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Iprd Brochure",
+        "Reference Mcb Dc Applications",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Acti9 Rcbo Installation",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4372,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A35",
+      "category": "adversarial",
+      "subcategory": "tesys_auxiliary_boundary",
+      "difficulty": "hard",
+      "question": "Does 1NO + 1NC alone prove the motor rating of a TeSys contactor?",
+      "answer": "No — **1NO + 1NC alone does not prove the motor rating** of a TeSys contactor.\n\nThose auxiliary contacts only tell you how many normally open and normally closed control/indication paths are available. The motor rating depends on the exact product row, including:\n\n- AC-3 utilization category and current rating (e.g. 40 A AC-3)\n- Coil voltage (e.g. 230 V AC)\n- Main pole configuration (e.g. 3P / 3NO)\n\nFor a specific contactor, I’d need the full SKU to confirm its rating. For example, `LC1D40AP7` has a 40 A AC-3 rating, while `LC1D25P7` is 25 A AC-3 — even though both have 1NO + 1NC auxiliaries. So the aux contact count is not the deciding factor.\n\nCan I help you check a particular SKU?\n\nSources:\n- Reference Tesys Deca Catalogue\n- Reference Tesys Deca Installation",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Deca Installation"
+      ],
+      "latencyMs": 4418,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A36",
+      "category": "adversarial",
+      "subcategory": "overload_protection_boundary",
+      "difficulty": "hard",
+      "question": "Can a TeSys overload relay replace the upstream short-circuit protective device?",
+      "answer": "No. A TeSys overload relay protects against overload, phase-loss and related motor conditions — it does **not** replace an upstream short-circuit protective device. Short-circuit protection must be provided separately by a suitable protective device (e.g. fuse or MCCB) as part of the starter design.\n\nSources:\n- Reference Tesys Overload Relays\n- Reference Tesys Deca Installation\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Overload Relays",
+        "Reference Tesys Deca Installation",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 3586,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A37",
+      "category": "adversarial",
+      "subcategory": "mcb_dc_boundary",
+      "difficulty": "hard",
+      "question": "Is an AC rating alone enough to approve an ABB S200 M UC breaker for DC?",
+      "answer": "No. An AC rating alone is **not enough** to approve an ABB S200 M UC breaker for DC use.\n\nThe S200 M UC range is designed for both AC and DC, but DC selection requires checking:\n\n- the **DC operational voltage**\n- the **number of poles connected in series**\n- the relevant **DC breaking capacity**\n- polarity and connection instructions\n\nA breaker’s AC rating cannot simply be carried over to a DC circuit. Even if the current rating looks suitable, the DC breaking capability may not cover your installation. So please confirm the exact DC system voltage, fault level, and wiring arrangement before approving it.\n\nSources:\n- Reference Abb S200 Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [
+        "S200-M-UC",
+        "2CSF202101R1400",
+        "2CSF202401R1630"
+      ],
+      "sources": [
+        "Reference Abb S200 Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4677,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A38",
+      "category": "adversarial",
+      "subcategory": "rccb_test_boundary",
+      "difficulty": "hard",
+      "question": "If a three-phase circuit has no neutral, does the ABB F200 test button automatically work without checking wiring?",
+      "answer": "No — you shouldn’t assume the test button works automatically on a no-neutral three-phase circuit. The ABB F200 test-button operation depends on the wiring arrangement, so you need to check the ABB wiring diagram for the specific device.\n\nFor the four-pole F200 Type B arrangement described in ABB’s reference, the test circuit is wired between terminals 5/6 and 7/8/N, and that arrangement is designed for 110–254 V operation. That condition applies only to that covered arrangement, not automatically to every F200 setup.\n\nIf you’re looking at a specific F200 SKU, let me know the code and I’ll confirm the listed specs from the catalogue.\n\nSources:\n- Reference Abb F200 B Type\n- Reference Rccb Operating Conditions\n- Reference Rccb Current Types",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Abb F200 B Type",
+        "Reference Rccb Operating Conditions",
+        "Reference Rccb Current Types"
+      ],
+      "latencyMs": 8486,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A39",
+      "category": "adversarial",
+      "subcategory": "rccb_overcurrent_boundary",
+      "difficulty": "hard",
+      "question": "Can I rely on an RCCB alone to protect a cable from overload?",
+      "answer": "No — not from the catalogue facts. An RCCB detects residual/leakage current only. It does not protect against overload or short circuit.\n\nTo protect a cable from overload you need a separate MCB or fuse upstream. That’s exactly why an **RCBO** exists: it combines both residual-current and overcurrent protection in one device.\n\nSo for cable overload protection, rely on an MCB or RCBO — not an RCCB alone.\n\nSources:\n- Reference Abb Rcd Application\n- Reference Acti9 Rcbo Catalogue\n- Reference Rccb Current Types\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [
+        "A9F73140",
+        "A9D55610",
+        "A9D32625"
+      ],
+      "sources": [
+        "Reference Abb Rcd Application",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Rccb Current Types",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 3615,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A40",
+      "category": "adversarial",
+      "subcategory": "pf7_near_duplicate",
+      "difficulty": "hard",
+      "question": "Does Eaton article 263584 mean a 63 A four-pole PF7?",
+      "answer": "No. Eaton article **263584** is a four-pole PF7, but it is **25 A**, not 63 A.\n\nIts designation is **PF7-25/4/003** — that means:\n\n- 4 poles\n- 25 A rated current\n- 30 mA rated residual operating current\n- Type AC\n- 10 kA short-circuit strength\n\nSo don’t rely on pole count alone — it’s easy to confuse with nearby four-pole 40 A or 63 A entries, but 263584 specifically is the 25 A version.\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4168,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A41",
+      "category": "adversarial",
+      "subcategory": "pln6_pole_boundary",
+      "difficulty": "hard",
+      "question": "Does 1P+N on Eaton PLN6 model 263163 mean two protected poles?",
+      "answer": "No. For the Eaton PLN6 model 263163, **1P+N means one protected pole plus a neutral switching pole** — so it has two total poles, but only **one protected pole**. The “+N” does **not** mean two protected poles.\n\nSources:\n- Reference Eaton Pln6 Catalogue\n- SupplierFlow Official Knowledge",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pln6 Catalogue",
+        "SupplierFlow Official Knowledge"
+      ],
+      "latencyMs": 4122,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A42",
+      "category": "adversarial",
+      "subcategory": "incoterms_risk_boundary",
+      "difficulty": "hard",
+      "question": "Does CIP alone guarantee that seller risk continues until the goods arrive in Singapore?",
+      "answer": "No — under CIP (Carriage and Insurance Paid To), the seller pays for carriage to the named destination (Singapore) **and** must obtain insurance, but **risk does not stay with the seller until arrival**.\n\nRisk transfers to the buyer when the goods are handed over to the first carrier. From that point, loss or damage to the goods is the buyer’s risk, even if the seller is still paying for the freight and has a separate insurance contract for the buyer’s benefit.\n\nSo **CIP alone does not guarantee seller risk until arrival**. To fully define the deal you’d still need the named place, agreed carrier, and commercial details like payment terms, incoterms version, and insurance level. I don't have route transit times or shipping charges from the catalogue either — those would need to be confirmed separately.\n\nSources:\n- Reference Incoterms Rules Overview\n- Reference Acti9 Iprd Brochure",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Incoterms Rules Overview",
+        "Reference Acti9 Iprd Brochure"
+      ],
+      "latencyMs": 4870,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "A43",
+      "category": "adversarial",
+      "subcategory": "installation_indicator_boundary",
+      "difficulty": "medium",
+      "question": "Does VISI-SAFE prove that an Acti9 RCBO circuit is safe to touch?",
+      "answer": "No — VISI-SAFE is only a visual contact-status indicator. It does **not** prove the circuit is dead, and it does **not** replace proper isolation and a voltage test. Always isolate the supply and verify with a voltage tester before touching anything.\n\nSources:\n- Reference Acti9 Rcbo Installation\n- Reference Mcb Dc Applications\n- Reference Acti9 Ic60 Catalogue\n- Reference Acti9 Rcbo Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Rcbo Installation",
+        "Reference Mcb Dc Applications",
+        "Reference Acti9 Ic60 Catalogue",
+        "Reference Acti9 Rcbo Catalogue"
+      ],
+      "latencyMs": 3746,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "A44",
+      "category": "adversarial",
+      "subcategory": "installation_document_boundary",
+      "difficulty": "hard",
+      "question": "Does the TeSys Deca instruction sheet make all LC1D variants share the same terminal wiring?",
+      "answer": "No. The TeSys Deca instruction sheet (BQT61825) is a general installation reference for the family, but it doesn’t mean every LC1D variant shares identical terminal wiring.\n\nAlways check the **exact SKU** and its own wiring/terminal diagram. Coil type, contactor frame, connection technology, auxiliary contacts, and accessories can all change the installation details.\n\nSo for your specific LC1D variant: confirm the full commercial reference, then use the matching instruction sheet and terminal diagram.\n\nSources:\n- Reference Tesys Deca Installation\n- SupplierFlow Official Knowledge\n- Reference Tesys Deca Catalogue\n- Reference Tesys Linked Contacts",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Tesys Deca Installation",
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Linked Contacts"
+      ],
+      "latencyMs": 4153,
+      "pass": true,
+      "abstained": false,
+      "reasons": []
+    },
+    {
+      "id": "N01",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the unit price in MYR of the Acti9 iC60N A9F73140?",
+      "answer": "I don’t have a unit price in MYR for the **Acti9 iC60N MCB (A9F73140)** — it’s listed as **Price on request** in the catalogue.\n\nWould you like me to add it to an RFQ so the sales team can confirm pricing? If yes, please provide:\n\n- Name  \n- Company  \n- Work email  \n- Optional project note\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Catalogue\n- Reference Mcb Dc Applications\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Mcb Dc Applications",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 3272,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N02",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "How many units of LC1D40AP7 do you currently have in stock?",
+      "answer": "I don't have live stock information for the **TeSys D Contactor (LC1D40AP7)** — the catalogue lists it as \"Check availability\" and stock is not tracked on my side.\n\nI can help you prepare an RFQ so our sales team can confirm availability and pricing. To do that, I just need:\n\n- **Name**\n- **Company**\n- **Work email**\n- **Optional project note**\n\nWould you like to go ahead with that?\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 3648,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N03",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the IP rating of the LC1D150M7 contactor?",
+      "answer": "The catalogue doesn't list an IP rating for the **TeSys Deca Contactor LC1D150M7**. I don't have that specific value available.\n\nI can have the sales team confirm the IP rating for you if needed. Would you like me to note that in a follow-up?\n\nSources:\n- SupplierFlow Official Knowledge\n- Warranty Policy\n- Reference Acti9 Rcbo Catalogue\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Warranty Policy",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 3581,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N04",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the warranty period on Schneider Electric MCBs?",
+      "answer": "I don't have the warranty period for Schneider Electric MCBs in the catalogue details available to me. I can have the sales team confirm warranty terms for the specific SKUs you're interested in — just let me know which models you'd like to check.\n\nSources:\n- Reference Acti9 Rcbo Installation\n- Reference Acti9 Rcbo Catalogue\n- Reference Tesys Deca Catalogue\n- Reference Tesys Deca Installation\n- Reference Acti9 Iprd Brochure",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Rcbo Installation",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Deca Installation",
+        "Reference Acti9 Iprd Brochure"
+      ],
+      "latencyMs": 2903,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N05",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "How long does delivery to Singapore take?",
+      "answer": "I don't have a delivery-time estimate for Singapore in front of me — that's a separate logistics detail we don't publish in the catalogue. I can have the sales team confirm lead times for your specific order.\n\nIf you're asking about an Incoterms rule, I can explain what it does and doesn't cover (like who arranges carriage and where risk transfers), but it won't give a number of working days.\n\nIs there a product you're interested in, or would you like to start an RFQ? I can help put that together.\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 5320,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N06",
+      "category": "negative",
+      "subcategory": "nonexistent_sku",
+      "difficulty": "hard",
+      "question": "What are the specifications of the Acti9 iC60N A9F73150?",
+      "answer": "I don’t have specifications for the **Acti9 iC60N A9F73150** in the catalogue I can see.\n\nThe closest listing we carry is the **Acti9 iC60N MCB A9F73140** (1P, 40 A, B curve, 6 kA at 230 V AC, 10 kA at 220–240 V AC). If you were looking for that one, I can confirm its details or add it to your RFQ.\n\nOtherwise, I’d be happy to have our sales team confirm the A9F73150 specs for you. Would you like me to arrange that, or can I help with another product?\n\nSources:\n- Reference Acti9 Rcbo Catalogue\n- Reference Mcb Dc Applications\n- SupplierFlow Official Knowledge\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Mcb Dc Applications",
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 4301,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N07",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the operating temperature range of the ABB S200 M UC range?",
+      "answer": "I don’t have the operating temperature range for the ABB S200 M UC range in the catalogue information available to me. I can have the sales team confirm that specification for you if you’d like.\n\nWould you like me to add the **ABB S200 M UC MCB** to your RFQ cart, or is there anything else I can help with?\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Abb S200 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Abb S200 Catalogue"
+      ],
+      "latencyMs": 4058,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N08",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the restocking fee if I return an item that is not faulty?",
+      "answer": "I don't have restocking fee information in the catalogue. I can have the sales team confirm the return policy for non-faulty items if you like.\n\nSources:\n- Warranty Policy\n- Reference Acti9 Iprd Brochure\n- Reference Tesys Overload Relays\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "Warranty Policy",
+        "Reference Acti9 Iprd Brochure",
+        "Reference Tesys Overload Relays",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 3053,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N09",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What credit limit do you give to approved account customers?",
+      "answer": "We don’t publish a standard credit limit figure. Approved account customers may receive **30-day credit terms**, but the actual limit depends on your **credit limit and account status**, confirmed in writing.\n\nIf you need a specific limit for your company, I can have the sales team confirm it for you. Would you like that?\n\nSources:\n- Payment Terms\n- Reference Incoterms Rules Overview\n- Reference Incoterms Cost Insurance\n- Reference Incoterms 2020\n- Reference Spd Connection Rules",
+      "matchedSkus": [],
+      "sources": [
+        "Payment Terms",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms Cost Insurance",
+        "Reference Incoterms 2020",
+        "Reference Spd Connection Rules"
+      ],
+      "latencyMs": 3263,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N10",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What SST rate is applied to quotations?",
+      "answer": "We don’t have a single SST percentage to apply to all quotations. Malaysia’s SST scope notes that sales tax can apply to taxable goods manufactured or imported into Malaysia, but the rate, exemption, classification, and effective order depend on the specific item and current official SST material.\n\nFor your particular quotation, I’d recommend our sales team confirm the applicable SST treatment before you finalise anything. Would you like me to prepare an RFQ so they can check it for you?\n\nSources:\n- Reference Malaysia Sst Scope\n- Reference Incoterms Rules Overview\n- Reference Incoterms 2020\n- Reference Abb F200 B Type",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Malaysia Sst Scope",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms 2020",
+        "Reference Abb F200 B Type"
+      ],
+      "latencyMs": 3709,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N11",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the unit price in MYR of the Acti9 RCBO A9D55610?",
+      "answer": "The unit price for the **Acti9 iDPN N Vigi RCBO (A9D55610)** is listed as **Price on request** — I don’t have a MYR price in the catalogue.\n\nIf you’d like, I can have the sales team confirm the current price for you. Just let me know your name, company, and work email, and I’ll prepare a request.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Installation\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Installation",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 3294,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N12",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "How many A9S65463 units are currently in stock?",
+      "answer": "I don't have live stock information for the **Acti9 iSW Switch Disconnector (A9S65463)** — stock isn't tracked in the catalogue. I can have the sales team confirm availability for you. Would you like me to prepare an RFQ for this item?\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 3182,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N13",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What warranty period applies to Eaton PF7 article 263584?",
+      "answer": "I don’t have warranty information for the Eaton xPole PF7 RCCB (SKU 263584) in our catalogue. The listed details cover specs like 4P, 25 A, 30 mA, Type AC, and 10 kA short-circuit strength, but not warranty terms.\n\nI can have our sales team confirm the warranty period for you. Would you like me to prepare an RFQ so they can follow up? If so, please provide:\n\n- Your name\n- Company\n- Work email\n- Optional project note\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 3053,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N14",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the IP rating of the Acti9 iC60N A9F73140?",
+      "answer": "I don’t have the IP (ingress protection) rating for the Acti9 iC60N A9F73140 in the catalogue data available to me. I can ask the sales team to confirm it for you.\n\nFor reference, the listed specs for this SKU are: 1-pole, 40 A, B curve, 6 kA at 230 V AC, 10 kA at 220–240 V AC.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Catalogue\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 3433,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N15",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What shipping charge applies to delivery from Malaysia to Singapore?",
+      "answer": "I don’t have a shipping charge for Malaysia–Singapore deliveries in the catalogue. The listed facts don’t include transport costs, so I’m not able to quote or estimate one. I can have the sales team confirm the applicable charge for you — would you like me to request that?\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- Reference Incoterms Cost Insurance\n- Reference Incoterms 2020\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "Reference Incoterms Cost Insurance",
+        "Reference Incoterms 2020",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 3236,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N16",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What exact RM credit limit is approved for a new account customer?",
+      "answer": "We don’t have an exact RM credit limit listed in our catalogue or support materials.\n\nWhat we can tell you from our payment terms:\n\n- **New customers** are generally required to pay before delivery unless approved credit terms are confirmed in writing.\n- **Approved account customers** may receive 30-day credit terms, subject to credit limit and account status.\n\nIf you need a specific credit limit figure, I’d be happy to have our sales team confirm it with you directly.\n\nSources:\n- Payment Terms\n- Reference Incoterms Rules Overview\n- Reference Incoterms Cost Insurance\n- Reference Incoterms 2020\n- Reference Eaton Pln6 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "Payment Terms",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms Cost Insurance",
+        "Reference Incoterms 2020",
+        "Reference Eaton Pln6 Catalogue"
+      ],
+      "latencyMs": 3598,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N17",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What SST percentage should I add to a quotation for Eaton PF7 article 263584?",
+      "answer": "I don’t have a specific SST percentage to give you. The Malaysia SST scope notes I have say sales tax can apply to taxable goods manufactured in or imported into Malaysia, but they don’t state one universal rate — the rate depends on the goods classification.\n\nAlso, Eaton PF7 article 263584 isn’t in our current catalogue, so I can’t confirm its details either.\n\nI can ask our sales team to confirm the applicable SST rate and whether that product is available. Would you like me to do that?\n\nSources:\n- Sales SOP\n- Reference Malaysia Sst Scope\n- Reference Incoterms Rules Overview\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "Reference Malaysia Sst Scope",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 7676,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N18",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the minimum order quantity for Acti9 iC60N A9F73140?",
+      "answer": "I don’t have a minimum order quantity for the Acti9 iC60N (SKU A9F73140) in the catalogue facts available to me. I can have the sales team confirm this for you if you’d like.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Catalogue\n- Reference Mcb Dc Applications\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Mcb Dc Applications",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 2932,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N19",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What exact HS code should I declare for TeSys D contactor LC1D40AP7?",
+      "answer": "I don’t have an exact HS code to give you for **LC1D40AP7**. A product SKU or marketing name isn’t enough to determine a tariff code — the classification depends on the customs authority, product description, and applicable tariff context.\n\nYour best next step is to check the **Royal Malaysian Customs Department’s JKDM HS Explorer** or an official customs ruling for the correct classification. If you’d like, I can note this request for our sales team to help confirm with the supplier — just let me know.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Malaysia Hs Explorer\n- Reference Tesys Deca Catalogue\n- Reference Tesys Deca Installation",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Malaysia Hs Explorer",
+        "Reference Tesys Deca Catalogue",
+        "Reference Tesys Deca Installation"
+      ],
+      "latencyMs": 4288,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N20",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "How many Eaton PF7 article 263584 units are available today?",
+      "answer": "I don’t have live stock figures for Eaton xPole PF7 article **263584** — its catalogue status is **\"Check availability\"** and stock isn't tracked, so I can't confirm a today's quantity.\n\nFor reference, the item is the **PF7-25/4/003-DE**: 4-pole, 25 A, 30 mA Type AC RCCB, 10 kA short-circuit strength.\n\nI can add it to an RFQ so our sales team can check availability for you. To prepare that, just send me:\n\n- Your name\n- Company\n- Work email\n- Optional project note\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Eaton Pf7 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Eaton Pf7 Catalogue"
+      ],
+      "latencyMs": 6615,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N21",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "How many years of warranty does Acti9 RCBO A9D55610 have?",
+      "answer": "The catalogue facts I have don’t include a warranty period for A9D55610. I can have our sales team confirm warranty details for you — would you like me to pass that along?\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Installation\n- Reference Acti9 Rcbo Catalogue\n- Reference Acti9 Iprd Brochure",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Installation",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Acti9 Iprd Brochure"
+      ],
+      "latencyMs": 2752,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N22",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What is the coil power consumption of the LC1D150M7 contactor?",
+      "answer": "I don't have the coil power consumption (VA/W) value for the **TeSys Deca Contactor LC1D150M7** in the catalogue. What is listed is:\n\n- Coil supply: 220 V AC, 50/60 Hz\n- Rated current: 150 A AC-3/AC-3e\n- Width: 120 mm\n\nWould you like me to have the sales team confirm the coil power consumption for you?\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Tesys Deca Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Tesys Deca Catalogue"
+      ],
+      "latencyMs": 3054,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N23",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the price of replacement cartridge A9L8F492?",
+      "answer": "I don't have a listed price for replacement cartridge **A9L8F492** in the catalogue data available to me. I can ask the sales team to confirm pricing for you — just let me know if you'd like that.\n\nSources:\n- Reference Acti9 Iprd Catalogue\n- Reference Acti9 Iprd Brochure",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Iprd Catalogue",
+        "Reference Acti9 Iprd Brochure"
+      ],
+      "latencyMs": 2943,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N24",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "How many A9L8F492 replacement cartridges are in stock?",
+      "answer": "I don’t have stock information for the **A9L8F492** replacement cartridge in our system, and we don’t track live stock levels for any item in the catalogue.\n\nThat reference appears in the manufacturer’s iPRD F40r catalogue as a replacement cartridge, but I can’t confirm availability or quantity. Would you like me to have the sales team check availability for you?\n\nSources:\n- Reference Acti9 Iprd Catalogue\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Acti9 Iprd Catalogue",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 4192,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    },
+    {
+      "id": "N25",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "medium",
+      "question": "What exact shipping insurance charge should be added to a CIP quotation?",
+      "answer": "I don’t have that exact shipping insurance charge in the catalogue, so I can’t give you a figure to add.\n\nUnder CIP, the seller is responsible for arranging and paying the insurance, but the actual premium depends on the goods, route, and insurer. That’s a commercial detail for the quotation, not something I can confirm from the catalogue.\n\nI’d be happy to have the sales team confirm the insurance charge and prepare the CIP quotation for you. Could you provide your name, company, work email, and any project notes?\n\nSources:\n- Reference Eaton Pf7 Catalogue\n- Sales SOP\n- Reference Incoterms Rules Overview\n- Reference Incoterms 2020",
+      "matchedSkus": [],
+      "sources": [
+        "Reference Eaton Pf7 Catalogue",
+        "Sales SOP",
+        "Reference Incoterms Rules Overview",
+        "Reference Incoterms 2020"
+      ],
+      "latencyMs": 4533,
+      "pass": true,
+      "abstained": true,
+      "reasons": []
+    }
+  ]
+}

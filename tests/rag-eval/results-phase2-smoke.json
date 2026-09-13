@@ -1,0 +1,195 @@
+{
+  "base": "http://localhost:3100",
+  "ranAt": "2026-08-30T16:25:41.793Z",
+  "metrics": {
+    "total": 4,
+    "passed": 4,
+    "passRate": 1,
+    "hallucinationRate": 0,
+    "answerAccuracy": 1,
+    "faithfulness": 1,
+    "contextRelevance": 0.4666666666666666,
+    "contextCoverage": 1,
+    "abstentionPrecision": 0.5,
+    "abstentionRecall": 1,
+    "falseAnswerRate": 0,
+    "overAbstentionRate": 0.3333333333333333,
+    "latencyMs": {
+      "totalClient": {
+        "p50": 3112,
+        "p95": 7764,
+        "count": 4
+      },
+      "serverTotal": {
+        "p50": 2865,
+        "p95": 7538,
+        "count": 4
+      },
+      "retrieval": {
+        "p50": 443,
+        "p95": 493,
+        "count": 4
+      },
+      "generation": {
+        "p50": 1414,
+        "p95": 6293,
+        "count": 4
+      }
+    },
+    "tokens": {
+      "measuredQueries": 4,
+      "prompt": 7335,
+      "completion": 981,
+      "total": 8316,
+      "average": 2079
+    },
+    "costUsd": {
+      "total": 0.0007616400000000001,
+      "averagePerQuery": 0.00019041000000000002,
+      "pricingPerMillionTokens": {
+        "inputCacheHit": 0.007,
+        "inputCacheMiss": 0.22,
+        "output": 0.66
+      },
+      "pricingSource": "https://api-docs.deepseek.com/quick_start/pricing/"
+    }
+  },
+  "results": [
+    {
+      "id": "D01",
+      "category": "direct_lookup",
+      "subcategory": "product_spec",
+      "difficulty": "easy",
+      "question": "What is the rated current and tripping curve of the Acti9 iC60N A9F73140?",
+      "answer": "The **Acti9 iC60N MCB (SKU A9F73140)** is rated at **40 A** with a **B tripping curve**.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Catalogue\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 3112,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 493,
+      "generationMs": 1414,
+      "serverTotalMs": 2865,
+      "promptTokens": 1987,
+      "completionTokens": 66,
+      "totalTokens": 2053,
+      "costUsd": 0.00007174000000000001
+    },
+    {
+      "id": "P10",
+      "category": "direct_lookup",
+      "subcategory": "policy",
+      "difficulty": "medium",
+      "question": "How soon should the sales team follow up on a sent quotation?",
+      "answer": "The sales team follows up on a sent quotation within **3 working days**.\n\nSources:\n- Sales SOP\n- Warranty Policy\n- Delivery Policy\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [],
+      "sources": [
+        "Sales SOP",
+        "Warranty Policy",
+        "Delivery Policy",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 3313,
+      "pass": true,
+      "abstained": true,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 2,
+      "contextRelevance": 0.4,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 484,
+      "generationMs": 1402,
+      "serverTotalMs": 3049,
+      "promptTokens": 1546,
+      "completionTokens": 67,
+      "totalTokens": 1613,
+      "costUsd": 0.000057171999999999994
+    },
+    {
+      "id": "A09",
+      "category": "adversarial",
+      "subcategory": "multi_hop_cross_doc",
+      "difficulty": "hard",
+      "question": "I'm a new customer in Kuala Lumpur and I need a 1-pole 40 A B-curve MCB. What product fits, and what payment and delivery terms apply?",
+      "answer": "The product that fits your requirement is:\n\n**Acti9 iC60N MCB (SKU A9F73140)**  \n- 1-pole, 40 A, B curve  \n- 6 kA at 230 V AC / 10 kA at 220–240 V AC  \n- Status: Check availability | Stock: Not tracked | Price: Price on request\n\n**Payment terms for new customers**  \n- Payment is required **before delivery** unless approved credit terms are confirmed in writing.  \n- Standard quotations are valid for **14 calendar days** from the quotation date.  \n- Prices exclude delivery charges unless delivery is specifically included in the quotation.\n\n**Delivery for Kuala Lumpur / Klang Valley**  \n- Normally **1–2 working days** after order confirmation and stock allocation.  \n- Orders confirmed before **2:00 PM** on a working day are processed the same day, subject to stock.\n\nSince stock isn’t tracked in the catalogue, availability would need to be confirmed before an order. Would you like me to add this item to an RFQ? If so, please provide your **name, company, work email**, and optionally a project note.\n\nSources:\n- SupplierFlow Official Knowledge\n- Payment Terms\n- Delivery Policy\n- Sales SOP\n- Reference Incoterms Rules Overview",
+      "matchedSkus": [
+        "A9F73140",
+        "2CSF202201R2630",
+        "S200-M-UC"
+      ],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Payment Terms",
+        "Delivery Policy",
+        "Sales SOP",
+        "Reference Incoterms Rules Overview"
+      ],
+      "latencyMs": 7764,
+      "pass": true,
+      "abstained": false,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 3,
+      "contextRelevance": 0.6,
+      "contextCoverage": true,
+      "faithful": true,
+      "retrievalMs": 443,
+      "generationMs": 6293,
+      "serverTotalMs": 7538,
+      "promptTokens": 1786,
+      "completionTokens": 714,
+      "totalTokens": 2500,
+      "costUsd": 0.000509728
+    },
+    {
+      "id": "N01",
+      "category": "negative",
+      "subcategory": "not_in_kb",
+      "difficulty": "hard",
+      "question": "What is the unit price in MYR of the Acti9 iC60N A9F73140?",
+      "answer": "We don’t have a published MYR unit price for the Acti9 iC60N (SKU A9F73140) — it’s listed as **Price on request**.\n\nI can have the sales team confirm a quote for you. Would you like me to add it to your RFQ? If so, just let me know the quantity and I’ll include it.\n\nSources:\n- SupplierFlow Official Knowledge\n- Reference Acti9 Rcbo Catalogue\n- Reference Mcb Dc Applications\n- Reference Acti9 Ic60 Catalogue",
+      "matchedSkus": [],
+      "sources": [
+        "SupplierFlow Official Knowledge",
+        "Reference Acti9 Rcbo Catalogue",
+        "Reference Mcb Dc Applications",
+        "Reference Acti9 Ic60 Catalogue"
+      ],
+      "latencyMs": 2986,
+      "pass": true,
+      "abstained": true,
+      "reasons": [],
+      "requestedRetrievalMode": "keyword",
+      "retrievalMode": "keyword",
+      "retrievedChunkCount": 5,
+      "relevantChunkCount": 0,
+      "contextRelevance": null,
+      "contextCoverage": null,
+      "faithful": null,
+      "retrievalMs": 369,
+      "generationMs": 1575,
+      "serverTotalMs": 2767,
+      "promptTokens": 2016,
+      "completionTokens": 134,
+      "totalTokens": 2150,
+      "costUsd": 0.000123
+    }
+  ]
+}
