@@ -1,10 +1,13 @@
-// SF-JEV-005: concurrent multi-query execution + evidence aggregation.
+// Experiment phase 1: concurrent multi-query execution + request-level
+// global evidence selection.
 //
 // Independent operations run via Promise.allSettled; one failure never
-// discards the others. Aggregation dedupes, preserves provenance, groups by
-// product where useful, and enforces per-product retention for comparisons.
+// discards the others. Selection then enforces ONE global budget over the
+// merged pool: dedupe, relevance rerank, global top-k, token budget,
+// per-product pinning for comparisons. Extra operations must not grow the
+// final context automatically (N04/N17 over-retrieval).
 
-import { decomposeQuery } from "../retrieval.mjs";
+import { decomposeQuery, rerankByCoverage } from "../retrieval.mjs";
 import { retrieveKnowledge } from "../knowledge-retrieval.mjs";
 
 /** Map planner op types onto the existing retrieval backend. */
@@ -57,7 +60,7 @@ export async function executeOperation(
     supabase,
     question: operation.query,
     queries,
-    limit,
+    limit: operation.limit || limit,
     mode,
   });
   return {
@@ -90,7 +93,8 @@ export async function executePlan(plan, deps) {
   return { settled, completedOperations, failedOperations };
 }
 
-/** Dedupe chunks by content, preserving first-seen order + provenance.
+/**
+ * Dedupe chunks by content, preserving first-seen order + provenance.
  * @param {any} chunks
  */
 export function dedupeChunks(chunks) {
@@ -105,19 +109,21 @@ export function dedupeChunks(chunks) {
   return out;
 }
 
+function mentionsSku(chunk, sku) {
+  const text = `${chunk?.title || ""} ${chunk?.content || ""}`.toUpperCase();
+  return text.includes(String(sku).toUpperCase());
+}
+
 /**
- * Aggregate settled results into { documents, products, ... }.
- * Comparison guard: when the plan has per-product ops, keep at least one
- * chunk (or product fact) per requested product so Product B is never
- * silently dropped from the context.
+ * Request-level global evidence selection over the merged pool.
+ *
  * @param {any} plan
  * @param {any} settled
- * @param {{ tokenBudgetChars?: number }} [options]
+ * @param {{ question?: string, queries?: string[], globalTopK?: number, tokenBudgetChars?: number }} [options]
  */
-export function aggregateEvidence(plan, settled, { tokenBudgetChars = 12000 } = {}) {
+export function aggregateEvidence(plan, settled, { question = "", queries = [], globalTopK = 5, tokenBudgetChars = 12000 } = {}) {
   const documents = [];
   const products = new Map();
-  const completedOperations = [];
   const failedOperations = [];
   const missingInformation = [];
 
@@ -128,7 +134,6 @@ export function aggregateEvidence(plan, settled, { tokenBudgetChars = 12000 } = 
       missingInformation.push(operation?.type || `op-${index}`);
       return;
     }
-    completedOperations.push(operation?.type || `op-${index}`);
     const value = result.value;
     for (const chunk of value?.chunks || []) documents.push(chunk);
     for (const product of value?.products || []) {
@@ -136,42 +141,85 @@ export function aggregateEvidence(plan, settled, { tokenBudgetChars = 12000 } = 
     }
   });
 
-  let deduped = dedupeChunks(documents);
+  const deduped = dedupeChunks(documents);
 
-  // Per-product retention for comparisons: ensure every requested SKU with
-  // any evidence keeps at least one chunk mentioning it.
+  // Relevance rerank across the merged pool with the ORIGINAL question first,
+  // so extra ops cannot smuggle irrelevant chunks to the top.
+  const ranked = deduped.length > 1 && (question || queries.length)
+    ? rerankByCoverage(deduped, [question, ...queries].filter(Boolean), (chunk) => chunk.content, deduped.length)
+    : deduped;
+
+  // Per-product pinning for comparisons: each requested SKU keeps its best
+  // chunk; remaining slots fill by rank. Product B must never be dropped.
   const requestedSkus = [
-    ...new Set(
-      (plan?.operations || []).flatMap((op) => op?.productIds || []),
-    ),
+    ...new Set((plan?.operations || []).flatMap((op) => op?.productIds || [])),
   ];
-  if (requestedSkus.length >= 2) {
-    const kept = [];
-    const seenSkus = new Set();
-    for (const chunk of deduped) {
-      kept.push(chunk);
-      const text = `${chunk?.title || ""} ${chunk?.content || ""}`.toUpperCase();
-      for (const sku of requestedSkus) {
-        if (text.includes(String(sku).toUpperCase())) seenSkus.add(String(sku).toUpperCase());
-      }
-    }
+  let selected;
+  if (requestedSkus.length >= 2 && ranked.length > 0) {
+    const pinned = [];
+    const pinnedKeys = new Set();
     for (const sku of requestedSkus) {
-      if (!seenSkus.has(String(sku).toUpperCase())) {
-        missingInformation.push(`evidence:${sku}`);
+      const best = ranked.find((chunk) => !pinnedKeys.has(chunk.content) && mentionsSku(chunk, sku));
+      if (best) {
+        pinned.push(best);
+        pinnedKeys.add(best.content);
       }
     }
-    deduped = kept;
+    selected = [...pinned];
+    for (const chunk of ranked) {
+      if (selected.length >= Math.max(globalTopK, pinned.length)) break;
+      if (!pinnedKeys.has(chunk.content)) {
+        selected.push(chunk);
+        pinnedKeys.add(chunk.content);
+      }
+    }
+  } else {
+    selected = ranked.slice(0, Math.max(globalTopK, 0));
   }
 
-  // Token budget: truncate tail content, never drop whole leading docs first.
+  // Token budget: truncate tail, never drop leading docs first.
   let used = 0;
   const budgeted = [];
-  for (const chunk of deduped) {
+  for (const chunk of selected) {
     const size = (chunk?.content || "").length;
     if (used + size > tokenBudgetChars && budgeted.length > 0) break;
     budgeted.push(chunk);
     used += size;
   }
+
+  // Missing information is computed AFTER selection: never claim evidence
+  // that the budget removed, and never hide a failed operation.
+  const keptKeys = new Set(budgeted.map((chunk) => chunk.content));
+  const droppedOps = new Set();
+  (plan?.operations || []).forEach((operation, index) => {
+    const result = settled[index];
+    if (!result || result.status !== "fulfilled") return;
+    const chunks = result.value?.chunks || [];
+    if (chunks.length > 0 && !chunks.some((chunk) => keptKeys.has(chunk.content))) {
+      droppedOps.add(operation?.type || `op-${index}`);
+    }
+  });
+  for (const op of droppedOps) missingInformation.push(`dropped:${op}`);
+  for (const sku of requestedSkus) {
+    const coveredByProduct = [...products.keys()].some(
+      (key) => String(key).toUpperCase() === String(sku).toUpperCase(),
+    );
+    const coveredByChunk = budgeted.some((chunk) => mentionsSku(chunk, sku));
+    if (!coveredByProduct && !coveredByChunk) {
+      missingInformation.push(`evidence:${sku}`);
+    }
+  }
+
+  const completedOperations = [];
+  (plan?.operations || []).forEach((operation, index) => {
+    const result = settled[index];
+    if (!result || result.status !== "fulfilled") return;
+    const chunks = result.value?.chunks || [];
+    const productsOut = result.value?.products || [];
+    if (chunks.some((chunk) => keptKeys.has(chunk.content)) || productsOut.length > 0) {
+      completedOperations.push(operation?.type || `op-${index}`);
+    }
+  });
 
   return {
     documents: budgeted,
@@ -179,6 +227,7 @@ export function aggregateEvidence(plan, settled, { tokenBudgetChars = 12000 } = 
     productDetails: [...products.values()],
     completedOperations,
     failedOperations,
+    droppedOperations: [...droppedOps],
     missingInformation: [...new Set(missingInformation)],
   };
 }

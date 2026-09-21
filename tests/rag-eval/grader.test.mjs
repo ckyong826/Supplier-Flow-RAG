@@ -59,6 +59,17 @@ test("N10 SST guards fire on a fabricated rate", () => {
   assert.equal(matchesAny("SST is confirmed before the quotation is sent.", guards("N10")).length, 0);
 });
 
+test("N17 SST guard ignores a negated abstention but fires on an asserted rate", () => {
+  assert.equal(matchesAny("No SST rate is stated in the product information.", guards("N17")).length, 0);
+  assert.ok(matchesAny("The SST rate is 6%.", guards("N17")).length > 0);
+  assert.ok(matchesAny("SST rate is confirmed per account.", guards("N17")).length > 0);
+});
+
+test("N23 price guard ignores a negated abstention but fires on an asserted price", () => {
+  assert.equal(matchesAny("I don't have pricing for the cartridge — no price is listed.", guards("N23")).length, 0);
+  assert.ok(matchesAny("The price is RM 120.", guards("N23")).length > 0);
+});
+
 test("N18 MOQ guard ignores the SKU in an abstention", () => {
   assert.ok(matchesAny("The MOQ is 100 units.", guards("N18")).length > 0);
   assert.equal(matchesAny("I don't have a minimum order quantity for A9F73140.", guards("N18")).length, 0);

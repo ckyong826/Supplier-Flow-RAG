@@ -1,16 +1,22 @@
-// SF-JEV-002/003/007: provider abstraction + fallback orchestrator.
+// SF-JEV-002/003/007 + experiment phases 1-2: provider abstraction,
+// fallback orchestrator, and selective routing.
 //
 // Contract:
 //   routeQuery({ query, history, products }) ->
-//   { normalized, source: "jev"|"heuristic"|"disabled",
+//   { normalized, source, strategy: "legacy"|"multi", jevAttempted,
 //     routingLatencyMs, fallbackUsed, fallbackReason, usage }
 //
-// Chain (first usable result wins):
-//   TypeSafe Jev (official SDK) -> deterministic heuristic ->
-//   existing retrieval pipeline (caller falls back, no extra LLM call).
-// - Invalid Jev payloads are NEVER treated as "general"; they fall back.
-// - Auth failures surface as jev-auth-error in diagnostics (no credentials
-//   included); they are NOT retried.
+// Strategies (decided here, executed by the caller):
+//   "legacy" -> original single-query retrieval; Jev was not used or failed.
+//   "multi"  -> deterministic or Jev-assisted multi-query planning.
+//
+// Provider chain:
+//   provider=heuristic -> deterministic multi-query, no Jev call (Group B).
+//   provider=jev, selective gate says simple -> legacy, no Jev call (Group C).
+//   provider=jev, complex or non-selective -> Jev attempt (Groups C/D);
+//     Jev timeout/invalid/auth failure -> legacy, never heuristic-multi.
+// A Jev failure must be able to fall back to the ORIGINAL implementation;
+// heuristic routing is not equivalent to legacy retrieval.
 
 import { getDecisionConfig } from "./config.mjs";
 import { fetchJevRoute } from "./jev.mjs";
@@ -18,14 +24,15 @@ import { normalizeRouteResult, defaultThreshold } from "./labels.mjs";
 import { heuristicRoute } from "./heuristic.mjs";
 import { buildRouterContext } from "./conversation.mjs";
 import { extractAndValidateSkus } from "./sku.mjs";
+import { isComplexCandidate } from "./complexity.mjs";
 
 /**
- * Whether a *resolved* config should attempt Jev.
+ * Whether a *resolved* config should attempt any routing.
  * @param {any} [config]
  */
 export function shouldAttemptResolved(config) {
   if (!config?.enabled) return false;
-  return config.provider === "jev";
+  return config.provider === "jev" || config.provider === "heuristic";
 }
 
 /**
@@ -41,33 +48,56 @@ export async function routeQuery(
   const effectiveThreshold = threshold ?? config.threshold ?? defaultThreshold();
   const context = buildRouterContext(history);
   const skus = extractAndValidateSkus(query, products);
-
-  const heuristicFallback = (fallbackReason) => {
-    const heuristic = heuristicRoute(query, context, effectiveThreshold);
-    return {
-      normalized: heuristic,
-      source: "heuristic",
-      routingLatencyMs: Date.now() - started,
-      fallbackUsed: true,
-      fallbackReason,
-      usage: null,
-      context,
-      skus,
-    };
-  };
+  const done = (partial) => ({
+    normalized: null,
+    source: "disabled",
+    strategy: "legacy",
+    jevAttempted: false,
+    routingLatencyMs: Date.now() - started,
+    fallbackUsed: true,
+    fallbackReason: "router-disabled",
+    usage: null,
+    context,
+    skus,
+    complexity: null,
+    ...partial,
+  });
 
   if (!shouldAttemptResolved(config)) {
-    const heuristic = heuristicRoute(query, context, effectiveThreshold);
-    return {
-      normalized: heuristic,
-      source: "disabled",
-      routingLatencyMs: Date.now() - started,
-      fallbackUsed: true,
-      fallbackReason: "router-disabled",
-      usage: null,
-      context,
-      skus,
-    };
+    return done({ normalized: heuristicRoute(query, context, effectiveThreshold) });
+  }
+
+  // Group B: deterministic multi-query planning without any Jev API call.
+  if (config.provider === "heuristic") {
+    return done({
+      normalized: heuristicRoute(query, context, effectiveThreshold),
+      source: "heuristic-multi",
+      strategy: "multi",
+      fallbackUsed: false,
+      fallbackReason: null,
+    });
+  }
+
+  // Group C: selective routing -- simple queries keep legacy RAG with no
+  // Jev call at all.
+  let complexity = null;
+  if (config.selective) {
+    complexity = isComplexCandidate({
+      query,
+      history: context,
+      productIds: skus.productIds,
+      unknownSkus: skus.unknown,
+    });
+    if (!complexity.complex) {
+      return done({
+        normalized: heuristicRoute(query, context, effectiveThreshold),
+        source: "selective-simple",
+        // Not a fallback: legacy for simple queries is the designed path.
+        fallbackUsed: false,
+        fallbackReason: "selective-simple-query",
+        complexity,
+      });
+    }
   }
 
   const raw = await fetchJevRoute(
@@ -81,23 +111,35 @@ export async function routeQuery(
     { config, client },
   );
 
+  // Any Jev failure falls back to the ORIGINAL retrieval implementation.
   if (raw?.error) {
-    return heuristicFallback(raw.error);
+    return done({
+      normalized: heuristicRoute(query, context, effectiveThreshold),
+      source: "heuristic",
+      fallbackReason: raw.error,
+      jevAttempted: true,
+      complexity,
+    });
   }
   const normalized = normalizeRouteResult(raw, effectiveThreshold);
   if (normalized && normalized.detectedIntents.length > 0) {
-    return {
+    return done({
       normalized,
       source: "jev",
-      routingLatencyMs: raw.routingLatencyMs ?? Date.now() - started,
+      strategy: "multi",
+      jevAttempted: true,
       fallbackUsed: false,
       fallbackReason: null,
       usage: raw.usage || null,
-      context,
-      skus,
-    };
+      complexity,
+    });
   }
-  // Invalid or empty Jev result: fall back, but record why. An invalid
-  // result must not become a silent "general conversation".
-  return heuristicFallback(normalized ? "jev-empty-decision" : "jev-invalid-response");
+  // Invalid or empty Jev result: legacy fallback, never a silent "general".
+  return done({
+    normalized: heuristicRoute(query, context, effectiveThreshold),
+    source: "heuristic",
+    fallbackReason: normalized ? "jev-empty-decision" : "jev-invalid-response",
+    jevAttempted: true,
+    complexity,
+  });
 }

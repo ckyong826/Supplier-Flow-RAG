@@ -185,6 +185,11 @@ node tests/rag-eval/run-routing-eval.mjs --sweep
 node tests/rag-eval/run-routing-eval.mjs --provider jev   # needs TYPESAFE_API_KEY
 ```
 
+The four-group experiment (legacy / deterministic multi-query / selective
+Jev / Jev-for-all) and its results are recorded in
+[`docs/jev-experiment-audit.md`](docs/jev-experiment-audit.md). The router
+stays disabled by default until an evaluation demonstrates an improvement.
+
 The retrieval implementation is intentionally hand-rolled rather than hidden behind a RAG
 framework, so each retrieval and grading decision can be inspected in the source.
 

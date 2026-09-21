@@ -119,6 +119,17 @@ node --test tests/rag-eval/grader.test.mjs
 # 2b. Routing accuracy — heuristic baseline is offline; --provider jev needs TYPESAFE_API_KEY
 node tests/rag-eval/run-routing-eval.mjs --sweep
 node tests/rag-eval/run-routing-eval.mjs --provider jev --json tests/rag-eval/results-routing.json
+node tests/rag-eval/run-routing-eval.mjs --heldout   # held-out set: report, never tune
+
+# 2c. Jev routing latency probe (direct SDK calls, no app server or database)
+node tests/rag-eval/run-routing-latency.mjs --json tests/rag-eval/results-routing-latency.json
+
+# 2d. Controlled experiment, four groups, one server, no restarts.
+# Keep DECISION_ROUTER_ENABLED=false (Group A is the control default).
+node tests/rag-eval/run-live-eval.mjs --base http://localhost:3100 --decision off --delay 400 --concurrency 2 --json tests/rag-eval/results-group-a.json
+node tests/rag-eval/run-live-eval.mjs --base http://localhost:3100 --decision multi --delay 400 --concurrency 2 --json tests/rag-eval/results-group-b.json
+node tests/rag-eval/run-live-eval.mjs --base http://localhost:3100 --decision selective --delay 400 --concurrency 2 --json tests/rag-eval/results-group-c.json
+node tests/rag-eval/run-live-eval.mjs --base http://localhost:3100 --decision on --delay 400 --concurrency 2 --json tests/rag-eval/results-group-d.json
 
 # 3. Offline retrieval pass — no server, no API keys
 node tests/rag-eval/run-retrieval-eval.mjs --chunking fixed --k 5 --json tests/rag-eval/results-retrieval.json

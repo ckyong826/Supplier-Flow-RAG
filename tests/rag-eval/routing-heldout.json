@@ -1,0 +1,19 @@
+{
+  "name": "SupplierFlow routing HELD-OUT eval (SF-JEV Phase 5)",
+  "version": "1.0.0",
+  "notes": "Held-out cases: never tune heuristics, thresholds, or planner rules against these. Report dev-set and held-out metrics separately. All SKUs are real catalogue identifiers.",
+  "cases": [
+    { "id": "H01", "category": "exact_sku", "query": "What pole configuration does A9S65463 have?", "history": "", "expected_intents": ["product_lookup", "specification"], "required_ops": ["exact_product", "keyword"] },
+    { "id": "H02", "category": "product_discovery", "query": "I need surge protection for a residential DB. What do you suggest?", "history": "", "expected_intents": ["product_discovery"], "required_ops": ["hybrid"] },
+    { "id": "H03", "category": "multi_product", "query": "What is the difference between the F200 and S200 ranges?", "history": "", "expected_intents": ["comparison", "product_lookup", "specification"], "required_ops": ["exact_product", "hybrid"] },
+    { "id": "H04", "category": "specification", "query": "Does the iPRD need a dedicated MCB upstream?", "history": "", "expected_intents": ["product_discovery"], "required_ops": ["hybrid"] },
+    { "id": "H05", "category": "multi_product", "query": "LC1D09BNE versus LC1D09BD: what is different about the coil?", "history": "", "expected_intents": ["comparison", "product_lookup", "specification"], "required_ops": ["exact_product", "hybrid"] },
+    { "id": "H06", "category": "product_policy", "query": "How do I claim warranty for a faulty RCBO?", "history": "", "expected_intents": ["policy"], "required_ops": ["keyword", "policy"] },
+    { "id": "H07", "category": "supplier", "query": "Is Schneider a supplier you carry for contactors?", "history": "", "expected_intents": ["supplier"], "required_ops": ["keyword", "supplier"] },
+    { "id": "H08", "category": "product_pricing", "query": "What is the unit price of LC1D09BD for 20 pieces?", "history": "", "expected_intents": ["product_lookup", "pricing"], "required_ops": ["exact_product", "keyword", "pricing"] },
+    { "id": "H09", "category": "product_pricing", "query": "What is the lead time for Eaton 263584?", "history": "", "expected_intents": ["product_lookup", "inventory"], "required_ops": ["exact_product", "keyword", "inventory"] },
+    { "id": "H10", "category": "ambiguous", "query": "What is the IP rating of A9F73140?", "history": "", "expected_intents": ["product_lookup", "specification"], "required_ops": ["exact_product", "keyword"] },
+    { "id": "H11", "category": "follow_up", "query": "And what about its warranty?", "history": "What is the price of A9D55610?", "expected_intents": ["follow_up", "policy", "product_lookup"], "required_ops": ["keyword", "policy"] },
+    { "id": "H12", "category": "multilingual", "query": "A9F73140 ada stok tak? price berapa?", "history": "", "expected_intents": ["product_lookup", "pricing", "inventory"], "required_ops": ["exact_product", "keyword", "pricing", "inventory"] }
+  ]
+}

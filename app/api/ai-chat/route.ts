@@ -16,6 +16,7 @@ import { decomposeQuery, fuseByKeywords, rewriteQuery } from "./retrieval.mjs";
 import { formatKnowledge, retrieveKnowledge } from "./knowledge-retrieval.mjs";
 import { hypotheticalQuery } from "./query-rewrite.mjs";
 import { routeQuery } from "./decision-router/router.mjs";
+import { getDecisionConfig } from "./decision-router/config.mjs";
 import { resolveRetrievalQuery } from "./decision-router/conversation.mjs";
 import { buildRetrievalPlan } from "./decision-router/planner.mjs";
 import {
@@ -63,8 +64,11 @@ type DecisionRouting = {
     confidences: Record<string, number>;
   } | null;
   source?: string;
+  strategy?: "legacy" | "multi";
+  jevAttempted?: boolean;
   fallbackUsed?: boolean;
   fallbackReason?: string | null;
+  complexity?: { complex: boolean; reasons: string[] } | null;
   context?: string;
   usage?: { input_tokens?: number; output_tokens?: number } | null;
   skus?: {
@@ -72,6 +76,11 @@ type DecisionRouting = {
     unknown: string[];
     matched: RouterSkuMatch[];
   };
+};
+type GenerationResult = {
+  choices?: Array<{ message?: { content?: string } }>;
+  usage?: ModelUsage;
+  model?: string;
 };
 type RetrievalOperationShape = {
   type: string;
@@ -161,12 +170,23 @@ export async function POST(request: Request) {
           ? "CREATE_RFQ"
           : null;
     const products = await listActiveProducts();
-    // SF-JEV: intelligent multi-query routing. Feature-flagged; when disabled
-    // every line below behaves exactly as before (legacy rewrite + retrieval).
-    // The x-rag-decision eval header overrides the flag per request.
-    const decisionEnabled = evalDecision
-      ? evalDecision.toLowerCase() === "on"
-      : String(process.env.DECISION_ROUTER_ENABLED || "false").toLowerCase() === "true";
+    // Experiment groups (Phase 4): A = legacy RAG (control), B = legacy +
+    // deterministic multi-query (no Jev), C = selective Jev (complex only),
+    // D = Jev routing for all queries. The x-rag-decision eval header selects
+    // the group per request; otherwise env decides. Default is A.
+    // SF-JEV: when the group is legacy, every line below behaves exactly as
+    // before (legacy rewrite + retrieval).
+    const evalDecisionValue = (evalDecision || "").toLowerCase();
+    const decisionGroup: "A" | "B" | "C" | "D" =
+      evalDecisionValue === "off" ? "A"
+      : evalDecisionValue === "multi" ? "B"
+      : evalDecisionValue === "selective" ? "C"
+      : evalDecisionValue === "on" ? "D"
+      : String(process.env.DECISION_ROUTER_ENABLED || "false").toLowerCase() !== "true" ? "A"
+      : String(process.env.DECISION_PROVIDER || "jev").toLowerCase() === "heuristic" ? "B"
+      : String(process.env.DECISION_SELECTIVE || "false").toLowerCase() === "true" ? "C"
+      : "D";
+    const decisionEnabled = decisionGroup !== "A";
     const diagnostics = decisionEnabled ? createDiagnostics({ provider: "jev" }) : null;
     // Decision-router modules are untyped .mjs; the SF-JEV interfaces above
     // keep this boundary strictly typed.
@@ -177,12 +197,25 @@ export async function POST(request: Request) {
     if (decisionEnabled) {
       const routingStarted = Date.now();
       try {
-        routing = await routeQuery({ query: question, history, products });
+        const baseConfig = getDecisionConfig();
+        const effectiveConfig = {
+          ...baseConfig,
+          enabled: true,
+          // Group B plans deterministically without any Jev API call.
+          provider: decisionGroup === "B" ? "heuristic" : "jev",
+          // Group C calls Jev only for complex-query candidates.
+          selective: decisionGroup === "C",
+        };
+        routing = await routeQuery({ query: question, history, products }, { config: effectiveConfig });
       } catch {
         routing = null;
       }
       routingMs = Date.now() - routingStarted;
     }
+    // Retrieval strategy: "legacy" is the original single-query path. Only an
+    // explicit multi decision uses the planner -- a Jev failure falls back to
+    // legacy, never to heuristic-multi.
+    const retrievalStrategy = routing?.strategy === "multi" ? "multi" : "legacy";
     const relevantHistory = Array.isArray(history)
       ? history
           .filter(
@@ -199,7 +232,7 @@ export async function POST(request: Request) {
     const rewriteMode = (evalRewriteMode || process.env.QUERY_REWRITE_MODE || "history").toLowerCase();
     let retrievalQuestion: string;
     let rewriteMs = 0;
-    if (routing?.normalized) {
+    if (retrievalStrategy === "multi" && routing?.normalized) {
       // Router decides WHETHER rewriting is needed; existing logic does it.
       const resolved = resolveRetrievalQuery(question, history, routing.normalized, rewriteMode);
       retrievalQuestion = resolved.retrievalQuestion;
@@ -221,7 +254,7 @@ export async function POST(request: Request) {
       rewriteMs = Date.now() - rewriteStarted;
     }
     const queries = decomposeQuery(retrievalQuestion);
-    if (routing?.normalized) {
+    if (retrievalStrategy === "multi" && routing?.normalized) {
       retrievalPlan = buildRetrievalPlan(routing.normalized, {
         query: question,
         retrievalQuestion,
@@ -232,11 +265,24 @@ export async function POST(request: Request) {
     const legacyMatches = fuseByKeywords(products, queries, productText).slice(0, 3);
     // Exact SKU matches from the router are deterministic; union them with
     // the legacy fuzzy ranking (dedupe by product id, exact first).
+    // Unknown-SKU guard: when the question names a full-length identifier
+    // that matches nothing in the catalogue, fuzzy matches are dropped so a
+    // similar product is never presented as the requested one. Short family
+    // codes (PF7, S200) keep fuzzy matching.
     const matches = (() => {
-      if (!routing?.skus?.matched?.length) return legacyMatches;
+      const unknown = routing?.skus?.unknown || [];
+      const validated = routing?.skus?.matched || [];
+      if (
+        retrievalStrategy === "multi" &&
+        unknown.some((sku) => String(sku).length >= 5) &&
+        validated.length === 0
+      ) {
+        return [];
+      }
+      if (!validated.length) return legacyMatches;
       const seen = new Set<string>();
       const out: typeof legacyMatches = [];
-      for (const m of routing.skus.matched) {
+      for (const m of validated) {
         const product = m?.product;
         if (product && !seen.has(product.id)) {
           seen.add(product.id);
@@ -330,7 +376,7 @@ export async function POST(request: Request) {
       const knowledgeLimit = /\b(list|all|each|every)\b/i.test(question)
         ? Math.max(configuredKnowledgeLimit, 10)
         : configuredKnowledgeLimit;
-      if (retrievalPlan && routerEvidence === null) {
+      if (retrievalStrategy === "multi" && retrievalPlan && routerEvidence === null) {
         if (!retrievalPlan.requiresRetrieval) {
           // General conversation: skip retrieval entirely.
           retrievalResult = {
@@ -349,7 +395,11 @@ export async function POST(request: Request) {
             configuredMode,
             limit: knowledgeLimit,
           });
-          routerEvidence = aggregateEvidence(retrievalPlan, settled);
+          routerEvidence = aggregateEvidence(retrievalPlan, settled, {
+            question: retrievalQuestion,
+            queries,
+            globalTopK: getDecisionConfig().evidenceTopK || knowledgeLimit,
+          });
           const chunks: RetrievedChunk[] = routerEvidence.documents;
           retrievalResult = {
             mode: `router:${retrievalPlan.operations.map((op: RetrievalOperationShape) => op.type).join("+")}`,
@@ -400,7 +450,11 @@ export async function POST(request: Request) {
       ? {
           query_id: diagnostics.query_id,
           decision_provider: "jev",
+          decision_group: decisionGroup,
+          retrieval_strategy: retrievalStrategy,
           decision_source: routing?.source || "unavailable",
+          jev_attempted: Boolean(routing?.jevAttempted),
+          complexity: (routing as { complexity?: { complex: boolean; reasons: string[] } } | null)?.complexity || null,
           detected_intents: routing?.normalized?.detectedIntents || [],
           retrieval_operations: retrievalPlan?.operations?.map((op: RetrievalOperationShape) => op.type) || [],
           routing_latency_ms: routingMs,
@@ -452,7 +506,12 @@ Use the exact field name from the catalogue when the user uses a synonym. For an
        \n\nBUYER DETAILS:\n${profile}\n\nCATALOGUE FACTS:\n${productFacts ||
         "No direct catalogue match found."}\n\nSUPPORT KNOWLEDGE:\n${knowledge || "No relevant support document found."}${missingNote}`;
     const generationStarted = Date.now();
-    const response = await fetch("https://api.deepseek.com/chat/completions", {
+    // Phase 7: failure categories are recorded, never the response content.
+    // One bounded retry on transport errors or 5xx only -- never on 4xx,
+    // empty choices, or empty content.
+    let generationFailure: string | null = null;
+    let generationRetry = false;
+    const callGeneration = async () => fetch("https://api.deepseek.com/chat/completions", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.DEEPSEEK_API_KEY}`,
@@ -468,22 +527,50 @@ Use the exact field name from the catalogue when the user uses a synonym. For an
         ],
       }),
     });
-    const ai = response.ok
-      ? ((await response.json()) as {
-          choices?: Array<{ message?: { content?: string } }>;
-          usage?: ModelUsage;
-          model?: string;
-        })
-      : null;
+    let response: Response | null = null;
+    try {
+      response = await callGeneration();
+    } catch {
+      generationFailure = "transport-error";
+    }
+    if (generationFailure === "transport-error" || (response && !response.ok && response.status >= 500)) {
+      if (response && !response.ok && response.status >= 500) generationFailure = `http-${response.status}`;
+      try {
+        generationRetry = true;
+        response = await callGeneration();
+        if (response.ok) generationFailure = null;
+        else generationFailure = `http-${response.status}-after-retry`;
+      } catch {
+        generationFailure = "transport-error-after-retry";
+        response = null;
+      }
+    } else if (response && !response.ok) {
+      generationFailure = `http-${response.status}`;
+    }
+    let ai: GenerationResult | null = null;
+    if (response?.ok) {
+      try {
+        ai = (await response.json()) as GenerationResult;
+      } catch {
+        generationFailure = "invalid-response-body";
+      }
+    }
+    const generatedText = ai?.choices?.[0]?.message?.content?.trim() || "";
+    if (!generationFailure && response?.ok && !generatedText) {
+      generationFailure = ai?.choices?.length ? "empty-content" : "empty-choices";
+    }
     const generationMs = Date.now() - generationStarted;
     if (decisionDiagnostics) {
       decisionDiagnostics.generation_latency_ms = generationMs;
     }
+    // A canned fallback standing in for a failed generation is marked as
+    // such in telemetry; it is never silently counted as generated output.
+    const generationFallbackUsed = !cartAction && !wantsCart(question) && !generatedText;
     const rawAnswer = cartAction
       ? `Added **${cartAction.quantity} × ${top!.name}** to your RFQ cart. Complete your contact details on the right when you are ready to send it.`
       : wantsCart(question)
         ? fallback
-        : ai?.choices?.[0]?.message?.content?.trim() || fallback;
+        : generatedText || fallback;
     const answer = citeSources(rawAnswer, sources);
     const completedCustomer = mergeCustomerDetails(inferredCustomer, rawAnswer);
     const cartActions = cartAction
@@ -514,6 +601,9 @@ Use the exact field name from the catalogue when the user uses a synonym. For an
           supportKnowledge: knowledge,
           model: ai?.model || "deepseek-v4-flash",
           usage: ai?.usage || null,
+          generationFailure,
+          generationRetry,
+          generationFallbackUsed,
           decision: decisionDiagnostics
             ? {
                 ...decisionDiagnostics,
