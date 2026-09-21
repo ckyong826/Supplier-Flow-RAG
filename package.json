@@ -18,6 +18,7 @@
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
+    "@typesafe-ai/sdk": "^0.6.0",
     "drizzle-orm": "0.45.2",
     "pdfjs-dist": "^5.6.205",
     "react": "19.2.6",

@@ -152,6 +152,39 @@ RETRIEVAL_RERANKER=lexical
 QUERY_REWRITE_MODE=history
 ```
 
+## Decision routing (opt-in, TypeSafe Jev)
+
+SupplierFlow can route complex questions through TypeSafe Jev before
+retrieval. Jev identifies *what information is needed* (multi-label intent),
+the query planner decides *how to obtain it* (multiple concurrent retrieval
+operations), the existing RAG system retrieves it, and DeepSeek explains it.
+Disabled by default; the existing pipeline is the fallback.
+
+```bash
+npm install @typesafe-ai/sdk   # official SDK, already in dependencies
+```
+
+```text
+# Decision Routing (all optional; router disabled unless ENABLED=true)
+DECISION_ROUTER_ENABLED=false
+DECISION_PROVIDER=jev
+TYPESAFE_API_KEY=
+TYPESAFE_DEFAULT_MODEL=jev-latest
+DECISION_THRESHOLD=0.5
+DECISION_FALLBACK=existing
+```
+
+Create `.env.local` locally with your `TYPESAFE_API_KEY` (never commit it;
+`.env*` is gitignored). All Jev calls are server-side via the official SDK.
+Set `DECISION_ROUTER_ENABLED=true` and restart the app.
+
+Evaluate routing accuracy before trusting it:
+
+```bash
+node tests/rag-eval/run-routing-eval.mjs --sweep
+node tests/rag-eval/run-routing-eval.mjs --provider jev   # needs TYPESAFE_API_KEY
+```
+
 The retrieval implementation is intentionally hand-rolled rather than hidden behind a RAG
 framework, so each retrieval and grading decision can be inspected in the source.
 

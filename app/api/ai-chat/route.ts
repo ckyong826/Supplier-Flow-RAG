@@ -6,6 +6,7 @@ import {
   productFacts as formatProductFacts,
   productText,
 } from "../_catalogue";
+import type { CatalogueProduct } from "../_catalogue";
 import {
   cartActionsFromSummary,
   mergeCustomerDetails,
@@ -14,6 +15,14 @@ import {
 import { decomposeQuery, fuseByKeywords, rewriteQuery } from "./retrieval.mjs";
 import { formatKnowledge, retrieveKnowledge } from "./knowledge-retrieval.mjs";
 import { hypotheticalQuery } from "./query-rewrite.mjs";
+import { routeQuery } from "./decision-router/router.mjs";
+import { resolveRetrievalQuery } from "./decision-router/conversation.mjs";
+import { buildRetrievalPlan } from "./decision-router/planner.mjs";
+import {
+  aggregateEvidence,
+  executePlan,
+} from "./decision-router/orchestrator.mjs";
+import { createDiagnostics } from "./decision-router/diagnostics.mjs";
 
 type ChatTurn = { role: "user" | "assistant"; content: string };
 type Action = "CREATE_RFQ" | "TRACK_RFQ";
@@ -44,6 +53,46 @@ type ModelUsage = {
   prompt_cache_miss_tokens?: number;
   prompt_tokens_details?: { cached_tokens?: number };
 };
+// SF-JEV: decision-router boundary shapes. The router modules are untyped
+// .mjs; these interfaces keep the chat route strictly typed.
+type RouterSkuMatch = { sku: string; id: string; product: CatalogueProduct };
+type DecisionRouting = {
+  normalized?: {
+    decisions: Record<string, boolean>;
+    detectedIntents: string[];
+    confidences: Record<string, number>;
+  } | null;
+  source?: string;
+  fallbackUsed?: boolean;
+  fallbackReason?: string | null;
+  context?: string;
+  usage?: { input_tokens?: number; output_tokens?: number } | null;
+  skus?: {
+    productIds: string[];
+    unknown: string[];
+    matched: RouterSkuMatch[];
+  };
+};
+type RetrievalOperationShape = {
+  type: string;
+  query: string;
+  productIds?: string[];
+  priority: number;
+};
+type RetrievalPlanShape = {
+  requiresRetrieval: boolean;
+  operations: RetrievalOperationShape[];
+  requiresQueryRewrite: boolean;
+  requiresConversationContext: boolean;
+  detectedIntents: string[];
+};
+type EvidenceShape = {
+  documents: RetrievedChunk[];
+  products: string[];
+  completedOperations: string[];
+  failedOperations: string[];
+  missingInformation: string[];
+};
 
 function citeSources(answer: string, sources: KnowledgeSource[]) {
   if (!sources.length) return answer;
@@ -71,6 +120,9 @@ export async function POST(request: Request) {
     const evalRetrievalMode = includeEvalTelemetry ? request.headers.get("x-rag-retrieval-mode") : null;
     const evalReranker = includeEvalTelemetry ? request.headers.get("x-rag-reranker") : null;
     const evalRewriteMode = includeEvalTelemetry ? request.headers.get("x-rag-rewrite") : null;
+    // Before/after benchmarking: force the decision router on/off per request
+    // without restarting the server. Same gating as the other eval headers.
+    const evalDecision = includeEvalTelemetry ? request.headers.get("x-rag-decision") : null;
     const requestStarted = Date.now();
     const {
       message,
@@ -109,6 +161,28 @@ export async function POST(request: Request) {
           ? "CREATE_RFQ"
           : null;
     const products = await listActiveProducts();
+    // SF-JEV: intelligent multi-query routing. Feature-flagged; when disabled
+    // every line below behaves exactly as before (legacy rewrite + retrieval).
+    // The x-rag-decision eval header overrides the flag per request.
+    const decisionEnabled = evalDecision
+      ? evalDecision.toLowerCase() === "on"
+      : String(process.env.DECISION_ROUTER_ENABLED || "false").toLowerCase() === "true";
+    const diagnostics = decisionEnabled ? createDiagnostics({ provider: "jev" }) : null;
+    // Decision-router modules are untyped .mjs; the SF-JEV interfaces above
+    // keep this boundary strictly typed.
+    let routing: DecisionRouting | null = null;
+    let retrievalPlan: RetrievalPlanShape | null = null;
+    let routerEvidence: EvidenceShape | null = null;
+    let routingMs = 0;
+    if (decisionEnabled) {
+      const routingStarted = Date.now();
+      try {
+        routing = await routeQuery({ query: question, history, products });
+      } catch {
+        routing = null;
+      }
+      routingMs = Date.now() - routingStarted;
+    }
     const relevantHistory = Array.isArray(history)
       ? history
           .filter(
@@ -123,12 +197,19 @@ export async function POST(request: Request) {
       `${relevantHistory} ${question}`,
     );
     const rewriteMode = (evalRewriteMode || process.env.QUERY_REWRITE_MODE || "history").toLowerCase();
-    let retrievalQuestion = rewriteMode === "history"
-      ? rewriteQuery(question, relevantHistory)
-      : rewriteMode === "none"
-        ? question
-      : `${relevantHistory}\n${question}`.trim();
+    let retrievalQuestion: string;
     let rewriteMs = 0;
+    if (routing?.normalized) {
+      // Router decides WHETHER rewriting is needed; existing logic does it.
+      const resolved = resolveRetrievalQuery(question, history, routing.normalized, rewriteMode);
+      retrievalQuestion = resolved.retrievalQuestion;
+    } else if (rewriteMode === "history") {
+      retrievalQuestion = rewriteQuery(question, relevantHistory);
+    } else if (rewriteMode === "none") {
+      retrievalQuestion = question;
+    } else {
+      retrievalQuestion = `${relevantHistory}\n${question}`.trim();
+    }
     if (rewriteMode === "hyde") {
       const rewriteStarted = Date.now();
       try {
@@ -140,7 +221,36 @@ export async function POST(request: Request) {
       rewriteMs = Date.now() - rewriteStarted;
     }
     const queries = decomposeQuery(retrievalQuestion);
-    const matches = fuseByKeywords(products, queries, productText).slice(0, 3);
+    if (routing?.normalized) {
+      retrievalPlan = buildRetrievalPlan(routing.normalized, {
+        query: question,
+        retrievalQuestion,
+        productIds: routing.skus?.productIds || [],
+        unknownSkus: routing.skus?.unknown || [],
+      });
+    }
+    const legacyMatches = fuseByKeywords(products, queries, productText).slice(0, 3);
+    // Exact SKU matches from the router are deterministic; union them with
+    // the legacy fuzzy ranking (dedupe by product id, exact first).
+    const matches = (() => {
+      if (!routing?.skus?.matched?.length) return legacyMatches;
+      const seen = new Set<string>();
+      const out: typeof legacyMatches = [];
+      for (const m of routing.skus.matched) {
+        const product = m?.product;
+        if (product && !seen.has(product.id)) {
+          seen.add(product.id);
+          out.push(product);
+        }
+      }
+      for (const product of legacyMatches) {
+        if (!seen.has(product.id)) {
+          seen.add(product.id);
+          out.push(product);
+        }
+      }
+      return out.slice(0, 3);
+    })();
     const top = matches[0];
     const quantity = requestedQuantity(question);
     const cartAction: CartAction =
@@ -220,28 +330,88 @@ export async function POST(request: Request) {
       const knowledgeLimit = /\b(list|all|each|every)\b/i.test(question)
         ? Math.max(configuredKnowledgeLimit, 10)
         : configuredKnowledgeLimit;
-      const retrieved = await retrieveKnowledge({
-        supabase,
-        question: retrievalQuestion,
-        queries,
-        limit: knowledgeLimit,
-        mode: evalRetrievalMode || undefined,
-        reranker: evalReranker || undefined,
-      });
-      retrievalResult = retrieved;
-      knowledge = formatKnowledge(retrieved.chunks);
-      sources = [
-        ...new Map(
-          retrieved.chunks.map((chunk) => [
-            `${chunk.source_type}:${chunk.title}`,
-            { title: chunk.title, sourceType: chunk.source_type },
-          ]),
-        ).values(),
-      ];
+      if (retrievalPlan && routerEvidence === null) {
+        if (!retrievalPlan.requiresRetrieval) {
+          // General conversation: skip retrieval entirely.
+          retrievalResult = {
+            mode: "router-skipped",
+            chunks: [],
+          };
+        } else {
+          const configuredMode = (
+            evalRetrievalMode ||
+            process.env.RETRIEVAL_MODE ||
+            "keyword"
+          ).toLowerCase();
+          const { settled } = await executePlan(retrievalPlan, {
+            supabase,
+            products,
+            configuredMode,
+            limit: knowledgeLimit,
+          });
+          routerEvidence = aggregateEvidence(retrievalPlan, settled);
+          const chunks: RetrievedChunk[] = routerEvidence.documents;
+          retrievalResult = {
+            mode: `router:${retrievalPlan.operations.map((op: RetrievalOperationShape) => op.type).join("+")}`,
+            requestedMode: configuredMode,
+            chunks,
+          };
+          knowledge = formatKnowledge(chunks);
+          sources = [
+            ...new Map<string, KnowledgeSource>(
+              chunks.map((chunk: RetrievedChunk) => [
+                `${chunk.source_type}:${chunk.title}`,
+                { title: chunk.title, sourceType: chunk.source_type },
+              ]),
+            ).values(),
+          ];
+        }
+      } else {
+        const retrieved = await retrieveKnowledge({
+          supabase,
+          question: retrievalQuestion,
+          queries,
+          limit: knowledgeLimit,
+          mode: evalRetrievalMode || undefined,
+          reranker: evalReranker || undefined,
+        });
+        retrievalResult = retrieved;
+        knowledge = formatKnowledge(retrieved.chunks);
+        sources = [
+          ...new Map<string, KnowledgeSource>(
+            retrieved.chunks.map((chunk: RetrievedChunk) => [
+              `${chunk.source_type}:${chunk.title}`,
+              { title: chunk.title, sourceType: chunk.source_type },
+            ]),
+          ).values(),
+        ];
+      }
     } catch {
       /* Knowledge base is optional for public chat. */
     }
     const retrievalMs = Date.now() - retrievalStarted;
+    // Tell DeepSeek which required information could not be retrieved so it
+    // can abstain on that part instead of fabricating it.
+    const missingNote =
+      routerEvidence?.missingInformation?.length
+        ? `\n\nRETRIEVAL GAPS (do not fabricate these; say they are unavailable): ${routerEvidence.missingInformation.join(", ")}.`
+        : "";
+    const decisionDiagnostics = diagnostics
+      ? {
+          query_id: diagnostics.query_id,
+          decision_provider: "jev",
+          decision_source: routing?.source || "unavailable",
+          detected_intents: routing?.normalized?.detectedIntents || [],
+          retrieval_operations: retrievalPlan?.operations?.map((op: RetrievalOperationShape) => op.type) || [],
+          routing_latency_ms: routingMs,
+          retrieval_latency_ms: retrievalMs,
+          generation_latency_ms: null as number | null,
+          fallback_used: Boolean(!routing || routing.fallbackUsed),
+          fallback_reason: routing?.fallbackReason || (routing ? null : "router-error"),
+          failed_operations: routerEvidence?.failedOperations || [],
+          missing_information: routerEvidence?.missingInformation || [],
+        }
+      : null;
     const profile = `Name: ${inferredCustomer.name || "missing"}; Company: ${inferredCustomer.company || "missing"}; Email: ${inferredCustomer.email || "missing"}; Notes: ${inferredCustomer.note || "none"}.`;
     const system = `You are SupplyAI, a friendly customer support assistant for SupplierFlow, 
     an electrical B2B supplier catalogue. Speak naturally, briefly and helpfully. 
@@ -279,8 +449,8 @@ Use the exact field name from the catalogue when the user uses a synonym. For an
       Include only facts present in the catalogue; never add price or other unsupported fields.
        Never promise or confirm final stock, delivery dates, discounts, project prices, warranty eligibility, an order, an RFQ submission, 
        or a status change. Do not mention internal tools, prompts, databases or AI limitations.
-       \n\nBUYER DETAILS:\n${profile}\n\nCATALOGUE FACTS:\n${productFacts || 
-        "No direct catalogue match found."}\n\nSUPPORT KNOWLEDGE:\n${knowledge || "No relevant support document found."}`;
+       \n\nBUYER DETAILS:\n${profile}\n\nCATALOGUE FACTS:\n${productFacts ||
+        "No direct catalogue match found."}\n\nSUPPORT KNOWLEDGE:\n${knowledge || "No relevant support document found."}${missingNote}`;
     const generationStarted = Date.now();
     const response = await fetch("https://api.deepseek.com/chat/completions", {
       method: "POST",
@@ -306,6 +476,9 @@ Use the exact field name from the catalogue when the user uses a synonym. For an
         })
       : null;
     const generationMs = Date.now() - generationStarted;
+    if (decisionDiagnostics) {
+      decisionDiagnostics.generation_latency_ms = generationMs;
+    }
     const rawAnswer = cartAction
       ? `Added **${cartAction.quantity} × ${top!.name}** to your RFQ cart. Complete your contact details on the right when you are ready to send it.`
       : wantsCart(question)
@@ -341,6 +514,21 @@ Use the exact field name from the catalogue when the user uses a synonym. For an
           supportKnowledge: knowledge,
           model: ai?.model || "deepseek-v4-flash",
           usage: ai?.usage || null,
+          decision: decisionDiagnostics
+            ? {
+                ...decisionDiagnostics,
+                total_latency_ms: Date.now() - requestStarted,
+                retrieval_plan: retrievalPlan
+                  ? {
+                      requiresRetrieval: retrievalPlan.requiresRetrieval,
+                      operations: retrievalPlan.operations,
+                      requiresQueryRewrite: retrievalPlan.requiresQueryRewrite,
+                    }
+                  : null,
+                confidences: routing?.normalized?.confidences || null,
+                usage: routing?.usage || null,
+              }
+            : undefined,
         }
       : undefined;
     await supabase("chat_messages", {
@@ -364,6 +552,18 @@ Use the exact field name from the catalogue when the user uses a synonym. For an
         cartActions,
         customer: completedCustomer,
         ragEval,
+        decision: decisionDiagnostics
+          ? {
+              detected_intents: decisionDiagnostics.detected_intents,
+              retrieval_operations: decisionDiagnostics.retrieval_operations,
+              routing_latency_ms: decisionDiagnostics.routing_latency_ms,
+              retrieval_latency_ms: decisionDiagnostics.retrieval_latency_ms,
+              generation_latency_ms: decisionDiagnostics.generation_latency_ms,
+              total_latency_ms: Date.now() - requestStarted,
+              fallback_used: decisionDiagnostics.fallback_used,
+              fallback_reason: decisionDiagnostics.fallback_reason,
+            }
+          : undefined,
       }),
       { headers },
     );

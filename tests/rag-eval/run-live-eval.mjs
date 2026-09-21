@@ -36,6 +36,11 @@ const pricing = {
 const retrievalMode = flag("--retrieval-mode", null);
 const reranker = flag("--reranker", null);
 const rewriteMode = flag("--rewrite", null);
+// Before/after Jev benchmarking: --decision off forces the legacy pipeline,
+// --decision on forces the Jev router, --decision server (default) leaves the
+// server's own DECISION_ROUTER_ENABLED to decide.
+const decision = (flag("--decision", "server") || "server").toLowerCase();
+const jevPriceInPerM = Number(flag("--jev-price-in", "0.042"));
 
 const suite = JSON.parse(readFileSync(join(here, "rag-eval-questions.json"), "utf8"));
 const questions = only ? suite.questions.filter((question) => only.includes(question.id)) : suite.questions;
@@ -48,6 +53,7 @@ async function ask(question) {
   if (retrievalMode) headers["x-rag-retrieval-mode"] = retrievalMode;
   if (reranker) headers["x-rag-reranker"] = reranker;
   if (rewriteMode) headers["x-rag-rewrite"] = rewriteMode;
+  if (decision === "on" || decision === "off") headers["x-rag-decision"] = decision;
   const response = await fetch(`${base}/api/ai-chat`, {
     method: "POST",
     headers,
@@ -119,6 +125,8 @@ function evalMetrics(question, response, graded) {
       ? relevantChunkCount / chunks.length
       : 0;
   const faithful = question.category === "negative" ? null : graded.pass && contextCoverage;
+  const decisionTelemetry = telemetry.decision || null;
+  const jevUsage = decisionTelemetry?.usage || null;
   return {
     requestedRetrievalMode: telemetry.requestedMode || null,
     retrievalMode: telemetry.mode || null,
@@ -134,7 +142,14 @@ function evalMetrics(question, response, graded) {
     retrievalMs: Number(telemetry.retrievalMs) || null,
     generationMs: Number(telemetry.generationMs) || null,
     serverTotalMs: Number(telemetry.totalMs) || null,
-    ...usageMetrics(telemetry.usage)
+    ...usageMetrics(telemetry.usage),
+    decisionSource: decisionTelemetry?.decision_source || null,
+    detectedIntents: decisionTelemetry?.detected_intents || null,
+    routingLatencyMs: Number(decisionTelemetry?.routing_latency_ms) || null,
+    decisionFallback: decisionTelemetry ? Boolean(decisionTelemetry.fallback_used) : null,
+    decisionFallbackReason: decisionTelemetry?.fallback_reason || null,
+    jevInputTokens: Number(jevUsage?.input_tokens) || null,
+    jevOutputTokens: Number(jevUsage?.output_tokens) || null,
   };
 }
 
@@ -181,7 +196,10 @@ async function evaluate(question) {
       requestedRetrievalMode: null, retrievalMode: null, retrievedChunkCount: 0, relevantChunkCount: 0,
       rewriteMode: null, rerankMode: null, candidateCount: null, representation: null,
       contextRelevance: null, contextCoverage: null, faithful: null, retrievalMs: null, generationMs: null,
-      serverTotalMs: null, promptTokens: null, completionTokens: null, totalTokens: null, costUsd: null
+      serverTotalMs: null, promptTokens: null, completionTokens: null, totalTokens: null, costUsd: null,
+      decisionSource: null, detectedIntents: null, routingLatencyMs: null,
+      decisionFallback: null, decisionFallbackReason: null,
+      jevInputTokens: null, jevOutputTokens: null
     };
   }
   return outcome;
@@ -299,7 +317,6 @@ const phase2Metrics = {
 
 const fmtMetric = (value) => value == null ? "n/a" : `${(value * 100).toFixed(1)}%`;
 const fmtMsPair = (value) => value?.p50 == null ? "n/a" : `${Math.round(value.p50)}/${Math.round(value.p95)} ms`;
-const fmtNumber = (value) => value == null ? "n/a" : value.toFixed(3);
 const configModes = [...new Set(results.map((result) => result.requestedRetrievalMode).filter(Boolean))];
 const observedConfig = results.find((result) => result.retrievalMode || result.rerankMode || result.rewriteMode) || {};
 const configLabel = [
@@ -313,6 +330,24 @@ console.log("|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|--
 console.log(`| ${base} / ${configLabel} | ${fmtMetric(phase2Metrics.answerAccuracy)} | ${fmtMetric(phase2Metrics.faithfulness)} | ${fmtMetric(phase2Metrics.contextRelevance)} | ${fmtMetric(phase2Metrics.contextCoverage)} | ${fmtMetric(phase2Metrics.abstentionPrecision)} | ${fmtMetric(phase2Metrics.abstentionRecall)} | ${fmtMetric(phase2Metrics.falseAnswerRate)} | ${fmtMetric(phase2Metrics.overAbstentionRate)} | ${fmtMsPair(phase2Metrics.latencyMs.totalClient)} | ${fmtMsPair(phase2Metrics.latencyMs.retrieval)} | ${fmtMsPair(phase2Metrics.latencyMs.generation)} | ${phase2Metrics.tokens.average == null ? "n/a" : Math.round(phase2Metrics.tokens.average)} | ${phase2Metrics.costUsd.averagePerQuery == null ? "n/a" : `$${phase2Metrics.costUsd.averagePerQuery.toFixed(6)}`} |`);
 console.log("Faithfulness/context relevance are deterministic fixture-backed proxies, not an LLM judge.");
 console.log(`Cost estimate uses ${pricing.inputCacheHit}/${pricing.inputCacheMiss}/${pricing.output} USD per million input-cache-hit/input-cache-miss/output tokens.`);
+
+const decisionResults = results.filter((result) => result.decisionSource);
+if (decisionResults.length) {
+  const fallbackCount = decisionResults.filter((result) => result.decisionFallback).length;
+  const routingLatencies = decisionResults.map((result) => result.routingLatencyMs).filter((v) => Number.isFinite(v));
+  const jevIn = decisionResults.reduce((sum, result) => sum + (result.jevInputTokens || 0), 0);
+  const jevOut = decisionResults.reduce((sum, result) => sum + (result.jevOutputTokens || 0), 0);
+  const jevCost = jevIn / 1e6 * jevPriceInPerM;
+  const sources = [...new Set(decisionResults.map((result) => result.decisionSource))].join(",");
+  console.log("\nDecision routing (Jev, live telemetry)");
+  console.log(`  source: ${sources} | decision flag: ${decision} | routed queries: ${decisionResults.length}/${results.length}`);
+  console.log(`  fallback rate: ${fallbackCount}/${decisionResults.length} ${(fallbackCount / decisionResults.length * 100).toFixed(1)}%`);
+  if (routingLatencies.length) {
+    const sorted = [...routingLatencies].sort((a, b) => a - b);
+    console.log(`  routing latency p50/p95: ${Math.round(sorted[Math.floor(sorted.length / 2)])}/${Math.round(sorted[Math.floor(sorted.length * 0.95)])} ms`);
+  }
+  console.log(`  Jev tokens in/out: ${jevIn}/${jevOut} | Jev cost: $${jevCost.toFixed(6)} total ($${(decisionResults.length ? jevCost / decisionResults.length : 0).toFixed(6)}/query at $${jevPriceInPerM}/1M in, output free)`);
+}
 
 const failures = results.filter((result) => !result.pass);
 if (failures.length) {
@@ -333,7 +368,7 @@ if (jsonOut) {
     base,
     ranAt: new Date().toISOString(),
     config: {
-      requested: { retrievalMode, reranker, rewriteMode },
+      requested: { retrievalMode, reranker, rewriteMode, decision },
       observed: {
         retrievalMode: observedConfig.retrievalMode || null,
         reranker: observedConfig.rerankMode || null,

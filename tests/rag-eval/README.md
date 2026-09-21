@@ -36,6 +36,8 @@ variants are experiment arms, not silently enabled production behaviour.
 | File | Purpose |
 | --- | --- |
 | `rag-eval-questions.json` | The 139-question fixture: 70 direct lookups, 44 adversarial, 25 negatives |
+| `routing-fixture.json` | The 24-case routing fixture: expected multi-label intents per query (SF-JEV-008) |
+| `run-routing-eval.mjs` | Routing accuracy: heuristic baseline vs Laya candidate, threshold sweep |
 | `match.mjs` | Shared matcher — token-boundary aware, so `type A` can't match inside `type AC` |
 | `verify-groundtruth.mjs` | Checks the fixture itself against `data/` before it grades anything |
 | `run-retrieval-eval.mjs` | Offline retrieval scoring (Recall/hit-rate@k, precision@k, fully answerable, MRR) |
@@ -113,6 +115,10 @@ node tests/rag-eval/verify-groundtruth.mjs
 
 # 2. Test the grader itself
 node --test tests/rag-eval/grader.test.mjs
+
+# 2b. Routing accuracy — heuristic baseline is offline; --provider jev needs TYPESAFE_API_KEY
+node tests/rag-eval/run-routing-eval.mjs --sweep
+node tests/rag-eval/run-routing-eval.mjs --provider jev --json tests/rag-eval/results-routing.json
 
 # 3. Offline retrieval pass — no server, no API keys
 node tests/rag-eval/run-retrieval-eval.mjs --chunking fixed --k 5 --json tests/rag-eval/results-retrieval.json
@@ -406,3 +412,44 @@ official file lists which SPD types exist but not that siting rule. So the order
 4. Add IDF weighting and length normalisation to `scoreText`.
 
 Re-run the offline pass after each step — it takes under a second.
+
+## Routing eval (SF-JEV-008) — how to read the numbers
+
+`routing-fixture.json` holds 24 queries with expected multi-label intents
+(exact SKU, discovery, multi-product, pricing, policy, comparison, follow-up,
+missing product, general, multilingual, multi-intent, ambiguous). The runner
+compares two configurations:
+
+- **Baseline:** the deterministic heuristic router (offline, no services).
+- **Candidate:** hosted TypeSafe Jev via `--provider jev` (needs
+  `TYPESAFE_API_KEY`; reports latency and input/output tokens per query).
+
+Metrics: per-label micro precision/recall/F1, multi-label exact-match
+accuracy, per-category exact-match, average routing latency, and Jev token
+usage. `--sweep` tunes `DECISION_THRESHOLD` on this fixture instead of
+assuming 0.80/0.85.
+
+Measured 2026-09-21 (24 cases, `jev-latest`):
+
+| Config | Exact-match | Micro-P | Micro-R | Micro-F1 | Avg latency |
+|---|---:|---:|---:|---:|---:|
+| Heuristic baseline | 100.0% | 100.0% | 100.0% | 100.0% | ~0 ms |
+| Jev @0.5 | 70.8% | 87.3% | 98.2% | 92.4% | 804 ms |
+| Jev @0.6 | 62.5% | 88.3% | 94.6% | 91.4% | 447 ms |
+| Jev @0.7 | 70.8% | 92.9% | 92.9% | 92.9% | 890 ms |
+
+Jev tokens for the 24-case run: 13,127 in / 4,104 out = **$0.000551 total
+($0.000023/query)** at $0.042/1M input, output free (public TypeSafe
+listings, Sep 2026; override with `--price-in/--price-out`). Default
+threshold 0.5 is kept for highest recall. Evidence: `results-routing.json`,
+which also holds the per-case expected/baseline/jev comparison.
+
+Two honest caveats, in the spirit of the reframe section in ROADMAP.md:
+
+1. The checked-in heuristic scores 100% exact-match **because its keyword
+   rules were developed against this same 24-case fixture**. That number
+   measures self-consistency, not generalisation — it is the floor Jev must
+   beat, not a claim that routing is solved.
+2. The claim that matters is the `--provider jev` comparison, plus
+   the unchanged 139-question live RAG eval as the regression guard. Do not
+   report routing wins from the heuristic column alone.

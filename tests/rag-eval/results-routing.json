@@ -1,0 +1,710 @@
+{
+  "ranAt": "2026-09-21T06:32:44.611Z",
+  "threshold": 0.5,
+  "provider": "jev",
+  "baseline": {
+    "exactMatch": 1,
+    "microPrecision": 1,
+    "microRecall": 1,
+    "microF1": 1,
+    "perLabel": {
+      "product_lookup": {
+        "tp": 19,
+        "fp": 0,
+        "fn": 0
+      },
+      "product_discovery": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0
+      },
+      "specification": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0
+      },
+      "pricing": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 0
+      },
+      "inventory": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0
+      },
+      "supplier": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "policy": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 0
+      },
+      "comparison": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0
+      },
+      "follow_up": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0
+      },
+      "general": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "perCategory": [
+      {
+        "category": "exact_sku",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "product_discovery",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "multi_product",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "product_pricing",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "product_policy",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "comparison_pricing",
+        "total": 1,
+        "exact": 1
+      },
+      {
+        "category": "follow_up",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "missing_product",
+        "total": 1,
+        "exact": 1
+      },
+      {
+        "category": "general",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "multilingual",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "multi_intent",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "ambiguous",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "supplier",
+        "total": 1,
+        "exact": 1
+      },
+      {
+        "category": "specification",
+        "total": 1,
+        "exact": 1
+      }
+    ],
+    "totalMs": 2
+  },
+  "candidate": {
+    "exactMatch": 0.7083333333333334,
+    "microPrecision": 0.873015873015873,
+    "microRecall": 0.9821428571428571,
+    "microF1": 0.9243697478991596,
+    "perLabel": {
+      "product_lookup": {
+        "tp": 19,
+        "fp": 3,
+        "fn": 0
+      },
+      "product_discovery": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 1
+      },
+      "specification": {
+        "tp": 5,
+        "fp": 2,
+        "fn": 0
+      },
+      "pricing": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 0
+      },
+      "inventory": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 0
+      },
+      "supplier": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "policy": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 0
+      },
+      "comparison": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0
+      },
+      "follow_up": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 0
+      },
+      "general": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "perCategory": [
+      {
+        "category": "exact_sku",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "product_discovery",
+        "total": 2,
+        "exact": 0
+      },
+      {
+        "category": "multi_product",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "product_pricing",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "product_policy",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "comparison_pricing",
+        "total": 1,
+        "exact": 1
+      },
+      {
+        "category": "follow_up",
+        "total": 2,
+        "exact": 1
+      },
+      {
+        "category": "missing_product",
+        "total": 1,
+        "exact": 1
+      },
+      {
+        "category": "general",
+        "total": 2,
+        "exact": 2
+      },
+      {
+        "category": "multilingual",
+        "total": 2,
+        "exact": 1
+      },
+      {
+        "category": "multi_intent",
+        "total": 2,
+        "exact": 1
+      },
+      {
+        "category": "ambiguous",
+        "total": 2,
+        "exact": 1
+      },
+      {
+        "category": "supplier",
+        "total": 1,
+        "exact": 0
+      },
+      {
+        "category": "specification",
+        "total": 1,
+        "exact": 1
+      }
+    ],
+    "usage": {
+      "inputTokens": 13127,
+      "outputTokens": 4104,
+      "measuredQueries": 24
+    },
+    "cost": {
+      "totalUsd": 0.000551334,
+      "perQueryUsd": 0.00002297225,
+      "priceInPerM": 0.042,
+      "priceOutPerM": 0
+    }
+  },
+  "results": [
+    {
+      "id": "R01",
+      "category": "exact_sku",
+      "query": "What is A9F73140?",
+      "expected": [
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup"
+      ],
+      "candidate": [
+        "product_lookup"
+      ]
+    },
+    {
+      "id": "R02",
+      "category": "exact_sku",
+      "query": "What coil voltage does LC1D09BD use?",
+      "expected": [
+        "product_lookup",
+        "specification"
+      ],
+      "baseline": [
+        "product_lookup",
+        "specification"
+      ],
+      "candidate": [
+        "product_lookup",
+        "specification"
+      ]
+    },
+    {
+      "id": "R03",
+      "category": "product_discovery",
+      "query": "I need a waterproof enclosure suitable for outdoor installation.",
+      "expected": [
+        "product_discovery"
+      ],
+      "baseline": [
+        "product_discovery"
+      ],
+      "candidate": [
+        "product_lookup",
+        "product_discovery"
+      ]
+    },
+    {
+      "id": "R04",
+      "category": "product_discovery",
+      "query": "Find me a 1-pole 40 A B-curve MCB for a new customer in Kuala Lumpur.",
+      "expected": [
+        "product_discovery"
+      ],
+      "baseline": [
+        "product_discovery"
+      ],
+      "candidate": [
+        "product_lookup",
+        "product_discovery",
+        "specification"
+      ]
+    },
+    {
+      "id": "R05",
+      "category": "multi_product",
+      "query": "Compare A9F73140 and A9S65440. Which one is cheaper?",
+      "expected": [
+        "comparison",
+        "pricing",
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup",
+        "pricing",
+        "comparison"
+      ],
+      "candidate": [
+        "product_lookup",
+        "pricing",
+        "comparison"
+      ]
+    },
+    {
+      "id": "R06",
+      "category": "multi_product",
+      "query": "What is the difference between F202A-40/0.03 and F202AC-40/0.03?",
+      "expected": [
+        "comparison",
+        "product_lookup",
+        "specification"
+      ],
+      "baseline": [
+        "product_lookup",
+        "specification",
+        "comparison"
+      ],
+      "candidate": [
+        "product_lookup",
+        "specification",
+        "comparison"
+      ]
+    },
+    {
+      "id": "R07",
+      "category": "product_pricing",
+      "query": "What is the price of A9F73140?",
+      "expected": [
+        "pricing",
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup",
+        "pricing"
+      ],
+      "candidate": [
+        "product_lookup",
+        "pricing"
+      ]
+    },
+    {
+      "id": "R08",
+      "category": "product_pricing",
+      "query": "Is A9D55610 currently available, and how much does it cost?",
+      "expected": [
+        "inventory",
+        "pricing",
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup",
+        "pricing",
+        "inventory"
+      ],
+      "candidate": [
+        "product_lookup",
+        "pricing",
+        "inventory"
+      ]
+    },
+    {
+      "id": "R09",
+      "category": "product_policy",
+      "query": "Can A9F73140 be returned after 30 days?",
+      "expected": [
+        "policy",
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup",
+        "policy"
+      ],
+      "candidate": [
+        "product_lookup",
+        "policy"
+      ]
+    },
+    {
+      "id": "R10",
+      "category": "product_policy",
+      "query": "What is the warranty for LC1D09BD?",
+      "expected": [
+        "policy",
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup",
+        "policy"
+      ],
+      "candidate": [
+        "product_lookup",
+        "policy"
+      ]
+    },
+    {
+      "id": "R11",
+      "category": "comparison_pricing",
+      "query": "Compare the price of A9S65440 and A9S65463. Which is cheaper?",
+      "expected": [
+        "comparison",
+        "pricing",
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup",
+        "pricing",
+        "comparison"
+      ],
+      "candidate": [
+        "product_lookup",
+        "pricing",
+        "comparison"
+      ]
+    },
+    {
+      "id": "R12",
+      "category": "follow_up",
+      "query": "How about LC1D09BD?",
+      "expected": [
+        "follow_up",
+        "policy",
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup",
+        "policy",
+        "follow_up"
+      ],
+      "candidate": [
+        "product_lookup",
+        "policy",
+        "follow_up"
+      ]
+    },
+    {
+      "id": "R13",
+      "category": "follow_up",
+      "query": "What coil voltage does it use?",
+      "expected": [
+        "follow_up",
+        "product_lookup",
+        "specification"
+      ],
+      "baseline": [
+        "product_lookup",
+        "specification",
+        "follow_up"
+      ],
+      "candidate": [
+        "product_lookup",
+        "product_discovery",
+        "specification",
+        "follow_up"
+      ]
+    },
+    {
+      "id": "R14",
+      "category": "missing_product",
+      "query": "What is UNKNOWN-999?",
+      "expected": [
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup"
+      ],
+      "candidate": [
+        "product_lookup"
+      ]
+    },
+    {
+      "id": "R15",
+      "category": "general",
+      "query": "Hello",
+      "expected": [
+        "general"
+      ],
+      "baseline": [],
+      "candidate": []
+    },
+    {
+      "id": "R16",
+      "category": "general",
+      "query": "Thanks for your help!",
+      "expected": [
+        "general"
+      ],
+      "baseline": [],
+      "candidate": []
+    },
+    {
+      "id": "R17",
+      "category": "multilingual",
+      "query": "这个产品A9F73140有warranty吗？",
+      "expected": [
+        "policy",
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup",
+        "policy"
+      ],
+      "candidate": [
+        "product_lookup",
+        "policy",
+        "follow_up"
+      ]
+    },
+    {
+      "id": "R18",
+      "category": "multilingual",
+      "query": "Berapakah harga A9D55610 dan adakah stok tersedia?",
+      "expected": [
+        "inventory",
+        "pricing",
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup",
+        "pricing",
+        "inventory"
+      ],
+      "candidate": [
+        "product_lookup",
+        "pricing",
+        "inventory"
+      ]
+    },
+    {
+      "id": "R19",
+      "category": "multi_intent",
+      "query": "Compare the price, specifications and warranty of A9F73140 and A9D32625.",
+      "expected": [
+        "comparison",
+        "policy",
+        "pricing",
+        "product_lookup",
+        "specification"
+      ],
+      "baseline": [
+        "product_lookup",
+        "specification",
+        "pricing",
+        "policy",
+        "comparison"
+      ],
+      "candidate": [
+        "product_lookup",
+        "specification",
+        "pricing",
+        "policy",
+        "comparison"
+      ]
+    },
+    {
+      "id": "R20",
+      "category": "multi_intent",
+      "query": "I need a 1-pole 40 A B-curve MCB. What product fits, and what payment and delivery terms apply?",
+      "expected": [
+        "inventory",
+        "policy",
+        "product_discovery",
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup",
+        "product_discovery",
+        "inventory",
+        "policy"
+      ],
+      "candidate": [
+        "product_lookup",
+        "product_discovery",
+        "specification",
+        "inventory",
+        "policy"
+      ]
+    },
+    {
+      "id": "R21",
+      "category": "ambiguous",
+      "query": "What about the second product?",
+      "expected": [
+        "comparison",
+        "follow_up",
+        "pricing",
+        "product_lookup"
+      ],
+      "baseline": [
+        "product_lookup",
+        "pricing",
+        "comparison",
+        "follow_up"
+      ],
+      "candidate": [
+        "product_lookup",
+        "pricing",
+        "comparison",
+        "follow_up"
+      ]
+    },
+    {
+      "id": "R22",
+      "category": "ambiguous",
+      "query": "Tell me about the breaker.",
+      "expected": [
+        "product_discovery"
+      ],
+      "baseline": [
+        "product_discovery"
+      ],
+      "candidate": [
+        "product_lookup"
+      ]
+    },
+    {
+      "id": "R23",
+      "category": "supplier",
+      "query": "Which supplier makes the PF7 range and what is the sales SOP when it is unavailable?",
+      "expected": [
+        "policy",
+        "product_lookup",
+        "supplier"
+      ],
+      "baseline": [
+        "product_lookup",
+        "supplier",
+        "policy"
+      ],
+      "candidate": [
+        "product_lookup",
+        "inventory",
+        "supplier",
+        "policy"
+      ]
+    },
+    {
+      "id": "R24",
+      "category": "specification",
+      "query": "What breaking capacity does A9F73140 have under IEC/EN 60898-1?",
+      "expected": [
+        "product_lookup",
+        "specification"
+      ],
+      "baseline": [
+        "product_lookup",
+        "specification"
+      ],
+      "candidate": [
+        "product_lookup",
+        "specification"
+      ]
+    }
+  ]
+}
