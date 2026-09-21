@@ -1,32 +1,529 @@
 {
   "name": "SupplierFlow routing accuracy eval (SF-JEV-008)",
   "version": "1.0.0",
-  "notes": "Multi-label intent expectations for the Laya decision router. Business facts are NOT asserted here; only which information kinds a correct retrieval plan needs. SKUs are real catalogue identifiers from data/supplierflow-official-knowledge.md. Ambiguous cases expect a clarification-capable plan (product_discovery, no exact lookup).",
+  "notes": "Multi-label intent expectations for the Laya decision router. Business facts are NOT asserted here; only which information kinds a correct retrieval plan needs. SKUs are real catalogue identifiers from data/supplierflow-official-knowledge.md. Ambiguous cases expect a clarification-capable plan (product_discovery, no exact lookup). R25-R36 are development cases (tuning allowed). Held-out cases live in routing-heldout.json and must not be used for tuning.",
   "threshold_note": "Thresholds are tuned by run-routing-eval.mjs --sweep, not assumed. Measured Jev (jev-latest, 2026-09-21): threshold 0.5 -> exact 70.8% / F1 92.4% / recall 98.2%; 0.6 -> 62.5% / 91.4% / 94.6%; 0.7 -> 70.8% / 92.9% / 92.9%. Default 0.5 kept for highest recall: missing an intent hurts retrieval, extra intents only add a cheap knowledge op.",
   "cases": [
-    { "id": "R01", "category": "exact_sku", "query": "What is A9F73140?", "history": "", "expected_intents": ["product_lookup"] },
-    { "id": "R02", "category": "exact_sku", "query": "What coil voltage does LC1D09BD use?", "history": "", "expected_intents": ["product_lookup", "specification"] },
-    { "id": "R03", "category": "product_discovery", "query": "I need a waterproof enclosure suitable for outdoor installation.", "history": "", "expected_intents": ["product_discovery"] },
-    { "id": "R04", "category": "product_discovery", "query": "Find me a 1-pole 40 A B-curve MCB for a new customer in Kuala Lumpur.", "history": "", "expected_intents": ["product_discovery"] },
-    { "id": "R05", "category": "multi_product", "query": "Compare A9F73140 and A9S65440. Which one is cheaper?", "history": "", "expected_intents": ["comparison", "pricing", "product_lookup"] },
-    { "id": "R06", "category": "multi_product", "query": "What is the difference between F202A-40/0.03 and F202AC-40/0.03?", "history": "", "expected_intents": ["comparison", "product_lookup", "specification"] },
-    { "id": "R07", "category": "product_pricing", "query": "What is the price of A9F73140?", "history": "", "expected_intents": ["pricing", "product_lookup"] },
-    { "id": "R08", "category": "product_pricing", "query": "Is A9D55610 currently available, and how much does it cost?", "history": "", "expected_intents": ["inventory", "pricing", "product_lookup"] },
-    { "id": "R09", "category": "product_policy", "query": "Can A9F73140 be returned after 30 days?", "history": "", "expected_intents": ["policy", "product_lookup"] },
-    { "id": "R10", "category": "product_policy", "query": "What is the warranty for LC1D09BD?", "history": "", "expected_intents": ["policy", "product_lookup"] },
-    { "id": "R11", "category": "comparison_pricing", "query": "Compare the price of A9S65440 and A9S65463. Which is cheaper?", "history": "", "expected_intents": ["comparison", "pricing", "product_lookup"] },
-    { "id": "R12", "category": "follow_up", "query": "How about LC1D09BD?", "history": "What is the warranty for A9F73140?", "expected_intents": ["follow_up", "policy", "product_lookup"] },
-    { "id": "R13", "category": "follow_up", "query": "What coil voltage does it use?", "history": "The customer wants TeSys Deca LC1D09BD.", "expected_intents": ["follow_up", "product_lookup", "specification"] },
-    { "id": "R14", "category": "missing_product", "query": "What is UNKNOWN-999?", "history": "", "expected_intents": ["product_lookup"] },
-    { "id": "R15", "category": "general", "query": "Hello", "history": "", "expected_intents": ["general"] },
-    { "id": "R16", "category": "general", "query": "Thanks for your help!", "history": "", "expected_intents": ["general"] },
-    { "id": "R17", "category": "multilingual", "query": "这个产品A9F73140有warranty吗？", "history": "", "expected_intents": ["policy", "product_lookup"] },
-    { "id": "R18", "category": "multilingual", "query": "Berapakah harga A9D55610 dan adakah stok tersedia?", "history": "", "expected_intents": ["inventory", "pricing", "product_lookup"] },
-    { "id": "R19", "category": "multi_intent", "query": "Compare the price, specifications and warranty of A9F73140 and A9D32625.", "history": "", "expected_intents": ["comparison", "policy", "pricing", "product_lookup", "specification"] },
-    { "id": "R20", "category": "multi_intent", "query": "I need a 1-pole 40 A B-curve MCB. What product fits, and what payment and delivery terms apply?", "history": "", "expected_intents": ["inventory", "policy", "product_discovery", "product_lookup"] },
-    { "id": "R21", "category": "ambiguous", "query": "What about the second product?", "history": "Compare A9F73140 and A9D32625 on price.", "expected_intents": ["comparison", "follow_up", "pricing", "product_lookup"] },
-    { "id": "R22", "category": "ambiguous", "query": "Tell me about the breaker.", "history": "", "expected_intents": ["product_discovery"] },
-    { "id": "R23", "category": "supplier", "query": "Which supplier makes the PF7 range and what is the sales SOP when it is unavailable?", "history": "", "expected_intents": ["policy", "product_lookup", "supplier"] },
-    { "id": "R24", "category": "specification", "query": "What breaking capacity does A9F73140 have under IEC/EN 60898-1?", "history": "", "expected_intents": ["product_lookup", "specification"] }
+    {
+      "id": "R01",
+      "category": "exact_sku",
+      "query": "What is A9F73140?",
+      "history": "",
+      "expected_intents": [
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword"
+      ]
+    },
+    {
+      "id": "R02",
+      "category": "exact_sku",
+      "query": "What coil voltage does LC1D09BD use?",
+      "history": "",
+      "expected_intents": [
+        "product_lookup",
+        "specification"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword"
+      ]
+    },
+    {
+      "id": "R03",
+      "category": "product_discovery",
+      "query": "I need a waterproof enclosure suitable for outdoor installation.",
+      "history": "",
+      "expected_intents": [
+        "product_discovery"
+      ],
+      "required_ops": [
+        "hybrid"
+      ]
+    },
+    {
+      "id": "R04",
+      "category": "product_discovery",
+      "query": "Find me a 1-pole 40 A B-curve MCB for a new customer in Kuala Lumpur.",
+      "history": "",
+      "expected_intents": [
+        "product_discovery"
+      ],
+      "required_ops": [
+        "hybrid"
+      ]
+    },
+    {
+      "id": "R05",
+      "category": "multi_product",
+      "query": "Compare A9F73140 and A9S65440. Which one is cheaper?",
+      "history": "",
+      "expected_intents": [
+        "comparison",
+        "pricing",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "hybrid",
+        "pricing"
+      ]
+    },
+    {
+      "id": "R06",
+      "category": "multi_product",
+      "query": "What is the difference between F202A-40/0.03 and F202AC-40/0.03?",
+      "history": "",
+      "expected_intents": [
+        "comparison",
+        "product_lookup",
+        "specification"
+      ],
+      "required_ops": [
+        "exact_product",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "R07",
+      "category": "product_pricing",
+      "query": "What is the price of A9F73140?",
+      "history": "",
+      "expected_intents": [
+        "pricing",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "pricing"
+      ]
+    },
+    {
+      "id": "R08",
+      "category": "product_pricing",
+      "query": "Is A9D55610 currently available, and how much does it cost?",
+      "history": "",
+      "expected_intents": [
+        "inventory",
+        "pricing",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "pricing",
+        "inventory"
+      ]
+    },
+    {
+      "id": "R09",
+      "category": "product_policy",
+      "query": "Can A9F73140 be returned after 30 days?",
+      "history": "",
+      "expected_intents": [
+        "policy",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "policy"
+      ]
+    },
+    {
+      "id": "R10",
+      "category": "product_policy",
+      "query": "What is the warranty for LC1D09BD?",
+      "history": "",
+      "expected_intents": [
+        "policy",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "policy"
+      ]
+    },
+    {
+      "id": "R11",
+      "category": "comparison_pricing",
+      "query": "Compare the price of A9S65440 and A9S65463. Which is cheaper?",
+      "history": "",
+      "expected_intents": [
+        "comparison",
+        "pricing",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "hybrid",
+        "pricing"
+      ]
+    },
+    {
+      "id": "R12",
+      "category": "follow_up",
+      "query": "How about LC1D09BD?",
+      "history": "What is the warranty for A9F73140?",
+      "expected_intents": [
+        "follow_up",
+        "policy",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "policy"
+      ]
+    },
+    {
+      "id": "R13",
+      "category": "follow_up",
+      "query": "What coil voltage does it use?",
+      "history": "The customer wants TeSys Deca LC1D09BD.",
+      "expected_intents": [
+        "follow_up",
+        "product_lookup",
+        "specification"
+      ],
+      "required_ops": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "R14",
+      "category": "missing_product",
+      "query": "What is UNKNOWN-999?",
+      "history": "",
+      "expected_intents": [
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword"
+      ]
+    },
+    {
+      "id": "R15",
+      "category": "general",
+      "query": "Hello",
+      "history": "",
+      "expected_intents": [
+        "general"
+      ],
+      "required_ops": []
+    },
+    {
+      "id": "R16",
+      "category": "general",
+      "query": "Thanks for your help!",
+      "history": "",
+      "expected_intents": [
+        "general"
+      ],
+      "required_ops": []
+    },
+    {
+      "id": "R17",
+      "category": "multilingual",
+      "query": "这个产品A9F73140有warranty吗？",
+      "history": "",
+      "expected_intents": [
+        "policy",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "policy"
+      ]
+    },
+    {
+      "id": "R18",
+      "category": "multilingual",
+      "query": "Berapakah harga A9D55610 dan adakah stok tersedia?",
+      "history": "",
+      "expected_intents": [
+        "inventory",
+        "pricing",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "pricing",
+        "inventory"
+      ]
+    },
+    {
+      "id": "R19",
+      "category": "multi_intent",
+      "query": "Compare the price, specifications and warranty of A9F73140 and A9D32625.",
+      "history": "",
+      "expected_intents": [
+        "comparison",
+        "policy",
+        "pricing",
+        "product_lookup",
+        "specification"
+      ],
+      "required_ops": [
+        "exact_product",
+        "hybrid",
+        "policy",
+        "pricing"
+      ]
+    },
+    {
+      "id": "R20",
+      "category": "multi_intent",
+      "query": "I need a 1-pole 40 A B-curve MCB. What product fits, and what payment and delivery terms apply?",
+      "history": "",
+      "expected_intents": [
+        "inventory",
+        "policy",
+        "product_discovery",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "hybrid",
+        "policy",
+        "inventory"
+      ]
+    },
+    {
+      "id": "R21",
+      "category": "ambiguous",
+      "query": "What about the second product?",
+      "history": "Compare A9F73140 and A9D32625 on price.",
+      "expected_intents": [
+        "comparison",
+        "follow_up",
+        "pricing",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "keyword",
+        "pricing"
+      ]
+    },
+    {
+      "id": "R22",
+      "category": "ambiguous",
+      "query": "Tell me about the breaker.",
+      "history": "",
+      "expected_intents": [
+        "product_discovery"
+      ],
+      "required_ops": [
+        "hybrid"
+      ]
+    },
+    {
+      "id": "R23",
+      "category": "supplier",
+      "query": "Which supplier makes the PF7 range and what is the sales SOP when it is unavailable?",
+      "history": "",
+      "expected_intents": [
+        "policy",
+        "product_lookup",
+        "supplier"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "policy",
+        "supplier"
+      ]
+    },
+    {
+      "id": "R24",
+      "category": "specification",
+      "query": "What breaking capacity does A9F73140 have under IEC/EN 60898-1?",
+      "history": "",
+      "expected_intents": [
+        "product_lookup",
+        "specification"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword"
+      ]
+    },
+    {
+      "id": "R25",
+      "category": "exact_sku",
+      "query": "What is the rated current of A9D32625?",
+      "history": "",
+      "expected_intents": [
+        "product_lookup",
+        "specification"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword"
+      ]
+    },
+    {
+      "id": "R26",
+      "category": "product_discovery",
+      "query": "Recommend an RCCB for a residential distribution board.",
+      "history": "",
+      "expected_intents": [
+        "product_discovery"
+      ],
+      "required_ops": [
+        "hybrid"
+      ]
+    },
+    {
+      "id": "R27",
+      "category": "product_discovery",
+      "query": "Tell me about the ABB S200 range.",
+      "history": "",
+      "expected_intents": [
+        "product_discovery"
+      ],
+      "required_ops": [
+        "hybrid"
+      ]
+    },
+    {
+      "id": "R28",
+      "category": "specification",
+      "query": "How do I wire the auxiliary contacts of the TeSys Deca?",
+      "history": "",
+      "expected_intents": [],
+      "required_ops": [
+        "keyword"
+      ]
+    },
+    {
+      "id": "R29",
+      "category": "multi_product",
+      "query": "A9S65440 vs A9S65463: which suits a 63 A feeder?",
+      "history": "",
+      "expected_intents": [
+        "comparison",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "hybrid"
+      ]
+    },
+    {
+      "id": "R30",
+      "category": "product_policy",
+      "query": "Is the A9D55610 RCBO covered by warranty?",
+      "history": "",
+      "expected_intents": [
+        "product_lookup",
+        "policy"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "policy"
+      ]
+    },
+    {
+      "id": "R31",
+      "category": "supplier",
+      "query": "Which brand makes the LC1D09BD contactor and what is the lead time?",
+      "history": "",
+      "expected_intents": [
+        "product_lookup",
+        "supplier",
+        "inventory"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "supplier",
+        "inventory"
+      ]
+    },
+    {
+      "id": "R32",
+      "category": "product_pricing",
+      "query": "Do you offer project pricing for 50 units of A9F73140?",
+      "history": "",
+      "expected_intents": [
+        "product_lookup",
+        "pricing"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "pricing"
+      ]
+    },
+    {
+      "id": "R33",
+      "category": "product_pricing",
+      "query": "How fast can you deliver the A9S65463 to Penang?",
+      "history": "",
+      "expected_intents": [
+        "product_lookup",
+        "inventory"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "inventory"
+      ]
+    },
+    {
+      "id": "R34",
+      "category": "ambiguous",
+      "query": "What discount applies to A9F73140 for cash payment?",
+      "history": "",
+      "expected_intents": [
+        "product_lookup",
+        "pricing",
+        "policy"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword",
+        "pricing",
+        "policy"
+      ]
+    },
+    {
+      "id": "R35",
+      "category": "multilingual",
+      "query": "A9D32625的额定电流是多少？",
+      "history": "",
+      "expected_intents": [
+        "product_lookup",
+        "specification"
+      ],
+      "required_ops": [
+        "exact_product",
+        "keyword"
+      ]
+    },
+    {
+      "id": "R36",
+      "category": "multilingual",
+      "query": "Compare harga A9S65440 dan A9S65463, which one cheaper?",
+      "history": "",
+      "expected_intents": [
+        "comparison",
+        "pricing",
+        "product_lookup"
+      ],
+      "required_ops": [
+        "exact_product",
+        "hybrid",
+        "pricing"
+      ]
+    }
   ]
 }

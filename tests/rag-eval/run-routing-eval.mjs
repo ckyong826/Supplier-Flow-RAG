@@ -16,10 +16,11 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { heuristicRoute } from "../../app/api/ai-chat/decision-router/heuristic.mjs";
+import { heuristicRoute, extractSkuCandidates } from "../../app/api/ai-chat/decision-router/heuristic.mjs";
 import { SUPPORTED_LABELS } from "../../app/api/ai-chat/decision-router/labels.mjs";
 import { fetchJevRoute } from "../../app/api/ai-chat/decision-router/jev.mjs";
 import { getDecisionConfig } from "../../app/api/ai-chat/decision-router/config.mjs";
+import { buildRetrievalPlan } from "../../app/api/ai-chat/decision-router/planner.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
@@ -63,7 +64,8 @@ if (!["heuristic", "jev"].includes(provider)) {
   process.exit(2);
 }
 
-const fixture = JSON.parse(readFileSync(join(here, "routing-fixture.json"), "utf8"));
+const fixtureFile = args.includes("--heldout") ? "routing-heldout.json" : "routing-fixture.json";
+const fixture = JSON.parse(readFileSync(join(here, fixtureFile), "utf8"));
 const cases = fixture.cases;
 
 function predictedSet(pred) {
@@ -139,10 +141,36 @@ const baseline = cases.map((c) => {
 const baselineMs = Date.now() - baselineStart;
 const baselineScore = scoreCases(baseline);
 
-console.log(`Routing eval: ${cases.length} cases, threshold=${threshold}`);
+// Operation necessity: planned op types (heuristic intents through the real
+// planner; candidates treated as validated catalogue hits) vs the required
+// ops labelled per case. An extra op is not automatically beneficial.
+const opCases = cases.filter((c) => Array.isArray(c.required_ops));
+const opResults = opCases.map((c) => {
+  const r = heuristicRoute(c.query, c.history || "", threshold);
+  const decisions = {};
+  for (const label of SUPPORTED_LABELS) decisions[label] = (r.confidences[label] ?? 0) >= threshold;
+  if (decisions.general && Object.keys(decisions).some((l) => l !== "general" && decisions[l])) decisions.general = false;
+  const candidates = extractSkuCandidates(c.query);
+  const plan = buildRetrievalPlan(
+    { decisions, detectedIntents: SUPPORTED_LABELS.filter((l) => l !== "general" && decisions[l]) },
+    { query: c.query, retrievalQuestion: `${c.history || ""} ${c.query}`.trim(), productIds: candidates, unknownSkus: [] },
+  );
+  const planned = [...new Set(plan.operations.map((op) => op.type))];
+  const required = [...new Set(c.required_ops)];
+  const hit = planned.filter((t) => required.includes(t));
+  return { id: c.id, planned, required, hit };
+});
+const opHit = opResults.reduce((s, r) => s + r.hit.length, 0);
+const opPlanned = opResults.reduce((s, r) => s + r.planned.length, 0);
+const opRequired = opResults.reduce((s, r) => s + r.required.length, 0);
+const opPrecision = opPlanned ? opHit / opPlanned : 1;
+const opRecall = opRequired ? opHit / opRequired : 1;
+
+console.log(`Routing eval: ${cases.length} cases (${fixtureFile}), threshold=${threshold}`);
 console.log(`Baseline (heuristic, offline): exact-match=${(baselineScore.exactMatch * 100).toFixed(1)}% ` +
   `P=${(baselineScore.microPrecision * 100).toFixed(1)}% R=${(baselineScore.microRecall * 100).toFixed(1)}% ` +
   `F1=${(baselineScore.microF1 * 100).toFixed(1)}% (${baselineMs}ms total)`);
+console.log(`Op necessity (planned vs required ops): precision=${(opPrecision * 100).toFixed(1)}% recall=${(opRecall * 100).toFixed(1)}% over ${opResults.length} labelled cases`);
 
 let candidate = null;
 let candidateScore = null;
@@ -250,12 +278,21 @@ if (candidate) {
   });
 }
 
+const opMisses = opResults.filter((r) => r.hit.length !== r.planned.length || r.hit.length !== r.required.length);
+if (opMisses.length) {
+  console.log(`\nOp necessity misses (${opMisses.length}):`);
+  for (const r of opMisses) {
+    console.log(`  [${r.id}] required: ${r.required.join(",") || "(none)"} | planned: ${r.planned.join(",") || "(none)"}`);
+  }
+}
+
 if (jsonOut) {
   writeFileSync(jsonOut, JSON.stringify({
     ranAt: new Date().toISOString(),
     threshold,
     provider,
     baseline: { ...baselineScore, totalMs: baselineMs },
+    opNecessity: { precision: opPrecision, recall: opRecall, labelledCases: opResults.length },
     candidate: candidateScore ? { ...candidateScore, usage: candidateUsage, cost: candidateCost } : null,
     results: cases.map((c, i) => ({
       id: c.id,

@@ -36,9 +36,11 @@ const pricing = {
 const retrievalMode = flag("--retrieval-mode", null);
 const reranker = flag("--reranker", null);
 const rewriteMode = flag("--rewrite", null);
-// Before/after Jev benchmarking: --decision off forces the legacy pipeline,
-// --decision on forces the Jev router, --decision server (default) leaves the
-// server's own DECISION_ROUTER_ENABLED to decide.
+// Before/after Jev benchmarking: --decision off forces the legacy pipeline (A),
+// --decision multi forces deterministic multi-query without Jev (B),
+// --decision selective forces selective Jev (C), --decision on forces Jev for
+// all queries (D), --decision server (default) leaves the server's own env to
+// decide.
 const decision = (flag("--decision", "server") || "server").toLowerCase();
 const jevPriceInPerM = Number(flag("--jev-price-in", "0.042"));
 
@@ -53,7 +55,9 @@ async function ask(question) {
   if (retrievalMode) headers["x-rag-retrieval-mode"] = retrievalMode;
   if (reranker) headers["x-rag-reranker"] = reranker;
   if (rewriteMode) headers["x-rag-rewrite"] = rewriteMode;
-  if (decision === "on" || decision === "off") headers["x-rag-decision"] = decision;
+  if (decision === "on" || decision === "off" || decision === "multi" || decision === "selective") {
+    headers["x-rag-decision"] = decision;
+  }
   const response = await fetch(`${base}/api/ai-chat`, {
     method: "POST",
     headers,
@@ -144,6 +148,8 @@ function evalMetrics(question, response, graded) {
     serverTotalMs: Number(telemetry.totalMs) || null,
     ...usageMetrics(telemetry.usage),
     decisionSource: decisionTelemetry?.decision_source || null,
+    decisionGroup: decisionTelemetry?.decision_group || null,
+    retrievalStrategy: decisionTelemetry?.retrieval_strategy || null,
     detectedIntents: decisionTelemetry?.detected_intents || null,
     routingLatencyMs: Number(decisionTelemetry?.routing_latency_ms) || null,
     decisionFallback: decisionTelemetry ? Boolean(decisionTelemetry.fallback_used) : null,
@@ -198,6 +204,7 @@ async function evaluate(question) {
       contextRelevance: null, contextCoverage: null, faithful: null, retrievalMs: null, generationMs: null,
       serverTotalMs: null, promptTokens: null, completionTokens: null, totalTokens: null, costUsd: null,
       decisionSource: null, detectedIntents: null, routingLatencyMs: null,
+      decisionGroup: null, retrievalStrategy: null,
       decisionFallback: null, decisionFallbackReason: null,
       jevInputTokens: null, jevOutputTokens: null
     };

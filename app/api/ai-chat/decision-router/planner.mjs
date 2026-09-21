@@ -1,25 +1,26 @@
-// SF-JEV-004: translate routing decisions into executable retrieval ops.
+// Experiment phases 1+3: two-stage intent -> requirements -> operations.
 //
-// The planner decides HOW to obtain information; it never invents data
-// sources. Operation types map onto existing backends:
-//   exact_product -> products table lookup (deterministic, never vector)
-//   keyword/vector/hybrid/multi -> retrieveKnowledge() with that mode
-//   policy/supplier/pricing/inventory -> retrieveKnowledge() with an
-//     intent-biased query plus the catalogue facts already in the prompt.
+// Stage 1 identifies information requirements (not operations).
+// Stage 2 chooses retrieval operations from intents + validated product
+// identifiers + catalogue coverage + required document types.
 //
-// No dedicated pricing/inventory/supplier/policy tables are assumed.
+// Hard rules from the benchmark analysis:
+// - Exact-product ops never stand alone: a keyword op on the resolved query
+//   always accompanies them (D66/A38/A43/A44 retrieved zero chunks from
+//   exact-only plans). Technical questions stay eligible for knowledge.
+// - Intent ops carry the focused retrieval query, never a generic hint blob
+//   ("policy payment warranty returns Incoterms SOP" polluted N04/N17).
+// - Duplicate (type, query) operations are removed.
+// - Unknown SKUs get an exact attempt (honest naming) plus keyword retrieval;
+//   fuzzy catalogue matches must not substitute for them (enforced by the
+//   caller, which drops fuzzy matches when nothing validated).
 
 /**
- * @typedef {{ type: string, query: string, productIds?: string[], priority: number }} RetrievalOperation
- * @typedef {{ requiresRetrieval: boolean, operations: RetrievalOperation[], requiresQueryRewrite: boolean, requiresConversationContext: boolean, detectedIntents: string[] }} RetrievalPlan
+ * @typedef {{ type: string, query: string, productIds?: string[], priority: number, limit?: number }} RetrievalOperation
+ * @typedef {{ requiresRetrieval: boolean, operations: RetrievalOperation[], requiresQueryRewrite: boolean, requiresConversationContext: boolean, detectedIntents: string[], requirements: string[] }} RetrievalPlan
  */
 
-const POLICY_QUERY_HINTS = {
-  policy: "policy payment warranty returns Incoterms SOP",
-  supplier: "supplier manufacturer brand sales quotation SOP",
-  pricing: "quotation price payment terms",
-  inventory: "delivery lead time stock availability",
-};
+const KNOWLEDGE_INTENTS = ["policy", "supplier", "pricing", "inventory"];
 
 /**
  * @param {any} normalized normalized routing decisions (or null/undefined)
@@ -32,6 +33,7 @@ export function buildRetrievalPlan(
   const decisions = normalized?.decisions || {};
   const detectedIntents = normalized?.detectedIntents || [];
   const baseQuery = retrievalQuestion || query || "";
+  const requirements = [];
 
   // General conversation: no retrieval at all.
   if (decisions.general && detectedIntents.length === 0) {
@@ -41,65 +43,82 @@ export function buildRetrievalPlan(
       requiresQueryRewrite: false,
       requiresConversationContext: false,
       detectedIntents,
+      requirements,
     };
   }
 
-  /** @type {RetrievalOperation[]} */
-  const operations = [];
-  const push = (op) => {
-    if (!op?.query?.trim() && (!op?.productIds || !op.productIds.length)) return;
-    operations.push({ priority: 100, ...op });
-  };
-
-  // 1. Exact product lookups first (highest priority, deterministic).
   const validatedIds = Array.isArray(productIds) ? productIds.slice(0, 6) : [];
-  for (const sku of validatedIds) {
-    push({ type: "exact_product", query: sku, productIds: [sku], priority: 10 });
-  }
-  // Unknown SKUs still get one exact attempt so the answer can name the
-  // missing identifier honestly instead of semantically matching a neighbour.
-  for (const sku of (Array.isArray(unknownSkus) ? unknownSkus : []).slice(0, 3)) {
-    if (validatedIds.includes(sku)) continue;
-    push({ type: "exact_product", query: sku, productIds: [sku], priority: 11 });
-  }
+  const unknownIds = (Array.isArray(unknownSkus) ? unknownSkus : []).filter(
+    (sku) => !validatedIds.includes(sku),
+  ).slice(0, 3);
 
-  const wantsKnowledge =
+  // ---- Stage 1: requirements -------------------------------------------
+  if (validatedIds.length || unknownIds.length || decisions.product_lookup) {
+    requirements.push("exact-product");
+  }
+  if (
     decisions.product_discovery ||
     decisions.specification ||
+    decisions.comparison ||
     decisions.policy ||
     decisions.supplier ||
     decisions.pricing ||
     decisions.inventory ||
-    decisions.comparison ||
-    (!decisions.product_lookup && detectedIntents.length === 0);
+    detectedIntents.length === 0
+  ) {
+    requirements.push("knowledge");
+  }
+  for (const intent of KNOWLEDGE_INTENTS) {
+    if (decisions[intent]) requirements.push(`focus:${intent}`);
+  }
 
-  if (wantsKnowledge) {
-    // Comparison with >=2 known SKUs: one knowledge op per product so the
-    // merge step cannot drop a side (see orchestrator pinning).
+  // ---- Stage 2: operations ----------------------------------------------
+  /** @type {RetrievalOperation[]} */
+  const operations = [];
+  const seen = new Set();
+  const push = (op) => {
+    const key = `${op.type}::${(op.query || "").trim().toLowerCase()}::${(op.productIds || []).join(",")}`;
+    if (seen.has(key)) return;
+    if (!op?.query?.trim() && (!op?.productIds || !op.productIds.length)) return;
+    seen.add(key);
+    operations.push({ priority: 100, ...op });
+  };
+
+  // Exact lookups first (highest priority, deterministic).
+  for (const sku of validatedIds) {
+    push({ type: "exact_product", query: sku, productIds: [sku], priority: 10 });
+  }
+  for (const sku of unknownIds) {
+    push({ type: "exact_product", query: sku, productIds: [sku], priority: 11 });
+  }
+
+  if (requirements.includes("knowledge")) {
     if (decisions.comparison && validatedIds.length >= 2) {
+      // One knowledge op per product so the merge cannot drop a side.
       for (const sku of validatedIds) {
         push({ type: "hybrid", query: `${baseQuery} ${sku}`.trim(), productIds: [sku], priority: 20 });
       }
     } else if (decisions.product_discovery) {
       push({ type: "hybrid", query: baseQuery, priority: 20 });
     } else {
-      push({ type: "keyword", query: baseQuery, priority: 20 });
+      push({ type: "keyword", query: baseQuery, priority: 21 });
     }
-
-    // Intent-biased supplement ops: reuse the knowledge backend with a
-    // focused query rather than a separate data source.
-    for (const intent of ["policy", "supplier", "pricing", "inventory"]) {
+    // Focused intent ops: same resolved query (no generic hint blob), small
+    // per-op limit; the global evidence stage caps the total.
+    for (const intent of KNOWLEDGE_INTENTS) {
       if (!decisions[intent]) continue;
-      // Skip when the base query already covers it via the product ops.
-      const hint = POLICY_QUERY_HINTS[intent];
-      const focused = `${baseQuery} ${hint}`.trim();
-      if (focused === baseQuery) continue;
-      push({ type: intent, query: focused, priority: 30 });
+      push({ type: intent, query: baseQuery, priority: 30, limit: 3 });
     }
+  } else if (requirements.includes("exact-product")) {
+    // Safety net: never run exact ops alone. Catalogue facts cannot answer
+    // technical questions (D66/A38/A43/A44 retrieved zero chunks from
+    // exact-only plans); the global selection stage keeps the extra context
+    // bounded.
+    push({ type: "keyword", query: baseQuery, priority: 21 });
   }
 
-  // Nothing actionable (e.g. empty decisions): preserve legacy behaviour with
-  // a single keyword op instead of inventing a classification.
+  // Nothing actionable: preserve legacy behaviour with a single keyword op
+  // instead of inventing a classification.
   if (operations.length === 0) {
     push({ type: "keyword", query: baseQuery, priority: 20 });
   }
@@ -112,5 +131,6 @@ export function buildRetrievalPlan(
     requiresQueryRewrite: decisions.follow_up === true,
     requiresConversationContext: decisions.follow_up === true,
     detectedIntents,
+    requirements,
   };
 }

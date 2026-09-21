@@ -1,0 +1,35 @@
+{
+  "ranAt": "2026-09-21T07:55:12.474Z",
+  "model": "jev-latest",
+  "report": {
+    "1": {
+      "queries": 36,
+      "ok": 34,
+      "errors": {
+        "jev-unavailable": 2
+      },
+      "wallMs": 47881,
+      "p50": 668,
+      "p95": 3284,
+      "mean": 850
+    },
+    "2": {
+      "queries": 36,
+      "ok": 36,
+      "errors": {},
+      "wallMs": 16861,
+      "p50": 637,
+      "p95": 720,
+      "mean": 717
+    },
+    "5": {
+      "queries": 36,
+      "ok": 36,
+      "errors": {},
+      "wallMs": 8725,
+      "p50": 644,
+      "p95": 4884,
+      "mean": 965
+    }
+  }
+}

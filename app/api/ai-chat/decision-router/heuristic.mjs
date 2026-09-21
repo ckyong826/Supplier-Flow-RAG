@@ -51,7 +51,7 @@ function has(text, pattern) {
   return new RegExp(pattern, "i").test(text);
 }
 
-const IS_GREETING = /^\W*(hi|hello|hey|thanks|thank you|terima kasih|你好|谢谢)\b/;
+const IS_GREETING = /^\W*(hi|hello|hey|thanks|thank you|terima kasih)\b|^\W*(你好|谢谢)/;
 const DISCOVERY_VERB = /\b(find|search|recommend|suggest|need|needs|looking for|tell me about)\b/;
 
 /** @param {any} query @param {any} [history] */
@@ -73,7 +73,18 @@ export function heuristicConfidences(query, history = "") {
   const multiSku = querySkus.length >= 2;
   const discoveryVerb = DISCOVERY_VERB.test(queryText.toLowerCase());
 
-  let specification = has(text, "\\b(specs?|specifications?|rating|current|voltage|curve|pole|breaking capacity|ka\\b|residual|coil|datasheet|difference|规格|参数)\\b")
+  // Note: CJK alternatives sit OUTSIDE \b groups -- \b never matches
+  // between two CJK characters, so \b保修\b can never fire.
+  //
+  // History-bleed guard: content labels (spec/discovery/pricing/inventory/
+  // supplier/policy) are scored on the query alone when the query carries
+  // its own content cues; history is inherited only for bare references
+  // ("How about X?"). Otherwise "And what about its warranty?" would inherit
+  // "price" from a pricing history (H11).
+  const CONTENT_CUES = "\\b(specs?|specifications?|rating|current|voltage|curve|pole|breaking capacity|ka\\b|residual|coil|datasheet|difference|find|search|recommend|suggest|show|need|suitable|outdoor|waterproof|looking for|tell me about|options|price|pricing|cost|cheap|quotation|quote|sst|charge|credit|discount|stock|availability|available|lead time|deliver|delivery|shipping|working days|supplier|manufacturer|brand|polic|payment|warranty|return|refund|incoterms|validity|deposit|sop)\\b|规格|参数|额定|电流|电压|需要|寻找|推荐|价格|费用|库存|现货|交货|发货|保修|退货";
+  const queryHasContent = new RegExp(CONTENT_CUES, "i").test(queryText);
+  const scope = queryHasContent ? queryText.toLowerCase() : text;
+  let specification = has(scope, "\\b(specs?|specifications?|rating|current|voltage|curve|pole|breaking capacity|ka\\b|residual|coil|datasheet|difference)\\b|规格|参数|额定|电流|电压")
     ? 0.9
     : 0.1;
   if (discoveryVerb && querySkus.length === 0) {
@@ -87,12 +98,12 @@ export function heuristicConfidences(query, history = "") {
       : has(text, "\\b(sku|article|part number|datasheet|product)\\b")
         ? 0.9
         : 0.1,
-    product_discovery: has(text, "\\b(find|search|recommend|suggest|show|need|suitable|outdoor|waterproof|which.*fit|looking for|tell me about|options|需要|寻找|推荐|cari|sesuai)\\b") ? 0.9 : 0.1,
+    product_discovery: has(scope, "\\b(find|search|recommend|suggest|show|need|suitable|outdoor|waterproof|which.*fit|looking for|tell me about|options|cari|sesuai)\\b|需要|寻找|推荐") ? 0.9 : 0.1,
     specification,
-    pricing: has(text, "\\b(price|cost|cheap|cheaper|cheapest|expensive|quotation|quote|sst|charge|credit|harga|价格|费用|多少)\\b") ? 0.9 : 0.1,
-    inventory: has(text, "\\b(stock|availability|available|lead time|delivery|shipping|working days|stok|tersedia|penghantaran|库存|现货|交货|发货)\\b") ? 0.9 : 0.1,
-    supplier: has(text, "\\b(supplier|manufacturer|brand|schneider|abb|eaton|sales team)\\b") ? 0.9 : 0.1,
-    policy: has(text, "\\b(polic|payment|warranty|return|returned|refund|incoterms|validity|deposit|sop|保修|退货)\\b") ? 0.9 : 0.1,
+    pricing: has(scope, "\\b(price|pricing|cost|cheap|cheaper|cheapest|expensive|quotation|quote|sst|charge|credit|discount|harga)\\b|价格|费用") ? 0.9 : 0.1,
+    inventory: has(scope, "\\b(stock|availability|available|lead time|deliver|delivery|shipping|working days|stok|tersedia|penghantaran)\\b|库存|现货|交货|发货") ? 0.9 : 0.1,
+    supplier: has(scope, "\\b(supplier|manufacturer|brand|schneider|abb|eaton|sales team)\\b") ? 0.9 : 0.1,
+    policy: has(scope, "\\b(polic|payment|warranty|return|returned|refund|incoterms|validity|deposit|sop)\\b|保修|退货") ? 0.9 : 0.1,
     comparison:
       multiSku || /\b(compare|comparison|versus|vs\.?|cheaper|better|difference)\b/.test(text) ? 0.9 : 0.1,
     follow_up: isFollowUp ? 0.9 : 0.1,

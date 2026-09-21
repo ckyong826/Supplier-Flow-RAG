@@ -2625,14 +2625,14 @@
       "expected_behavior": "abstain",
       "expected_keywords": [],
       "must_not_contain": [
-        "sst rate is",
         "sst of"
       ],
       "expected_source_doc": [],
-      "notes": "Product context must not turn the SST scope note into a quoted tax rate.",
+      "notes": "Product context must not turn the SST scope note into a quoted tax rate. The 'sst rate is' guard is negation-aware (see must_not_match): a negated abstention such as 'No SST rate is stated' passes, while an asserted rate still fails.",
       "must_not_match": [
         "sst\\D{0,20}\\d+\\s*%",
-        "\\d+\\s*%\\s*sst"
+        "\\d+\\s*%\\s*sst",
+        "(?<!\\bno\\s)(?<!\\bnot\\s)sst rate is"
       ]
     },
     {
@@ -2735,16 +2735,16 @@
       "expected_behavior": "abstain",
       "expected_keywords": [],
       "must_not_contain": [
-        "price is",
         "unit price of",
         "costs rm",
         "priced at"
       ],
       "expected_source_doc": [],
-      "notes": "A replacement reference is technical information, not a price listing.",
+      "notes": "A replacement reference is technical information, not a price listing. The 'price is' guard is negation-aware (see must_not_match): 'no price is listed' passes, an asserted price still fails.",
       "must_not_match": [
         "\\b(rm|myr)\\s?\\d",
-        "\\$\\s?\\d"
+        "\\$\\s?\\d",
+        "(?<!\\bno\\s)(?<!\\bnot\\s)price is\\b"
       ]
     },
     {
